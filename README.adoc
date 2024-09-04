@@ -11,11 +11,11 @@ repositories – some require it.
 [source,sh]
 ----
 # Clone all repositories.
-sh ./run/install.sh
+bash ./run/install.sh
 
 # Synchronize the main branches of all local repositories with their
 # tracked upstream branches.
-sh ./run/sync.sh
+bash ./run/sync.sh
 
 # Open the VS Code workspace.
 code ./etc/personal.code-workspace

@@ -21,3 +21,6 @@ sh ./run/sync.sh
 code ./etc/personal.code-workspace
 ----
 
+''''
+
+Copyright © 2020-present Kieran Potts, link:./LICENSE.txt[CC0 license]

@@ -1,0 +1,23 @@
+= Workspace
+
+This repository encapsulates some shell scripts and a VS Code workspace
+config to install and manage all my personal code repositories.
+
+== Usage
+
+IMPORTANT: The Git LFS system SHOULD be installed first, before cloning the
+repositories – some require it.
+
+[source,sh]
+----
+# Clone all repositories.
+sh ./run/install.sh
+
+# Synchronize the main branches of all local repositories with their
+# tracked upstream branches.
+sh ./run/sync.sh
+
+# Open the VS Code workspace.
+code ./etc/personal.code-workspace
+----
+

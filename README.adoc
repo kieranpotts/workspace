@@ -3,10 +3,16 @@
 This repository encapsulates some shell scripts and a VS Code workspace
 config to install and manage all my personal code repositories.
 
+== Requirements
+
+link:https://git-lfs.com/[Git LFS] MUST be installed before cloning the
+repositories.
+
 == Usage
 
-IMPORTANT: The Git LFS system SHOULD be installed first, before cloning the
-repositories – some require it.
+NOTE: On Windows, the workspace SHOULD be established in WSL. The `devtools`
+repository SHOULD also be cloned manually directly in the host OS, and
+optionally the `dotfiles` repository too.
 
 [source,sh]
 ----

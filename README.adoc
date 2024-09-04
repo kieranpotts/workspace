@@ -1,0 +1,32 @@
+= Workspace
+
+This repository encapsulates some shell scripts and a VS Code workspace
+config to install and manage all my personal code repositories.
+
+== Requirements
+
+https://git-lfs.com/[Git LFS] MUST be installed before cloning the
+repositories. It is RECOMMENDED to clone and run the environment https://github.com/kieranpotts/bootstrap[bootstrapping script], before installing all the other repositories.
+
+== Usage
+
+NOTE: On Windows, the workspace SHOULD be established in WSL. The `devtools`
+repository SHOULD also be cloned directly in the host OS, manually, and
+optionally the `dotfiles` repository too.
+
+[source,sh]
+----
+# Clone all repositories.
+bash ./run/install.sh
+
+# Synchronize the main branches of all local repositories with their
+# tracked upstream branches.
+bash ./run/sync.sh
+
+# Open the VS Code workspace.
+code ./etc/personal.code-workspace
+----
+
+''''
+
+Copyright © 2020-present Kieran Potts, all rights reserved.

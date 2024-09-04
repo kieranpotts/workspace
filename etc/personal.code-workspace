@@ -1,0 +1,426 @@
+{
+
+  "folders": [
+    {
+      "name": "__TODO__ ⛔private",
+      "path": "../../__TODO__"
+    },
+    {
+      "name": "actions",
+      "path": "../../actions"
+    },
+    {
+      "name": "asciibook",
+      "path": "../../asciibook"
+    },
+    {
+      "name": "avatar",
+      "path": "../../avatar"
+    },
+    {
+      "name": "blog",
+      "path": "../../blog"
+    },
+    {
+      "name": "blogroll",
+      "path": "../../blogroll"
+    },
+    {
+      "name": "bookmarks",
+      "path": "../../bookmarks"
+    },
+    {
+      "name": "bootstrap",
+      "path": "../../bootstrap"
+    },
+    {
+      "name": "cheats",
+      "path": "../../cheats"
+    },
+    {
+      "name": "cover-letter ⛔",
+      "path": "../../cover-letter"
+    },
+    {
+      "name": "designs",
+      "path": "../../designs"
+    },
+    {
+      "name": "devboxes 🔒",
+      "path": "../../devboxes"
+    },
+    {
+      "name": "devtools",
+      "path": "../../devtools"
+    },
+    {
+      "name": "dictionary",
+      "path": "../../dictionary"
+    },
+    {
+      "name": "docker-latex",
+      "path": "../../docker-latex"
+    },
+    {
+      "name": "dotfiles",
+      "path": "../../dotfiles"
+    },
+    {
+      "name": "eslint-config 🔒",
+      "path": "../../eslint-config"
+    },
+    {
+      "name": "garden",
+      "path": "../../garden"
+    },
+    {
+      "name": "genies",
+      "path": "../../genies"
+    },
+    {
+      "name": "gitex",
+      "path": "../../gitex"
+    },
+    {
+      "name": "interviews ⛔",
+      "path": "../../interviews"
+    },
+    {
+      "name": "json-schema",
+      "path": "../../json-schema"
+    },
+    {
+      "name": "kieranpotts",
+      "path": "../../kieranpotts"
+    },
+    {
+      "name": "makebook 🔒",
+      "path": "../../makebook"
+    },
+    {
+      "name": "ocean",
+      "path": "../../ocean"
+    },
+    {
+      "name": "papers ⛔",
+      "path": "../../papers"
+    },
+    {
+      "name": "patterns",
+      "path": "../../patterns"
+    },
+    {
+      "name": "playbook",
+      "path": "../../playbook"
+    },
+    {
+      "name": "prototypes 🔒",
+      "path": "../../prototypes"
+    },
+    {
+      "name": "résumé",
+      "path": "../../resume"
+    },
+    {
+      "name": "rfcs 🔒",
+      "path": "../../rfcs"
+    },
+    {
+      "name": "secrets ⛔",
+      "path": "../../secrets"
+    },
+    {
+      "name": "sh 🔒",
+      "path": "../../sh"
+    },
+    {
+      "name": "skills",
+      "path": "../../skills"
+    },
+    {
+      "name": "srcflow",
+      "path": "../../srcflow"
+    },
+    {
+      "name": "standards",
+      "path": "../../standards"
+    },
+    {
+      "name": "style-guide",
+      "path": "../../style-guide"
+    },
+    {
+      "name": "template",
+      "path": "../../template"
+    },
+    {
+      "name": "tests",
+      "path": "../../tests"
+    },
+    {
+      "name": "timeless ⛔",
+      "path": "../../timeless"
+    },
+    {
+      "name": "website",
+      "path": "../../website"
+    },
+    {
+      "name": "workspace",
+      "path": "../../workspace"
+    }
+  ],
+
+  "extensions": {
+
+    "recommendations": [
+
+      /*
+
+      The following are general-purpose extensions for VS Code, which will be
+      useful in the context of most software projects. They extend VS Code's
+      own functionality, rather than providing capabilities for particular
+      languages, tools, or runtime environments.
+
+      Language servers and tool-specific extensions, such as the official Python
+      extension and wrappers for JavaScript tools such as ESLint, SHOULD be
+      added to each repository's `.vscode/extensions.js` file, as required for
+      each project.
+
+      To install the extensions, open this repository in its own workspace, then
+      go to the Recommended section of the Extensions panel.
+
+      Some extensions will need to be enabled in WSL, too.
+
+      */
+
+      /* Claude Code — AI-assisted programming. */
+      "anthropic.claude-code",
+
+      /* Code Spell Checker — Spelling checker for all source code. */
+      "streetsidesoftware.code-spell-checker",
+
+      /* Draw.io Integration — Edit images with draw.io directly inside VS Code. */
+      "hediet.vscode-drawio",
+
+      /* Fold Plus — Additional code folding commands. */
+      "dakara.dakara-foldplus",
+
+      /* Git History — Adds a minimal `git log` panel to VS Code. */
+      "guodongsun.vscode-git-cruise",
+
+      /* GitHub Copilot — Intelligent code suggestions. */
+      "github.copilot",
+
+      /* GitHub Copilot Chat */
+      "github.copilot-chat",
+
+      /* GitHub Theme — GitHub-style theme for VS Code. */
+      "GitHub.github-vscode-theme",
+
+      /* OpenRouter — Automatically adds OpenRouter to chat providers. */
+      "IvanMokshin.openrouter-vscode-copilot",
+
+      /* Remote SSH — Connect to a remote machine using SSH. */
+      "ms-vscode-remote.remote-ssh",
+
+      /* Remote SSH — Editing Configuration Files — Edit SSH configuration files. */
+      "ms-vscode-remote.remote-ssh-edit",
+
+      /* Remote Repositories — Remotely browse and edit Git repositories. */
+      "ms-vscode.remote-repositories",
+
+      /* Restore Editors — Quickly save and restore groups of editors (ie. editor tabs). */
+      "amodio.restore-editors",
+
+      /* The Ocean — My own VS Code theme. */
+      "kieranpotts.ocean-vscode-theme",
+
+      /* Todo Tree — Browse TODO, FIXME and other comments. */
+      "gruntfuggly.todo-tree",
+
+      /* UMLet — Generate diagrams with UMLet. To use, simply create a new text file with the `.uxf` extension. */
+      "theumletteam.umlet",
+
+      /* VS Code Speech — Speech recognition. */
+      "ms-vscode.vscode-speech",
+
+      /* vscode-pdf — Render PDF documents in VS Code. */
+      "tomoki1207.pdf",
+
+      /* Windsurf (formerly Codeium) — AI-assisted code completion. */
+      "codeium.codeium",
+
+      /* WSL — Open folders and workspaces from WSL. */
+      "ms-vscode-remote.remote-wsl",
+
+    ]
+  },
+
+  "settings": {
+
+    /*
+    BUILT-IN SETTINGS
+    */
+
+    /* Remove archived repositories from VS Code's built-in Git GUI – you can't
+    push to these repositories anyway. This setting requires absolute paths. */
+    "git.ignoredRepositories": [
+      "/home/kieran/dev/kieranpotts/devboxes",
+      "/home/kieran/dev/kieranpotts/eslint-config",
+      "/home/kieran/dev/kieranpotts/makebook",
+      "/home/kieran/dev/kieranpotts/prototypes",
+      "/home/kieran/dev/kieranpotts/rfcs",
+      "/home/kieran/dev/kieranpotts/sh",
+    ],
+
+    /* Don't automatically detect submodules. */
+    "git.detectSubmodules": false,
+    "git.detectSubmodulesLimit": -1,
+
+    /* Ignore changes within submodules in the file view. */
+    "git.ignoreSubmodules": true,
+
+    /* Scan depth for nested Git repositories. This is required to fully
+    disable submodules in the Source Control list. */
+    "git.repositoryScanMaxDepth": 0,
+
+    /* Always prompt before committing to a protected branch. */
+    "git.branchProtectionPrompt": "alwaysPrompt",
+    "git.branchProtection": [
+      // "stable",
+      // "release/*",
+    ],
+
+    /* Disable the feature that automatically saves and restores open editors
+    when switching between source control branches. Having this turned on is a 
+    bit annoying when working with multiple repos in a workspace. */
+    "scm.workingSets.enabled": false,
+
+    /* Set auto-forwarding of ports to the hybrid mode - appropriate for WSL. */
+    "remote.autoForwardPortsSource": "hybrid",
+
+    /*
+    EXTENSION SETTINGS
+    The following settings are applicable for the extensions listed in
+    the `extensions.recommendations` section above.
+    */
+
+    /*
+    Claude Code
+    https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code
+    */
+
+    "claudeCode.preferredLocation": "panel",
+    "claudeCode.useCtrlEnterToSend": true,
+
+    /*
+    Code Spell Checker
+    https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+    */
+
+    /* Spell check language: American English. */
+    "cSpell.language": "en-US",
+
+    /* File paths to not spell check. */
+    "cSpell.ignorePaths": [
+      ".git",
+      ".vscode",
+      "*.log"
+    ],
+
+    /* Disable spelling errors on compound words like 'errormessage' and
+    'builddir'. This setting makes the cSpell spell check unreliable and so
+    we must delimit words in code, eg 'errorMessage` or `build_dir`. */
+    "cSpell.allowCompoundWords": false,
+
+    /* Custom dictionary. */
+    "cSpell.customDictionaries": {
+      "personalDictionary": {
+        "name": "Personal Dictionary (en-US)",
+        "path": "${workspaceFolder:dictionary}/src/en-US.txt",
+        "scope": "workspace",
+        "addWords": true
+      }
+    },
+
+    /* Spellings to always ignore. These are not real words, but are names or
+    identifiers of some kind: people's names, domain names, URL slugs, etc. */
+    "cSpell.ignoreWords": [
+      "kieran",
+      "kieranpotts",
+      "potts"
+    ],
+
+    /* Spellings always considered incorrect. This is useful for common spelling
+    errors. For example, "hte" should be "the". */
+    "cSpell.flagWords": [
+      "backend", // back-end
+      "frontend", // front-end
+      "home page", // homepage
+      "hte", // the
+      "life cycle", // lifecycle
+      "mockup", // mock-up
+      "mockups", // mock-ups
+      "vscode", // vs code
+      "web app", // webapp
+      "web apps", // webapps
+      "web page", // webpage
+      "web pages", // webpages
+      "web site", // website
+      "web sites", // websites
+    ],
+
+    /*
+    GitHub Copilot
+    https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
+    */
+    "github.copilot.enable": {
+      "*": false,
+      "plaintext": true,
+      "markdown": true,
+      "scminput": false,
+      "enableAutoCompletions": true,
+      "asciidoc": true
+    },
+
+    /*
+    Jest is used in some of my projects, and the extension has an annoying habit
+    of opening terminals when it is enabled and workspaces are opened without a
+    Jest configuration.
+    https://github.com/jest-community/vscode-jest
+    */
+
+    /* Fully disable the Jest extension, if it is installed, in this workspace.
+    Requires v6 of the extension. */
+    "jest.enable": false,
+
+    /*
+    ToDo Tree
+    https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
+    */
+
+    /* Use only `TODO` notations. This setting works only in workspace roots. */
+    "todo-tree.general.tags": [
+      "TODO"
+    ],
+
+    /* Ignore TODOs in the code of Git submodules. */
+    "todo-tree.filtering.ignoreGitSubmodules": true,
+
+    /*
+    Windsurf (formerly Codeium)
+    https://marketplace.visualstudio.com/items?itemName=codeium.codeium
+    */
+
+    /* Enable Windsurf in AsciiDoc files (experimental). */
+    "codeium.enableConfig": {
+      "*": true,
+      "asciidoc": true
+    },
+
+    /* Enable code lens integration. */
+    "codeium.enableCodeLens": false,
+
+  }
+}

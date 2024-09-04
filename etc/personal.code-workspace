@@ -2,6 +2,18 @@
 
   "folders": [
     {
+      "name": "_interviews — private",
+      "path": "../../_interviews"
+    },
+    {
+      "name": "_learning — private",
+      "path": "../../_learning"
+    },
+    {
+      "name": "_papers — private",
+      "path": "../../_papers"
+    },
+    {
       "name": "actions",
       "path": "../../actions"
     },
@@ -50,24 +62,12 @@
       "path": "../../ideas"
     },
     {
-      "name": "interviews — private",
-      "path": "../../interviews"
-    },
-    {
-      "name": "learning — private",
-      "path": "../../learning"
-    },
-    {
       "name": "makebook — archived",
       "path": "../../makebook"
     },
     {
       "name": "ocean",
       "path": "../../ocean"
-    },
-    {
-      "name": "papers — private",
-      "path": "../../papers"
     },
     {
       "name": "prototypes — archived",

@@ -2,15 +2,15 @@
 
   "folders": [
     {
-      "name": "_interviews — private",
+      "name": "_interviews (private)",
       "path": "../../_interviews"
     },
     {
-      "name": "_learning — private",
+      "name": "_learning (private)",
       "path": "../../_learning"
     },
     {
-      "name": "_papers — private",
+      "name": "_papers (private)",
       "path": "../../_papers"
     },
     {
@@ -38,7 +38,7 @@
       "path": "../../cv"
     },
     {
-      "name": "devboxes — archived",
+      "name": "devboxes (archived)",
       "path": "../../devboxes"
     },
     {
@@ -50,7 +50,7 @@
       "path": "../../dotfiles"
     },
     {
-      "name": "eslint-config — archived",
+      "name": "eslint-config (archived)",
       "path": "../../eslint-config"
     },
     {
@@ -58,7 +58,7 @@
       "path": "../../garden"
     },
     {
-      "name": "makebook — archived",
+      "name": "makebook (archived)",
       "path": "../../makebook"
     },
     {
@@ -66,11 +66,11 @@
       "path": "../../ocean"
     },
     {
-      "name": "prototypes — archived",
+      "name": "prototypes (archived)",
       "path": "../../prototypes"
     },
     {
-      "name": "rfcs — archived",
+      "name": "rfcs (archived)",
       "path": "../../rfcs"
     },
     {

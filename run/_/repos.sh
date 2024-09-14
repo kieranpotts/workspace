@@ -55,10 +55,10 @@ remote_urls["template"]="${root}/template.git"
 remote_urls["workspace"]="${root}/workspace.git"
 
 declare -A main_branches
-main_branches["_interviews"]="main"
-main_branches["_learning"]="main"
+main_branches["_interviews"]="dev"
+main_branches["_learning"]="dev"
 main_branches["_methodology"]="dev"
-main_branches["_papers"]="main"
+main_branches["_papers"]="dev"
 main_branches["actions"]="dev"
 main_branches["avatar"]="dev"
 main_branches["blog"]="dev"

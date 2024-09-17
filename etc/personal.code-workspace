@@ -2,6 +2,10 @@
 
   "folders": [
     {
+      "name": "_books - private",
+      "path": "../../_books"
+    },
+    {
       "name": "_interviews - private",
       "path": "../../_interviews"
     },

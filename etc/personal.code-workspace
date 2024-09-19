@@ -2,10 +2,6 @@
 
   "folders": [
     {
-      "name": "_books - private",
-      "path": "../../_books"
-    },
-    {
       "name": "_interviews - private",
       "path": "../../_interviews"
     },
@@ -14,12 +10,12 @@
       "path": "../../_learning"
     },
     {
-      "name": "_methodology - private",
-      "path": "../../_methodology"
+      "name": "_library - private",
+      "path": "../../_library"
     },
     {
-      "name": "_papers - private",
-      "path": "../../_papers"
+      "name": "_methodology - private",
+      "path": "../../_methodology"
     },
     {
       "name": "actions",

@@ -14,10 +14,6 @@
       "path": "../../_library"
     },
     {
-      "name": "_methodology - private",
-      "path": "../../_methodology"
-    },
-    {
       "name": "actions",
       "path": "../../actions"
     },
@@ -64,6 +60,10 @@
     {
       "name": "makebook - archived",
       "path": "../../makebook"
+    },
+    {
+      "name": "methodology",
+      "path": "../../methodology"
     },
     {
       "name": "ocean",

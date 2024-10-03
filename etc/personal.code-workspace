@@ -90,6 +90,10 @@
       "path": "../../template"
     },
     {
+      "name": "training",
+      "path": "../../training"
+    },
+    {
       "name": "workspace",
       "path": "../../workspace"
     }

@@ -24,6 +24,7 @@ repos=(
   "sh"
   "standards"
   "template"
+  "training"
   "workspace"
 )
 
@@ -52,6 +53,7 @@ remote_urls["rfcs"]="${root}/rfcs.git"
 remote_urls["sh"]="${root}/sh.git"
 remote_urls["standards"]="${root}/standards.git"
 remote_urls["template"]="${root}/template.git"
+remote_urls["training"]="${root}/training.git"
 remote_urls["workspace"]="${root}/workspace.git"
 
 declare -A main_branches
@@ -77,4 +79,5 @@ main_branches["rfcs"]="main"
 main_branches["sh"]="dev"
 main_branches["standards"]="dev"
 main_branches["template"]="dev"
+main_branches["training"]="dev"
 main_branches["workspace"]="dev"

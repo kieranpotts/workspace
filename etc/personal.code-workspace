@@ -2,14 +2,6 @@
 
   "folders": [
     {
-      "name": "_interviews - private",
-      "path": "../../_interviews"
-    },
-    {
-      "name": "_library - private",
-      "path": "../../_library"
-    },
-    {
       "name": "actions",
       "path": "../../actions"
     },

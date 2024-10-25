@@ -162,6 +162,14 @@
       // "release/*",
     ],
 
+    /* Relative paths to the workspace's repositories where the source files
+    for discrete Java projects are stored. This is required for the "training"
+    repository. This setting is for VS Code's built-in intellisense tooling,
+    and does not effect Maven or Gradle projects. */
+    "java.project.sourcePaths": [
+      "java"
+    ],
+
   }
 
 }

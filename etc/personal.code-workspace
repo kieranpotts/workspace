@@ -34,6 +34,10 @@
       "path": "../../devtools"
     },
     {
+      "name": "docs",
+      "path": "../../docs"
+    },
+    {
       "name": "dotfiles",
       "path": "../../dotfiles"
     },
@@ -80,10 +84,6 @@
     {
       "name": "template",
       "path": "../../template"
-    },
-    {
-      "name": "training",
-      "path": "../../training"
     },
     {
       "name": "workspace",
@@ -163,7 +163,7 @@
     ],
 
     /* Relative paths to the workspace's repositories where the source files
-    for discrete Java projects are stored. This is required for the "training"
+    for discrete Java projects are stored. This is required for the "docs"
     repository. This setting is for VS Code's built-in intellisense tooling,
     and does not effect Maven or Gradle projects. */
     "java.project.sourcePaths": [

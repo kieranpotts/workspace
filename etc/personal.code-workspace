@@ -58,12 +58,12 @@
       "path": "../../makebook"
     },
     {
-      "name": "method",
-      "path": "../../method"
-    },
-    {
       "name": "ocean",
       "path": "../../ocean"
+    },
+    {
+      "name": "playbook",
+      "path": "../../playbook"
     },
     {
       "name": "prototypes - archived",

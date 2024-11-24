@@ -88,6 +88,9 @@
     {
       "name": "workspace",
       "path": "../../workspace"
+    },
+    {
+      "path": "../../__TODO__"
     }
   ],
 

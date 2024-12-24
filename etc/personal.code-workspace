@@ -54,6 +54,10 @@
       "path": "../../garden"
     },
     {
+      "name": "interviews",
+      "path": "../../interviews"
+    },
+    {
       "name": "kieranpotts",
       "path": "../../kieranpotts"
     },

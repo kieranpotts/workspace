@@ -30,7 +30,7 @@
       "path": "../../designs"
     },
     {
-      "name": "devboxes 📁",
+      "name": "devboxes 🔒",
       "path": "../../devboxes"
     },
     {
@@ -46,7 +46,7 @@
       "path": "../../dotfiles"
     },
     {
-      "name": "eslint-config 📁",
+      "name": "eslint-config 🔒",
       "path": "../../eslint-config"
     },
     {
@@ -62,7 +62,7 @@
       "path": "../../kieranpotts"
     },
     {
-      "name": "makebook 📁",
+      "name": "makebook 🔒",
       "path": "../../makebook"
     },
     {
@@ -74,11 +74,11 @@
       "path": "../../playbook"
     },
     {
-      "name": "prototypes 📁",
+      "name": "prototypes 🔒",
       "path": "../../prototypes"
     },
     {
-      "name": "rfcs 📁",
+      "name": "rfcs 🔒",
       "path": "../../rfcs"
     },
     {

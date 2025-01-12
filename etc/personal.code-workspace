@@ -94,6 +94,10 @@
       "path": "../../template"
     },
     {
+      "name": "website",
+      "path": "../../website"
+    },
+    {
       "name": "workspace",
       "path": "../../workspace"
     },

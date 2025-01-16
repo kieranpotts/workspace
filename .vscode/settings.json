@@ -8,14 +8,16 @@
   ],
 
   /* Wrap long code lines at the viewport or 120 characters, whichever is
-  narrowest. For documentation, wrap lines at the viewport edge. */
+  narrowest. For documentation, wrap at 100 characters. */
   "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 120,
   "[asciidoc]": {
-    "editor.wordWrap": "on",
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 100,
   },
   "[markdown]": {
-    "editor.wordWrap": "on",
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 100,
   },
 
   /* Enforce 2 spaces for indentation. */

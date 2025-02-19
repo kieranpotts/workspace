@@ -120,6 +120,11 @@
       "/home/kieran/dev/personal/rfcs",
     ],
 
+    /* Disable the feature to automatically save and restore open editors when
+    switching between source control branches. Having this turned on in a bit
+    annoying when working with multiple repos in a workspace. */
+    "scm.workingSets.enabled": false,
+
     /*
     IMPORTANT!
     The following settings SHOULD be replicated in `./.vscode/settings.json`

@@ -59,6 +59,10 @@
       "path": "../../garden"
     },
     {
+      "name": "git-aliases",
+      "path": "../../git-aliases"
+    },
+    {
       "name": "interviews ⛔",
       "path": "../../interviews"
     },

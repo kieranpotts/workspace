@@ -99,6 +99,10 @@
       "path": "../../standards"
     },
     {
+      "name": "srcflow",
+      "path": "../../srcflow"
+    },
+    {
       "name": "template",
       "path": "../../template"
     },

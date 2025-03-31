@@ -95,7 +95,7 @@
       "path": "../../rfcs"
     },
     {
-      "name": "sh",
+      "name": "sh 🔒",
       "path": "../../sh"
     },
     {
@@ -159,9 +159,11 @@
     "editor.wordWrapColumn": 120,
     "[asciidoc]": {
       "editor.wordWrap": "on",
+      "editor.wordWrapColumn": 100,
     },
     "[markdown]": {
       "editor.wordWrap": "on",
+      "editor.wordWrapColumn": 100,
     },
 
     /* Enforce 2 spaces for indentation. */

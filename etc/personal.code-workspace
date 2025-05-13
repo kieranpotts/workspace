@@ -71,6 +71,10 @@
       "path": "../../interviews"
     },
     {
+      "name": "json-schema",
+      "path": "../../json-schema"
+    },
+    {
       "name": "kieranpotts",
       "path": "../../kieranpotts"
     },

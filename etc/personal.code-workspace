@@ -90,6 +90,10 @@
       "path": "../../prototypes"
     },
     {
+      "name": "résumé",
+      "path": "../../resume"
+    },
+    {
       "name": "rfcs 🔒",
       "path": "../../rfcs"
     },

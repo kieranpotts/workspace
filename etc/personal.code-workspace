@@ -1,7 +1,6 @@
 {
 
   "folders": [
-
     {
       "name": "__TODO__ ⛔",
       "path": "../../__TODO__"
@@ -45,10 +44,6 @@
     {
       "name": "devtools",
       "path": "../../devtools"
-    },
-    {
-      "name": "docs",
-      "path": "../../docs"
     },
     {
       "name": "dotfiles",

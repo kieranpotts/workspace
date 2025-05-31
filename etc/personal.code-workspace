@@ -211,4 +211,93 @@
     ],
 
   },
+
+  "extensions": {
+
+    "recommendations": [
+
+      /*
+
+      The following are general-purpose extensions for VS Code, which will be
+      useful in the context of most software projects. The extend VS Code's
+      own functionality, rather than providing capabilities for particular
+      languages, tools, or runtime environments.
+
+      Language servers and tool-specific extensions, such as the official Python
+      extension and wrappers for JavaScript tools such as ESLint, SHOULD be
+      added to each repository's `.vscode/extensions.js` file, as required for
+      each project.
+
+      To install the extensions, open this repository in its own workspace, then
+      go to the Recommended section of the Extensions panel.
+
+      Some extensions will need to be enabled in WSL, too.
+
+      See also:
+      https://code.visualstudio.com/docs/editor/extension-marketplace#_workspace-recommended-extensions
+
+      */
+
+      /* Code Spell Checker — Spelling checker for all source code. */
+      "streetsidesoftware.code-spell-checker",
+
+      /* Draw.io Integration — Edit images with draw.io directly inside VS Code. */
+      "hediet.vscode-drawio",
+
+      /* Fold Plus — Additional code folding commands. */
+      "dakara.dakara-foldplus",
+
+      /* Git History — Adds a `git log` panel to VS Code. */
+      "guodongsun.vscode-git-cruise",
+
+      /* GitHub Copilot — Intelligent code suggestions. */
+      "github.copilot",
+
+      /* GitHub Copilot Chat */
+      "github.copilot-chat",
+
+      /* GitHub Theme — GitHub-style theme for VS Code. */
+      "GitHub.github-vscode-theme",
+
+      /* IntelliCode — AI-assisted development. */
+      "visualstudioexptteam.vscodeintellicode",
+
+      /* Intellicode API Usage Examples — See code examples for hundreds-of-thousands of APIs. */
+      "visualstudioexptteam.intellicode-api-usage-examples",
+
+      /* Remote - SSH — Connect to a remote machine using SSH. */
+      "ms-vscode-remote.remote-ssh",
+
+      /* Remote - SSH — Editing Configuration Files — Edit SSH configuration files. */
+      "ms-vscode-remote.remote-ssh-edit",
+
+      /* Remote Repositories — Remotely browse and edit Git repositories. */
+      "ms-vscode.remote-repositories",
+
+      /* Render Line Endings — Displays line ending symbols and other white space characters. */
+      "medo64.render-crlf",
+
+      /* Restore Editors — Quickly save and restore groups of editors (ie. editor tabs). */
+      "amodio.restore-editors",
+
+      /* The Ocean — My own VS Code theme. */
+      "kieranpotts.ocean-vscode-theme",
+
+      /* Todo Tree — Browse TODO, FIXME and other comments. */
+      "gruntfuggly.todo-tree",
+
+      /* UMLet — Generate diagrams with UMLet. To use, simply create a new text file with the `.uxf` extension. */
+      "theumletteam.umlet",
+
+      /* VS Code Speech — Speech recognition. */
+      "ms-vscode.vscode-speech",
+
+      /* vscode-pdf — Render PDF documents in VS Code. */
+      "tomoki1207.pdf",
+
+      /* WSL — Open folders and workspaces from WSL. */
+      "ms-vscode-remote.remote-wsl",
+
+    ]
+  }
 }

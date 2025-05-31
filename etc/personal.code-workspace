@@ -42,6 +42,10 @@
       "path": "../../devtools"
     },
     {
+      "name": "dictionary",
+      "path": "../../dictionary"
+    },
+    {
       "name": "dotfiles",
       "path": "../../dotfiles"
     },

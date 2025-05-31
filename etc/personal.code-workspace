@@ -129,10 +129,11 @@
       "/home/kieran/dev/personal/makebook",
       "/home/kieran/dev/personal/prototypes",
       "/home/kieran/dev/personal/rfcs",
+      "/home/kieran/dev/personal/sh",
     ],
 
     /* Disable the feature to automatically save and restore open editors when
-    switching between source control branches. Having this turned on in a bit
+    switching between source control branches. Having this turned on is a bit
     annoying when working with multiple repos in a workspace. */
     "scm.workingSets.enabled": false,
 
@@ -143,68 +144,71 @@
     individual repositories are opened in their own workspaces.
     */
 
-    /* Render vertical guidelines at 80, 100 120 columns. */
+    /* Vertical guidelines for line wrapping. */
     "editor.rulers": [
       80,
       100,
-      120
+      120,
     ],
 
-    /* Wrap long code lines at the viewport or 120 characters, whichever is
-    narrowest. For documentation, turn off word wrap completely. Asciidoc
-    and Markdown files SHOULD hard-wrap long lines, by inserting single new
-    line characters within paragraphs. */
+    /* By default, wrap long lines at the viewport or 120 characters, whichever is narrowest. */
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 120,
-    "[asciidoc]": {
-      "editor.wordWrap": "on",
-      "editor.wordWrapColumn": 100,
-    },
-    "[markdown]": {
-      "editor.wordWrap": "on",
-      "editor.wordWrapColumn": 100,
-    },
-
-    /* Enforce 2 spaces for indentation. */
-    "editor.detectIndentation": false,
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
 
     /* Show control and empty space characters. */
     "editor.renderControlCharacters": true,
     "editor.renderWhitespace": "all",
 
-    /* Enable all auto-formatting mechanisms. */
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
+    /* Enforce 2 spaces for indentation by default. */
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
 
-    /* Enable auto-fixes. */
+    /* Disable auto-formatting by default. */
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+
+    /* Disable auto-fixes by default. */
     "editor.codeActionsOnSave": {
-      "source.fixAll": "always",
+      "source.fixAll": "never"
     },
 
-    /* For JS/TS code, formatting and validation MUST be configured per-repo,
-    AND per-workspace where multiple JS/TS repos are part of a larger project. */
+    /* Language-specific overrides. */
+    "[asciidoc]": {
+      "editor.rulers": [100],
+      "editor.wordWrap": "bounded",
+      "editor.wordWrapColumn": 100,
+    },
+    "[markdown]": {
+      "editor.rulers": [100],
+      "editor.wordWrap": "bounded",
+      "editor.wordWrapColumn": 100,
+    },
+    "[terraform]": {
+      /* Enable autoformatting of Terraform files. */
+      "editor.defaultFormatter": "hashicorp.terraform",
+      "editor.formatOnPaste": true,
+      "editor.formatOnSave": true,
+      "editor.formatOnType": true,
+    },
+
+    /* Preference for quotes in JS/TS code. */
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.quoteStyle": "single",
+
+    /* Disable auto-formatting and validation for JavaScript/TypeScript. These
+    settings MUST be applied at the workspace level. */
     "javascript.format.enable": false,
     "javascript.validate.enable": false,
     "js/ts.implicitProjectConfig.checkJs": false,
 
-    /* Prompt to confirm commits to protected branches. */
+    /* Always prompt before committing to a protected branch. */
     "git.branchProtectionPrompt": "alwaysPrompt",
     "git.branchProtection": [
       // "stable",
       // "release/*",
     ],
 
-    /* Relative paths to the workspace's repositories where the source files
-    for discrete Java projects are stored. This is required for the "docs"
-    repository. This setting is for VS Code's built-in intellisense tooling,
-    and does not effect Maven or Gradle projects. */
-    "java.project.sourcePaths": [
-      "java"
-    ],
-
-  }
-
+  },
 }

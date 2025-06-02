@@ -301,5 +301,165 @@
       // "release/*",
     ],
 
+    /*
+    EXTENSION SETTINGS
+    The following settings are applicable for the extensions listed in
+    the `extensions.recommendations` section above.
+    */
+
+    // /*
+    // Asciidoc extension.
+    // https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode
+    // */
+
+    // /* Enable Antora support. */
+    // "asciidoc.antora.showEnableAntoraPrompt": true,
+
+    // /* When previewing Asciidoc files, use VS Code's workbench color theme,
+    // rather than the default Asciidoc style. This ensures the colors of the
+    // preview are consistent with the enabled VS Code theme. */
+    // "asciidoc.preview.useEditorStyle": true,
+
+    /*
+    Code Spell Checker extension.
+    https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+    */
+
+    /* Spell check language. For consistency with our technical documentation,
+    we write in American English. */
+    "cSpell.language": "en-US",
+
+    /* File paths to not spell check. */
+    "cSpell.ignorePaths": [
+      ".git",
+      ".vscode",
+      "*.log"
+    ],
+
+    /* Disable spelling errors on compound words like 'errormessage' and
+    'builddir'. This setting makes the cSpell spell check unreliable and so
+    we must delimit words in code, eg 'errorMessage` or `build_dir`. */
+    "cSpell.allowCompoundWords": false,
+
+    /* Custom dictionary. The dictionary file will be automatically created,
+    if it does not already exists, in the user's home directory on the
+    filesystem of the workspace. If VS Code is running in Windows but the
+    open workspace is in WSL, the dictionary will be installed in the guest
+    OS, WSL. But if the open workspace is on the host OS filesystem, the
+    dictionary will be installed in the user's home directory on Windows.
+    To keep the two synchronized, this repository should be cloned in both
+    Windows and WSL, and in both the ~/.cspell/dictionary.txt location
+    symlinked back to the `./var/dictionary.txt` file in this repository. */
+    "cSpell.customDictionaries": {
+      "personalDictionary": {
+        "name": "Personal Dictionary (en-US)",
+        "path": "${workspaceFolder:dictionary}/src/en-US.txt",
+        "scope": "workspace",
+        "addWords": true
+      }
+    },
+
+    /* Spellings to always ignore. These are not real words, but are names or
+    identifiers of some kind: people's names, domain names, URL slugs, etc. */
+    "cSpell.ignoreWords": [
+      "kieran",
+      "kieranpotts",
+      "potts"
+    ],
+
+    /* Spellings always considered incorrect. This is useful for common spelling
+    errors. For example, "hte" should be "the". */
+    "cSpell.flagWords": [
+      "backend", // back-end
+      "frontend", // front-end"
+      "homepage", // home page
+      "hte", // the
+      "backend", // back-end
+      "frontend", // front-end"
+      "homepage", // home page
+      "hte", // the
+      "life cycle", // lifecycle
+      "mockup", // mock-up
+      "mockups", // mock-ups
+      "vscode", // vs code
+      "web app", // webapp
+      "web apps", // webapps
+      "web page", // webpage
+      "web pages", // webpages
+      "web site", // website
+      "web sites", // websites
+      "mockup", // mock-up
+      "mockups", // mock-ups
+      "vscode", // vs code
+      "web app", // webapp
+      "web apps", // webapps
+      "web page", // webpage
+      "web pages", // webpages
+      "web site", // website
+      "web sites" // websites
+    ],
+
+    /*
+    GitHub Copilot extension.
+    https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
+    */
+    "github.copilot.enable": {
+      "*": true,
+      "enableAutoCompletions": true,
+      "plaintext": true,
+      "asciidoc": true,
+      "markdown": true
+    },
+    "github.copilot.advanced": {
+      "debug.showScores": true,
+      "inlineSuggestCount": 12,
+      "listCount": 12
+    },
+
+    /*
+    Copilot extension.
+    */
+
+    /* Disable the annoying "Press Ctrl+I to ask copilot to do something..." inline hint. */
+    "inlineChat.lineNaturalLanguageHint": false,
+
+    /*
+    Jest extension. This is not one of my default extensions, but it is required
+    for some of my projects, and the extension has an annoying habit of opening
+    terminals when it is enabled and workspaces are opened without a Jest
+    configuration. https://github.com/jest-community/vscode-jest
+    */
+
+    /* Fully disable the Jest extension, if it is installed, in this workspace.
+    Requires v6 of the extension. */
+    "jest.enable": false,
+
+    /*
+    Render Line Endings extension.
+    https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf
+    */
+
+    /* Character used to display LF (line-feed) line ending
+    (aka Linux/Mac line ending). */
+    "code-eol.newlineCharacter": "↓",
+
+    /* Character used to display CR (carriage-return) line ending
+    (aka old Macintosh line ending). */
+    "code-eol.returnCharacter": "←",
+
+    /* Character used to display CRLF (carriage-return, line-feed) line ending
+    (aka Windows line ending). */
+    "code-eol.crlfCharacter": "↵",
+
+    /*
+    ToDo Tree extension.
+    https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
+    */
+
+    /* Use only `TODO` notations. This setting works only in workspace roots. */
+    "todo-tree.general.tags": [
+      "TODO"
+    ]
+
   }
 }

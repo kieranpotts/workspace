@@ -183,9 +183,6 @@
       /* Remote Repositories — Remotely browse and edit Git repositories. */
       "ms-vscode.remote-repositories",
 
-      /* Render Line Endings — Displays line ending symbols and other white space characters. */
-      "medo64.render-crlf",
-
       /* Restore Editors — Quickly save and restore groups of editors (ie. editor tabs). */
       "amodio.restore-editors",
 
@@ -420,23 +417,6 @@
     /* Fully disable the Jest extension, if it is installed, in this workspace.
     Requires v6 of the extension. */
     "jest.enable": false,
-
-    /*
-    Render Line Endings extension.
-    https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf
-    */
-
-    /* Character used to display LF (line-feed) line ending
-    (aka Linux/Mac line ending). */
-    "code-eol.newlineCharacter": "↓",
-
-    /* Character used to display CR (carriage-return) line ending
-    (aka old Macintosh line ending). */
-    "code-eol.returnCharacter": "←",
-
-    /* Character used to display CRLF (carriage-return, line-feed) line ending
-    (aka Windows line ending). */
-    "code-eol.crlfCharacter": "↵",
 
     /*
     ToDo Tree extension.

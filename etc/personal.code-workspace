@@ -10,6 +10,10 @@
       "path": "../../actions"
     },
     {
+      "name": "asciibook",
+      "path": "../../asciibook"
+    },
+    {
       "name": "avatar",
       "path": "../../avatar"
     },

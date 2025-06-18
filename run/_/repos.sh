@@ -3,6 +3,7 @@
 # List of repos. The names represent their local filesystem paths.
 repos=(
   "actions"
+  "asciibook"
   "avatar"
   "blog"
   "bootstrap"
@@ -37,6 +38,7 @@ root="git@github.com:kieranpotts"
 
 declare -A remote_urls
 remote_urls["actions"]="${root}/actions.git"
+remote_urls["asciibook"]="${root}/asciibook.git"
 remote_urls["avatar"]="${root}/avatar.git"
 remote_urls["blog"]="${root}/blog.git"
 remote_urls["bootstrap"]="${root}/bootstrap.git"
@@ -68,6 +70,7 @@ remote_urls["workspace"]="${root}/workspace.git"
 
 declare -A main_branches
 main_branches["actions"]="dev"
+main_branches["asciibook"]="dev"
 main_branches["avatar"]="main"
 main_branches["blog"]="main"
 main_branches["bootstrap"]="dev"

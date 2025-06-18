@@ -273,13 +273,6 @@
       "editor.wordWrap": "bounded",
       "editor.wordWrapColumn": 100,
     },
-    "[terraform]": {
-      /* Enable autoformatting of Terraform files. */
-      "editor.defaultFormatter": "hashicorp.terraform",
-      "editor.formatOnPaste": true,
-      "editor.formatOnSave": true,
-      "editor.formatOnType": true,
-    },
 
     /* Preference for quotes in JS/TS code. */
     "javascript.preferences.quoteStyle": "single",

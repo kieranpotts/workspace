@@ -50,6 +50,10 @@
       "path": "../../dictionary"
     },
     {
+      "name": "docker-latex",
+      "path": "../../docker-latex"
+    },
+    {
       "name": "dotfiles",
       "path": "../../dotfiles"
     },
@@ -223,7 +227,6 @@
       "/home/kieran/dev/personal/devboxes",
       "/home/kieran/dev/personal/eslint-config",
       "/home/kieran/dev/personal/makebook",
-      //"/home/kieran/dev/personal/_playbook",
       "/home/kieran/dev/personal/prototypes",
       "/home/kieran/dev/personal/rfcs",
       "/home/kieran/dev/personal/sh",

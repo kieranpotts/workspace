@@ -110,6 +110,10 @@
       "path": "../../rfcs"
     },
     {
+      "name": "secrets ⛔",
+      "path": "../../secrets"
+    },
+    {
       "name": "sh 🔒",
       "path": "../../sh"
     },

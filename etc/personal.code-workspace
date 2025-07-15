@@ -118,12 +118,12 @@
       "path": "../../sh"
     },
     {
-      "name": "standards",
-      "path": "../../standards"
-    },
-    {
       "name": "srcflow",
       "path": "../../srcflow"
+    },
+    {
+      "name": "standards",
+      "path": "../../standards"
     },
     {
       "name": "template",

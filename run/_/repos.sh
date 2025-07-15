@@ -9,7 +9,7 @@ repos=(
   "blog"
   "bootstrap"
   "cheats"
-  "cover-letter",
+  "cover-letter"
   "designs"
   "devboxes"
   "devtools"
@@ -63,8 +63,8 @@ remote_urls["json-schema"]="${root}/json-schema.git"
 remote_urls["kieranpotts"]="${root}/kieranpotts.git"
 remote_urls["makebook"]="${root}/makebook.git"
 remote_urls["ocean"]="${root}/ocean.git"
-remote_urls["_playbook"]="${root}/_playbook.git
-remote_urls["playbook"]="${root}/playbook.git
+remote_urls["_playbook"]="${root}/_playbook.git"
+remote_urls["playbook"]="${root}/playbook.git"
 remote_urls["prototypes"]="${root}/prototypes.git"
 remote_urls["resume"]="${root}/resume.git"
 remote_urls["rfcs"]="${root}/rfcs.git"

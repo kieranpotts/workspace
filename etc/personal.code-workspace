@@ -364,12 +364,8 @@
     errors. For example, "hte" should be "the". */
     "cSpell.flagWords": [
       "backend", // back-end
-      "frontend", // front-end"
-      "homepage", // home page
-      "hte", // the
-      "backend", // back-end
-      "frontend", // front-end"
-      "homepage", // home page
+      "frontend", // front-end
+      "home page", // homepage
       "hte", // the
       "life cycle", // lifecycle
       "mockup", // mock-up
@@ -381,15 +377,6 @@
       "web pages", // webpages
       "web site", // website
       "web sites", // websites
-      "mockup", // mock-up
-      "mockups", // mock-ups
-      "vscode", // vs code
-      "web app", // webapp
-      "web apps", // webapps
-      "web page", // webpage
-      "web pages", // webpages
-      "web site", // website
-      "web sites" // websites
     ],
 
     /*

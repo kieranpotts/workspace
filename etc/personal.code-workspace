@@ -22,6 +22,10 @@
       "path": "../../blog"
     },
     {
+      "name": "blogroll",
+      "path": "../../blogroll"
+    },
+    {
       "name": "bootstrap",
       "path": "../../bootstrap"
     },

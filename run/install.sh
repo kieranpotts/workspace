@@ -46,8 +46,9 @@ for repo in ${repos[@]}; do
     continue
   fi
 
+  # Clone recursive to download Git submodules, too.
   echo "Cloning ${remote_url}"
-  (cd ${local_path}; git clone ${remote_url} .)
+  (cd ${local_path}; git clone --recursive ${remote_url} .)
 
   echo "Switching to ${main_branch}"
   (cd ${local_path}; git switch ${main_branch})

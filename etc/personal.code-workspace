@@ -229,16 +229,35 @@
 
   "settings": {
 
-    // /* Remove archived repositories from VS Code's built-in Git GUI – can't push
-    // to these anyway. This setting requires use of absolute paths. */
-    // "git.ignoredRepositories": [
-    //   "/home/kieran/dev/personal/devboxes",
-    //   "/home/kieran/dev/personal/eslint-config",
-    //   "/home/kieran/dev/personal/makebook",
-    //   "/home/kieran/dev/personal/prototypes",
-    //   "/home/kieran/dev/personal/rfcs",
-    //   "/home/kieran/dev/personal/sh",
-    // ],
+    /* Remove archived repositories from VS Code's built-in Git GUI – can't push
+    to these anyway. This setting requires use of absolute paths. */
+    "git.ignoredRepositories": [
+      "/home/kieran/dev/kieranpotts/devboxes",
+      "/home/kieran/dev/kieranpotts/eslint-config",
+      "/home/kieran/dev/kieranpotts/makebook",
+      "/home/kieran/dev/kieranpotts/prototypes",
+      "/home/kieran/dev/kieranpotts/rfcs",
+      "/home/kieran/dev/kieranpotts/sh",
+    ],
+
+    /* Don't automatically detect submodules. But submodules must still be
+    explicitly removed from the list of Source Control repositories above. */
+    "git.detectSubmodules": false,
+    "git.detectSubmodulesLimit": -1,
+
+    /* Ignore changes within submodules in the file view. */
+    "git.ignoreSubmodules": true,
+
+    /* Scan depth for nested Git repositories. This is also required to fully
+    disable submodules in the Source Control list. */
+    "git.repositoryScanMaxDepth": 0,
+
+    /* Always prompt before committing to a protected branch. */
+    "git.branchProtectionPrompt": "alwaysPrompt",
+    "git.branchProtection": [
+      // "stable",
+      // "release/*",
+    ],
 
     /* Disable the feature to automatically save and restore open editors when
     switching between source control branches. Having this turned on is a bit
@@ -303,13 +322,6 @@
     "javascript.format.enable": false,
     "javascript.validate.enable": false,
     "js/ts.implicitProjectConfig.checkJs": false,
-
-    /* Always prompt before committing to a protected branch. */
-    "git.branchProtectionPrompt": "alwaysPrompt",
-    "git.branchProtection": [
-      // "stable",
-      // "release/*",
-    ],
 
     /*
     EXTENSION SETTINGS
@@ -426,7 +438,10 @@
     /* Use only `TODO` notations. This setting works only in workspace roots. */
     "todo-tree.general.tags": [
       "TODO"
-    ]
+    ],
+
+    /* Ignore TODOs in the code of Git submodules. */
+    "todo-tree.filtering.ignoreGitSubmodules": true,
 
   }
 }

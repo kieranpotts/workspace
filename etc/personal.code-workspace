@@ -94,6 +94,10 @@
       "path": "../../ocean"
     },
     {
+      "name": "patterns",
+      "path": "../../patterns"
+    },
+    {
       "name": "playbook ⛔",
       "path": "../../playbook"
     },

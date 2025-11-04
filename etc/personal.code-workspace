@@ -171,6 +171,9 @@
       https://code.visualstudio.com/docs/editor/extension-marketplace#_workspace-recommended-extensions
       */
 
+      /* Claude Code — AI-assisted programming. */
+      "anthropic.claude-code",
+
       /* Code Spell Checker — Spelling checker for all source code. */
       "streetsidesoftware.code-spell-checker",
 

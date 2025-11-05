@@ -216,6 +216,9 @@
       /* Restore Editors — Quickly save and restore groups of editors (ie. editor tabs). */
       "amodio.restore-editors",
 
+      /* ShellCheck — Linter for shell scripts. */
+      "timonwong.shellcheck",
+
       /* The Ocean — My own VS Code theme. */
       "kieranpotts.ocean-vscode-theme",
 

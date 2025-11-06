@@ -430,10 +430,29 @@
     "inlineChat.lineNaturalLanguageHint": false,
 
     /*
-    Jest extension. This is not one of my default extensions, but it is required
-    for some of my projects, and the extension has an annoying habit of opening
-    terminals when it is enabled and workspaces are opened without a Jest
-    configuration. https://github.com/jest-community/vscode-jest
+    Python extension.
+
+    This is not one of my default extensions, but some of my projects use
+    it. When those projects are opened in this workspace, we want to
+    disable some of Pylance's intensive features, which can crash WSL on
+    resource-limited systems.
+
+    https://marketplace.visualstudio.com/items?itemName=ms-python.python
+    */
+
+    "python.languageServer": "Pylance",
+    "python.analysis.indexing": false,
+    "python.analysis.packageIndexDepths": [],
+
+    /*
+    Jest extension.
+
+    This is not one of my default extensions, but it is required for some of
+    my projects, and the extension has an annoying habit of opening terminals
+    when it is enabled and workspaces are opened without a Jest
+    configuration.
+
+    https://github.com/jest-community/vscode-jest
     */
 
     /* Fully disable the Jest extension, if it is installed, in this workspace.

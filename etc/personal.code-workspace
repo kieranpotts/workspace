@@ -333,6 +333,10 @@
     "javascript.validate.enable": false,
     "js/ts.implicitProjectConfig.checkJs": false,
 
+    /* Set auto-forwarding of ports to the hybrid mode – this is appropriate
+    for WSL. */
+    "remote.autoForwardPortsSource": "hybrid",
+
     /*
     EXTENSION SETTINGS
     The following settings are applicable for the extensions listed in

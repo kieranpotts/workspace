@@ -198,12 +198,6 @@
       /* Harper — Grammar and spell checker. */
       "elijah-potter.harper",
 
-      /* IntelliCode — AI-assisted development. */
-      "visualstudioexptteam.vscodeintellicode",
-
-      /* Intellicode API Usage Examples — See code examples for hundreds-of-thousands of APIs. */
-      "visualstudioexptteam.intellicode-api-usage-examples",
-
       /* Remote - SSH — Connect to a remote machine using SSH. */
       "ms-vscode-remote.remote-ssh",
 
@@ -230,6 +224,9 @@
 
       /* vscode-pdf — Render PDF documents in VS Code. */
       "tomoki1207.pdf",
+
+      /* Windsurf (formerly Codeium) — AI-assisted code completion. */
+      "codeium.codeium",
 
       /* WSL — Open folders and workspaces from WSL. */
       "ms-vscode-remote.remote-wsl",
@@ -414,11 +411,12 @@
     https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
     */
     "github.copilot.enable": {
-      "*": true,
-      "enableAutoCompletions": true,
+      "*": false,
       "plaintext": true,
-      "asciidoc": true,
-      "markdown": true
+      "markdown": true,
+      "scminput": false,
+      "enableAutoCompletions": true,
+      "asciidoc": true
     },
     "github.copilot.advanced": {
       "debug.showScores": true,
@@ -475,6 +473,7 @@
 
     /* Ignore TODOs in the code of Git submodules. */
     "todo-tree.filtering.ignoreGitSubmodules": true,
+    "codeium.enableCodeLens": false,
 
   }
 }

@@ -26,6 +26,10 @@
       "path": "../../blogroll"
     },
     {
+      "name": "bookmarks",
+      "path": "../../bookmarks"
+    },
+    {
       "name": "bootstrap",
       "path": "../../bootstrap"
     },

@@ -142,8 +142,8 @@
       "path": "../../template"
     },
     {
-      "name": "timeless-way ⛔",
-      "path": "../../timeless-way"
+      "name": "timeless ⛔",
+      "path": "../../timeless"
     },
     {
       "name": "website",
@@ -481,6 +481,19 @@
 
     /* Ignore TODOs in the code of Git submodules. */
     "todo-tree.filtering.ignoreGitSubmodules": true,
+
+    /*
+    Windsurf extension (formerly Codeium).
+    https://marketplace.visualstudio.com/items?itemName=codeium.codeium
+    */
+
+    /* Enable Windsurf in AsciiDoc files (experimental). */
+    "codeium.enableConfig": {
+      "*": true,
+      "asciidoc": true
+    },
+
+    /* Enable code lens integration. */
     "codeium.enableCodeLens": false,
 
   }

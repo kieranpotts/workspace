@@ -53,8 +53,11 @@ for repo in ${repos[@]}; do
   echo "Switching to ${main_branch}"
   (cd ${local_path}; git switch ${main_branch})
 
-  echo "Setting Git user name and email for repo"
-  (cd ${local_path}; git config user.name "Kieran Potts"; git config user.email "hello@kieranpotts.com")
+  # @deprecated
+  # Don't do this. It allows for controlling these settings centrally
+  # via the user-level ~/.gitconfig file.
+  #echo "Setting Git user name and email for repo"
+  #(cd ${local_path}; git config user.name "Kieran Potts"; git config user.email "hello@kieranpotts.com")
 
 done
 

@@ -447,7 +447,7 @@
     https://marketplace.visualstudio.com/items?itemName=ms-python.python
     */
 
-    "python.languageServer": "Pylance",
+    "python.languageServer": "Jedi",
     "python.analysis.indexing": false,
     "python.analysis.packageIndexDepths": [],
 

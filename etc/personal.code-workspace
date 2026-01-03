@@ -203,9 +203,6 @@
       /* GitHub Theme — GitHub-style theme for VS Code. */
       "GitHub.github-vscode-theme",
 
-      /* Harper — Grammar and spell checker. */
-      "elijah-potter.harper",
-
       /* Remote - SSH — Connect to a remote machine using SSH. */
       "ms-vscode-remote.remote-ssh",
 

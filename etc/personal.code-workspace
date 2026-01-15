@@ -138,6 +138,10 @@
       "path": "../../standards"
     },
     {
+      "name": "style-guide",
+      "path": "../../style-guide"
+    },
+    {
       "name": "template",
       "path": "../../template"
     },

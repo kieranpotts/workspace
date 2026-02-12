@@ -130,6 +130,10 @@
       "path": "../../sh"
     },
     {
+      "name": "skills",
+      "path": "../../skills"
+    },
+    {
       "name": "srcflow",
       "path": "../../srcflow"
     },

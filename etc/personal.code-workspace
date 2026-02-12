@@ -150,6 +150,10 @@
       "path": "../../template"
     },
     {
+      "name": "tests",
+      "path": "../../tests"
+    },
+    {
       "name": "timeless ⛔",
       "path": "../../timeless"
     },

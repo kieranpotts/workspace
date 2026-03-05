@@ -74,6 +74,10 @@
       "path": "../../garden"
     },
     {
+      "name": "genies",
+      "path": "../../genies"
+    },
+    {
       "name": "gitex",
       "path": "../../gitex"
     },

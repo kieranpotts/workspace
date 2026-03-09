@@ -219,6 +219,9 @@
       /* GitHub Theme — GitHub-style theme for VS Code. */
       "GitHub.github-vscode-theme",
 
+      /* OpenRouter — Automatically adds OpenRouter to chat providers. */
+      "IvanMokshin.openrouter-vscode-copilot",
+
       /* Remote - SSH — Connect to a remote machine using SSH. */
       "ms-vscode-remote.remote-ssh",
 

@@ -1,6 +1,8 @@
 {
-  "name": "Personal workspace",
+  "name": "Workspace",
   "build": {
-    "dockerfile": "Dockerfile"
-  }
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "remoteUser": "dev"
 }

@@ -200,6 +200,9 @@
       /* Code Spell Checker — Spelling checker for all source code. */
       "streetsidesoftware.code-spell-checker",
 
+      /* Dev Containers — Containerized development environments. */
+      "ms-vscode-remote.remote-containers",
+
       /* Draw.io Integration — Edit images with draw.io directly inside VS Code. */
       "hediet.vscode-drawio",
 

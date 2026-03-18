@@ -3,171 +3,171 @@
   "folders": [
     {
       "name": "__TODO__ ⛔private",
-      "path": "../../__TODO__"
+      "path": "./__TODO__"
     },
     {
       "name": "actions",
-      "path": "../../actions"
+      "path": "./actions"
     },
     {
       "name": "asciibook",
-      "path": "../../asciibook"
+      "path": "./asciibook"
     },
     {
       "name": "avatar",
-      "path": "../../avatar"
+      "path": "./avatar"
     },
     {
       "name": "blog",
-      "path": "../../blog"
+      "path": "./blog"
     },
     {
       "name": "blogroll",
-      "path": "../../blogroll"
+      "path": "./blogroll"
     },
     {
       "name": "bookmarks",
-      "path": "../../bookmarks"
+      "path": "./bookmarks"
     },
     {
       "name": "bootstrap",
-      "path": "../../bootstrap"
+      "path": "./bootstrap"
     },
     {
       "name": "cheats",
-      "path": "../../cheats"
+      "path": "./cheats"
     },
     {
       "name": "cover-letter ⛔",
-      "path": "../../cover-letter"
+      "path": "./cover-letter"
     },
     {
       "name": "designs",
-      "path": "../../designs"
+      "path": "./designs"
     },
     {
       "name": "devboxes 🔒",
-      "path": "../../devboxes"
+      "path": "./devboxes"
     },
     {
       "name": "devtools",
-      "path": "../../devtools"
+      "path": "./devtools"
     },
     {
       "name": "dictionary",
-      "path": "../../dictionary"
+      "path": "./dictionary"
     },
     {
       "name": "docker-latex",
-      "path": "../../docker-latex"
+      "path": "./docker-latex"
     },
     {
       "name": "dotfiles",
-      "path": "../../dotfiles"
+      "path": "./dotfiles"
     },
     {
       "name": "eslint-config 🔒",
-      "path": "../../eslint-config"
+      "path": "./eslint-config"
     },
     {
       "name": "garden",
-      "path": "../../garden"
+      "path": "./garden"
     },
     {
       "name": "genies",
-      "path": "../../genies"
+      "path": "./genies"
     },
     {
       "name": "gitex",
-      "path": "../../gitex"
+      "path": "./gitex"
     },
     {
       "name": "interviews ⛔",
-      "path": "../../interviews"
+      "path": "./interviews"
     },
     {
       "name": "json-schema",
-      "path": "../../json-schema"
+      "path": "./json-schema"
     },
     {
       "name": "kieranpotts",
-      "path": "../../kieranpotts"
+      "path": "./kieranpotts"
     },
     {
       "name": "makebook 🔒",
-      "path": "../../makebook"
+      "path": "./makebook"
     },
     {
       "name": "ocean",
-      "path": "../../ocean"
+      "path": "./ocean"
     },
     {
       "name": "papers ⛔",
-      "path": "../../papers"
+      "path": "./papers"
     },
     {
       "name": "patterns",
-      "path": "../../patterns"
+      "path": "./patterns"
     },
     {
       "name": "playbook",
-      "path": "../../playbook"
+      "path": "./playbook"
     },
     {
       "name": "prototypes 🔒",
-      "path": "../../prototypes"
+      "path": "./prototypes"
     },
     {
       "name": "résumé",
-      "path": "../../resume"
+      "path": "./resume"
     },
     {
       "name": "rfcs 🔒",
-      "path": "../../rfcs"
+      "path": "./rfcs"
     },
     {
       "name": "secrets ⛔",
-      "path": "../../secrets"
+      "path": "./secrets"
     },
     {
       "name": "sh 🔒",
-      "path": "../../sh"
+      "path": "./sh"
     },
     {
       "name": "skills",
-      "path": "../../skills"
+      "path": "./skills"
     },
     {
       "name": "srcflow",
-      "path": "../../srcflow"
+      "path": "./srcflow"
     },
     {
       "name": "standards",
-      "path": "../../standards"
+      "path": "./standards"
     },
     {
       "name": "style-guide",
-      "path": "../../style-guide"
+      "path": "./style-guide"
     },
     {
       "name": "template",
-      "path": "../../template"
+      "path": "./template"
     },
     {
       "name": "tests",
-      "path": "../../tests"
+      "path": "./tests"
     },
     {
       "name": "timeless ⛔",
-      "path": "../../timeless"
+      "path": "./timeless"
     },
     {
       "name": "website",
-      "path": "../../website"
+      "path": "./website"
     },
     {
       "name": "workspace",
-      "path": "../../workspace"
+      "path": "./workspace"
     }
   ],
 
@@ -293,7 +293,7 @@
     ],
 
     /* Disable the feature that automatically saves and restores open editors
-    when switching between source control branches. Having this turned on is a 
+    when switching between source control branches. Having this turned on is a
     bit annoying when working with multiple repos in a workspace. */
     "scm.workingSets.enabled": false,
 

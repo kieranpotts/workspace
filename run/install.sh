@@ -1,7 +1,12 @@
 #!/bin/bash
 
+#
+# Initialize and clone all Git submodules, then check out each one's
+# tracked branch (submodules default to detached HEAD).
+#
 # Make all paths relative to the root of this repository, so
 # this script can be run from any filesystem location.
+#
 
 # Absolute path to this script,
 # eg `/path/to/workspace/run/install.sh`.
@@ -15,52 +20,27 @@ run_path=$(dirname "${file_path}")
 # eg `/path/to/workspace`.
 repo_path=$(dirname "${run_path}")
 
-# Absolute path to the root directory for all personal projects, which is
-# expected to be one level above the `workspace` repo root.
-dev_path=$(readlink -f "${repo_path}/../")
+# Change directory to the repository root directory.
+cd "${repo_path}"
 
-source "${run_path}/_/repos.sh"
+# Read all submodule names from .gitmodules.
+submodules=$(git config -f .gitmodules --get-regexp '^submodule\..*\.path$' | awk '{print $2}')
 
-for repo in ${repos[@]}; do
+for submodule_path in ${submodules}; do
 
   echo $(for i in $(seq 1 80); do printf "-"; done)
 
-  local_path=${dev_path}/${repo}
-  remote_url=${remote_urls["${repo}"]}
-  main_branch=${main_branches["${repo}"]}
+  # Extract the submodule name from its path (eg "repos/blog" -> "blog").
+  name=$(basename "${submodule_path}")
 
-  echo "Making directory ${local_path}"
-  mkdir -p ${local_path}
+  echo "Installing ${name}..."
 
-  # Suppress output, but exit code will be 0 if the command succeeds
-  # (which means the directory is already a Git repository).
-  (cd ${local_path}; git rev-parse 2> /dev/null)
-  if [ $? == 0 ]; then
-    echo "Already a Git repository, skipping..."
-    continue
-  fi
-
-  if find "${local_path}" -mindepth 1 -print -quit 2> /dev/null | grep -q .; then
-    echo "Directory is not empty, initializing as a Git repo"
-    (cd ${local_path}; git init)
-    continue
-  fi
-
-  # Clone recursive to download Git submodules, too.
-  echo "Cloning ${remote_url}"
-  (cd ${local_path}; git clone --recursive ${remote_url} .)
-
-  echo "Switching to ${main_branch}"
-  (cd ${local_path}; git switch ${main_branch})
-
-  # @deprecated
-  # Don't do this. It allows for controlling these settings centrally
-  # via the user-level ~/.gitconfig file.
-  #echo "Setting Git user name and email for repo"
-  #(cd ${local_path}; git config user.name "Kieran Potts"; git config user.email "hello@kieranpotts.com")
+  # Initialize and clone this submodule. These commands must be run
+  # from the parent repository root, passing the submodule path.
+  # Recursively checkout any further nested submodules.
+  git submodule init "${submodule_path}"
+  git submodule update --recursive "${submodule_path}"
 
 done
 
 echo $(for i in $(seq 1 80); do printf "-"; done)
-
-echo "NOTE: The devtools repo should be cloned in Windows."

@@ -1,10 +1,10 @@
 = Workspace
 
-This repository encapsulates some shell scripts and a VS Code workspace config to install and manage all my personal code repositories.
+This repository encapsulates all my personal code repositories as Git submodules, along with shell scripts and a VS Code workspace configuration to manage them.
 
 == Requirements
 
-https://git-lfs.com/[Git LFS] MUST be installed before cloning the repositories. It is RECOMMENDED to clone and run the environment https://github.com/kieranpotts/bootstrap[bootstrapping script], before installing all the other repositories.
+https://git-lfs.com/[Git LFS] MUST be installed before cloning the repositories. It is also RECOMMENDED to clone and run the environment https://github.com/kieranpotts/bootstrap[bootstrapping script] first, too.
 
 == Usage
 
@@ -12,29 +12,52 @@ NOTE: On Windows, the workspace SHOULD be established in WSL. The `devtools` rep
 
 [source,sh]
 ----
-# Clone all repositories.
-bash ./run/install.sh
+# Create an empty workspace root.
+mkdir /path/to/workspace
+cd /path/to/workspace
 
-# Synchronize the main branches of all local repositories with their
-# tracked upstream branches.
+# Clone the workspace repository with all its submodules.
+git clone --recursive git@github.com:kieranpotts/workspace.git .
+----
+
+If the workspace repository is already cloned, but you forgot to do it recursively, you can use the `install.sh` script to clone all the submodules.
+
+[source,sh]
+----
+bash ./run/install.sh
+----
+
+The `sync.sh` script will synchronize the default branches of all submodules with their tracked upstream branches.
+
+[source,sh]
+----
 bash ./run/sync.sh
 ----
 
-The repositories will be cloned adjacent to the `workspace` repository. The parent directory will be the workspace root in VS Code.
+All repositories are cloned into the `repos/` subdirectory as Git submodules.
+
+To add a new repository to the workspace, use the following command. The `-b` flag checks out the tracked branch, while the `--force` flag allows adding to a non-empty directory.
 
 [source,sh]
 ----
-# Create a symlink from the VS Code workspace configuration to the
-# workspace root directory.
-ln -s -f ./etc/personal.code-workspace /path/to/workspace/personal.code-workspace
+branch="dev"
+url="git@github.com:kieranpotts/repository-name.git"
+path="repos/repository-name"
+
+git submodule add --force -b "${branch}" "${url}" "${path}"
 ----
 
-Change directory to the workspace root, then open the symlinked workspace configuration from that location.
+To remove submodules:
 
 [source,sh]
 ----
-# Open the VS Code workspace.
-cd /path/to/workspace
+git rm --cached "{path}"
+----
+
+Open the VS Code workspace:
+
+[source,sh]
+----
 code personal.code-workspace
 ----
 

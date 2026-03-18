@@ -1,0 +1,189 @@
+[submodule "repos/__TODO__"]
+  path = repos/__TODO__
+  url = git@github.com:kieranpotts/__TODO__.git
+  branch = main
+
+[submodule "repos/actions"]
+  path = repos/actions
+  url = git@github.com:kieranpotts/actions.git
+  branch = dev
+
+[submodule "repos/asciibook"]
+  path = repos/asciibook
+  url = git@github.com:kieranpotts/asciibook.git
+  branch = dev
+
+[submodule "repos/avatar"]
+  path = repos/avatar
+  url = git@github.com:kieranpotts/avatar.git
+  branch = main
+
+[submodule "repos/blog"]
+  path = repos/blog
+  url = git@github.com:kieranpotts/blog.git
+  branch = main
+
+[submodule "repos/bookmarks"]
+  path = repos/bookmarks
+  url = git@github.com:kieranpotts/bookmarks.git
+  branch = main
+
+[submodule "repos/bootstrap"]
+  path = repos/bootstrap
+  url = git@github.com:kieranpotts/bootstrap.git
+  branch = dev
+
+[submodule "repos/cheats"]
+  path = repos/cheats
+  url = git@github.com:kieranpotts/cheats.git
+  branch = main
+
+[submodule "repos/cover-letter"]
+  path = repos/cover-letter
+  url = git@github.com:kieranpotts/cover-letter.git
+  branch = main
+
+[submodule "repos/designs"]
+  path = repos/designs
+  url = git@github.com:kieranpotts/designs.git
+  branch = main
+
+[submodule "repos/devboxes"]
+  path = repos/devboxes
+  url = git@github.com:kieranpotts/devboxes.git
+  branch = main
+
+[submodule "repos/devtools"]
+  path = repos/devtools
+  url = git@github.com:kieranpotts/devtools.git
+  branch = dev
+
+[submodule "repos/dictionary"]
+  path = repos/dictionary
+  url = git@github.com:kieranpotts/dictionary.git
+  branch = main
+
+[submodule "repos/docker-latex"]
+  path = repos/docker-latex
+  url = git@github.com:kieranpotts/docker-latex.git
+  branch = dev
+
+[submodule "repos/dotfiles"]
+  path = repos/dotfiles
+  url = git@github.com:kieranpotts/dotfiles.git
+  branch = dev
+
+[submodule "repos/eslint-config"]
+  path = repos/eslint-config
+  url = git@github.com:kieranpotts/eslint-config.git
+  branch = dev
+
+[submodule "repos/garden"]
+  path = repos/garden
+  url = git@github.com:kieranpotts/garden.git
+  branch = main
+
+[submodule "repos/genies"]
+  path = repos/genies
+  url = git@github.com:kieranpotts/genies.git
+  branch = dev
+
+[submodule "repos/gitex"]
+  path = repos/gitex
+  url = git@github.com:kieranpotts/gitex.git
+  branch = dev
+
+[submodule "repos/interviews"]
+  path = repos/interviews
+  url = git@github.com:kieranpotts/interviews.git
+  branch = main
+
+[submodule "repos/json-schema"]
+  path = repos/json-schema
+  url = git@github.com:kieranpotts/json-schema.git
+  branch = latest/dev
+
+[submodule "repos/kieranpotts"]
+  path = repos/kieranpotts
+  url = git@github.com:kieranpotts/kieranpotts.git
+  branch = dev
+
+[submodule "repos/makebook"]
+  path = repos/makebook
+  url = git@github.com:kieranpotts/makebook.git
+  branch = main
+
+[submodule "repos/ocean"]
+  path = repos/ocean
+  url = git@github.com:kieranpotts/ocean.git
+  branch = dev
+
+[submodule "repos/papers"]
+  path = repos/papers
+  url = git@github.com:kieranpotts/papers.git
+  branch = main
+
+[submodule "repos/patterns"]
+  path = repos/patterns
+  url = git@github.com:kieranpotts/patterns.git
+  branch = dev
+
+[submodule "repos/playbook"]
+  path = repos/playbook
+  url = git@github.com:kieranpotts/playbook.git
+  branch = dev
+
+[submodule "repos/prototypes"]
+  path = repos/prototypes
+  url = git@github.com:kieranpotts/prototypes.git
+  branch = main
+
+[submodule "repos/resume"]
+  path = repos/resume
+  url = git@github.com:kieranpotts/resume.git
+  branch = v2/main
+
+[submodule "repos/rfcs"]
+  path = repos/rfcs
+  url = git@github.com:kieranpotts/rfcs.git
+  branch = main
+
+[submodule "repos/secrets"]
+  path = repos/secrets
+  url = git@github.com:kieranpotts/secrets.git
+  branch = main
+
+[submodule "repos/sh"]
+  path = repos/sh
+  url = git@github.com:kieranpotts/sh.git
+  branch = main
+
+[submodule "repos/skills"]
+  path = repos/skills
+  url = git@github.com:kieranpotts/skills.git
+  branch = dev
+
+[submodule "repos/standards"]
+  path = repos/standards
+  url = git@github.com:kieranpotts/standards.git
+  branch = dev
+
+[submodule "repos/style-guide"]
+  path = repos/style-guide
+  url = git@github.com:kieranpotts/style-guide.git
+  branch = dev
+
+[submodule "repos/template"]
+  path = repos/template
+  url = git@github.com:kieranpotts/template.git
+  branch = dev
+
+[submodule "repos/tests"]
+  path = repos/tests
+  url = git@github.com:kieranpotts/tests.git
+  branch = dev
+
+[submodule "repos/timeless"]
+  path = repos/timeless
+  url = git@github.com:kieranpotts/timeless.git
+  branch = dev

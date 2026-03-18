@@ -1,0 +1,6 @@
+{
+  "name": "Personal workspace",
+  "build": {
+    "dockerfile": "Dockerfile"
+  }
+}

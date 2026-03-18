@@ -4,7 +4,9 @@ This repository encapsulates all my personal code repositories as Git submodules
 
 == Requirements
 
-https://git-lfs.com/[Git LFS] MUST be installed before cloning the repositories. It is also RECOMMENDED to clone and run the environment https://github.com/kieranpotts/bootstrap[bootstrapping script] first, too.
+https://git-lfs.com/[Git LFS] SHOULD be installed before cloning the repositories. This is required to download PDFs and other large files from some repositories – but the `git clone` operation will succeed without it.
+
+It is RECOMMENDED to clone and run the environment https://github.com/kieranpotts/bootstrap[bootstrapping script] first. This will install Git LFS and other dependencies of the repositories.
 
 == Usage
 

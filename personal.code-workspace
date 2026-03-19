@@ -54,6 +54,10 @@
       "path": "./repos/dictionary"
     },
     {
+      "name": "docker-devenv",
+      "path": "./repos/docker-devenv"
+    },
+    {
       "name": "docker-latex",
       "path": "./repos/docker-latex"
     },

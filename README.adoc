@@ -53,15 +53,20 @@ To remove submodules:
 
 [source,sh]
 ----
-git rm --cached "{path}"
+# De-initialize the submodule.
+git submodule deinit -f repos/<repo-name>
+
+# Remove the entry from the `.gitmodules` file, or do this manually.
+git rm -f repos/<repo-name>
+
+# Remove the submodule directory.
+rm -rf repos/<repo-name>
+
+# Clean-up any leftover Git configuration.
+git rm .git/modules/repos/<repo-name>
 ----
 
-Open the VS Code workspace:
-
-[source,sh]
-----
-code personal.code-workspace
-----
+Commit the changes to `.gitmodules`.
 
 == Dev Container
 

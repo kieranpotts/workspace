@@ -153,11 +153,6 @@
   url = git@github.com:kieranpotts/rfcs.git
   branch = main
 
-[submodule "repos/secrets"]
-  path = repos/secrets
-  url = git@github.com:kieranpotts/secrets.git
-  branch = main
-
 [submodule "repos/sh"]
   path = repos/sh
   url = git@github.com:kieranpotts/sh.git

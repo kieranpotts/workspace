@@ -146,7 +146,7 @@
 [submodule "repos/resume"]
   path = repos/resume
   url = git@github.com:kieranpotts/resume.git
-  branch = v2/main
+  branch = v2/dev
 
 [submodule "repos/rfcs"]
   path = repos/rfcs

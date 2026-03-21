@@ -1,5 +1,5 @@
 {
-  "name": "Workspace",
+  "name": "Personal workspace",
   "build": {
     "dockerfile": "Dockerfile",
     "context": ".."

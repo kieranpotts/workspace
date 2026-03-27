@@ -31,14 +31,12 @@
 
   /* Language-specific overrides. */
   "[asciidoc]": {
-    "editor.rulers": [100],
     "editor.wordWrap": "bounded",
-    "editor.wordWrapColumn": 100,
+    "editor.wordWrapColumn": 72,
   },
   "[markdown]": {
-    "editor.rulers": [100],
     "editor.wordWrap": "bounded",
-    "editor.wordWrapColumn": 100,
+    "editor.wordWrapColumn": 72,
   },
 
   /*

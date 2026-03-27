@@ -1,5 +1,8 @@
-{// Folder-specific settings
-//
-// For a full list of overridable settings, and general information on folder-specific settings,//zed.dev/docs/configuring-zed#settings-files
-  "tab_size": 2
+{
+  "preferred_line_length": 72,
+  "project_name": "Playbook",
+  "show_wrap_guides": true,
+  "soft_wrap": "bounded",
+  "tab_size": 2,
+  "wrap_guides": [80, 100, 120]
 }

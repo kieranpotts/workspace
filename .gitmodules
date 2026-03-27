@@ -3,6 +3,11 @@
   url = git@github.com:kieranpotts/__TODO__.git
   branch = main
 
+[submodule "repos/.github"]
+  path = repos/.github
+  url = git@github.com:kieranpotts/.github.git
+  branch = dev
+
 [submodule "repos/actions"]
   path = repos/actions
   url = git@github.com:kieranpotts/actions.git
@@ -37,6 +42,11 @@
   path = repos/cheats
   url = git@github.com:kieranpotts/cheats.git
   branch = main
+
+[submodule "repos/copilot"]
+  path = repos/copilot
+  url = git@github.com:kieranpotts/copilot.git
+  branch = dev
 
 [submodule "repos/cover-letter"]
   path = repos/cover-letter
@@ -197,7 +207,3 @@
   path = repos/timeless
   url = git@github.com:kieranpotts/timeless.git
   branch = dev
-[submodule "repos/.github"]
-	path = repos/.github
-	url = git@github.com:kieranpotts/.github.git
-	branch = dev

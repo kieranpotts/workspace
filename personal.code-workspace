@@ -38,6 +38,10 @@
       "path": "./repos/cheats"
     },
     {
+      "name": "copilot",
+      "path": "./repos/copilot"
+    },
+    {
       "name": "cover-letter ⛔",
       "path": "./repos/cover-letter"
     },

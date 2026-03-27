@@ -6,6 +6,10 @@
       "path": "./repos/__TODO__"
     },
     {
+      "name": ".github",
+      "path": "./repos/.github"
+    },
+    {
       "name": "actions",
       "path": "./repos/actions"
     },

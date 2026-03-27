@@ -197,3 +197,7 @@
   path = repos/timeless
   url = git@github.com:kieranpotts/timeless.git
   branch = dev
+[submodule "repos/.github"]
+	path = repos/.github
+	url = git@github.com:kieranpotts/.github.git
+	branch = dev

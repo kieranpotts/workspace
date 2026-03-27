@@ -86,6 +86,10 @@
       "path": "./repos/interviews"
     },
     {
+      "name": "journal ⛔",
+      "path": "./repos/journal"
+    },
+    {
       "name": "json-schema",
       "path": "./repos/json-schema"
     },

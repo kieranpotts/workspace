@@ -213,6 +213,9 @@
       /* Fold Plus — Additional code folding commands. */
       "dakara.dakara-foldplus",
 
+      /* Fonted — Customize VS Code's UI/workbench font. */
+      "degreat.fonted",
+
       /* Git History — Adds a minimal `git log` panel to VS Code. */
       "guodongsun.vscode-git-cruise",
 
@@ -377,6 +380,13 @@
       "web site", // website
       "web sites", // websites
     ],
+
+    /*
+    Fonted
+    https://marketplace.visualstudio.com/items?itemName=degreat.fonted
+    */
+
+    "fonted.font": "Maple Mono",
 
     /*
     GitHub Copilot

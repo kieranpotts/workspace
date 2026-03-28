@@ -2,7 +2,7 @@
 
   "folders": [
     {
-      "name": "__TODO__ ⛔private",
+      "name": "__TODO__ ⛔",
       "path": "./repos/__TODO__"
     },
     {
@@ -183,24 +183,12 @@
 
     "recommendations": [
 
-      /*
-
-      The following are general-purpose extensions for VS Code, which will be
-      useful in the context of most software projects. They extend VS Code's
-      own functionality, rather than providing capabilities for particular
-      languages, tools, or runtime environments.
-
-      Language servers and tool-specific extensions, such as the official Python
-      extension and wrappers for JavaScript tools such as ESLint, SHOULD be
-      added to each repository's `.vscode/extensions.js` file, as required for
-      each project.
-
-      To install the extensions, open this repository in its own workspace, then
-      go to the Recommended section of the Extensions panel.
-
-      Some extensions will need to be enabled in WSL, too.
-
-      */
+      /* The following are general-purpose extensions for VS Code. Mostly,
+      the extend VS COde's own functionality, rather than providing capabilities
+      for particular languages, tools, or runtime environments. Language servers
+      and tool-specific extensions, such as the official Python extension and
+      wrappers for JavaScript tools such as ESLint, are specified in each
+      repository's own `.vscode/extensions.js` file. */
 
       /* Claude Code — AI-assisted programming. */
       "anthropic.claude-code",
@@ -211,19 +199,19 @@
       /* Dev Containers — Containerized development environments. */
       "ms-vscode-remote.remote-containers",
 
-      /* Draw.io Integration — Edit images with draw.io directly inside VS Code. */
+      /* Draw.io Integration — Edit images with Draw.io embedded in VS Code. */
       "hediet.vscode-drawio",
 
       /* Fold Plus — Additional code folding commands. */
       "dakara.dakara-foldplus",
 
-      /* Fonted — Customize VS Code's UI/workbench font. */
+      /* Fonted — Customize VS Code's UI font. */
       "degreat.fonted",
 
-      /* Git History — Adds a minimal `git log` panel to VS Code. */
+      /* Git History — Adds a minimal `git log` panel. */
       "guodongsun.vscode-git-cruise",
 
-      /* GitHub Copilot — Intelligent code suggestions. */
+      /* GitHub Copilot — AI-assisted programming. */
       "github.copilot",
 
       /* GitHub Copilot Chat */
@@ -232,19 +220,25 @@
       /* GitHub Theme — GitHub-style theme for VS Code. */
       "GitHub.github-vscode-theme",
 
-      /* OpenRouter — Automatically adds OpenRouter to chat providers. */
+      /* Live Preview — For previewing HTML builds directly in VS Code. */
+      "ms-vscode.live-server",
+
+      /* Lorem Ipsum — Generates placeholder text. */
+      "tyriar.lorem-ipsum",
+
+      /* OpenRouter — Automatically adds OpenRouter to AI chat providers. */
       "IvanMokshin.openrouter-vscode-copilot",
 
       /* Remote SSH — Connect to a remote machine using SSH. */
       "ms-vscode-remote.remote-ssh",
 
-      /* Remote SSH — Editing Configuration Files — Edit SSH configuration files. */
+      /* Remote SSH: Editing Configuration Files — Edit SSH configuration files. */
       "ms-vscode-remote.remote-ssh-edit",
 
       /* Remote Repositories — Remotely browse and edit Git repositories. */
       "ms-vscode.remote-repositories",
 
-      /* Restore Editors — Quickly save and restore groups of editors (ie. editor tabs). */
+      /* Restore Editors — Quickly save and restore groups of editors. */
       "amodio.restore-editors",
 
       /* The Ocean — My own VS Code theme. */
@@ -253,16 +247,17 @@
       /* Todo Tree — Browse TODO, FIXME and other comments. */
       "gruntfuggly.todo-tree",
 
-      /* UMLet — Generate diagrams with UMLet. To use, simply create a new text file with the `.uxf` extension. */
+      /* UMLet — Generate diagrams with UMLet.
+      To use, simply create a new text file with the `.uxf` extension. */
       "theumletteam.umlet",
 
       /* VS Code Speech — Speech recognition. */
       "ms-vscode.vscode-speech",
 
-      /* vscode-pdf — Render PDF documents in VS Code. */
+      /* VS Code PDF — Render PDFs directly in VS Code. */
       "tomoki1207.pdf",
 
-      /* Windsurf (formerly Codeium) — AI-assisted code completion. */
+      /* Windsurf (formerly Codeium) — AI-assisted programming; inexpensive code completion! */
       "codeium.codeium",
 
       /* WSL — Open folders and workspaces from WSL. */
@@ -274,11 +269,78 @@
   "settings": {
 
     /*
-    BUILT-IN SETTINGS
+    EDITOR SETTINGS
     */
 
-    /* Remove archived repositories from VS Code's built-in Git GUI – you can't
-    push to these repositories anyway. This setting requires absolute paths. */
+    /* Vertical guidelines for line wrapping. */
+    "editor.rulers": [
+      80,
+      100,
+      120,
+    ],
+
+    /* By default, wrap long lines at the viewport or 120 characters,
+    whichever is narrowest. */
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 120,
+
+    /* Show control and empty space characters. */
+    "editor.renderControlCharacters": true,
+    "editor.renderWhitespace": "all",
+
+    /* Enforce 2 spaces for indentation by default. */
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+
+    /* Disable auto-formatting by default. */
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+
+    /* Disable auto-fixes by default. */
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "never"
+    },
+
+    /*
+    EDITOR SETTINGS: LANGUAGE-SPECIFIC OVERRIDES
+    */
+
+    /* Wrap documentation at 72 characters. */
+    "[asciidoc]": {
+      "editor.wordWrap": "bounded",
+      "editor.wordWrapColumn": 72,
+    },
+    "[markdown]": {
+      "editor.wordWrap": "bounded",
+      "editor.wordWrapColumn": 72,
+    },
+
+    /*
+    LANGUAGE-SPECIFIC SETTINGS: ECMASCRIPT
+    */
+
+    /* Disable the built-in auto-formatting and validation for
+    JavaScript/TypeScript. JS/TS repositories are required to re-enable
+    this and configure on a case-by-case basis/. */
+    "js/ts.format.indentSwitchCase": false,
+    "js/ts.validate.enabled": false,
+
+    /* Disable VS Code's built-in semantic checking of JS/TS files. JS/TS
+    code repositories should use `jsconfig.json` or `tsconfig.json` to
+    configure this, instead. */
+    "js/ts.implicitProjectConfig.checkJs": false,
+
+    /* Preference for quotes format in JS/TS code. */
+    "js/ts.preferences.quoteStyle": "single",
+
+    /*
+    GIT/SCM SETTINGS
+    */
+
+    /* Remove archived repositories (🔒) from VS Code's built-in Git GUI – you
+    can't push to these anyway. This setting requires absolute paths. */
     "git.ignoredRepositories": [
       "/home/kieran/dev/kieranpotts/workspace/repos/devboxes",
       "/home/kieran/dev/kieranpotts/workspace/repos/eslint-config",
@@ -302,23 +364,28 @@
     /* Always prompt before committing to a protected branch. */
     "git.branchProtectionPrompt": "alwaysPrompt",
     "git.branchProtection": [
-      // "stable",
-      // "release/*",
+      "test",
+      "prod",
     ],
 
     /* Disable the feature that automatically saves and restores open editors
     when switching between source control branches. Having this turned on is a
-    bit annoying when working with multiple repos in a workspace. */
+    bit annoying when working with multiple repositories in a workspace. */
     "scm.workingSets.enabled": false,
-
-    /* Set auto-forwarding of ports to the hybrid mode - appropriate for WSL. */
-    "remote.autoForwardPortsSource": "hybrid",
 
     /*
     EXTENSION SETTINGS
-    The following settings are applicable for the extensions listed in
-    the `extensions.recommendations` section above.
     */
+
+    /*
+    Asciidoc
+    https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode
+    */
+
+    /* When previewing Asciidoc files, use VS Code's workbench color theme,
+    rather than the default Asciidoc style. This ensures the colors of the
+    preview are consistent with the enabled VS Code theme. */
+    "asciidoc.preview.useEditorStyle": true,
 
     /*
     Claude Code
@@ -326,17 +393,17 @@
     */
 
     "claudeCode.preferredLocation": "panel",
-    "claudeCode.useCtrlEnterToSend": true,
+    "claudeCode.useCtrlEnterToSend": false,
 
     /*
     Code Spell Checker
     https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
     */
 
-    /* Spell check language: American English. */
+    /* Spell check in American English. */
     "cSpell.language": "en-US",
 
-    /* File paths to not spell check. */
+    /* File paths to NOT spell check. */
     "cSpell.ignorePaths": [
       ".git",
       ".vscode",
@@ -369,20 +436,20 @@
     /* Spellings always considered incorrect. This is useful for common spelling
     errors. For example, "hte" should be "the". */
     "cSpell.flagWords": [
-      "backend", // back-end
-      "frontend", // front-end
-      "home page", // homepage
-      "hte", // the
-      "life cycle", // lifecycle
-      "mockup", // mock-up
-      "mockups", // mock-ups
-      "vscode", // vs code
-      "web app", // webapp
-      "web apps", // webapps
-      "web page", // webpage
-      "web pages", // webpages
-      "web site", // website
-      "web sites", // websites
+      "backend",    // ✅ back-end
+      "frontend",   // ✅ front-end
+      "home page",  // ✅ homepage
+      "hte",        // ✅ the
+      "life cycle", // ✅ lifecycle
+      "mockup",     // ✅ mock-up
+      "mockups",    // ✅ mock-ups
+      "vscode",     // ✅ vs code
+      "web app",    // ✅ webapp
+      "web apps",   // ✅ webapps
+      "web page",   // ✅ webpage
+      "web pages",  // ✅ webpages
+      "web site",   // ✅ website
+      "web sites",  // ✅ websites
     ],
 
     /*
@@ -396,24 +463,30 @@
     GitHub Copilot
     https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
     */
+
+    /* Disable autocompletion in all file types by default,
+    then opt-in for specific file types. */
     "github.copilot.enable": {
       "*": false,
-      "plaintext": true,
+      "asciidoc": true,
       "markdown": true,
-      "scminput": false,
+      "plaintext": true,
+
       "enableAutoCompletions": true,
-      "asciidoc": true
+      "scminput": false,
     },
 
     /*
-    Jest is used in some of my projects, and the extension has an annoying habit
-    of opening terminals when it is enabled and workspaces are opened without a
-    Jest configuration.
+    Jest
     https://github.com/jest-community/vscode-jest
     */
 
-    /* Fully disable the Jest extension, if it is installed, in this workspace.
-    Requires v6 of the extension. */
+    /* The Jest extension is recommended for some of my projects. Unfortunately,
+    this extension has an annoying habit of opening lots of terminals when
+    repositories are opened that do not have a Jest configuration. From v6 of
+    the extension we can disable the extension by default, and then opt back
+    in to it for only the repositories within the workspace that have a Jest
+    configuration. Messy, but it works around the problem. */
     "jest.enable": false,
 
     /*
@@ -421,7 +494,8 @@
     https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
     */
 
-    /* Use only `TODO` notations. This setting works only in workspace roots. */
+    /* Look only for `TODO` notations.
+    This setting works only in workspace roots. */
     "todo-tree.general.tags": [
       "TODO"
     ],

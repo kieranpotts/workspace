@@ -184,11 +184,8 @@
     "recommendations": [
 
       /* The following are general-purpose extensions for VS Code. Mostly,
-      the extend VS COde's own functionality, rather than providing capabilities
-      for particular languages, tools, or runtime environments. Language servers
-      and tool-specific extensions, such as the official Python extension and
-      wrappers for JavaScript tools such as ESLint, are specified in each
-      repository's own `.vscode/extensions.js` file. */
+      they extend VS COde's own functionality, rather than providing
+      capabilities for particular languages, tools, or runtime environments. */
 
       /* Claude Code — AI-assisted programming. */
       "anthropic.claude-code",
@@ -263,6 +260,36 @@
       /* WSL — Open folders and workspaces from WSL. */
       "ms-vscode-remote.remote-wsl",
 
+      /* The following extensions add language servers and tools specific to
+      particular programming languages and software runtime environments. */
+
+      /* AsciiDoc — Provides language support for AsciiDoc. */
+      "asciidoctor.asciidoctor-vscode",
+
+      /* AsciiDoc Snippets — Snippets for AsciiDoc for PDF and HTML output. */
+      "travismichette.adoc-snippets",
+
+      /* EditorConfig — .editorconfig file support. */
+      "editorconfig.editorconfig",
+
+      /* ESLint — Linting and formatting for JavaScript and TypeScript. */
+      "dbaeumer.vscode-eslint",
+
+      /* Python — Includes Pylance. */
+      "ms-python.python",
+
+      /* ShellCheck — Linter for shell scripts. */
+      "timonwong.shellcheck",
+
+      /* Terraform — Language support for Terraform/HCL configuration files. */
+      "hashicorp.terraform",
+
+      /* TOML language support. */
+      "be5invis.toml",
+
+      /* Vim Language, Vim Script — VimL language support . */
+      "xadillax.viml"
+
     ]
   },
 
@@ -298,23 +325,91 @@
     "editor.formatOnSave": false,
     "editor.formatOnType": false,
 
-    /* Disable auto-fixes by default. */
+    /* Disable auto-fixes by default. Allow shellcheck to
+    implement shell script fixes on file save. */
     "editor.codeActionsOnSave": {
-      "source.fixAll": "never"
+      "source.fixAll": "never",
+      "source.fixAll.shellcheck": "explicit",
     },
 
     /*
     EDITOR SETTINGS: LANGUAGE-SPECIFIC OVERRIDES
     */
 
-    /* Wrap documentation at 72 characters. */
     "[asciidoc]": {
+      /* Wrap AsciiDoc files at 72 characters. */
       "editor.wordWrap": "bounded",
       "editor.wordWrapColumn": 72,
+
+      /* Enable auto-formatting for Asciidoc files. */
+      "editor.formatOnPaste": true,
+      "editor.formatOnSave": true,
+      "editor.formatOnType": true,
+
+      /* Enable auto-fixes for Asciidoc files. */
+      "editor.codeActionsOnSave": {
+        "source.fixAll": "always",
+      },
     },
+
+    "[javascript]": {
+      /* Re-enable auto-formatting for JavaScript files, using ESLint */
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+      "editor.formatOnPaste": true,
+      "editor.formatOnSave": true,
+      "editor.formatOnType": true,
+    },
+
+    "[latex]": {
+      /* Disable line wrapping for LaTeX files. */
+      "editor.rulers": [],
+      "editor.wordWrap": "off",
+    },
+
     "[markdown]": {
+      /* Wrap Markdown files at 72 characters. */
       "editor.wordWrap": "bounded",
       "editor.wordWrapColumn": 72,
+
+      /* Enable auto-formatting for Markdown files. */
+      "editor.formatOnPaste": true,
+      "editor.formatOnSave": true,
+      "editor.formatOnType": true,
+
+      /* Enable auto-fixes for Markdown files. */
+      "editor.codeActionsOnSave": {
+        "source.fixAll": "always",
+      },
+    },
+
+    "[python]": {
+      /* Python files should wrap at 88 characters. */
+      "editor.rulers": [
+        88
+      ],
+      "editor.wordWrap": "bounded",
+      "editor.wordWrapColumn": 88,
+
+      /* Enable auto-formatting for Python files. */
+      "editor.formatOnPaste": true,
+      "editor.formatOnSave": true,
+      "editor.formatOnType": true,
+    },
+
+    "[terraform]": {
+      /* Enable auto-formatting of Terraform files using official HashiCorp extension. */
+      "editor.defaultFormatter": "hashicorp.terraform",
+      "editor.formatOnPaste": true,
+      "editor.formatOnSave": true,
+      "editor.formatOnType": true,
+    },
+
+    "[typescript]": {
+      /* Re-enable auto-formatting for TypeScript files, using ESLint */
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+      "editor.formatOnPaste": true,
+      "editor.formatOnSave": true,
+      "editor.formatOnType": true,
     },
 
     /*
@@ -334,6 +429,16 @@
 
     /* Preference for quotes format in JS/TS code. */
     "js/ts.preferences.quoteStyle": "single",
+
+    /*
+    LANGUAGE-SPECIFIC SETTINGS: PYTHON
+    */
+
+    /* Disable some of Pylance's intensive features, which can crash WSL
+    on resource-limited systems. */
+    "python.languageServer": "Pylance",
+    "python.analysis.indexing": false,
+    "python.analysis.packageIndexDepths": [],
 
     /*
     GIT/SCM SETTINGS
@@ -386,6 +491,9 @@
     rather than the default Asciidoc style. This ensures the colors of the
     preview are consistent with the enabled VS Code theme. */
     "asciidoc.preview.useEditorStyle": true,
+
+    /* Allow Antora support to be enabled. */
+    "asciidoc.antora.showEnableAntoraPrompt": true,
 
     /*
     Claude Code
@@ -450,6 +558,24 @@
       "web pages",  // ✅ webpages
       "web site",   // ✅ website
       "web sites",  // ✅ websites
+    ],
+
+    /*
+    ESLint
+    https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+    */
+
+    /* Enable support for the new flat-file configuration format,
+    `eslint.config.js`, available since ESLint v8.21. */
+    "eslint.useFlatConfig": true,
+
+    /* Enable ESLint as a code formatter. */
+    "eslint.format.enable": true,
+
+    /* Enable ESLint for validation of JS and TS source files. */
+    "eslint.validate": [
+      "javascript",
+      "typescript"
     ],
 
     /*

@@ -74,10 +74,19 @@ The workspace includes a dev container configuration. To use it:
 
 1. Install the https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers[Dev Containers] extension for VS Code.
 2. Install and run Docker.
-3. Open the workspace directory in VS Code.
+3. Open the workspace in VS Code.
 4. When prompted, click **Reopen in Container**. Alternatively, use the command palette (`Ctrl+Shift+P`) and select **Dev Containers: Reopen in Container**.
 
-The container is based on Ubuntu and can be customized via `.devcontainer/Dockerfile`. Use `docker build -f .devcontainer/Dockerfile -t workspace-dev .`, from this repository's root directory, to verify image creation.
+The container is based on Ubuntu and can be customized via `.devcontainer/Dockerfile`.
+
+[TIP]
+======
+Use the following command, from this repository's root directory, to verify image creation:
+
+----
+$ docker build -f .devcontainer/Dockerfile -t workspace-dev .
+----
+======
 
 ''''
 

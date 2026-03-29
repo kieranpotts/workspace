@@ -183,9 +183,11 @@
 
     "recommendations": [
 
-      /* The following are general-purpose extensions for VS Code. Mostly,
+      /* ===
+      The following are general-purpose extensions for VS Code. Mostly,
       they extend VS COde's own functionality, rather than providing
-      capabilities for particular languages, tools, or runtime environments. */
+      capabilities for particular languages, tools, or runtimes environments.
+      === */
 
       /* Claude Code — AI-assisted programming. */
       "anthropic.claude-code",
@@ -214,9 +216,6 @@
       /* GitHub Copilot Chat */
       "github.copilot-chat",
 
-      /* GitHub Theme — GitHub-style theme for VS Code. */
-      "GitHub.github-vscode-theme",
-
       /* Live Preview — For previewing HTML builds directly in VS Code. */
       "ms-vscode.live-server",
 
@@ -226,20 +225,8 @@
       /* OpenRouter — Automatically adds OpenRouter to AI chat providers. */
       "IvanMokshin.openrouter-vscode-copilot",
 
-      /* Remote SSH — Connect to a remote machine using SSH. */
-      "ms-vscode-remote.remote-ssh",
-
-      /* Remote SSH: Editing Configuration Files — Edit SSH configuration files. */
-      "ms-vscode-remote.remote-ssh-edit",
-
-      /* Remote Repositories — Remotely browse and edit Git repositories. */
-      "ms-vscode.remote-repositories",
-
       /* Restore Editors — Quickly save and restore groups of editors. */
       "amodio.restore-editors",
-
-      /* The Ocean — My own VS Code theme. */
-      "kieranpotts.ocean-vscode-theme",
 
       /* Todo Tree — Browse TODO, FIXME and other comments. */
       "gruntfuggly.todo-tree",
@@ -260,14 +247,19 @@
       /* WSL — Open folders and workspaces from WSL. */
       "ms-vscode-remote.remote-wsl",
 
-      /* The following extensions add language servers and tools specific to
-      particular programming languages and software runtime environments. */
+      /* ===
+      The following extensions add language servers and tools specific to
+      particular programming languages and software runtime environments.
+      === */
 
       /* AsciiDoc — Provides language support for AsciiDoc. */
       "asciidoctor.asciidoctor-vscode",
 
       /* AsciiDoc Snippets — Snippets for AsciiDoc for PDF and HTML output. */
       "travismichette.adoc-snippets",
+
+      /* DotENV — Supports the dotenv file syntax. */
+      "mikestead.dotenv",
 
       /* EditorConfig — .editorconfig file support. */
       "editorconfig.editorconfig",

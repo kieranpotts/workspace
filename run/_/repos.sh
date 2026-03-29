@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# TODO: This configuration can probably be deleted,
+# using .gitmodules as the source of truth now.
+
 # List of repos. The names represent their local filesystem paths.
 repos=(
   "__TODO__"
@@ -24,6 +27,7 @@ repos=(
   "garden"
   "genies"
   "gitex"
+  "homelab"
   "interviews"
   "journal"
   "json-schema"
@@ -74,6 +78,7 @@ remote_urls["eslint-config"]="${root}/eslint-config.git"
 remote_urls["garden"]="${root}/garden.git"
 remote_urls["genies"]="${root}/genies.git"
 remote_urls["gitex"]="${root}/gitex.git"
+remote_urls["homelab"]="${root}/homelab.git"
 remote_urls["interviews"]="${root}/interviews.git"
 remote_urls["journal"]="${root}/journal.git"
 remote_urls["json-schema"]="${root}/json-schema.git"
@@ -121,6 +126,7 @@ main_branches["eslint-config"]="dev"
 main_branches["garden"]="main"
 main_branches["genies"]="dev"
 main_branches["gitex"]="dev"
+main_branches["homelab"]="dev"
 main_branches["interviews"]="main"
 main_branches["journal"]="dev"
 main_branches["json-schema"]="latest/dev"

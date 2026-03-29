@@ -90,6 +90,10 @@
       "path": "./repos/gitex"
     },
     {
+      "name": "homelab",
+      "path": "./repos/homelab"
+    },
+    {
       "name": "interviews ⛔",
       "path": "./repos/interviews"
     },

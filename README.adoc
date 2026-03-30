@@ -66,6 +66,31 @@ rm -rf repos/<repo-name>
 git rm .git/modules/repos/<repo-name>
 ----
 
+To move a submodule to a new path:
+
+[source,sh]
+----
+# Move the submodule directory.
+mv repos/<old-path> repos/<new-path>
+
+# Edit .gitmodules. Update both the `[submodule "<old-path>"]` section
+# and the `path = <old-path>` line. Update the URL if that has changed
+# on the remote server.
+
+# Sync the change.
+git submodule sync
+
+# Stage the change.
+git add .gitmodules
+
+# Optionally rename the entry in .git/config to match.
+# (`git submodule sync` should handle this, but it doesn't always work.)
+git config --list | grep submodule
+
+# Commit.
+git commit -m "dev: rename <repo>"
+----
+
 Commit the changes to `.gitmodules`.
 
 == Dev Container

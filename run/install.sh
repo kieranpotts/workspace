@@ -21,13 +21,15 @@ run_path=$(dirname "${file_path}")
 repo_path=$(dirname "${run_path}")
 
 # Change directory to the repository root directory.
-cd "${repo_path}"
+cd "${repo_path}" || exit 1
 
 # Read all submodule names from .gitmodules.
 submodules=$(git config -f .gitmodules --get-regexp '^submodule\..*\.path$' | awk '{print $2}')
 
 for submodule_path in ${submodules}; do
 
+  # shellcheck disable=SC2046
+  # shellcheck disable=SC2005
   echo $(for i in $(seq 1 80); do printf "-"; done)
 
   # Extract the submodule name from its path (eg "repos/blog" -> "blog").
@@ -43,4 +45,7 @@ for submodule_path in ${submodules}; do
 
 done
 
+# shellcheck disable=SC2046
+# shellcheck disable=SC2005
+# shellcheck disable=SC2034
 echo $(for i in $(seq 1 80); do printf "-"; done)

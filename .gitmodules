@@ -208,6 +208,11 @@
   url = git@github.com:kieranpotts/timeless.git
   branch = dev
 
+[submodule "repos/vscode-theme-lumex"]
+  path = repos/vscode-theme-lumex
+  url = git@github.com:kieranpotts/vscode-theme-lumex.git
+  branch = dev
+
 [submodule "repos/vscode-theme-ocean"]
   path = repos/vscode-theme-ocean
   url = git@github.com:kieranpotts/vscode-theme-ocean.git

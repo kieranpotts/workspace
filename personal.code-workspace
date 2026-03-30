@@ -170,6 +170,10 @@
       "path": "./repos/timeless"
     },
     {
+      "name": "vscode-theme-lumex",
+      "path": "./repos/vscode-theme-lumex"
+    },
+    {
       "name": "vscode-theme-ocean",
       "path": "./repos/vscode-theme-ocean"
     },

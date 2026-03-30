@@ -114,10 +114,6 @@
       "path": "./repos/makebook"
     },
     {
-      "name": "ocean",
-      "path": "./repos/ocean"
-    },
-    {
       "name": "papers ⛔",
       "path": "./repos/papers"
     },
@@ -172,6 +168,10 @@
     {
       "name": "timeless ⛔",
       "path": "./repos/timeless"
+    },
+    {
+      "name": "vscode-theme-ocean",
+      "path": "./repos/vscode-theme-ocean"
     },
     {
       "name": "website",

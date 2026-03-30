@@ -138,11 +138,6 @@
   url = git@github.com:kieranpotts/makebook.git
   branch = main
 
-[submodule "repos/ocean"]
-  path = repos/ocean
-  url = git@github.com:kieranpotts/ocean.git
-  branch = dev
-
 [submodule "repos/papers"]
   path = repos/papers
   url = git@github.com:kieranpotts/papers.git
@@ -211,4 +206,9 @@
 [submodule "repos/timeless"]
   path = repos/timeless
   url = git@github.com:kieranpotts/timeless.git
+  branch = dev
+
+[submodule "repos/vscode-theme-ocean"]
+  path = repos/vscode-theme-ocean
+  url = git@github.com:kieranpotts/vscode-theme-ocean.git
   branch = dev

@@ -126,6 +126,10 @@
       "path": "./repos/playbook"
     },
     {
+      "name": "popos",
+      "path": "./repos/popos"
+    },
+    {
       "name": "prototypes 🔒",
       "path": "./repos/prototypes"
     },

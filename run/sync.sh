@@ -3,8 +3,7 @@
 #
 # Synchronize all submodules: switch to each submodule's default branch,
 # pull the latest, then switch back to the original branch and restore
-# any dirty working changes. Finally, commit any updated submodule references
-# to the workspace root repository.
+# any dirty working changes.
 #
 # Make all paths relative to the root of this repository, so
 # this script can be run from any filesystem location.
@@ -39,6 +38,7 @@ for submodule_path in ${submodules}; do
 
   echo "Syncing ${name}..."
 
+  # Get the default branch for the submodule.
   branch=$(git config -f "${repo_path}/.gitmodules" --get "submodule.${submodule_path}.branch")
   echo "Default branch is ${branch}"
 
@@ -93,9 +93,3 @@ done
 # shellcheck disable=SC2005
 # shellcheck disable=SC2034
 echo $(for i in $(seq 1 80); do printf "-"; done)
-
-# Stage any updated submodule references and commit to the workspace root.
-git add repos/
-if ! git diff --cached --quiet; then
-  git commit -m "maintenance: update submodule references"
-fi

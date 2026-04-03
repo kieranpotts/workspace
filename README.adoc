@@ -4,32 +4,38 @@ This repository encapsulates all my personal code repositories as Git submodules
 
 == Requirements
 
-https://git-lfs.com/[Git LFS] SHOULD be installed before cloning the repositories. This is required to download PDFs and other large files from some repositories – but the `git clone` operation will succeed without it.
+https://git-lfs.com/[Git LFS] SHOULD be installed before cloning the repositories. This is required to download PDFs and other large files from some repositories. But the `git clone` operation will succeed without it.
 
-It is RECOMMENDED to clone and run the environment https://github.com/kieranpotts/bootstrap[bootstrapping script] first. This will install Git LFS and other dependencies of the repositories.
+It is RECOMMENDED to clone and run the environment https://github.com/kieranpotts/bootstrap[bootstrapping script] first. This will install Git LFS and other dependencies of my personal projects.
 
 == Usage
 
 NOTE: On Windows, the workspace SHOULD be established in WSL. The `devtools` repository SHOULD also be cloned directly in the host OS, manually, and optionally the `dotfiles` repository too.
 
+Start by creating an empty directory for the workspace and changing into it:
+
 [source,sh]
 ----
-# Create an empty workspace root.
 mkdir /path/to/workspace
 cd /path/to/workspace
+----
 
-# Clone the workspace repository with all its submodules.
+There are two options for cloning the workspace repository. The first option is to clone with the `--recurse-submodules` flag, which will automatically clone all my other repositories as submodules.
+
+[source,sh]
+----
 git clone --recurse-submodules git@github.com:kieranpotts/workspace.git .
 ----
 
-The `sync.sh` script will pull the latest commits on each submodule's default branch, then commit the updated references to the workspace root repository.
+However, because submodules are pinned to commits rather than branches, this command will check out the specific commits that were recorded in the parent repository at the time the submodule was added or last updated. Thus, all submodules will be checked out in a "detached HEAD" state.
+
+So the other option is to clone without the `--recurse-submodules` flag, and then run the `sync.sh` script after cloning. This will switch to, and pull the latest commits from, each submodule's default branch. that were recorded at the time
 
 [source,sh]
 ----
+git clone git@github.com:kieranpotts/workspace.git .
 bash ./run/sync.sh
 ----
-
-All repositories are cloned into the `repos/` subdirectory as Git submodules.
 
 To add a new repository to the workspace, use the following command. The `-b` flag checks out the tracked branch, while the `--force` flag allows adding to a non-empty directory.
 
@@ -43,7 +49,11 @@ git submodule add --force -b "${branch}" "${url}" "${path}"
 git submodule update --init --recursive "${path}"
 ----
 
-To remove submodules:
+However, the sync script will automatically add and initialize any submodules that are defined in `.gitmodules` but don't actually exist in the repository. So you can also just add the submodule manually to `.gitmodules` and then run the sync script.
+
+Any changes made to `.gitmodules`, whether manually or automated, should be committed.
+
+Removing submodules is a bit more involved:
 
 [source,sh]
 ----
@@ -60,7 +70,7 @@ rm -rf repos/<repo-name>
 rm -rf .git/modules/repos/<repo-name>
 ----
 
-To move a submodule to a new path:
+To move a submodule to a new path, follow these steps:
 
 [source,sh]
 ----
@@ -87,7 +97,7 @@ git commit -m "dev: rename <repo>"
 
 == Dev Container
 
-The workspace includes a dev container configuration. To use it:
+This workspace includes a dev container configuration. To use it:
 
 1. Install the https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers[Dev Containers] extension for VS Code.
 2. Install and run Docker.

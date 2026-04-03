@@ -153,6 +153,11 @@
   url = git@github.com:kieranpotts/playbook.git
   branch = dev
 
+[submodule "repos/popos"]
+  path = repos/popos
+  url = git@github.com:kieranpotts/popos.git
+  branch = dev
+
 [submodule "repos/prototypes"]
   path = repos/prototypes
   url = git@github.com:kieranpotts/prototypes.git
@@ -217,7 +222,3 @@
   path = repos/vscode-theme-ocean
   url = git@github.com:kieranpotts/vscode-theme-ocean.git
   branch = dev
-[submodule "repos/popos"]
-	path = repos/popos
-	url = git@github.com:kieranpotts/popos.git
-	branch = dev

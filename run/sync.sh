@@ -47,6 +47,19 @@ for submodule_path in ${submodules}; do
     continue
   fi
 
+  # If the submodule directory does not exist, add, init and clone it.
+  if [ ! -d "${repo_path}/${submodule_path}" ]; then
+    echo "Path does not exist, cloning ${name}..."
+
+    url=$(git config -f "${repo_path}/.gitmodules" --get "submodule.${submodule_path}.url")
+
+    # Register the submodule, and clone it.
+    git submodule add --force -b "${branch}" "${url}" "${submodule_path}"
+
+    # Handle any further nested submodules.
+    git submodule update --init --recursive "${submodule_path}"
+  fi
+
   cd "${repo_path}/${submodule_path}" || exit 1
 
   # Stash anything dirty in the working tree.

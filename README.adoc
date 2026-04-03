@@ -19,7 +19,7 @@ mkdir /path/to/workspace
 cd /path/to/workspace
 
 # Clone the workspace repository with all its submodules.
-git clone --recursive git@github.com:kieranpotts/workspace.git .
+git clone --recurse-submodules git@github.com:kieranpotts/workspace.git .
 ----
 
 If the workspace repository is already cloned, but you forgot to do it recursively, you can use the `install.sh` script to clone all the submodules.
@@ -63,7 +63,7 @@ git rm -f repos/<repo-name>
 rm -rf repos/<repo-name>
 
 # Clean-up any leftover Git configuration.
-git rm .git/modules/repos/<repo-name>
+rm -rf .git/modules/repos/<repo-name>
 ----
 
 To move a submodule to a new path:

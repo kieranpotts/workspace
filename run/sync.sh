@@ -97,5 +97,5 @@ echo $(for i in $(seq 1 80); do printf "-"; done)
 # Stage any updated submodule references and commit to the workspace root.
 git add repos/
 if ! git diff --cached --quiet; then
-  git commit -m "sync: update submodule references"
+  git commit -m "maintenance: update submodule references"
 fi

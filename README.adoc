@@ -22,14 +22,7 @@ cd /path/to/workspace
 git clone --recurse-submodules git@github.com:kieranpotts/workspace.git .
 ----
 
-If the workspace repository is already cloned, but you forgot to do it recursively, you can use the `install.sh` script to clone all the submodules.
-
-[source,sh]
-----
-bash ./run/install.sh
-----
-
-The `sync.sh` script will synchronize the default branches of all submodules with their tracked upstream branches.
+The `sync.sh` script will pull the latest commits on each submodule's default branch, then commit the updated references to the workspace root repository.
 
 [source,sh]
 ----
@@ -47,6 +40,7 @@ url="git@github.com:kieranpotts/repository-name.git"
 path="repos/repository-name"
 
 git submodule add --force -b "${branch}" "${url}" "${path}"
+git submodule update --init --recursive "${path}"
 ----
 
 To remove submodules:

@@ -1,8 +1,10 @@
 #!/bin/bash
 
 #
-# Synchronize all submodules: pull the tracked branch with rebase,
-# then push any local commits. Maintain any staged and working changes.
+# Synchronize all submodules: switch to each submodule's default branch,
+# pull the latest, then switch back to the original branch and restore
+# any dirty working changes. Finally, commit any updated submodule references
+# to the workspace root repository.
 #
 # Make all paths relative to the root of this repository, so
 # this script can be run from any filesystem location.
@@ -23,7 +25,7 @@ repo_path=$(dirname "${run_path}")
 # Change to the repository root directory.
 cd "${repo_path}" || exit 1
 
-# Read all submodule names from .gitmodules.
+# Read all submodule paths from .gitmodules.
 submodules=$(git config -f .gitmodules --get-regexp '^submodule\..*\.path$' | awk '{print $2}')
 
 for submodule_path in ${submodules}; do
@@ -31,8 +33,6 @@ for submodule_path in ${submodules}; do
   # shellcheck disable=SC2046
   # shellcheck disable=SC2005
   echo $(for i in $(seq 1 80); do printf "-"; done)
-
-  cd "${repo_path}/${submodule_path}" || exit 1
 
   # Extract the submodule name from its path (eg "repos/blog" -> "blog").
   name=$(basename "${submodule_path}")
@@ -47,8 +47,10 @@ for submodule_path in ${submodules}; do
     continue
   fi
 
+  cd "${repo_path}/${submodule_path}" || exit 1
+
   # Stash anything dirty in the working tree.
-  initial_stash_count=$(git rev-list --walk-reflogs --count refs/stash 2> /dev/null)
+  initial_stash_count=$(git rev-list --walk-reflogs --count refs/stash 2>/dev/null)
   git stash push --include-untracked
 
   initial_branch=$(git branch --show-current)
@@ -58,26 +60,19 @@ for submodule_path in ${submodules}; do
     git switch "${branch}"
   fi
 
-  upstream_branch=$(git rev-parse --abbrev-ref --symbolic-full-name @{upstream} 2>/dev/null)
-
-  if [ -n "${upstream_branch}" ]; then
-    git pull --rebase --prune
-    git push --follow-tags
-  else
-    git push --set-upstream origin HEAD --follow-tags
-  fi
+  git pull --rebase
 
   if [ "${initial_branch}" != "${branch}" ]; then
     git switch "${initial_branch}"
   fi
 
   # Restore previous stash.
-  new_stash_count=$(git rev-list --walk-reflogs --count refs/stash 2> /dev/null)
+  new_stash_count=$(git rev-list --walk-reflogs --count refs/stash 2>/dev/null)
   if [ "${new_stash_count:-0}" != "${initial_stash_count:-0}" ]; then
     git stash pop
   fi
 
-  cd "${repo_path}" || exit
+  cd "${repo_path}" || exit 1
 
 done
 
@@ -85,3 +80,9 @@ done
 # shellcheck disable=SC2005
 # shellcheck disable=SC2034
 echo $(for i in $(seq 1 80); do printf "-"; done)
+
+# Stage any updated submodule references and commit to the workspace root.
+git add repos/
+if ! git diff --cached --quiet; then
+  git commit -m "sync: update submodule references"
+fi

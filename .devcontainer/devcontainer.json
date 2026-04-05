@@ -1,5 +1,5 @@
 {
-  "name": "Personal workspace",
+  "name": "Personal Workspace",
   "runArgs": ["--name", "personal-workspace"],
   "build": {
     "dockerfile": "Dockerfile",

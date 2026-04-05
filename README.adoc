@@ -115,6 +115,8 @@ $ docker build -f .devcontainer/Dockerfile -t workspace-dev .
 ----
 ======
 
+When you first open the workspace in a new devcontainer, you may want to configure dotfiles such as `~/local.gitconfig` so you can commit from within the devcontainer. See the https://github.com/kieranpotts/dotfiles[dotfiles repository] for details.
+
 ''''
 
 Copyright © 2020-present Kieran Potts, all rights reserved.

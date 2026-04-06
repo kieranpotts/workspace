@@ -108,11 +108,6 @@
   url = git@github.com:kieranpotts/gitex.git
   branch = dev
 
-[submodule "repos/homelab"]
-  path = repos/homelab
-  url = git@github.com:kieranpotts/homelab.git
-  branch = dev
-
 [submodule "repos/interviews"]
   path = repos/interviews
   url = git@github.com:kieranpotts/interviews.git

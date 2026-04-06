@@ -198,11 +198,6 @@
   url = git@github.com:kieranpotts/tests.git
   branch = dev
 
-[submodule "repos/timeless"]
-  path = repos/timeless
-  url = git@github.com:kieranpotts/timeless.git
-  branch = dev
-
 [submodule "repos/vscode-theme-lumex"]
   path = repos/vscode-theme-lumex
   url = git@github.com:kieranpotts/vscode-theme-lumex.git

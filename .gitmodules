@@ -43,11 +43,6 @@
   url = git@github.com:kieranpotts/cheats.git
   branch = main
 
-[submodule "repos/copilot"]
-  path = repos/copilot
-  url = git@github.com:kieranpotts/copilot.git
-  branch = dev
-
 [submodule "repos/cover-letter"]
   path = repos/cover-letter
   url = git@github.com:kieranpotts/cover-letter.git

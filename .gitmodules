@@ -108,11 +108,6 @@
   url = git@github.com:kieranpotts/interviews.git
   branch = main
 
-[submodule "repos/journal"]
-  path = repos/journal
-  url = git@github.com:kieranpotts/journal.git
-  branch = dev
-
 [submodule "repos/json-schema"]
   path = repos/json-schema
   url = git@github.com:kieranpotts/json-schema.git

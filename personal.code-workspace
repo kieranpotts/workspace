@@ -106,10 +106,6 @@
       "path": "./repos/papers"
     },
     {
-      "name": "patterns",
-      "path": "./repos/patterns"
-    },
-    {
       "name": "playbook",
       "path": "./repos/playbook"
     },

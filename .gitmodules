@@ -128,11 +128,6 @@
   url = git@github.com:kieranpotts/papers.git
   branch = main
 
-[submodule "repos/patterns"]
-  path = repos/patterns
-  url = git@github.com:kieranpotts/patterns.git
-  branch = dev
-
 [submodule "repos/playbook"]
   path = repos/playbook
   url = git@github.com:kieranpotts/playbook.git

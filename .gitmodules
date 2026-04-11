@@ -31,7 +31,7 @@
 [submodule "repos/bookmarks"]
   path = repos/bookmarks
   url = git@github.com:kieranpotts/bookmarks.git
-  branch = main
+  branch = dev
 
 [submodule "repos/bootstrap"]
   path = repos/bootstrap

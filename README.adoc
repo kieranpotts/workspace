@@ -1,99 +1,70 @@
 = Workspace
 
-This repository encapsulates all my personal code repositories as Git submodules, along with shell scripts and a VS Code workspace configuration to manage them.
+This repository manages all my personal code repositories, along with scripts and a VS Code workspace configuration to manage them.
 
 == Requirements
 
 https://git-lfs.com/[Git LFS] SHOULD be installed before cloning the repositories. This is required to download PDFs and other large files from some repositories. But the `git clone` operation will succeed without it.
 
-It is RECOMMENDED to clone and run the environment https://github.com/kieranpotts/bootstrap[bootstrapping script] first. This will install Git LFS and other dependencies of my personal projects.
+It is RECOMMENDED to clone and run the environment https://github.com/kieranpotts/bootstrap[bootstrapping script] first. This will install Git LFS and other dependencies.
+
+Python 3 is required to run the management scripts. Install the Python dependencies with:
+
+[source,sh]
+----
+pip install pyyaml
+----
 
 == Usage
 
 NOTE: On Windows, the workspace SHOULD be established in WSL. The `devtools` repository SHOULD also be cloned directly in the host OS, manually, and optionally the `dotfiles` repository too.
 
-Start by creating an empty directory for the workspace and changing into it:
+Start by cloning this repository:
 
 [source,sh]
 ----
-mkdir /path/to/workspace
+git clone git@github.com:kieranpotts/workspace.git /path/to/workspace
 cd /path/to/workspace
 ----
 
-There are two options for cloning the workspace repository. The first option is to clone with the `--recurse-submodules` flag, which will automatically clone all my other repositories as submodules.
+Then clone all other repositories into the `repos/` directory:
 
 [source,sh]
 ----
-git clone --recurse-submodules git@github.com:kieranpotts/workspace.git .
+python run/clone.py
 ----
 
-However, because submodules are pinned to commits rather than branches, this command will check out the specific commits that were recorded in the parent repository at the time the submodule was added or last updated. Thus, all submodules will be checked out in a "detached HEAD" state.
+This reads `repos.yaml` and clones any repository not yet present locally. It is safe to run multiple times — already-cloned repositories are skipped.
 
-So the other option is to clone without the `--recurse-submodules` flag, and then run the `sync.sh` script after cloning. This will switch to, and pull the latest commits from, each submodule's default branch. that were recorded at the time
+To pull the latest changes across all repositories:
 
 [source,sh]
 ----
-git clone git@github.com:kieranpotts/workspace.git .
-bash ./run/sync.sh
+python run/sync.py
 ----
 
-To add a new repository to the workspace, use the following command. The `-b` flag checks out the tracked branch, while the `--force` flag allows adding to a non-empty directory.
+This also clones any missing repositories. For each existing repository it stashes any dirty working tree changes, switches to the repository's default branch (as defined in `repos.yaml`), pulls with rebase, then restores the original branch and stash.
+
+== Managing repositories
+
+All repositories are defined in `repos.yaml`. Each entry has three fields:
+
+[source,yaml]
+----
+repos:
+  - name: repository-name
+    url: git@github.com:kieranpotts/repository-name.git
+    branch: main
+----
+
+To add a repository, add an entry to `repos.yaml` and run `python run/clone.py`. To remove a repository, delete its entry from `repos.yaml` and remove the local directory:
 
 [source,sh]
 ----
-branch="dev"
-url="git@github.com:kieranpotts/repository-name.git"
-path="repos/repository-name"
-
-git submodule add --force -b "${branch}" "${url}" "${path}"
-git submodule update --init --recursive "${path}"
+rm -rf repos/<repository-name>
 ----
 
-However, the sync script will automatically add and initialize any submodules that are defined in `.gitmodules` but don't actually exist in the repository. So you can also just add the submodule manually to `.gitmodules` and then run the sync script.
-
-Any changes made to `.gitmodules`, whether manually or automated, should be committed.
-
-Removing submodules is a bit more involved:
-
-[source,sh]
-----
-# De-initialize the submodule.
-git submodule deinit -f repos/<repo-name>
-
-# Remove the entry from the `.gitmodules` file, or do this manually.
-git rm -f repos/<repo-name>
-
-# Remove the submodule directory.
-rm -rf repos/<repo-name>
-
-# Clean-up any leftover Git configuration.
-rm -rf .git/modules/repos/<repo-name>
-----
-
-To move a submodule to a new path, follow these steps:
-
-[source,sh]
-----
-# Move the submodule directory.
-mv repos/<old-path> repos/<new-path>
-
-# Edit .gitmodules. Update both the `[submodule "<old-path>"]` section
-# and the `path = <old-path>` line. Update the URL if that has changed
-# on the remote server.
-
-# Sync the change.
-git submodule sync
-
-# Stage the change.
-git add .gitmodules
-
-# Optionally rename the entry in .git/config to match.
-# (`git submodule sync` should handle this, but it doesn't always work.)
-git config --list | grep submodule
-
-# Commit.
-git commit -m "dev: rename <repo>"
-----
+Changes to `repos.yaml` should be committed.
 
 == Dev Container
 

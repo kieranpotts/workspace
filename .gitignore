@@ -10,4 +10,4 @@
 # software stacks here: https://github.com/github/gitignore
 # ==============================================================================
 
-repos/**/*
+repos/

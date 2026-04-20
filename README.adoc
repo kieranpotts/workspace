@@ -1,6 +1,6 @@
 = Workspace
 
-This repository manages all my personal code repositories, along with scripts and a VS Code workspace configuration to manage them.
+This repository manages all my personal code repositories, along with scripts and a VS Code workspace configuration to manage them. There also a devcontainer configuration to simplify the running of my whole personal workspace in a Docker container.
 
 == Requirements
 
@@ -8,11 +8,28 @@ https://git-lfs.com/[Git LFS] SHOULD be installed before cloning the repositorie
 
 It is RECOMMENDED to clone and run the environment https://github.com/kieranpotts/bootstrap[bootstrapping script] first. This will install Git LFS and other dependencies.
 
-Python 3 is required to run the management scripts. Install the Python dependencies with:
+Python 3 is required to run the management scripts. Create and activate a virtual environment, then install the dependencies:
 
 [source,sh]
 ----
-pip install pyyaml
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+----
+
+The `.venv` directory is excluded from version control. The `python3 -m venv` and `pip install` steps are one-time operations. However, the virtual environment must be re-activated in each new shell session:
+
+[source,sh]
+----
+source .venv/bin/activate
+----
+
+Alternatively, scripts can be invoked directly without activation:
+
+[source,sh]
+----
+.venv/bin/python run/clone.py
+.venv/bin/python run/sync.py
 ----
 
 == Usage

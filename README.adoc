@@ -1,6 +1,10 @@
-= Workspace
+= Root
 
-This repository manages all my personal code repositories, along with scripts and a VS Code workspace configuration to manage them. There also a devcontainer configuration to simplify the running of my whole personal workspace in a Docker container.
+This repository serves as the root for all my personal code repositories. It includes:
+
+* Scripts to automate the cloning and synchronization of all my personal software projects.
+* A VS Code workspace configuration.
+* A devcontainer to simplify the running of my whole personal workspace in an isolated environment.
 
 == Requirements
 
@@ -40,8 +44,8 @@ Start by cloning this repository:
 
 [source,sh]
 ----
-git clone git@github.com:kieranpotts/workspace.git /path/to/workspace
-cd /path/to/workspace
+git clone git@github.com:kieranpotts/root.git /path/to/my-personal-workspace
+cd /path/to/my-personal-workspace
 ----
 
 Then clone all other repositories into the `repos/` directory:
@@ -85,11 +89,11 @@ Changes to `repos.yaml` should be committed.
 
 == Dev Container
 
-This workspace includes a dev container configuration. To use it:
+The load the workspace in the devcontainer:
 
 1. Install the https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers[Dev Containers] extension for VS Code.
 2. Install and run Docker.
-3. Open the workspace in VS Code.
+3. Open the workspace in VS Code as normal.
 4. When prompted, click **Reopen in Container**. Alternatively, use the command palette (`Ctrl+Shift+P`) and select **Dev Containers: Reopen in Container**.
 
 The container is based on Ubuntu and can be customized via `.devcontainer/Dockerfile`.
@@ -99,7 +103,7 @@ The container is based on Ubuntu and can be customized via `.devcontainer/Docker
 Use the following command, from this repository's root directory, to verify image creation:
 
 ----
-$ docker build -f .devcontainer/Dockerfile -t workspace-dev .
+$ docker build -f .devcontainer/Dockerfile -t personal-workspace .
 ----
 ======
 

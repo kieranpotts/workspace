@@ -159,6 +159,3 @@ repos:
     url: git@github.com:kieranpotts/vscode-theme-ocean.git
     branch: dev
 
-  - name: website
-    url: git@github.com:kieranpotts/website.git
-    branch: main

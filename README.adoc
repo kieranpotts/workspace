@@ -66,6 +66,8 @@ python3 run/sync.py
 
 This also clones any missing repositories. For each existing repository it stashes any dirty working tree changes, switches to the repository's default branch (as defined in `repos.yaml`), pulls with rebase, then restores the original branch and stash.
 
+The `sync.py` script does not sync the root repository itself. Run `git pull` to do that in the normal way.
+
 == Managing repositories
 
 All repositories are defined in `repos.yaml`. Each entry has three fields:

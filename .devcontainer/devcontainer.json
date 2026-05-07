@@ -4,5 +4,7 @@
   "build": {
     "dockerfile": "Dockerfile",
     "context": ".."
-  }
+  },
+  "remoteUser": "root",
+  "updateRemoteUserUID": true
 }

@@ -100,6 +100,8 @@ The load the workspace in the devcontainer:
 
 The container is based on Ubuntu and can be customized via `.devcontainer/Dockerfile`.
 
+If you see permission errors when saving mounted files or if Git creates root-owned files under `.git`, rebuild the devcontainer after updating the Dockerfile. The container is configured to run as a non-root `vscode` user with a matching host UID/GID to avoid ownership mismatches.
+
 [TIP]
 ======
 Use the following command, from this repository's root directory, to verify image creation:

@@ -55,8 +55,8 @@ repos:
     url: git@github.com:kieranpotts/dictionary.git
     branch: main
 
-  - name: docker-devenv
-    url: git@github.com:kieranpotts/docker-devenv.git
+  - name: docker-devcontainer
+    url: git@github.com:kieranpotts/docker-devcontainer.git
     branch: dev
 
   - name: docker-latex

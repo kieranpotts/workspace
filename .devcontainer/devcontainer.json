@@ -9,7 +9,7 @@
       "USER_GID": "${localEnv:GID}"
     }
   },
-  "remoteUser": "vscode",
+  "remoteUser": "code",
   "workspaceFolder": "/workspace",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
 }

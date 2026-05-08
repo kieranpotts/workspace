@@ -3,6 +3,13 @@
   "runArgs": ["--name", "personal-workspace"],
   "build": {
     "dockerfile": "Dockerfile",
-    "context": ".."
-  }
+    "context": "..",
+    "args": {
+      "USER_UID": "${localEnv:UID}",
+      "USER_GID": "${localEnv:GID}"
+    }
+  },
+  "remoteUser": "vscode",
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
 }

@@ -111,7 +111,7 @@ $ docker build -f .devcontainer/Dockerfile -t personal-workspace .
 ----
 ======
 
-When you first open the workspace in a new devcontainer, you may want to configure dotfiles such as `~/local.gitconfig` so you can commit from within the devcontainer. See the https://github.com/kieranpotts/dotfiles[dotfiles repository] for details.
+When you first open the workspace in a new devcontainer, you may want to configure dotfiles such as `~/local.gitconfig` so you can commit from within the devcontainer. See the https://github.com/kieranpotts/dotfiles[dotfiles repository] for details. You will also need to install VS Code extensions in the devcontainer.
 
 ''''
 

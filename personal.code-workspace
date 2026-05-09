@@ -78,7 +78,7 @@
       "path": "./repos/garden"
     },
     {
-      "name": "genies",
+      "name": "genies 🔒",
       "path": "./repos/genies"
     },
     {
@@ -426,6 +426,7 @@
     "git.ignoredRepositories": [
       "/home/kieran/dev/kieranpotts/repos/devboxes",
       "/home/kieran/dev/kieranpotts/repos/eslint-config",
+      "/home/kieran/dev/kieranpotts/repos/genies",
       "/home/kieran/dev/kieranpotts/repos/makebook",
       "/home/kieran/dev/kieranpotts/repos/prototypes",
       "/home/kieran/dev/kieranpotts/repos/rfcs",

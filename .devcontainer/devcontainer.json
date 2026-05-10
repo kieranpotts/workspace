@@ -1,6 +1,6 @@
 {
   "name": "Personal Workspace",
-  "runArgs": ["--name", "personal-workspace", "--network", "ollama"],
+  "runArgs": ["--name", "personal-workspace"],
   "build": {
     "dockerfile": "Dockerfile",
     "context": "..",

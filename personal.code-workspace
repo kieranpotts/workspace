@@ -215,6 +215,9 @@
       /* GitHub Copilot Chat */
       "github.copilot-chat",
 
+      /* Kilo Code — Another AI agent extension. */
+      "kilocode.kilo-code",
+
       /* Live Preview — For previewing HTML builds directly in VS Code. */
       "ms-vscode.live-server",
 

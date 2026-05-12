@@ -186,6 +186,9 @@
       /* Code Spell Checker — Spelling checker for all source code. */
       "streetsidesoftware.code-spell-checker",
 
+      /* Codex — OpenAI's coding agent. */
+      "openai.chatgpt",
+
       /* Continue — Open source coding agent. */
       "Continue.continue",
 

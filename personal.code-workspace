@@ -224,9 +224,6 @@
       /* Lorem Ipsum — Generates placeholder text. */
       "tyriar.lorem-ipsum",
 
-      /* OpenRouter — Automatically adds OpenRouter to AI chat providers. */
-      "IvanMokshin.openrouter-vscode-copilot",
-
       /* Restore Editors — Quickly save and restore groups of editors. */
       "amodio.restore-editors",
 

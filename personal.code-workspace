@@ -282,7 +282,10 @@
       "be5invis.toml",
 
       /* Vim Language, Vim Script — VimL language support . */
-      "xadillax.viml"
+      "xadillax.viml",
+
+      /* YAML support. */
+      "redhat.vscode-yaml",
 
     ]
   },

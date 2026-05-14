@@ -114,6 +114,10 @@
       "path": "./repos/popos"
     },
     {
+      "name": "pre-commit-hooks",
+      "path": "./repos/pre-commit-hooks"
+    },
+    {
       "name": "prototypes 🔒",
       "path": "./repos/prototypes"
     },

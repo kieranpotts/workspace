@@ -111,6 +111,10 @@ repos:
     url: git@github.com:kieranpotts/popos.git
     branch: dev
 
+  - name: pre-commit-hooks
+    url: git@github.com:kieranpotts/pre-commit-hooks.git
+    branch: dev
+
   - name: prototypes
     url: git@github.com:kieranpotts/prototypes.git
     branch: main

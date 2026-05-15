@@ -98,6 +98,8 @@ The load the workspace in the devcontainer:
 3. Open the workspace in VS Code as normal.
 4. When prompted, click **Reopen in Container**. Alternatively, use the command palette (`Ctrl+Shift+P`) and select **Dev Containers: Reopen in Container**.
 
+Use the **rebuild** options to bump the underlying image to the latest release.
+
 The container is based on Ubuntu and can be customized via `.devcontainer/Dockerfile`.
 
 If you see permission errors when saving mounted files or if Git creates root-owned files under `.git`, rebuild the devcontainer after updating the Dockerfile. The container is configured to run as a non-root `vscode` user with a matching host UID/GID to avoid ownership mismatches.

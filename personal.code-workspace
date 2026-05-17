@@ -450,15 +450,16 @@
     */
 
     /* Remove archived repositories (🔒) from VS Code's built-in Git GUI – you
-    can't push to these anyway. This setting requires absolute paths. */
+    can't push to these anyway. This setting requires absolute paths -
+    ${workspaceFolder} doesn't work, unfortunately. */
     "git.ignoredRepositories": [
-      "${workspaceFolder}/repos/devboxes",
-      "${workspaceFolder}/repos/eslint-config",
-      "${workspaceFolder}/repos/genies",
-      "${workspaceFolder}/repos/makebook",
-      "${workspaceFolder}/repos/prototypes",
-      "${workspaceFolder}/repos/rfcs",
-      "${workspaceFolder}/repos/sh",
+      "/home/kieran/dev/kieranpotts/repos/devboxes",
+      "/home/kieran/dev/kieranpotts/repos/eslint-config",
+      "/home/kieran/dev/kieranpotts/repos/genies",
+      "/home/kieran/dev/kieranpotts/repos/makebook",
+      "/home/kieran/dev/kieranpotts/repos/prototypes",
+      "/home/kieran/dev/kieranpotts/repos/rfcs",
+      "/home/kieran/dev/kieranpotts/repos/sh",
     ],
 
     /* Don't automatically detect submodules. */

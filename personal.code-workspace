@@ -442,13 +442,13 @@
     can't push to these anyway. This setting requires absolute paths -
     ${workspaceFolder} doesn't work, unfortunately. */
     "git.ignoredRepositories": [
-      "/home/kieran/dev/kieranpotts/repos/devboxes",
-      "/home/kieran/dev/kieranpotts/repos/eslint-config",
-      "/home/kieran/dev/kieranpotts/repos/genies",
-      "/home/kieran/dev/kieranpotts/repos/makebook",
-      "/home/kieran/dev/kieranpotts/repos/prototypes",
-      "/home/kieran/dev/kieranpotts/repos/rfcs",
-      "/home/kieran/dev/kieranpotts/repos/sh",
+      "/home/kieran/dev/personal/repos/kieranpotts/devboxes",
+      "/home/kieran/dev/personal/repos/kieranpotts/eslint-config",
+      "/home/kieran/dev/personal/repos/kieranpotts/genies",
+      "/home/kieran/dev/personal/repos/kieranpotts/makebook",
+      "/home/kieran/dev/personal/repos/kieranpotts/prototypes",
+      "/home/kieran/dev/personal/repos/kieranpotts/rfcs",
+      "/home/kieran/dev/personal/repos/kieranpotts/sh",
     ],
 
     /* Don't automatically detect submodules. */

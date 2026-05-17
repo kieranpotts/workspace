@@ -102,6 +102,10 @@
       "path": "./repos/makebook"
     },
     {
+      "name": "notes ⛔",
+      "path": "./repos/notes"
+    },
+    {
       "name": "papers ⛔",
       "path": "./repos/papers"
     },

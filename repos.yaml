@@ -97,7 +97,10 @@ repos:
 
   - name: makebook
     url: git@github.com:kieranpotts/makebook.git
-    branch: main
+
+  - name: notes
+    url: git@github.com:kieranpotts/notes.git
+    branch: dev
 
   - name: papers
     url: git@github.com:kieranpotts/papers.git

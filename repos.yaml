@@ -162,3 +162,11 @@ repos:
   - name: kieranpotts/vscode-theme-ocean
     url: git@github.com:kieranpotts/vscode-theme-ocean.git
     branch: dev
+
+  - name: srcflow/srcflow
+    url: git@github.com:srcflow/srcflow.git
+    branch: dev
+
+  - name: srcflow/sh
+    url: git@github.com:srcflow/sh.git
+    branch: dev

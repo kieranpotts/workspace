@@ -40,6 +40,12 @@ def current_branch(repo_dir: Path) -> str:
     return run(["git", "branch", "--show-current"], repo_dir).stdout.strip()
 
 
+def is_branch_diverged(repo_dir: Path, branch: str) -> bool:
+    """Check if local branch has diverged from remote."""
+    result = run(["git", "rev-list", "--left-right", f"HEAD...origin/{branch}"], repo_dir)
+    return result.returncode == 0 and result.stdout.strip() != ""
+
+
 def sync_repo(name: str, url: str, branch: str, dest: Path) -> bool:
     print(SEP)
     print(name)
@@ -48,9 +54,13 @@ def sync_repo(name: str, url: str, branch: str, dest: Path) -> bool:
         print(f"  Not cloned yet — cloning from {url} (branch: {branch}) ...")
         result = run(["git", "clone", "--branch", branch, url, str(dest)], WORKSPACE)
         if result.returncode != 0:
-            print(f"  FAILED to clone: {result.stderr.strip()}", file=sys.stderr)
+            error_msg = result.stderr.strip()
+            print(f"  ❌ FAILED to clone: {error_msg}", file=sys.stderr)
+            # Clean up partial clone
+            import shutil
+            shutil.rmtree(dest, ignore_errors=True)
             return False
-        print("  Done.")
+        print("  ✓ Done.")
         return True
 
     print(f"  Default branch: {branch}")
@@ -64,22 +74,30 @@ def sync_repo(name: str, url: str, branch: str, dest: Path) -> bool:
         print(f"  Switching from '{original_branch}' to '{branch}' ...")
         result = run(["git", "switch", branch], dest)
         if result.returncode != 0:
-            print(f"  FAILED to switch branch: {result.stderr.strip()}", file=sys.stderr)
+            error_msg = result.stderr.strip()
+            print(f"  ❌ FAILED to switch branch: {error_msg}", file=sys.stderr)
+            print(f"     Your current branch '{original_branch}' may have diverged.", file=sys.stderr)
+            print(f"     Check the repository manually: cd {dest}", file=sys.stderr)
             _restore_stash(dest, before_stash)
             return False
 
     print("  Pulling (rebase) ...")
     result = run(["git", "pull", "--rebase"], dest)
     if result.returncode != 0:
-        print(f"  FAILED to pull: {result.stderr.strip()}", file=sys.stderr)
+        error_msg = result.stderr.strip()
+        print(f"  ❌ FAILED to pull: {error_msg}", file=sys.stderr)
+        print(f"     Possible causes: network error, merge conflicts, or diverged branch.", file=sys.stderr)
+        print(f"     Check the repository manually: cd {dest}", file=sys.stderr)
         _restore_stash(dest, before_stash)
         return False
 
-    print("  Up to date.")
+    print("  ✓ Up to date.")
 
     if original_branch != branch:
         print(f"  Switching back to '{original_branch}' ...")
-        run(["git", "switch", original_branch], dest)
+        result = run(["git", "switch", original_branch], dest)
+        if result.returncode != 0:
+            print(f"  ⚠️  Warning: Could not switch back to '{original_branch}'.", file=sys.stderr)
 
     _restore_stash(dest, before_stash)
     return True
@@ -87,10 +105,15 @@ def sync_repo(name: str, url: str, branch: str, dest: Path) -> bool:
 
 def _restore_stash(repo_dir: Path, before: int) -> None:
     if stash_count(repo_dir) != before:
-        run(["git", "stash", "pop"], repo_dir)
+        result = run(["git", "stash", "pop"], repo_dir)
+        if result.returncode != 0:
+            print(f"  ⚠️  Warning: Stash pop failed. Stashed changes may need manual recovery.", file=sys.stderr)
 
 
 def main() -> int:
+    # Ensure repos directory exists
+    REPOS_DIR.mkdir(parents=True, exist_ok=True)
+
     with open(MANIFEST) as f:
         config = yaml.safe_load(f)
 
@@ -112,6 +135,10 @@ def main() -> int:
 
     print(SEP)
     print(f"Synced: {ok}  |  Failed: {failed}")
+
+    if failed > 0:
+        print(f"\n⚠️  {failed} repository/repositories failed to sync.", file=sys.stderr)
+        print("    Run the script again to retry — successful syncs are skipped.", file=sys.stderr)
 
     return 1 if failed else 0
 

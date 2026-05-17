@@ -17,7 +17,7 @@ repos:
 
   - name: avatar
     url: git@github.com:kieranpotts/avatar.git
-    branch: dev
+    branch: latest/dev
 
   - name: blog
     url: git@github.com:kieranpotts/blog.git
@@ -81,7 +81,7 @@ repos:
 
   - name: gitex
     url: git@github.com:kieranpotts/gitex.git
-    branch: dev
+    branch: latest/dev
 
   - name: interviews
     url: git@github.com:kieranpotts/interviews.git
@@ -166,4 +166,3 @@ repos:
   - name: vscode-theme-ocean
     url: git@github.com:kieranpotts/vscode-theme-ocean.git
     branch: dev
-

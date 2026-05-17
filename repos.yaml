@@ -1,168 +1,168 @@
 repos:
-  - name: __TODO__
+  - name: kieranpotts/__TODO__
     url: git@github.com:kieranpotts/__TODO__.git
     branch: main
 
-  - name: .github
+  - name: kieranpotts/.github
     url: git@github.com:kieranpotts/.github.git
     branch: dev
 
-  - name: actions
+  - name: kieranpotts/actions
     url: git@github.com:kieranpotts/actions.git
     branch: dev
 
-  - name: asciibook
+  - name: kieranpotts/asciibook
     url: git@github.com:kieranpotts/asciibook.git
     branch: dev
 
-  - name: avatar
+  - name: kieranpotts/avatar
     url: git@github.com:kieranpotts/avatar.git
     branch: latest/dev
 
-  - name: blog
+  - name: kieranpotts/blog
     url: git@github.com:kieranpotts/blog.git
     branch: latest/dev
 
-  - name: bookmarks
+  - name: kieranpotts/bookmarks
     url: git@github.com:kieranpotts/bookmarks.git
     branch: dev
 
-  - name: bootstrap
+  - name: kieranpotts/bootstrap
     url: git@github.com:kieranpotts/bootstrap.git
     branch: dev
 
-  - name: cheats
+  - name: kieranpotts/cheats
     url: git@github.com:kieranpotts/cheats.git
     branch: dev
 
-  - name: cover-letter
+  - name: kieranpotts/cover-letter
     url: git@github.com:kieranpotts/cover-letter.git
     branch: dev
 
-  - name: designs
+  - name: kieranpotts/designs
     url: git@github.com:kieranpotts/designs.git
     branch: dev
 
-  - name: devboxes
+  - name: kieranpotts/devboxes
     url: git@github.com:kieranpotts/devboxes.git
     branch: archive
 
-  - name: devtools
+  - name: kieranpotts/devtools
     url: git@github.com:kieranpotts/devtools.git
     branch: dev
 
-  - name: dictionary
+  - name: kieranpotts/dictionary
     url: git@github.com:kieranpotts/dictionary.git
     branch: dev
 
-  - name: docker-devcontainer
+  - name: kieranpotts/docker-devcontainer
     url: git@github.com:kieranpotts/docker-devcontainer.git
     branch: dev
 
-  - name: docker-latex
+  - name: kieranpotts/docker-latex
     url: git@github.com:kieranpotts/docker-latex.git
     branch: dev
 
-  - name: dotfiles
+  - name: kieranpotts/dotfiles
     url: git@github.com:kieranpotts/dotfiles.git
     branch: dev
 
-  - name: eslint-config
+  - name: kieranpotts/eslint-config
     url: git@github.com:kieranpotts/eslint-config.git
     branch: dev
 
-  - name: garden
+  - name: kieranpotts/garden
     url: git@github.com:kieranpotts/garden.git
     branch: dev
 
-  - name: genies
+  - name: kieranpotts/genies
     url: git@github.com:kieranpotts/genies.git
     branch: dev
 
-  - name: gitex
+  - name: kieranpotts/gitex
     url: git@github.com:kieranpotts/gitex.git
     branch: latest/dev
 
-  - name: interviews
+  - name: kieranpotts/interviews
     url: git@github.com:kieranpotts/interviews.git
     branch: dev
 
-  - name: json-schema
+  - name: kieranpotts/json-schema
     url: git@github.com:kieranpotts/json-schema.git
     branch: latest/dev
 
-  - name: kieranpotts
+  - name: kieranpotts/kieranpotts
     url: git@github.com:kieranpotts/kieranpotts.git
     branch: dev
 
-  - name: makebook
+  - name: kieranpotts/makebook
     url: git@github.com:kieranpotts/makebook.git
     branch: archive
 
-  - name: notes
+  - name: kieranpotts/notes
     url: git@github.com:kieranpotts/notes.git
     branch: dev
 
-  - name: papers
+  - name: kieranpotts/papers
     url: git@github.com:kieranpotts/papers.git
     branch: dev
 
-  - name: playbook
+  - name: kieranpotts/playbook
     url: git@github.com:kieranpotts/playbook.git
     branch: dev
 
-  - name: popos
+  - name: kieranpotts/popos
     url: git@github.com:kieranpotts/popos.git
     branch: dev
 
-  - name: pre-commit-hooks
+  - name: kieranpotts/pre-commit-hooks
     url: git@github.com:kieranpotts/pre-commit-hooks.git
     branch: dev
 
-  - name: prototypes
+  - name: kieranpotts/prototypes
     url: git@github.com:kieranpotts/prototypes.git
     branch: archive
 
-  - name: resume
+  - name: kieranpotts/resume
     url: git@github.com:kieranpotts/resume.git
     branch: v2/dev
 
-  - name: rfcs
+  - name: kieranpotts/rfcs
     url: git@github.com:kieranpotts/rfcs.git
     branch: main
 
-  - name: secrets
+  - name: kieranpotts/secrets
     url: git@github.com:kieranpotts/secrets.git
     branch: dev
 
-  - name: sh
+  - name: kieranpotts/sh
     url: git@github.com:kieranpotts/sh.git
     branch: archive
 
-  - name: skills
+  - name: kieranpotts/skills
     url: git@github.com:kieranpotts/skills.git
     branch: dev
 
-  - name: standards
+  - name: kieranpotts/standards
     url: git@github.com:kieranpotts/standards.git
     branch: dev
 
-  - name: style-guide
+  - name: kieranpotts/style-guide
     url: git@github.com:kieranpotts/style-guide.git
     branch: dev
 
-  - name: template
+  - name: kieranpotts/template
     url: git@github.com:kieranpotts/template.git
     branch: dev
 
-  - name: tests
+  - name: kieranpotts/tests
     url: git@github.com:kieranpotts/tests.git
     branch: dev
 
-  - name: vscode-theme-lumex
+  - name: kieranpotts/vscode-theme-lumex
     url: git@github.com:kieranpotts/vscode-theme-lumex.git
     branch: dev
 
-  - name: vscode-theme-ocean
+  - name: kieranpotts/vscode-theme-ocean
     url: git@github.com:kieranpotts/vscode-theme-ocean.git
     branch: dev

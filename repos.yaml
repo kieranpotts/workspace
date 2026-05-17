@@ -131,10 +131,6 @@ repos:
     url: git@github.com:kieranpotts/rfcs.git
     branch: main
 
-  - name: kieranpotts/secrets
-    url: git@github.com:kieranpotts/secrets.git
-    branch: dev
-
   - name: kieranpotts/sh
     url: git@github.com:kieranpotts/sh.git
     branch: archive

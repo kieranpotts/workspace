@@ -173,6 +173,14 @@
       "name": "kieranpotts / website 📝",
       "path": "./repos/kieranpotts/website"
     },
+    {
+      "name": "srcflow / srcflow 📝",
+      "path": "./repos/srcflow/srcflow"
+    },
+    {
+      "name": "srcflow / sh 📝",
+      "path": "./repos/srcflow/sh"
+    },
   ],
 
   "extensions": {

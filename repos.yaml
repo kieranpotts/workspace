@@ -17,11 +17,11 @@ repos:
 
   - name: avatar
     url: git@github.com:kieranpotts/avatar.git
-    branch: main
+    branch: dev
 
   - name: blog
     url: git@github.com:kieranpotts/blog.git
-    branch: main
+    branch: latest/dev
 
   - name: bookmarks
     url: git@github.com:kieranpotts/bookmarks.git
@@ -33,19 +33,19 @@ repos:
 
   - name: cheats
     url: git@github.com:kieranpotts/cheats.git
-    branch: main
+    branch: dev
 
   - name: cover-letter
     url: git@github.com:kieranpotts/cover-letter.git
-    branch: main
+    branch: dev
 
   - name: designs
     url: git@github.com:kieranpotts/designs.git
-    branch: main
+    branch: dev
 
   - name: devboxes
     url: git@github.com:kieranpotts/devboxes.git
-    branch: main
+    branch: archive
 
   - name: devtools
     url: git@github.com:kieranpotts/devtools.git
@@ -53,7 +53,7 @@ repos:
 
   - name: dictionary
     url: git@github.com:kieranpotts/dictionary.git
-    branch: main
+    branch: dev
 
   - name: docker-devcontainer
     url: git@github.com:kieranpotts/docker-devcontainer.git
@@ -73,7 +73,7 @@ repos:
 
   - name: garden
     url: git@github.com:kieranpotts/garden.git
-    branch: main
+    branch: dev
 
   - name: genies
     url: git@github.com:kieranpotts/genies.git
@@ -85,7 +85,7 @@ repos:
 
   - name: interviews
     url: git@github.com:kieranpotts/interviews.git
-    branch: main
+    branch: dev
 
   - name: json-schema
     url: git@github.com:kieranpotts/json-schema.git
@@ -97,6 +97,7 @@ repos:
 
   - name: makebook
     url: git@github.com:kieranpotts/makebook.git
+    branch: archive
 
   - name: notes
     url: git@github.com:kieranpotts/notes.git
@@ -104,7 +105,7 @@ repos:
 
   - name: papers
     url: git@github.com:kieranpotts/papers.git
-    branch: main
+    branch: dev
 
   - name: playbook
     url: git@github.com:kieranpotts/playbook.git
@@ -120,7 +121,7 @@ repos:
 
   - name: prototypes
     url: git@github.com:kieranpotts/prototypes.git
-    branch: main
+    branch: archive
 
   - name: resume
     url: git@github.com:kieranpotts/resume.git
@@ -136,7 +137,7 @@ repos:
 
   - name: sh
     url: git@github.com:kieranpotts/sh.git
-    branch: main
+    branch: archive
 
   - name: skills
     url: git@github.com:kieranpotts/skills.git

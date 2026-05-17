@@ -163,6 +163,10 @@ repos:
     url: git@github.com:kieranpotts/vscode-theme-ocean.git
     branch: dev
 
+  - name: kieranpotts/website
+    url: git@github.com:kieranpotts/website.git
+    branch: dev
+
   - name: srcflow/srcflow
     url: git@github.com:srcflow/srcflow.git
     branch: dev

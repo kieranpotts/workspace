@@ -168,7 +168,11 @@
     {
       "name": "kieranpotts / vscode-theme-ocean",
       "path": "./repos/kieranpotts/vscode-theme-ocean"
-    }
+    },
+    {
+      "name": "kieranpotts / website 📝",
+      "path": "./repos/kieranpotts/website"
+    },
   ],
 
   "extensions": {

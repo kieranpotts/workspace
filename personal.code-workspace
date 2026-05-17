@@ -217,12 +217,6 @@
       /* Git History — Adds a minimal `git log` panel. */
       "guodongsun.vscode-git-cruise",
 
-      /* GitHub Copilot — AI-assisted programming. */
-      "github.copilot",
-
-      /* GitHub Copilot Chat */
-      "github.copilot-chat",
-
       /* Kilo Code — Another AI agent extension. */
       "kilocode.kilo-code",
 

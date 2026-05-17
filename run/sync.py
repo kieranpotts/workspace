@@ -53,10 +53,18 @@ def sync_repo(name: str, url: str, branch: str, dest: Path) -> bool:
     if not dest.exists():
         print(f"  Not cloned yet — cloning from {url} (branch: {branch}) ...")
         result = run(["git", "clone", "--branch", branch, url, str(dest)], WORKSPACE)
+
+        # Branch may not exist yet (e.g., repo has no commits, or only its default branch).
+        # Fall back to cloning without specifying a branch.
+        if result.returncode != 0 and "Remote branch" in result.stderr and "not found" in result.stderr:
+            import shutil
+            shutil.rmtree(dest, ignore_errors=True)
+            print(f"  Branch '{branch}' not found on remote — cloning without branch ...")
+            result = run(["git", "clone", url, str(dest)], WORKSPACE)
+
         if result.returncode != 0:
             error_msg = result.stderr.strip()
             print(f"  ❌ FAILED to clone: {error_msg}", file=sys.stderr)
-            # Clean up partial clone
             import shutil
             shutil.rmtree(dest, ignore_errors=True)
             return False

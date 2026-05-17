@@ -51,13 +51,24 @@ def main() -> int:
             text=True,
         )
 
+        # Branch may not exist yet (e.g., repo has no commits, or only its default branch).
+        # Fall back to cloning without specifying a branch.
+        if result.returncode != 0 and "Remote branch" in result.stderr and "not found" in result.stderr:
+            import shutil
+            shutil.rmtree(dest, ignore_errors=True)
+            print(f"  Branch '{branch}' not found on remote — cloning without branch ...")
+            result = subprocess.run(
+                ["git", "clone", url, str(dest)],
+                capture_output=True,
+                text=True,
+            )
+
         if result.returncode == 0:
             print("  Done.")
             cloned += 1
         else:
             error_msg = result.stderr.strip()
             print(f"  FAILED: {error_msg}", file=sys.stderr)
-            # Clean up partial clone on failure
             if dest.exists():
                 import shutil
                 shutil.rmtree(dest, ignore_errors=True)

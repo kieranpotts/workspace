@@ -209,11 +209,6 @@
       /* Fold Plus — Additional code folding commands. */
       "dakara.dakara-foldplus",
 
-      /* Foundry Toolkit — Formerly "AI Toolkit", this is an extension pack
-      building AI agents and workflows in Microsoft/Azure Foundry, a
-      platform-as-a-service for custom AI tools. */
-      "ms-windows-ai-studio.windows-ai-studio",
-
       /* Git History — Adds a minimal `git log` panel. */
       "guodongsun.vscode-git-cruise",
 

@@ -1,99 +1,91 @@
-= Root
+# Root
 
 This repository serves as the root for all my personal code repositories. It includes:
 
-* Scripts to automate the cloning and synchronization of all my personal software projects.
-* A VS Code workspace configuration.
-* A devcontainer to simplify the running of my whole personal workspace in an isolated environment.
+- Scripts to automate the cloning and synchronization of all my personal software projects.
+- A VS Code workspace configuration.
+- A devcontainer to simplify the running of my whole personal workspace in an isolated environment.
 
-== Requirements
+## Requirements
 
-https://git-lfs.com/[Git LFS] SHOULD be installed before cloning the repositories. This is required to download PDFs and other large files from some repositories. But the `git clone` operation will succeed without it.
+[Git LFS](https://git-lfs.com/) SHOULD be installed before cloning the repositories. This is required to download PDFs and other large files from some repositories. But the `git clone` operation will succeed without it.
 
-It is RECOMMENDED to clone and run the environment https://github.com/kieranpotts/bootstrap[bootstrapping script] first. This will install Git LFS and other dependencies.
+It is RECOMMENDED to clone and run the environment [bootstrapping script](https://github.com/kieranpotts/bootstrap) first. This will install Git LFS and other dependencies.
 
 Python 3 is required to run the management scripts. Create and activate a virtual environment, then install the dependencies:
 
-[source,sh]
-----
+```sh
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-----
+```
 
 The `.venv` directory is excluded from version control. The `python3 -m venv` and `pip install` steps are one-time operations. However, the virtual environment must be re-activated in each new shell session:
 
-[source,sh]
-----
+```sh
 source .venv/bin/activate
-----
+```
 
 Alternatively, scripts can be invoked directly without activation:
 
-[source,sh]
-----
+```sh
 .venv/bin/python run/clone.py
 .venv/bin/python run/sync.py
-----
+```
 
-== Usage
+## Usage
 
-NOTE: On Windows, the workspace SHOULD be established in WSL. The `devtools` repository SHOULD also be cloned directly in the host OS, manually, and optionally the `dotfiles` repository too.
+> **Note:** On Windows, the workspace SHOULD be established in WSL. The `devtools` repository SHOULD also be cloned directly in the host OS, manually, and optionally the `dotfiles` repository too.
 
 Start by cloning this repository:
 
-[source,sh]
-----
+```sh
 git clone git@github.com:kieranpotts/root.git /path/to/my-personal-workspace
 cd /path/to/my-personal-workspace
-----
+```
 
 Then clone all other repositories into the `repos/` directory:
 
-[source,sh]
-----
+```sh
 python3 run/clone.py
-----
+```
 
 This reads `repos.yaml` and clones any repository not yet present locally. It is safe to run multiple times — already-cloned repositories are skipped.
 
 To pull the latest changes across all repositories:
 
-[source,sh]
-----
+```sh
 python3 run/sync.py
-----
+```
 
 This also clones any missing repositories. For each existing repository it stashes any dirty working tree changes, switches to the repository's default branch (as defined in `repos.yaml`), pulls with rebase, then restores the original branch and stash.
 
 The `sync.py` script does not sync the root repository itself. Run `git pull` to do that in the normal way.
 
-== Managing repositories
+## Managing repositories
 
 All repositories are defined in `repos.yaml`. Each entry has three fields:
 
-[source,yaml]
-----
+```yaml
 repos:
   - name: repository-name
     url: git@github.com:kieranpotts/repository-name.git
     branch: main
-----
+```
 
 To add a repository, add an entry to `repos.yaml` and run `python3 run/clone.py`. To remove a repository, delete its entry from `repos.yaml` and remove the local directory:
 
-[source,sh]
-----
+```sh
 rm -rf repos/<repository-name>
-----
+```
 
 Changes to `repos.yaml` should be committed.
 
-== Dev Container
+## Dev Container
 
-The load the workspace in the devcontainer:
+To load the workspace in the devcontainer:
 
-1. Install the https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers[Dev Containers] extension for VS Code.
+1. Install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension for VS Code.
 2. Install and run Docker.
 3. Open the workspace in VS Code as normal.
 4. When prompted, click **Reopen in Container**. Alternatively, use the command palette (`Ctrl+Shift+P`) and select **Dev Containers: Reopen in Container**.
@@ -104,26 +96,22 @@ The container is based on Ubuntu and can be customized via `.devcontainer/Docker
 
 If you see permission errors when saving mounted files or if Git creates root-owned files under `.git`, rebuild the devcontainer after updating the Dockerfile. The container is configured to run as a non-root `vscode` user with a matching host UID/GID to avoid ownership mismatches.
 
-[TIP]
-======
-Use the following command, from this repository's root directory, to verify image creation:
+> **Tip:** Use the following command, from this repository's root directory, to verify image creation:
+>
+> ```
+> $ docker build -f .devcontainer/Dockerfile -t personal-workspace .
+> ```
 
-----
-$ docker build -f .devcontainer/Dockerfile -t personal-workspace .
-----
-======
+When you first open the workspace in a new devcontainer, you may want to configure dotfiles such as `~/local.gitconfig` so you can commit from within the devcontainer. See the [dotfiles repository](https://github.com/kieranpotts/dotfiles) for details. You will also need to install VS Code extensions in the devcontainer.
 
-When you first open the workspace in a new devcontainer, you may want to configure dotfiles such as `~/local.gitconfig` so you can commit from within the devcontainer. See the https://github.com/kieranpotts/dotfiles[dotfiles repository] for details. You will also need to install VS Code extensions in the devcontainer.
-
-== Repository status indicators
+## Repository status indicators
 
 Repositories are labeled in the VS Code workspace with emoji markers to indicate their status:
 
-* 🔒 *Archived*: Read-only repositories. No pushes are permitted. These are excluded from VS Code's Git GUI.
-* ⛔ *Restricted*: Private or sensitive repositories with limited access or sharing restrictions.
-* 📝 *Work-in-progress*: Actively being worked on!
+- 🔒 **Archived**: Read-only repositories. No pushes are permitted. These are excluded from VS Code's Git GUI.
+- ⛔ **Restricted**: Private or sensitive repositories with limited access or sharing restrictions.
+- 📝 **Work-in-progress**: Actively being worked on!
 
-
-''''
+---
 
 Copyright © 2020-present Kieran Potts, all rights reserved.

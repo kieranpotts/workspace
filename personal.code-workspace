@@ -533,7 +533,7 @@
     "cSpell.customDictionaries": {
       "personalDictionary": {
         "name": "Personal Dictionary (en-US)",
-        "path": "${workspaceFolder:dictionary}/src/en-US.txt",
+        "path": "${workspaceFolder:kieranpotts / dictionary}/src/en-US.txt",
         "scope": "workspace",
         "addWords": true
       }

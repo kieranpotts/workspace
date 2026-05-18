@@ -158,7 +158,7 @@
       "path": "./repos/kieranpotts/template"
     },
     {
-      "name": "kieranpotts / tests",
+      "name": "kieranpotts / tests 🔒",
       "path": "./repos/kieranpotts/tests"
     },
     {
@@ -457,6 +457,7 @@
       "/home/kieran/dev/personal/repos/kieranpotts/prototypes",
       "/home/kieran/dev/personal/repos/kieranpotts/rfcs",
       "/home/kieran/dev/personal/repos/kieranpotts/sh",
+      "/home/kieran/dev/personal/repos/kieranpotts/tests",
     ],
 
     /* Don't automatically detect submodules. */

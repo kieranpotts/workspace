@@ -176,6 +176,10 @@
     {
       "name": "srcflow / sh 📝",
       "path": "./repos/srcflow/sh"
+    },
+    {
+      "name": "nirvarnia / brand 🔒",
+      "path": "./repos/nirvarnia/brand"
     }
   ],
 
@@ -454,6 +458,7 @@
       "/home/kieran/dev/personal/repos/kieranpotts/rfcs",
       "/home/kieran/dev/personal/repos/kieranpotts/sh",
       "/home/kieran/dev/personal/repos/kieranpotts/tests",
+      "/home/kieran/dev/personal/repos/nirvarnia/brand",
     ],
 
     /* Don't automatically detect submodules. */

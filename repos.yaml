@@ -170,3 +170,7 @@ repos:
   - name: srcflow/sh
     url: git@github.com:srcflow/sh.git
     branch: dev
+
+  - name: nirvarnia/brand
+    url: git@github.com:nirvarnia/brand.git
+    branch: main

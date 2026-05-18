@@ -150,10 +150,6 @@
       "path": "./repos/kieranpotts/standards"
     },
     {
-      "name": "kieranpotts / style-guide 📝",
-      "path": "./repos/kieranpotts/style-guide"
-    },
-    {
       "name": "kieranpotts / template",
       "path": "./repos/kieranpotts/template"
     },
@@ -180,7 +176,7 @@
     {
       "name": "srcflow / sh 📝",
       "path": "./repos/srcflow/sh"
-    },
+    }
   ],
 
   "extensions": {

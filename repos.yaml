@@ -143,10 +143,6 @@ repos:
     url: git@github.com:kieranpotts/standards.git
     branch: dev
 
-  - name: kieranpotts/style-guide
-    url: git@github.com:kieranpotts/style-guide.git
-    branch: dev
-
   - name: kieranpotts/template
     url: git@github.com:kieranpotts/template.git
     branch: dev

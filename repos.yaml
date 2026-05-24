@@ -127,8 +127,8 @@ repos:
     url: git@github.com:kieranpotts/resume.git
     branch: v2/dev
 
-  - name: kieranpotts/rfcs
-    url: git@github.com:kieranpotts/rfcs.git
+  - name: kieranpotts/rfc
+    url: git@github.com:kieranpotts/rfc.git
     branch: main
 
   - name: kieranpotts/sh

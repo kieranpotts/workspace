@@ -112,6 +112,6 @@ Repositories are labeled in the VS Code workspace with emoji markers to indicate
 - 🚫 **Restricted**: Private or sensitive repositories with limited access or sharing restrictions.
 - 📝 **Work-in-progress**: Actively being worked on!
 
----
+-----
 
 Copyright © 2020-present Kieran Potts, all rights reserved.

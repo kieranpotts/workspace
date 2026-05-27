@@ -11,6 +11,7 @@ Requires: pip install pyyaml
 Usage:    python run/sync.py
 """
 
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -22,6 +23,19 @@ MANIFEST = WORKSPACE / "repos.yaml"
 REPOS_DIR = WORKSPACE / "repos"
 
 SEP = "─" * 60
+
+
+def maybe_install_pre_commit(dest: Path) -> None:
+    if not (dest / ".pre-commit-config.yaml").exists():
+        return
+    if shutil.which("pre-commit") is None:
+        return
+    print("  Installing pre-commit hooks ...")
+    result = run(["pre-commit", "install"], dest)
+    if result.returncode != 0:
+        print(f"  ⚠️  pre-commit install failed: {result.stderr.strip()}", file=sys.stderr)
+    else:
+        print("  ✓ pre-commit hooks installed.")
 
 
 def run(args: list[str], cwd: Path, *, check: bool = False) -> subprocess.CompletedProcess:
@@ -57,7 +71,6 @@ def sync_repo(name: str, url: str, branch: str, dest: Path) -> bool:
         # Branch may not exist yet (e.g., repo has no commits, or only its default branch).
         # Fall back to cloning without specifying a branch.
         if result.returncode != 0 and "Remote branch" in result.stderr and "not found" in result.stderr:
-            import shutil
             shutil.rmtree(dest, ignore_errors=True)
             print(f"  Branch '{branch}' not found on remote — cloning without branch ...")
             result = run(["git", "clone", url, str(dest)], WORKSPACE)
@@ -65,10 +78,10 @@ def sync_repo(name: str, url: str, branch: str, dest: Path) -> bool:
         if result.returncode != 0:
             error_msg = result.stderr.strip()
             print(f"  ❌ FAILED to clone: {error_msg}", file=sys.stderr)
-            import shutil
             shutil.rmtree(dest, ignore_errors=True)
             return False
         print("  ✓ Done.")
+        maybe_install_pre_commit(dest)
         return True
 
     print(f"  Default branch: {branch}")
@@ -100,6 +113,7 @@ def sync_repo(name: str, url: str, branch: str, dest: Path) -> bool:
         return False
 
     print("  ✓ Up to date.")
+    maybe_install_pre_commit(dest)
 
     if original_branch != branch:
         print(f"  Switching back to '{original_branch}' ...")

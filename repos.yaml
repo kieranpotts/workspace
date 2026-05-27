@@ -15,9 +15,9 @@ repos:
     url: git@github.com:kieranpotts/asciibook.git
     branch: dev
 
-  - name: kieranpotts/pi
-    url: git@github.com:kieranpotts/pi.git
-    branch: dev
+  - name: kieranpotts/avatar
+    url: git@github.com:kieranpotts/avatar.git
+    branch: latest/dev
 
   - name: kieranpotts/blog
     url: git@github.com:kieranpotts/blog.git

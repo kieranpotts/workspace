@@ -2,195 +2,195 @@
 
   "folders": [
     {
-      "name": "kieranpotts/__TODO__ 🚫",
+      "name": "🚫 kieranpotts/__TODO__",
       "path": "./repos/kieranpotts/__TODO__"
     },
     {
-      "name": "kieranpotts/.github",
+      "name": "🚀 kieranpotts/.github",
       "path": "./repos/kieranpotts/.github"
     },
     {
-      "name": "kieranpotts/actions",
+      "name": "🚀 kieranpotts/actions",
       "path": "./repos/kieranpotts/actions"
     },
     {
-      "name": "kieranpotts/asciibook",
+      "name": "⚒️ kieranpotts/asciibook",
       "path": "./repos/kieranpotts/asciibook"
     },
     {
-      "name": "kieranpotts/avatar",
+      "name": "⚒️ kieranpotts/avatar",
       "path": "./repos/kieranpotts/avatar"
     },
     {
-      "name": "kieranpotts/blog 📝",
+      "name": "🚧 kieranpotts/blog",
       "path": "./repos/kieranpotts/blog"
     },
     {
-      "name": "kieranpotts/bookmarks 📝",
+      "name": "🚧 kieranpotts/bookmarks",
       "path": "./repos/kieranpotts/bookmarks"
     },
     {
-      "name": "kieranpotts/bootstrap",
+      "name": "🚀 kieranpotts/bootstrap",
       "path": "./repos/kieranpotts/bootstrap"
     },
     {
-      "name": "kieranpotts/cheats 📝",
+      "name": "🚧 kieranpotts/cheats",
       "path": "./repos/kieranpotts/cheats"
     },
     {
-      "name": "kieranpotts/cover-letter 🚫",
+      "name": "🚫 kieranpotts/cover-letter",
       "path": "./repos/kieranpotts/cover-letter"
     },
     {
-      "name": "kieranpotts/designs 🚫",
+      "name": "🚫 kieranpotts/designs",
       "path": "./repos/kieranpotts/designs"
     },
     {
-      "name": "kieranpotts/devboxes 🔒",
+      "name": "🔒 kieranpotts/devboxes",
       "path": "./repos/kieranpotts/devboxes"
     },
     {
-      "name": "kieranpotts/devtools",
+      "name": "🚀 kieranpotts/devtools",
       "path": "./repos/kieranpotts/devtools"
     },
     {
-      "name": "kieranpotts/dictionary",
+      "name": "🚀 kieranpotts/dictionary",
       "path": "./repos/kieranpotts/dictionary"
     },
     {
-      "name": "kieranpotts/docker-devcontainer",
+      "name": "🚀 kieranpotts/docker-devcontainer",
       "path": "./repos/kieranpotts/docker-devcontainer"
     },
     {
-      "name": "kieranpotts/docker-latex",
+      "name": "⚒️ kieranpotts/docker-latex",
       "path": "./repos/kieranpotts/docker-latex"
     },
     {
-      "name": "kieranpotts/dotfiles",
+      "name": "🚀 kieranpotts/dotfiles",
       "path": "./repos/kieranpotts/dotfiles"
     },
     {
-      "name": "kieranpotts/eslint-config 🔒",
+      "name": "🔒 kieranpotts/eslint-config",
       "path": "./repos/kieranpotts/eslint-config"
     },
     {
-      "name": "kieranpotts/garden 📝",
+      "name": "🚧 kieranpotts/garden",
       "path": "./repos/kieranpotts/garden"
     },
     {
-      "name": "kieranpotts/genies 🔒",
+      "name": "🔒 kieranpotts/genies",
       "path": "./repos/kieranpotts/genies"
     },
     {
-      "name": "kieranpotts/gitex 📝",
+      "name": "🚧 kieranpotts/gitex",
       "path": "./repos/kieranpotts/gitex"
     },
     {
-      "name": "kieranpotts/interviews 🚫",
+      "name": "🚫 kieranpotts/interviews",
       "path": "./repos/kieranpotts/interviews"
     },
     {
-      "name": "kieranpotts/json-schema",
+      "name": "⚒️ kieranpotts/json-schema",
       "path": "./repos/kieranpotts/json-schema"
     },
     {
-      "name": "kieranpotts/kieranpotts",
+      "name": "🚀 kieranpotts/kieranpotts",
       "path": "./repos/kieranpotts/kieranpotts"
     },
     {
-      "name": "kieranpotts/makebook 🔒",
+      "name": "🔒 kieranpotts/makebook",
       "path": "./repos/kieranpotts/makebook"
     },
     {
-      "name": "kieranpotts/notes 🚫",
+      "name": "🚫 kieranpotts/notes",
       "path": "./repos/kieranpotts/notes"
     },
     {
-      "name": "kieranpotts/papers 🚫",
+      "name": "🚫 kieranpotts/papers",
       "path": "./repos/kieranpotts/papers"
     },
     {
-      "name": "kieranpotts/pi 📝",
+      "name": "🚧 kieranpotts/pi",
       "path": "./repos/kieranpotts/pi"
     },
     {
-      "name": "kieranpotts/playbook 📝",
+      "name": "🚧 kieranpotts/playbook",
       "path": "./repos/kieranpotts/playbook"
     },
     {
-      "name": "kieranpotts/popos 🚫",
+      "name": "🚫 kieranpotts/popos",
       "path": "./repos/kieranpotts/popos"
     },
     {
-      "name": "kieranpotts/pre-commit-hooks",
+      "name": "🚀 kieranpotts/pre-commit-hooks",
       "path": "./repos/kieranpotts/pre-commit-hooks"
     },
     {
-      "name": "kieranpotts/prototypes 🔒",
+      "name": "🔒 kieranpotts/prototypes",
       "path": "./repos/kieranpotts/prototypes"
     },
     {
-      "name": "kieranpotts/résumé",
+      "name": "🚀 kieranpotts/résumé",
       "path": "./repos/kieranpotts/resume"
     },
     {
-      "name": "kieranpotts/rfc 🔒",
+      "name": "🔒 kieranpotts/rfc",
       "path": "./repos/kieranpotts/rfc"
     },
     {
-      "name": "kieranpotts/root",
+      "name": "🚀 kieranpotts/root",
       "path": "."
     },
     {
-      "name": "kieranpotts/sh 🔒",
+      "name": "🔒 kieranpotts/sh",
       "path": "./repos/kieranpotts/sh"
     },
     {
-      "name": "kieranpotts/skills 📝",
+      "name": "🚧 kieranpotts/skills",
       "path": "./repos/kieranpotts/skills"
     },
     {
-      "name": "kieranpotts/specs 📝",
+      "name": "🚧 kieranpotts/specs",
       "path": "./repos/kieranpotts/specs"
     },
     {
-      "name": "kieranpotts/standards 📝",
+      "name": "🚧 kieranpotts/standards",
       "path": "./repos/kieranpotts/standards"
     },
     {
-      "name": "kieranpotts/template",
+      "name": "🚀 kieranpotts/template",
       "path": "./repos/kieranpotts/template"
     },
     {
-      "name": "kieranpotts/tests 🔒",
+      "name": "🔒 kieranpotts/tests",
       "path": "./repos/kieranpotts/tests"
     },
     {
-      "name": "kieranpotts/the-timeless-way 🚫",
+      "name": "🚫 kieranpotts/the-timeless-way",
       "path": "./repos/kieranpotts/the-timeless-way"
     },
     {
-      "name": "kieranpotts/vscode-theme-lumex 📝",
+      "name": "🚧 kieranpotts/vscode-theme-lumex",
       "path": "./repos/kieranpotts/vscode-theme-lumex"
     },
     {
-      "name": "kieranpotts/vscode-theme-ocean",
+      "name": "⚒️ kieranpotts/vscode-theme-ocean",
       "path": "./repos/kieranpotts/vscode-theme-ocean"
     },
     {
-      "name": "kieranpotts/website 📝",
+      "name": "🚧 kieranpotts/website",
       "path": "./repos/kieranpotts/website"
     },
     {
-      "name": "srcflow/srcflow 📝",
+      "name": "🚧 srcflow/srcflow",
       "path": "./repos/srcflow/srcflow"
     },
     {
-      "name": "srcflow/sh 📝",
+      "name": "🚧 srcflow/sh",
       "path": "./repos/srcflow/sh"
     },
     {
-      "name": "nirvarnia/brand 🔒",
+      "name": "🔒 nirvarnia/brand",
       "path": "./repos/nirvarnia/brand"
     }
   ],

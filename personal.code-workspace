@@ -110,8 +110,12 @@
       "path": "./repos/kieranpotts/papers"
     },
     {
-      "name": "kieranpotts/pi",
+      "name": "kieranpotts/pi 📝",
       "path": "./repos/kieranpotts/pi"
+    },
+    {
+      "name": "kieranpotts/playbook 📝",
+      "path": "./repos/kieranpotts/playbook"
     },
     {
       "name": "kieranpotts/popos 🚫",

@@ -107,6 +107,10 @@ repos:
     url: git@github.com:kieranpotts/papers.git
     branch: dev
 
+  - name: kieranpotts/playbook
+    url: git@github.com:kieranpotts/playbook.git
+    branch: dev
+
   - name: kieranpotts/popos
     url: git@github.com:kieranpotts/popos.git
     branch: dev

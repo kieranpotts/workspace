@@ -133,7 +133,7 @@ repos:
 
   - name: kieranpotts/rfc
     url: git@github.com:kieranpotts/rfc.git
-    branch: main
+    branch: dev
 
   - name: kieranpotts/sh
     url: git@github.com:kieranpotts/sh.git
@@ -145,7 +145,7 @@ repos:
 
   - name: kieranpotts/specs
     url: git@github.com:kieranpotts/specs.git
-    branch: dev
+    branch: main
 
   - name: kieranpotts/standards
     url: git@github.com:kieranpotts/standards.git

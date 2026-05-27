@@ -26,10 +26,9 @@ The `.venv` directory is excluded from version control. The `python3 -m venv` an
 source .venv/bin/activate
 ```
 
-Alternatively, scripts can be invoked directly without activation:
+Alternatively, the script can be invoked directly without activation:
 
 ```sh
-.venv/bin/python run/clone.py
 .venv/bin/python run/sync.py
 ```
 
@@ -44,21 +43,13 @@ git clone git@github.com:kieranpotts/root.git /path/to/my-personal-workspace
 cd /path/to/my-personal-workspace
 ```
 
-Then clone all other repositories into the `repos/` directory:
-
-```sh
-python3 run/clone.py
-```
-
-This reads `repos.yaml` and clones any repository not yet present locally. It is safe to run multiple times — already-cloned repositories are skipped.
-
-To pull the latest changes across all repositories:
+Then clone and sync all other repositories into the `repos/` directory:
 
 ```sh
 python3 run/sync.py
 ```
 
-This also clones any missing repositories. For each existing repository it stashes any dirty working tree changes, switches to the repository's default branch (as defined in `repos.yaml`), pulls with rebase, then restores the original branch and stash.
+This reads `repos.yaml` and clones any repository not yet present locally. For each already-cloned repository it stashes any dirty working tree changes, switches to the repository's default branch (as defined in `repos.yaml`), pulls with rebase, then restores the original branch and stash. It is safe to run multiple times.
 
 The `sync.py` script does not sync the root repository itself. Run `git pull` to do that in the normal way.
 
@@ -73,7 +64,7 @@ repos:
     branch: main
 ```
 
-To add a repository, add an entry to `repos.yaml` and run `python3 run/clone.py`. To remove a repository, delete its entry from `repos.yaml` and remove the local directory:
+To add a repository, add an entry to `repos.yaml` and run `python3 run/sync.py`. To remove a repository, delete its entry from `repos.yaml` and remove the local directory:
 
 ```sh
 rm -rf repos/<repository-name>

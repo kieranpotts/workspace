@@ -114,10 +114,6 @@
       "path": "./repos/kieranpotts/pi"
     },
     {
-      "name": "kieranpotts/playbook 🚫",
-      "path": "./repos/kieranpotts/playbook"
-    },
-    {
       "name": "kieranpotts/popos 🚫",
       "path": "./repos/kieranpotts/popos"
     },
@@ -164,6 +160,10 @@
     {
       "name": "kieranpotts/tests 🔒",
       "path": "./repos/kieranpotts/tests"
+    },
+    {
+      "name": "kieranpotts/the-timeless-way 🚫",
+      "path": "./repos/kieranpotts/the-timeless-way"
     },
     {
       "name": "kieranpotts/vscode-theme-lumex 📝",

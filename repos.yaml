@@ -107,10 +107,6 @@ repos:
     url: git@github.com:kieranpotts/papers.git
     branch: dev
 
-  - name: kieranpotts/playbook
-    url: git@github.com:kieranpotts/playbook.git
-    branch: dev
-
   - name: kieranpotts/popos
     url: git@github.com:kieranpotts/popos.git
     branch: dev
@@ -153,6 +149,10 @@ repos:
 
   - name: kieranpotts/tests
     url: git@github.com:kieranpotts/tests.git
+    branch: dev
+
+  - name: kieranpotts/the-timeless-way
+    url: git@github.com:kieranpotts/the-timeless-way.git
     branch: dev
 
   - name: kieranpotts/vscode-theme-lumex

@@ -146,7 +146,7 @@
       "path": "./repos/kieranpotts/sh"
     },
     {
-      "name": "🚧 kieranpotts/skills",
+      "name": "🚀 kieranpotts/skills",
       "path": "./repos/kieranpotts/skills"
     },
     {
@@ -192,6 +192,9 @@
     {
       "name": "🔒 nirvarnia/brand",
       "path": "./repos/nirvarnia/brand"
+    },
+    {
+      "path": "../hacksmedia/__TODO__/informwire/documentation/requests-for-comments"
     }
   ],
 
@@ -488,7 +491,8 @@
     "git.branchProtectionPrompt": "alwaysPrompt",
     "git.branchProtection": [
       "test",
-      "prod",
+      "ready",
+      "release"
     ],
 
     /* Disable the feature that automatically saves and restores open editors
@@ -545,7 +549,7 @@
     "cSpell.customDictionaries": {
       "personalDictionary": {
         "name": "Personal Dictionary (en-US)",
-        "path": "${workspaceFolder:kieranpotts/dictionary}/src/en-US.txt",
+        "path": "${workspaceFolder:🚀 kieranpotts/dictionary}/src/en-US.txt",
         "scope": "workspace",
         "addWords": true
       }

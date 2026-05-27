@@ -139,6 +139,10 @@ repos:
     url: git@github.com:kieranpotts/skills.git
     branch: dev
 
+  - name: kieranpotts/specs
+    url: git@github.com:kieranpotts/specs.git
+    branch: dev
+
   - name: kieranpotts/standards
     url: git@github.com:kieranpotts/standards.git
     branch: dev

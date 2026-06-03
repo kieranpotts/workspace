@@ -52,11 +52,11 @@ python3 run/install.py
 This reads `repos.yaml` and clones any repository not yet present locally. Each repository is stored as a bare clone with a single working tree checked out at the configured branch, both rooted under `~/dev/` (regardless of where this repository is located):
 
 ```
-~/dev/<name>.git   — bare clone (no working tree)
-~/dev/<name>       — working tree checked out at <branch>
+~/dev/<name>           — bare clone (no working tree)
+~/dev/<name>/<branch>  — working tree checked out at <branch>
 ```
 
-For example, a repo with `name: kieranpotts/specs` will be placed at `~/dev/kieranpotts/specs.git` and `~/dev/kieranpotts/specs`.
+For example, a repo with `name: kieranpotts/specs` and `branch: dev` will be placed at `~/dev/kieranpotts/specs` (bare) with a working tree at `~/dev/kieranpotts/specs/dev`.
 
 For each already-cloned repository it fetches from the remote into the bare clone then fast-forwards the working tree branch. It is safe to run multiple times.
 
@@ -78,7 +78,7 @@ repos:
 To add a repository, add an entry to `repos.yaml` and run `python3 run/install.py`. To remove a repository, delete its entry from `repos.yaml` and remove both the bare clone and its working tree:
 
 ```sh
-rm -rf ~/dev/<name>.git ~/dev/<name>
+rm -rf ~/dev/<name>
 ```
 
 Changes to `repos.yaml` should be committed.

@@ -4,8 +4,8 @@
 Each repo is stored as a bare clone with a single worktree checked out at the
 configured branch, rooted under REPOS_DIR (default: ~/dev):
 
-  ~/dev/<name>.git   — bare clone (no working tree)
-  ~/dev/<name>       — worktree checked out at <branch>
+  ~/dev/<name>            — bare clone (no working tree)
+  ~/dev/<name>/<branch>   — worktree checked out at <branch>
 
 For each repo:
   - If not yet cloned, does `git clone --bare` then `git worktree add`.
@@ -67,7 +67,6 @@ def sync_repo(name: str, url: str, branch: str, bare: Path, worktree: Path) -> b
         run(["git", "config", "remote.origin.fetch", "+refs/heads/*:refs/remotes/origin/*"], bare)
 
         print(f"  Adding worktree for branch '{branch}' ...")
-        worktree.parent.mkdir(parents=True, exist_ok=True)
         result = run(["git", "worktree", "add", str(worktree), branch], bare)
 
         if result.returncode != 0 and "invalid reference" in result.stderr:
@@ -127,8 +126,8 @@ def main() -> int:
             name=name,
             url=repo["url"],
             branch=repo["branch"],
-            bare=REPOS_DIR / f"{name}.git",
-            worktree=REPOS_DIR / name,
+            bare=REPOS_DIR / name,
+            worktree=REPOS_DIR / name / repo["branch"],
         )
         if success:
             ok += 1

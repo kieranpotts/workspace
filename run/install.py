@@ -1,15 +1,20 @@
 #!/usr/bin/env python3
 """Install all repositories listed in repos.yaml.
 
-Each repo is stored as a bare clone with a single worktree checked out at the
-configured branch, rooted under REPOS_DIR (default: ~/dev):
+Each repo is checked out using the "adjacent worktree" pattern, rooted under
+REPOS_DIR (default: ~/dev):
 
-  ~/dev/<name>            — bare clone (no working tree)
-  ~/dev/<name>/<branch>   — worktree checked out at <branch>
+  ~/dev/<name>/.bare      — bare clone (Git internals only)
+  ~/dev/<name>/.git       — file containing "gitdir: ./.bare"
+  ~/dev/<name>/<branch>   — working tree checked out at <branch>
+
+The `.git` pointer file lets `git` commands run from the project root
+(~/dev/<name>) rather than from inside `.bare`.
 
 For each repo:
-  - If not yet cloned, does `git clone --bare` then `git worktree add`.
-  - If already cloned, fetches into the bare repo then fast-forwards the worktree.
+  - If not yet cloned, does `git clone --bare` into `.bare`, writes the `.git`
+    pointer, fixes the fetch refspec, then `git worktree add` for the branch.
+  - If already cloned, fetches then fast-forwards the working tree.
 
 Requires: pip install pyyaml
 Usage:    python run/install.py
@@ -25,8 +30,8 @@ import yaml
 WORKSPACE = Path(__file__).resolve().parent.parent
 MANIFEST = WORKSPACE / "repos.yaml"
 
-# Base directory under which all repositories are cloned.
-# Bare clones land at <REPOS_DIR>/<name>.git; working trees at <REPOS_DIR>/<name>.
+# Base directory under which all repositories are cloned. Each repo's bare clone
+# lands at <REPOS_DIR>/<name>/.bare, with working trees as sibling directories.
 REPOS_DIR = Path.home() / "dev"
 
 SEP = "─" * 60
@@ -49,7 +54,21 @@ def run(args: list[str], cwd: Path, *, check: bool = False) -> subprocess.Comple
     return subprocess.run(args, cwd=cwd, capture_output=True, text=True, check=check)
 
 
-def sync_repo(name: str, url: str, branch: str, bare: Path, worktree: Path) -> bool:
+def add_worktree(project: Path, worktree: Path, branch: str) -> subprocess.CompletedProcess:
+    """Add a worktree for `branch`, falling back to HEAD if the branch is absent.
+
+    Git commands run from the project root, which resolves to the bare repo via
+    the `.git` pointer file.
+    """
+    result = run(["git", "worktree", "add", str(worktree), branch], project)
+    if result.returncode != 0 and "invalid reference" in result.stderr:
+        # Branch doesn't exist on remote yet — check out whatever HEAD is.
+        print(f"  Branch '{branch}' not found — adding worktree at HEAD ...")
+        result = run(["git", "worktree", "add", str(worktree)], project)
+    return result
+
+
+def sync_repo(name: str, url: str, branch: str, project: Path, bare: Path, worktree: Path) -> bool:
     print(SEP)
     print(name)
 
@@ -59,24 +78,24 @@ def sync_repo(name: str, url: str, branch: str, bare: Path, worktree: Path) -> b
         result = run(["git", "clone", "--bare", url, str(bare)], WORKSPACE)
         if result.returncode != 0:
             print(f"  ❌ FAILED to clone: {result.stderr.strip()}", file=sys.stderr)
-            shutil.rmtree(bare, ignore_errors=True)
+            shutil.rmtree(project, ignore_errors=True)
             return False
 
-        # git clone --bare sets remote fetch refs to refs/heads/* → refs/heads/* but
-        # does not configure a remote tracking namespace. Fix that so `git fetch` works.
-        run(["git", "config", "remote.origin.fetch", "+refs/heads/*:refs/remotes/origin/*"], bare)
+        # Drop a `.git` pointer file at the project root pointing into `.bare`.
+        # Without it, `git worktree`/`git fetch` only work from inside `.bare`;
+        # with it, every git command works from the project root instead.
+        (project / ".git").write_text("gitdir: ./.bare\n")
+
+        # A bare clone omits the `remote.origin.fetch` config, so plain `git fetch`
+        # won't populate refs/remotes/origin/* — and `git worktree add <remote-branch>`
+        # then misbehaves. Set the standard refspec to restore normal fetch behaviour.
+        run(["git", "config", "remote.origin.fetch", "+refs/heads/*:refs/remotes/origin/*"], project)
 
         print(f"  Adding worktree for branch '{branch}' ...")
-        result = run(["git", "worktree", "add", str(worktree), branch], bare)
-
-        if result.returncode != 0 and "invalid reference" in result.stderr:
-            # Branch doesn't exist on remote yet — check out whatever HEAD is.
-            print(f"  Branch '{branch}' not found — adding worktree at HEAD ...")
-            result = run(["git", "worktree", "add", str(worktree)], bare)
-
+        result = add_worktree(project, worktree, branch)
         if result.returncode != 0:
             print(f"  ❌ FAILED to add worktree: {result.stderr.strip()}", file=sys.stderr)
-            shutil.rmtree(bare, ignore_errors=True)
+            shutil.rmtree(project, ignore_errors=True)
             return False
 
         print("  ✓ Done.")
@@ -84,27 +103,26 @@ def sync_repo(name: str, url: str, branch: str, bare: Path, worktree: Path) -> b
         return True
 
     print(f"  Fetching ...")
-    result = run(["git", "fetch", "--prune", "origin"], bare)
+    result = run(["git", "fetch", "--prune", "origin"], project)
     if result.returncode != 0:
         print(f"  ❌ FAILED to fetch: {result.stderr.strip()}", file=sys.stderr)
         return False
 
     if not worktree.exists():
         print(f"  Worktree missing — re-adding for branch '{branch}' ...")
-        worktree.parent.mkdir(parents=True, exist_ok=True)
-        result = run(["git", "worktree", "add", str(worktree), branch], bare)
+        result = add_worktree(project, worktree, branch)
         if result.returncode != 0:
             print(f"  ❌ FAILED to add worktree: {result.stderr.strip()}", file=sys.stderr)
             return False
         maybe_install_pre_commit(worktree)
         return True
 
-    # Fast-forward the worktree branch to match origin.
+    # Fast-forward the working tree branch to match origin.
     print(f"  Merging origin/{branch} (fast-forward only) ...")
     result = run(["git", "merge", "--ff-only", f"origin/{branch}"], worktree)
     if result.returncode != 0:
         print(f"  ❌ FAILED to fast-forward: {result.stderr.strip()}", file=sys.stderr)
-        print(f"     The worktree may have local commits. Check manually: cd {worktree}", file=sys.stderr)
+        print(f"     The working tree may have local commits. Check manually: cd {worktree}", file=sys.stderr)
         return False
 
     print("  ✓ Up to date.")
@@ -122,12 +140,15 @@ def main() -> int:
 
     for repo in repos:
         name = repo["name"]
+        branch = repo["branch"]
+        project = REPOS_DIR / name
         success = sync_repo(
             name=name,
             url=repo["url"],
-            branch=repo["branch"],
-            bare=REPOS_DIR / name,
-            worktree=REPOS_DIR / name / repo["branch"],
+            branch=branch,
+            project=project,
+            bare=project / ".bare",
+            worktree=project / branch,
         )
         if success:
             ok += 1

@@ -49,16 +49,17 @@ Then clone and sync all other repositories:
 python3 run/install.py
 ```
 
-This reads `repos.yaml` and clones any repository not yet present locally. Each repository is stored as a bare clone with a single working tree checked out at the configured branch, both rooted under `~/dev/` (regardless of where this repository is located):
+This reads `repos.yaml` and clones any repository not yet present locally. Each repository is checked out using the [adjacent worktree pattern](https://github.com/kieranpotts/standards), rooted under `~/dev/` (regardless of where this repository is located):
 
 ```
-~/dev/<name>           — bare clone (no working tree)
-~/dev/<name>/<branch>  — working tree checked out at <branch>
+~/dev/<name>/.bare      — bare clone (Git internals only)
+~/dev/<name>/.git       — file pointing at .bare, so git commands work from the project root
+~/dev/<name>/<branch>   — working tree checked out at <branch>
 ```
 
-For example, a repo with `name: kieranpotts/specs` and `branch: dev` will be placed at `~/dev/kieranpotts/specs` (bare) with a working tree at `~/dev/kieranpotts/specs/dev`.
+For example, a repo with `name: kieranpotts/specs` and `branch: dev` is placed at `~/dev/kieranpotts/specs/.bare` (bare clone) with a working tree at `~/dev/kieranpotts/specs/dev`.
 
-For each already-cloned repository it fetches from the remote into the bare clone then fast-forwards the working tree branch. It is safe to run multiple times.
+For each already-cloned repository it fetches from the remote then fast-forwards the working tree branch. It is safe to run multiple times.
 
 The base directory (`~/dev/`) is configurable via the `REPOS_DIR` constant at the top of [run/install.py](run/install.py).
 
@@ -75,7 +76,7 @@ repos:
     branch: main
 ```
 
-To add a repository, add an entry to `repos.yaml` and run `python3 run/install.py`. To remove a repository, delete its entry from `repos.yaml` and remove both the bare clone and its working tree:
+To add a repository, add an entry to `repos.yaml` and run `python3 run/install.py`. To remove a repository, delete its entry from `repos.yaml` and remove its project directory (which holds the bare clone and all worktrees):
 
 ```sh
 rm -rf ~/dev/<name>

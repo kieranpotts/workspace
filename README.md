@@ -29,7 +29,7 @@ source .venv/bin/activate
 Alternatively, the script can be invoked directly without activation:
 
 ```sh
-.venv/bin/python run/sync.py
+.venv/bin/python run/install.py
 ```
 
 ## Usage
@@ -46,7 +46,7 @@ cd /path/to/my-personal-workspace
 Then clone and sync all other repositories:
 
 ```sh
-python3 run/sync.py
+python3 run/install.py
 ```
 
 This reads `repos.yaml` and clones any repository not yet present locally. Each repository is stored as a bare clone with a single working tree checked out at the configured branch, both rooted under `~/dev/` (regardless of where this repository is located):
@@ -60,9 +60,9 @@ For example, a repo with `name: kieranpotts/specs` will be placed at `~/dev/kier
 
 For each already-cloned repository it fetches from the remote into the bare clone then fast-forwards the working tree branch. It is safe to run multiple times.
 
-The base directory (`~/dev/`) is configurable via the `REPOS_DIR` constant at the top of [run/sync.py](run/sync.py).
+The base directory (`~/dev/`) is configurable via the `REPOS_DIR` constant at the top of [run/install.py](run/install.py).
 
-The `sync.py` script does not sync the root repository itself. Run `git pull` to do that in the normal way.
+The `install.py` script does not sync the root repository itself. Run `git pull` to do that in the normal way.
 
 ## Managing repositories
 
@@ -75,7 +75,7 @@ repos:
     branch: main
 ```
 
-To add a repository, add an entry to `repos.yaml` and run `python3 run/sync.py`. To remove a repository, delete its entry from `repos.yaml` and remove both the bare clone and its working tree:
+To add a repository, add an entry to `repos.yaml` and run `python3 run/install.py`. To remove a repository, delete its entry from `repos.yaml` and remove both the bare clone and its working tree:
 
 ```sh
 rm -rf ~/dev/<name>.git ~/dev/<name>

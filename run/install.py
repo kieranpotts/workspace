@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sync all repositories listed in repos.yaml.
+"""Install all repositories listed in repos.yaml.
 
 Each repo is stored as a bare clone with a single worktree checked out at the
 configured branch, rooted under REPOS_DIR (default: ~/dev):
@@ -12,7 +12,7 @@ For each repo:
   - If already cloned, fetches into the bare repo then fast-forwards the worktree.
 
 Requires: pip install pyyaml
-Usage:    python run/sync.py
+Usage:    python run/install.py
 """
 
 import shutil

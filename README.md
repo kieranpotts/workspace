@@ -49,7 +49,14 @@ Then clone and sync all other repositories into the `repos/` directory:
 python3 run/sync.py
 ```
 
-This reads `repos.yaml` and clones any repository not yet present locally. For each already-cloned repository it stashes any dirty working tree changes, switches to the repository's default branch (as defined in `repos.yaml`), pulls with rebase, then restores the original branch and stash. It is safe to run multiple times.
+This reads `repos.yaml` and clones any repository not yet present locally. Each repository is stored as a bare clone with a single worktree checked out at the configured branch:
+
+```
+repos/<name>.git   — bare clone (no working tree)
+repos/<name>       — worktree checked out at <branch>
+```
+
+For each already-cloned repository it fetches from the remote into the bare clone then fast-forwards the worktree branch. It is safe to run multiple times.
 
 The `sync.py` script does not sync the root repository itself. Run `git pull` to do that in the normal way.
 
@@ -64,10 +71,10 @@ repos:
     branch: main
 ```
 
-To add a repository, add an entry to `repos.yaml` and run `python3 run/sync.py`. To remove a repository, delete its entry from `repos.yaml` and remove the local directory:
+To add a repository, add an entry to `repos.yaml` and run `python3 run/sync.py`. To remove a repository, delete its entry from `repos.yaml` and remove both the bare clone and the worktree:
 
 ```sh
-rm -rf repos/<repository-name>
+rm -rf repos/<repository-name>.git repos/<repository-name>
 ```
 
 Changes to `repos.yaml` should be committed.

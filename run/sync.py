@@ -2,10 +2,10 @@
 """Sync all repositories listed in repos.yaml.
 
 Each repo is stored as a bare clone with a single worktree checked out at the
-configured branch:
+configured branch, rooted under REPOS_DIR (default: ~/dev):
 
-  repos/<name>.git   — bare clone (no working tree)
-  repos/<name>       — worktree checked out at <branch>
+  ~/dev/<name>.git   — bare clone (no working tree)
+  ~/dev/<name>       — worktree checked out at <branch>
 
 For each repo:
   - If not yet cloned, does `git clone --bare` then `git worktree add`.
@@ -24,7 +24,10 @@ import yaml
 
 WORKSPACE = Path(__file__).resolve().parent.parent
 MANIFEST = WORKSPACE / "repos.yaml"
-REPOS_DIR = WORKSPACE / "repos"
+
+# Base directory under which all repositories are cloned.
+# Bare clones land at <REPOS_DIR>/<name>.git; working trees at <REPOS_DIR>/<name>.
+REPOS_DIR = Path.home() / "dev"
 
 SEP = "─" * 60
 
@@ -111,8 +114,6 @@ def sync_repo(name: str, url: str, branch: str, bare: Path, worktree: Path) -> b
 
 
 def main() -> int:
-    REPOS_DIR.mkdir(parents=True, exist_ok=True)
-
     with open(MANIFEST) as f:
         config = yaml.safe_load(f)
 

@@ -43,20 +43,24 @@ git clone git@github.com:kieranpotts/root.git /path/to/my-personal-workspace
 cd /path/to/my-personal-workspace
 ```
 
-Then clone and sync all other repositories into the `repos/` directory:
+Then clone and sync all other repositories:
 
 ```sh
 python3 run/sync.py
 ```
 
-This reads `repos.yaml` and clones any repository not yet present locally. Each repository is stored as a bare clone with a single worktree checked out at the configured branch:
+This reads `repos.yaml` and clones any repository not yet present locally. Each repository is stored as a bare clone with a single working tree checked out at the configured branch, both rooted under `~/dev/` (regardless of where this repository is located):
 
 ```
-repos/<name>.git   — bare clone (no working tree)
-repos/<name>       — worktree checked out at <branch>
+~/dev/<name>.git   — bare clone (no working tree)
+~/dev/<name>       — working tree checked out at <branch>
 ```
 
-For each already-cloned repository it fetches from the remote into the bare clone then fast-forwards the worktree branch. It is safe to run multiple times.
+For example, a repo with `name: kieranpotts/specs` will be placed at `~/dev/kieranpotts/specs.git` and `~/dev/kieranpotts/specs`.
+
+For each already-cloned repository it fetches from the remote into the bare clone then fast-forwards the working tree branch. It is safe to run multiple times.
+
+The base directory (`~/dev/`) is configurable via the `REPOS_DIR` constant at the top of [run/sync.py](run/sync.py).
 
 The `sync.py` script does not sync the root repository itself. Run `git pull` to do that in the normal way.
 
@@ -71,10 +75,10 @@ repos:
     branch: main
 ```
 
-To add a repository, add an entry to `repos.yaml` and run `python3 run/sync.py`. To remove a repository, delete its entry from `repos.yaml` and remove both the bare clone and the worktree:
+To add a repository, add an entry to `repos.yaml` and run `python3 run/sync.py`. To remove a repository, delete its entry from `repos.yaml` and remove both the bare clone and its working tree:
 
 ```sh
-rm -rf repos/<repository-name>.git repos/<repository-name>
+rm -rf ~/dev/<name>.git ~/dev/<name>
 ```
 
 Changes to `repos.yaml` should be committed.

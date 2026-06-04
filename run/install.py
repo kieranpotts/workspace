@@ -4,17 +4,18 @@
 Each repo is checked out using the "adjacent worktree" pattern, rooted under
 REPOS_DIR (default: ~/dev):
 
-  ~/dev/<name>/.bare      — bare clone (Git internals only)
-  ~/dev/<name>/.git       — file containing "gitdir: ./.bare"
-  ~/dev/<name>/<branch>   — working tree checked out at <branch>
+  ~/dev/<name>/.bare              — bare clone (Git internals only)
+  ~/dev/<name>/.git               — file containing "gitdir: ./.bare"
+  ~/dev/<name>/<worktree_name>    — working tree checked out at <branch>
 
 The `.git` pointer file lets `git` commands run from the project root
 (~/dev/<name>) rather than from inside `.bare`.
 
 For each repo:
   - If not yet cloned, does `git clone --bare` into `.bare`, writes the `.git`
-    pointer, fixes the fetch refspec, then `git worktree add` for the branch.
-  - If already cloned, fetches then fast-forwards the working tree.
+    pointer, fixes the fetch refspec, then `git worktree add` for every
+    declared worktree.
+  - If already cloned, fetches then fast-forwards every existing worktree.
 
 Requires: pip install pyyaml
 Usage:    python run/install.py
@@ -68,66 +69,93 @@ def add_worktree(project: Path, worktree: Path, branch: str) -> subprocess.Compl
     return result
 
 
-def sync_repo(name: str, url: str, branch: str, project: Path, bare: Path, worktree: Path) -> bool:
+def ensure_bare_repo(name: str, url: str, project: Path, bare: Path) -> bool:
+    """Clone the bare repo if it doesn't exist yet. Returns True on success."""
+    if bare.exists():
+        return True
+
+    print(f"  Not cloned yet — bare-cloning from {url} ...")
+    bare.parent.mkdir(parents=True, exist_ok=True)
+    result = run(["git", "clone", "--bare", url, str(bare)], WORKSPACE)
+    if result.returncode != 0:
+        print(f"  ❌ FAILED to clone: {result.stderr.strip()}", file=sys.stderr)
+        shutil.rmtree(project, ignore_errors=True)
+        return False
+
+    # Drop a `.git` pointer file at the project root pointing into `.bare`.
+    # Without it, `git worktree`/`git fetch` only work from inside `.bare`;
+    # with it, every git command works from the project root instead.
+    (project / ".git").write_text("gitdir: ./.bare\n")
+
+    # A bare clone omits the `remote.origin.fetch` config, so plain `git fetch`
+    # won't populate refs/remotes/origin/* — and `git worktree add <remote-branch>`
+    # then misbehaves. Set the standard refspec to restore normal fetch behaviour.
+    run(["git", "config", "remote.origin.fetch", "+refs/heads/*:refs/remotes/origin/*"], project)
+
+    return True
+
+
+def sync_worktree(
+    project: Path,
+    worktree_path: Path,
+    branch: str,
+    worktree_name: str,
+    just_cloned: bool,
+) -> bool:
+    """Ensure a single worktree exists and is up-to-date. Returns True on success."""
+    if just_cloned or not worktree_path.exists():
+        action = "Adding" if just_cloned else "Re-adding"
+        print(f"  {action} worktree '{worktree_name}' for branch '{branch}' ...")
+        result = add_worktree(project, worktree_path, branch)
+        if result.returncode != 0:
+            print(f"  ❌ FAILED to add worktree: {result.stderr.strip()}", file=sys.stderr)
+            return False
+        maybe_install_pre_commit(worktree_path)
+        return True
+
+    # Fast-forward the working tree branch to match origin.
+    print(f"  [{worktree_name}] Merging origin/{branch} (fast-forward only) ...")
+    result = run(["git", "merge", "--ff-only", f"origin/{branch}"], worktree_path)
+    if result.returncode != 0:
+        print(f"  ❌ FAILED to fast-forward: {result.stderr.strip()}", file=sys.stderr)
+        print(
+            f"     The working tree may have local commits. Check manually: cd {worktree_path}",
+            file=sys.stderr,
+        )
+        return False
+
+    print(f"  [{worktree_name}] ✓ Up to date.")
+    maybe_install_pre_commit(worktree_path)
+    return True
+
+
+def sync_repo(
+    name: str,
+    url: str,
+    worktrees: dict[str, str],
+    project: Path,
+    bare: Path,
+) -> bool:
     print(SEP)
     print(name)
 
-    if not bare.exists():
-        print(f"  Not cloned yet — bare-cloning from {url} ...")
-        bare.parent.mkdir(parents=True, exist_ok=True)
-        result = run(["git", "clone", "--bare", url, str(bare)], WORKSPACE)
-        if result.returncode != 0:
-            print(f"  ❌ FAILED to clone: {result.stderr.strip()}", file=sys.stderr)
-            shutil.rmtree(project, ignore_errors=True)
-            return False
+    just_cloned = not bare.exists()
+    if not ensure_bare_repo(name, url, project, bare):
+        return False
 
-        # Drop a `.git` pointer file at the project root pointing into `.bare`.
-        # Without it, `git worktree`/`git fetch` only work from inside `.bare`;
-        # with it, every git command works from the project root instead.
-        (project / ".git").write_text("gitdir: ./.bare\n")
-
-        # A bare clone omits the `remote.origin.fetch` config, so plain `git fetch`
-        # won't populate refs/remotes/origin/* — and `git worktree add <remote-branch>`
-        # then misbehaves. Set the standard refspec to restore normal fetch behaviour.
-        run(["git", "config", "remote.origin.fetch", "+refs/heads/*:refs/remotes/origin/*"], project)
-
-        print(f"  Adding worktree for branch '{branch}' ...")
-        result = add_worktree(project, worktree, branch)
-        if result.returncode != 0:
-            print(f"  ❌ FAILED to add worktree: {result.stderr.strip()}", file=sys.stderr)
-            shutil.rmtree(project, ignore_errors=True)
-            return False
-
-        print("  ✓ Done.")
-        maybe_install_pre_commit(worktree)
-        return True
-
-    print(f"  Fetching ...")
+    print("  Fetching ...")
     result = run(["git", "fetch", "--prune", "origin"], project)
     if result.returncode != 0:
         print(f"  ❌ FAILED to fetch: {result.stderr.strip()}", file=sys.stderr)
         return False
 
-    if not worktree.exists():
-        print(f"  Worktree missing — re-adding for branch '{branch}' ...")
-        result = add_worktree(project, worktree, branch)
-        if result.returncode != 0:
-            print(f"  ❌ FAILED to add worktree: {result.stderr.strip()}", file=sys.stderr)
-            return False
-        maybe_install_pre_commit(worktree)
-        return True
+    all_ok = True
+    for worktree_name, branch in worktrees.items():
+        worktree_path = project / worktree_name
+        if not sync_worktree(project, worktree_path, branch, worktree_name, just_cloned):
+            all_ok = False
 
-    # Fast-forward the working tree branch to match origin.
-    print(f"  Merging origin/{branch} (fast-forward only) ...")
-    result = run(["git", "merge", "--ff-only", f"origin/{branch}"], worktree)
-    if result.returncode != 0:
-        print(f"  ❌ FAILED to fast-forward: {result.stderr.strip()}", file=sys.stderr)
-        print(f"     The working tree may have local commits. Check manually: cd {worktree}", file=sys.stderr)
-        return False
-
-    print("  ✓ Up to date.")
-    maybe_install_pre_commit(worktree)
-    return True
+    return all_ok
 
 
 def main() -> int:
@@ -140,15 +168,19 @@ def main() -> int:
 
     for repo in repos:
         name = repo["name"]
-        branch = repo["branch"]
+        worktrees = repo.get("worktrees")
+        if not worktrees:
+            print(f"⚠️  '{name}' has no 'worktrees' map — skipping.", file=sys.stderr)
+            failed += 1
+            continue
+
         project = REPOS_DIR / name
         success = sync_repo(
             name=name,
             url=repo["url"],
-            branch=branch,
+            worktrees=worktrees,
             project=project,
             bare=project / ".bare",
-            worktree=project / branch,
         )
         if success:
             ok += 1

@@ -1,184 +1,251 @@
+#
+# Repository manifest for run/install.py
+#
+# Each entry declares a bare clone plus one or more named worktrees.
+# The worktree key becomes the directory name; the value is the branch.
+#
+# Example:
+#   - name: kieranpotts/my-project
+#     url: git@github.com:kieranpotts/my-project.git
+#     worktrees:
+#       default: main
+#       v1: v1/dev
+#
+# This creates:
+#   ~/dev/kieranpotts/my-project/.bare      — bare clone
+#   ~/dev/kieranpotts/my-project/.git       — pointer file
+#   ~/dev/kieranpotts/my-project/default    — working tree at branch `main`
+#   ~/dev/kieranpotts/my-project/v1         — working tree at branch `v1/dev`
+#
+
 repos:
   - name: kieranpotts/__TODO__
     url: git@github.com:kieranpotts/__TODO__.git
-    branch: main
+    worktrees:
+      default: main
 
   - name: kieranpotts/.github
     url: git@github.com:kieranpotts/.github.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/actions
     url: git@github.com:kieranpotts/actions.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/asciibook
     url: git@github.com:kieranpotts/asciibook.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/avatar
     url: git@github.com:kieranpotts/avatar.git
-    branch: latest/dev
+    worktrees:
+      default: latest/dev
 
   - name: kieranpotts/blog
     url: git@github.com:kieranpotts/blog.git
-    branch: latest/dev
+    worktrees:
+      default: latest/dev
 
   - name: kieranpotts/bookmarks
     url: git@github.com:kieranpotts/bookmarks.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/bootstrap
     url: git@github.com:kieranpotts/bootstrap.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/cheats
     url: git@github.com:kieranpotts/cheats.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/cover-letter
     url: git@github.com:kieranpotts/cover-letter.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/designs
     url: git@github.com:kieranpotts/designs.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/devboxes
     url: git@github.com:kieranpotts/devboxes.git
-    branch: archive
+    worktrees:
+      default: archive
 
   - name: kieranpotts/devtools
     url: git@github.com:kieranpotts/devtools.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/dictionary
     url: git@github.com:kieranpotts/dictionary.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/docker-devcontainer
     url: git@github.com:kieranpotts/docker-devcontainer.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/docker-latex
     url: git@github.com:kieranpotts/docker-latex.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/dotfiles
     url: git@github.com:kieranpotts/dotfiles.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/eslint-config
     url: git@github.com:kieranpotts/eslint-config.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/garden
     url: git@github.com:kieranpotts/garden.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/genies
     url: git@github.com:kieranpotts/genies.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/gitex
     url: git@github.com:kieranpotts/gitex.git
-    branch: latest/dev
+    worktrees:
+      default: latest/dev
 
   - name: kieranpotts/interviews
     url: git@github.com:kieranpotts/interviews.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/json-schema
     url: git@github.com:kieranpotts/json-schema.git
-    branch: latest/dev
+    worktrees:
+      default: latest/dev
 
   - name: kieranpotts/kieranpotts
     url: git@github.com:kieranpotts/kieranpotts.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/makebook
     url: git@github.com:kieranpotts/makebook.git
-    branch: archive
+    worktrees:
+      default: archive
 
   - name: kieranpotts/notes
     url: git@github.com:kieranpotts/notes.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/papers
     url: git@github.com:kieranpotts/papers.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/playbook
     url: git@github.com:kieranpotts/playbook.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/popos
     url: git@github.com:kieranpotts/popos.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/pre-commit-hooks
     url: git@github.com:kieranpotts/pre-commit-hooks.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/prototypes
     url: git@github.com:kieranpotts/prototypes.git
-    branch: archive
+    worktrees:
+      default: archive
 
   - name: kieranpotts/resume
     url: git@github.com:kieranpotts/resume.git
-    branch: v2/dev
+    worktrees:
+      default: v2/dev
+      v1: v1/dev
 
   - name: kieranpotts/rfc
     url: git@github.com:kieranpotts/rfc.git
-    branch: main
+    worktrees:
+      default: main
 
   - name: kieranpotts/sh
     url: git@github.com:kieranpotts/sh.git
-    branch: archive
+    worktrees:
+      default: archive
 
   - name: kieranpotts/skills
     url: git@github.com:kieranpotts/skills.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/specs
     url: git@github.com:kieranpotts/specs.git
-    branch: main
+    worktrees:
+      default: main
 
   - name: kieranpotts/standards
     url: git@github.com:kieranpotts/standards.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/template
     url: git@github.com:kieranpotts/template.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/tests
     url: git@github.com:kieranpotts/tests.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/the-timeless-way
     url: git@github.com:kieranpotts/the-timeless-way.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/vscode-theme-lumex
     url: git@github.com:kieranpotts/vscode-theme-lumex.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/vscode-theme-ocean
     url: git@github.com:kieranpotts/vscode-theme-ocean.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: kieranpotts/website
     url: git@github.com:kieranpotts/website.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: srcflow/srcflow
     url: git@github.com:srcflow/srcflow.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: srcflow/sh
     url: git@github.com:srcflow/sh.git
-    branch: dev
+    worktrees:
+      default: dev
 
   - name: nirvarnia/brand
     url: git@github.com:nirvarnia/brand.git
-    branch: main
+    worktrees:
+      default: main

@@ -59,7 +59,7 @@ This reads `repos.yaml` and clones any repository not yet present locally. Each 
 
 For example, a repo with `name: kieranpotts/specs` and `branch: dev` is placed at `~/dev/kieranpotts/specs/.bare` (bare clone) with a working tree at `~/dev/kieranpotts/specs/dev`.
 
-For each already-cloned repository it fetches from the remote then fast-forwards the working tree branch. It is safe to run multiple times.
+For each already-cloned repository it fetches from the remote then fast-forwards every working tree. It is safe to run multiple times.
 
 The base directory (`~/dev/`) is configurable via the `REPOS_DIR` constant at the top of [run/install.py](run/install.py).
 
@@ -73,8 +73,30 @@ All repositories are defined in `repos.yaml`. Each entry has three fields:
 repos:
   - name: repository-name
     url: git@github.com:kieranpotts/repository-name.git
-    branch: main
+    worktrees:
+      default: main
 ```
+
+The `worktrees` map declares one or more named worktrees. The key is the directory name under the project root; the value is the branch to check out. For example, the entry above creates:
+
+```
+~/dev/repository-name/.bare      — bare clone
+~/dev/repository-name/.git       — pointer file
+~/dev/repository-name/default    — working tree at branch `main`
+```
+
+A repo can declare multiple worktrees:
+
+```yaml
+repos:
+  - name: my-project
+    url: git@github.com:kieranpotts/my-project.git
+    worktrees:
+      default: v2/dev
+      v1: v1/dev
+```
+
+This creates two working trees: `~/dev/my-project/default` (branch `v2/dev`) and `~/dev/my-project/v1` (branch `v1/dev`).
 
 To add a repository, add an entry to `repos.yaml` and run `python3 run/install.py`. To remove a repository, delete its entry from `repos.yaml` and remove its project directory (which holds the bare clone and all worktrees):
 
@@ -83,6 +105,29 @@ rm -rf ~/dev/<name>
 ```
 
 Changes to `repos.yaml` should be committed.
+
+## Manual worktree management
+
+The `install.py` script only manages the worktrees declared in `repos.yaml`. For temporary or experimental work, you can add additional worktrees manually using standard Git commands from the project root (eg. `~/dev/kieranpotts/my-project`):
+
+```sh
+# Add a new worktree for an existing remote branch.
+git worktree add feature-branch origin/feature-branch
+
+# Add a new worktree and create a local branch from the current HEAD.
+git worktree add -b temp-fix ../temp-fix
+
+# List all worktrees (including the bare repo).
+git worktree list
+
+# Remove a worktree directory and unregister it.
+git worktree remove feature-branch
+
+# If a worktree dir was deleted manually, clean up the stale entry.
+git worktree prune
+```
+
+Worktrees created manually are NOT tracked by `install.py`. They will not be recreated on subsequent runs, and they will not be removed unless you delete them yourself.
 
 ## Dev Container
 

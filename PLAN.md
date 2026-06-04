@@ -275,5 +275,146 @@ Switch models mid-session with Pi's `/model` command or `Ctrl+L`. No proxy layer
 
 - **MCP:** Pi does not include MCP by default. Option D is built around a containerised MCP server; if MCP is added to other options, each MCP server should run in its own container with explicit volume scoping.
 - **Egress filtering:** Recommended for sensitive projects; not part of the baseline architecture here.
-- **Permission gating:** Pi has no built-in permission popups. If per-action approval is needed, use Pi's `permission-gate.ts` extension example as a starting point.
 - **gVisor / VM-based isolation:** Not required for local dev; consider if running untrusted agent extensions or in a multi-user environment.
+
+---
+
+## Pi Security Analysis
+
+### Baseline: Pi's Security Posture is Deliberately Minimal
+
+Pi runs with all permissions by default. This is an explicit design choice. Pi deliberately omits permission popups, and its own documentation recommends running in a container or building a custom confirmation flow via extensions as the primary security mechanism.
+
+**Pi ships with zero security controls enabled.** Everything in this section must be explicitly added or configured.
+
+---
+
+### What Pi Provides
+
+#### Containerisation Patterns
+
+Pi documents three containerisation patterns, in ascending order of security:
+
+**Plain Docker** — the whole Pi process runs in a container. Simplest to set up. The limitation for regulated use: provider API keys enter the container. No credential isolation. Suitable for baseline filesystem isolation only.
+
+**Gondolin** — a local Linux micro-VM extension. Pi runs on the host; only built-in tool execution is routed into the VM. The extension overrides `read`, `write`, `edit`, `bash`, `grep`, `find`, and `ls`. Pi's own process, config, and credentials remain on the host.
+
+**OpenShell (NVIDIA)** — the most capable option for regulated environments. Provides policy-controlled sandboxing with filesystem, process, network, credential, and inference controls in one place. Runs sandboxes through a local gateway (Docker, Podman, or VM) or a remote Kubernetes gateway. Critically, OpenShell can keep raw model API keys entirely outside the sandbox — code inside the sandbox calls `https://inference.local` and the gateway injects credentials upstream. This is the only Pi-native pattern that provides full credential isolation.
+
+#### The Extension System as a Security Layer
+
+The extension system is Pi's most important security capability. Extensions are TypeScript modules that can intercept every tool call, block operations, modify results, and interact with the user for confirmation.
+
+Key security hooks available to extensions:
+
+**`tool_call` event** — fires before any tool executes. Can block with `{ block: true, reason: string }`. Receives the full tool name and input parameters, which are mutable — an extension can both inspect and modify arguments before execution. This is the correct place to implement path allowlists, command blocklists, and confirmation prompts.
+
+**`tool_result` event** — fires after tool execution, before the result is returned to the model. Can modify the result. Handlers chain as middleware. Can be used to redact sensitive content from tool output before it enters the model context.
+
+**`before_provider_request` event** — fires after the provider payload is built, immediately before the outbound model API call. Can inspect or replace the full payload. The correct hook for auditing all outbound model traffic.
+
+**`before_agent_start` event** — fires before each agent turn. Can inject context, modify the system prompt, and record that a turn is beginning — useful for audit trail entries.
+
+**Tool overriding** — extensions can replace built-in tools (`read`, `bash`, `edit`, `write`, `grep`, `find`, `ls`) entirely by registering a tool with the same name. Combined with `--no-builtin-tools` (start Pi with no built-in tools at all), this allows constructing a fully locked-down, audited tool surface from scratch rather than layering restrictions on top of unrestricted defaults.
+
+#### Session Storage
+
+Sessions are stored as JSONL files. The storage location is configurable via `sessionDir` in `settings.json`, `PI_CODING_AGENT_SESSION_DIR`, or `--session-dir`. For regulated use, session files should be stored outside the working tree in a controlled, access-restricted location, as they contain the full conversation history including any file content the agent read during the session.
+
+#### Telemetry and Network Calls
+
+By default, Pi makes two categories of outbound startup calls: an anonymous install/update telemetry ping and a version check. Both can be disabled:
+
+- `enableInstallTelemetry: false` in settings — disables the telemetry ping
+- `PI_SKIP_VERSION_CHECK=1` — disables the version check
+- `--offline` or `PI_OFFLINE=1` — disables all startup network operations
+
+In a regulated environment, these should be disabled and all outbound network traffic should be proxied or allowlisted.
+
+---
+
+### Security Gaps — What Pi Does Not Provide
+
+| Requirement | Pi's Posture | What Is Required |
+|---|---|---|
+| Filesystem access control | None by default | Containerisation + path-enforcing extension |
+| Permission prompts / approval gates | Not built in | Custom `permission-gate.ts` extension |
+| Audit log of tool calls | Not built in | `tool_call` / `tool_result` event hooks |
+| API key isolation from agent | Keys enter container (Plain Docker / Gondolin) | OpenShell, or external proxy pattern |
+| Extension vetting / signing | None — extensions run with full system permissions | Manual review; pin to exact versions |
+| Network egress control | None | Docker network policy or host firewall |
+| Session data retention / encryption | Files stored indefinitely in plaintext | External `sessionDir` with encryption at rest |
+| Data classification awareness | None | Custom extension with content inspection |
+| Prompt injection defence | None | Out of scope for Pi; a model-level concern |
+
+---
+
+### Recommended Approach for Regulated Environments
+
+This is the minimum viable security stack based on what Pi's documentation describes. It is composed entirely of controls that must be built or configured — none are on by default.
+
+#### 1. Sandbox with OpenShell (preferred) or hardened Docker
+
+For regulated use, **OpenShell** is the appropriate sandbox because it is the only Pi-native pattern that keeps API credentials outside the agent process. Plain Docker is acceptable only if cloud API keys are handled by an external proxy (see Model Routing section) so that they never enter the container directly.
+
+If using Plain Docker without OpenShell, apply the full container hardening described in the Devcontainer Configuration section above, and ensure no API keys are injected directly — route all model traffic through a host-side proxy that holds the keys.
+
+#### 2. Disable built-in tools; provide audited replacements
+
+Start Pi with `--no-builtin-tools` and provide extension-based replacements for each tool needed. Each replacement must:
+
+- Enforce a path allowlist (project directory only; no traversal)
+- Log every invocation with timestamp, tool name, arguments, and result status
+- Refuse operations on sensitive filenames (`.env`, secrets files, key material)
+- Enforce a command allowlist for `bash` rather than a blocklist
+
+This is more robust than intercepting built-in tools via events, because it removes the default permissive surface entirely.
+
+#### 3. Implement a permission-gate extension
+
+Use Pi's `permission-gate.ts` example as the starting point. For regulated use, extend it to:
+
+- Require explicit confirmation for all write and execute operations
+- Time out confirmations and default to deny
+- Log every confirmation decision (approved or denied) to an append-only audit file outside the container
+
+#### 4. Audit all outbound model calls
+
+Implement a `before_provider_request` handler that logs the full payload of every outbound model API call. This provides a record of what data was sent to external model providers. In combination with Option A (Pi inside the devcontainer), this log lives inside the container and should be written to a named volume that persists it outside the ephemeral container filesystem.
+
+#### 5. Control session storage
+
+Set `sessionDir` to a path outside the project directory — ideally on an encrypted volume. Session JSONL files contain the full conversation including all file content the agent read, so they must be treated as sensitive data with the same retention policy as the source material.
+
+#### 6. Disable all telemetry and startup network calls
+
+Set `PI_OFFLINE=1` in the container environment. All model traffic should go through a known, proxied endpoint. No other outbound network calls should be permitted.
+
+#### 7. Treat the extension ecosystem as untrusted
+
+Extensions run with full system permissions and can execute arbitrary code. For regulated use:
+
+- No third-party Pi packages should be installed without code review
+- Pin all extensions to exact versions (commit hash for git, exact version for npm)
+- Global extensions (`~/.pi/agent/extensions/`) affect all projects — treat this directory as a high-privilege location
+- Project-local extensions (`.pi/extensions/`) should be version-controlled and reviewed as part of normal code review
+
+#### 8. Audit trail summary
+
+A compliant Pi setup should produce the following audit records, all written outside the agent's writable container filesystem:
+
+| Record | Source | Hook / Mechanism |
+|---|---|---|
+| Every tool call (name, args, timestamp) | Extension | `tool_call` event |
+| Every tool result (status, output hash) | Extension | `tool_result` event |
+| Every outbound model call (payload hash) | Extension | `before_provider_request` event |
+| Every permission decision | Extension | `permission-gate` confirmation handler |
+| Session transcripts | Pi | `sessionDir` on controlled volume |
+
+---
+
+### Honest Assessment
+
+Pi is architecturally honest about its security posture: it deliberately externalises security policy to the operator via containerisation and extensions. This is a reasonable design philosophy for a developer tool, but it means that for regulated use, **you are building the security controls, not configuring them**. Pi provides the hooks; the implementation is your responsibility.
+
+OpenShell is the closest to a batteries-included regulated solution that the Pi documentation describes, but it requires an external gateway and is primarily aimed at enterprise or team deployments. For a local developer setup in a regulated context, the realistic path is: hardened Docker with a host-side model proxy (so keys never enter the container) + `--no-builtin-tools` + audited tool extension + permission-gate extension + session storage on an encrypted volume outside the working tree.

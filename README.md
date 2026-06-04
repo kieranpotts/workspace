@@ -36,11 +36,11 @@ Alternatively, the script can be invoked directly without activation:
 
 > **Note:** On Windows, the workspace SHOULD be established in WSL. The `devtools` repository SHOULD also be cloned directly in the host OS, manually, and optionally the `dotfiles` repository too.
 
-Start by cloning this repository:
+Start by cloning this repository. It is RECOMMENDED to clone it into `~/dev/kieranpotts/workspace` so that the root repository sits alongside all the other projects that `install.py` will place under `~/dev/`:
 
 ```sh
-git clone git@github.com:kieranpotts/root.git /path/to/my-personal-workspace
-cd /path/to/my-personal-workspace
+git clone git@github.com:kieranpotts/root.git ~/dev/kieranpotts/workspace
+cd ~/dev/kieranpotts/workspace
 ```
 
 Then clone and sync all other repositories:

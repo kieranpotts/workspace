@@ -8,7 +8,7 @@ Isolate a local coding agent (Pi) from host system and user-level filesystem, wh
 
 ## Fixed Components
 
-These are constant across all three options.
+These are constant across all four options.
 
 ### Ollama (host)
 - Runs on the host for GPU access and inference speed
@@ -32,7 +32,7 @@ These are constant across all three options.
 
 ---
 
-## The Three Options
+## The Four Options
 
 ---
 
@@ -151,31 +151,86 @@ Pi issues shell commands that run *inside* the target container and observes std
 
 ---
 
+### Option D — Pi in Its Own Container, MCP Server as Mediator
+
+Pi runs in a dedicated container and has no direct filesystem access or exec access to any project. Instead, a containerised MCP server sits between Pi and each devcontainer, exposing a structured, operation-scoped API over the project filesystem. Pi calls MCP tools (`read_file`, `write_file`, `list_directory`, `run_command`, etc.); the MCP server enforces what is permitted.
+
+Pi does not include MCP support by default, so this option requires adding an MCP client extension to Pi.
+
+```
+Docker network: agent-net
+│
+├── pi-container
+│   ├── Pi process + MCP client extension
+│   ├── /home/pi              ← Pi config + session history (named volume)
+│   └── (no project mounts, no docker.sock)
+│       ↓ MCP protocol (HTTP/SSE or stdio)
+│
+├── mcp-server-container
+│   ├── MCP server process
+│   ├── /projects/proj-a      ← shared named volume (scoped read/write)
+│   ├── /projects/proj-b      ← shared named volume (scoped read/write)
+│   └── enforces: path allowlist, operation allowlist, per-project permissions
+│
+├── project-a devcontainer
+│   └── /workspace            ← same named volume as /projects/proj-a above
+│
+└── project-b devcontainer
+    └── /workspace            ← same named volume as /projects/proj-b above
+```
+
+The MCP server is the only component with filesystem access to project volumes. It enforces a path allowlist (e.g. no access above `/projects/proj-a`), an operation allowlist (e.g. no `rm -rf`, no access to `.env` files), and can log every read and write for auditability.
+
+**Pros**
+- Strongest filesystem isolation of all four options — Pi has zero direct filesystem access
+- MCP server is an explicit, auditable policy enforcement point: every file operation is a named tool call with defined parameters
+- All filesystem access is logged by default (MCP tool calls are observable)
+- Permission boundaries are expressed in code (the MCP server), not just in Docker config
+- Pi can be swapped for any other MCP-compatible agent without changing the isolation layer
+- No `docker.sock` required
+
+**Cons**
+- Pi does not support MCP natively — requires building or installing an MCP client extension
+- Highest setup complexity of all options
+- MCP server must be kept up to date and correctly configured — it becomes a security-critical component
+- Pi still lacks access to the project's runtime environment for executing code (same limitation as Option B); would need to be combined with Option C's exec approach for full fidelity
+- Adds a network hop (Pi → MCP server → filesystem) with associated latency
+
+**Mitigating the runtime environment gap:** If Pi needs to run project code (tests, builds), the MCP server can expose a `run_command` tool that executes inside the devcontainer via a restricted exec interface. This gives the structured mediation of Option D with the environment fidelity of Option C, at the cost of additional complexity.
+
+**Best for:** Scenarios requiring explicit, auditable, policy-enforced filesystem access — e.g. shared or team environments, regulated codebases, or where the agent's filesystem permissions need to be inspectable and version-controlled.
+
+---
+
 ## Comparison Summary
 
-| | Option A | Option B | Option C |
-|---|---|---|---|
-| **Pi location** | Inside devcontainer | Own container | Own container |
-| **File access method** | Direct (co-located) | Shared named volume | `docker exec` / SSH |
-| **Project env available to Pi** | ✅ Full | ❌ Pi's own env only | ✅ Full |
-| **Pi config persistence** | ⚠️ Per container | ✅ Centralised | ✅ Centralised |
-| **Multi-project in one session** | ❌ | ✅ | ✅ |
-| **Docker socket required** | ❌ | ❌ | ⚠️ Yes (or proxy) |
-| **Setup complexity** | Low | Medium | High |
-| **Filesystem isolation (Pi↔host)** | ✅ | ✅ | ✅ |
-| **Filesystem isolation (Pi↔project)** | ❌ By design | ❌ By design | ✅ Mediated |
+| | Option A | Option B | Option C | Option D |
+|---|---|---|---|---|
+| **Pi location** | Inside devcontainer | Own container | Own container | Own container |
+| **File access method** | Direct (co-located) | Shared named volume | `docker exec` / SSH | MCP server |
+| **Project env available to Pi** | ✅ Full | ❌ Pi's own env only | ✅ Full | ❌ (unless MCP exposes exec) |
+| **Pi config persistence** | ⚠️ Per container | ✅ Centralised | ✅ Centralised | ✅ Centralised |
+| **Multi-project in one session** | ❌ | ✅ | ✅ | ✅ |
+| **Docker socket required** | ❌ | ❌ | ⚠️ Yes (or proxy) | ❌ |
+| **Setup complexity** | Low | Medium | High | Highest |
+| **Filesystem isolation (Pi↔host)** | ✅ | ✅ | ✅ | ✅ |
+| **Filesystem isolation (Pi↔project)** | ❌ By design | ❌ By design | ✅ Mediated | ✅ Strongly mediated |
+| **Access auditability** | ❌ | ❌ | ⚠️ Shell logs only | ✅ Every tool call logged |
+| **MCP extension required** | ❌ | ❌ | ❌ | ✅ |
 
 ---
 
 ## Key Tradeoffs
 
-**Simplicity vs. separation.** Option A is the easiest to reason about and operate. Options B and C introduce inter-container coordination, which adds operational complexity in exchange for better separation of Pi from project environments.
+**Simplicity vs. separation.** Option A is the easiest to reason about and operate. Each subsequent option adds inter-container coordination in exchange for stronger or more explicit isolation.
 
-**Project environment fidelity.** If Pi needs to run code — tests, builds, formatters — it needs the project's runtimes. Option A and C provide this; Option B does not unless project tooling is duplicated in the Pi image.
+**Project environment fidelity.** If Pi needs to run code — tests, builds, formatters — it needs the project's runtimes. Options A and C provide this natively. Options B and D do not, unless the MCP server (Option D) or a volume-accessible runner (Option B) is added to bridge the gap.
 
-**Centralised vs. per-project Pi.** Options B and C give you a single Pi instance with stable config, extensions, and history. Option A gives each project its own isolated Pi, which may be preferable if projects have divergent requirements or if you want strong session isolation.
+**Centralised vs. per-project Pi.** Options B, C, and D give you a single Pi instance with stable config, extensions, and history. Option A gives each project its own isolated Pi, which may be preferable for divergent project requirements or strong session isolation.
 
-**The docker.sock decision.** Option C's exec-based approach is architecturally the cleanest, but `docker.sock` access is a real privilege escalation risk. If you choose Option C, using a socket proxy that restricts access to `exec`-only on named containers is strongly recommended over mounting the raw socket.
+**The docker.sock decision.** Option C requires `docker.sock` access or a proxy. Options A, B, and D avoid this entirely. If `docker.sock` is used, a restrictive proxy (e.g. [docker-socket-proxy](https://github.com/Tecnativa/docker-socket-proxy)) allowlisted to `exec`-only on named containers is strongly recommended.
+
+**Implicit vs. explicit access control.** Options A, B, and C rely on Docker volume scoping and mount configuration for access control — correct but implicit. Option D makes access control explicit in the MCP server's tool definitions and allowlists, which are inspectable, testable, and version-controllable. This is the meaningful architectural distinction of Option D.
 
 ---
 
@@ -201,7 +256,7 @@ Switch models mid-session with Pi's `/model` command or `Ctrl+L`. No proxy layer
 
 ---
 
-## What All Three Options Protect Against
+## What All Four Options Protect Against
 
 | Concern | Protected? | Notes |
 |---|---|---|
@@ -218,7 +273,7 @@ Switch models mid-session with Pi's `/model` command or `Ctrl+L`. No proxy layer
 
 ## Out of Scope
 
-- **MCP:** Pi does not include MCP by default. If added, each MCP server should run in its own container with explicit volume scoping.
+- **MCP:** Pi does not include MCP by default. Option D is built around a containerised MCP server; if MCP is added to other options, each MCP server should run in its own container with explicit volume scoping.
 - **Egress filtering:** Recommended for sensitive projects; not part of the baseline architecture here.
 - **Permission gating:** Pi has no built-in permission popups. If per-action approval is needed, use Pi's `permission-gate.ts` extension example as a starting point.
 - **gVisor / VM-based isolation:** Not required for local dev; consider if running untrusted agent extensions or in a multi-user environment.

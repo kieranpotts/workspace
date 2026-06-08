@@ -3,199 +3,199 @@
   "folders": [
     {
       "name": "🚫 kieranpotts/__TODO__",
-      "path": "./kieranpotts/__TODO__/default"
+      "path": "kieranpotts/__TODO__/default"
     },
     {
       "name": "🚀 kieranpotts/.github",
-      "path": "./kieranpotts/.github/default"
+      "path": "kieranpotts/.github/default"
     },
     {
       "name": "🚀 kieranpotts/actions",
-      "path": "./kieranpotts/actions/default"
+      "path": "kieranpotts/actions/default"
     },
     {
       "name": "⚒️ kieranpotts/asciibook",
-      "path": "./kieranpotts/asciibook/default"
+      "path": "kieranpotts/asciibook/default"
     },
     {
       "name": "⚒️ kieranpotts/avatar",
-      "path": "./kieranpotts/avatar/default"
+      "path": "kieranpotts/avatar/default"
     },
     {
       "name": "🚧 kieranpotts/bookmarks",
-      "path": "./kieranpotts/bookmarks/default"
+      "path": "kieranpotts/bookmarks/default"
     },
     {
       "name": "🚀 kieranpotts/bootstrap",
-      "path": "./kieranpotts/bootstrap/default"
+      "path": "kieranpotts/bootstrap/default"
     },
     {
       "name": "🚧 kieranpotts/cheats",
-      "path": "./kieranpotts/cheats/default"
+      "path": "kieranpotts/cheats/default"
     },
     {
       "name": "🚫 kieranpotts/cover-letter",
-      "path": "./kieranpotts/cover-letter/default"
+      "path": "kieranpotts/cover-letter/default"
     },
     {
       "name": "🚫 kieranpotts/designs",
-      "path": "./kieranpotts/designs/default"
+      "path": "kieranpotts/designs/default"
     },
     {
       "name": "🔒 kieranpotts/devboxes",
-      "path": "./kieranpotts/devboxes/default"
+      "path": "kieranpotts/devboxes/default"
     },
     {
       "name": "🚀 kieranpotts/devtools",
-      "path": "./kieranpotts/devtools/default"
+      "path": "kieranpotts/devtools/default"
     },
     {
       "name": "🚀 kieranpotts/dictionary",
-      "path": "./kieranpotts/dictionary/default"
+      "path": "kieranpotts/dictionary/default"
     },
     {
       "name": "🚀 kieranpotts/docker-devcontainer",
-      "path": "./kieranpotts/docker-devcontainer/default"
+      "path": "kieranpotts/docker-devcontainer/default"
     },
     {
       "name": "⚒️ kieranpotts/docker-latex",
-      "path": "./kieranpotts/docker-latex/default"
+      "path": "kieranpotts/docker-latex/default"
     },
     {
       "name": "🚀 kieranpotts/dotfiles",
-      "path": "./kieranpotts/dotfiles/default"
+      "path": "kieranpotts/dotfiles/default"
     },
     {
       "name": "🔒 kieranpotts/eslint-config",
-      "path": "./kieranpotts/eslint-config/default"
+      "path": "kieranpotts/eslint-config/default"
     },
     {
       "name": "🚧 kieranpotts/garden",
-      "path": "./kieranpotts/garden/default"
+      "path": "kieranpotts/garden/default"
     },
     {
       "name": "🔒 kieranpotts/genies",
-      "path": "./kieranpotts/genies/default"
+      "path": "kieranpotts/genies/default"
     },
     {
       "name": "🚧 kieranpotts/gitex",
-      "path": "./kieranpotts/gitex/default"
+      "path": "kieranpotts/gitex/default"
     },
     {
       "name": "🚫 kieranpotts/interviews",
-      "path": "./kieranpotts/interviews/default"
+      "path": "kieranpotts/interviews/default"
     },
     {
       "name": "⚒️ kieranpotts/json-schema",
-      "path": "./kieranpotts/json-schema/default"
+      "path": "kieranpotts/json-schema/default"
     },
     {
       "name": "🚀 kieranpotts/kieranpotts",
-      "path": "./kieranpotts/kieranpotts/default"
+      "path": "kieranpotts/kieranpotts/default"
     },
     {
       "name": "🔒 kieranpotts/makebook",
-      "path": "./kieranpotts/makebook/default"
+      "path": "kieranpotts/makebook/default"
     },
     {
       "name": "🚧 kieranpotts/modelfiles",
-      "path": "./kieranpotts/modelfiles/default"
+      "path": "kieranpotts/modelfiles/default"
     },
     {
       "name": "🚫 kieranpotts/notes",
-      "path": "./kieranpotts/notes/default"
+      "path": "kieranpotts/notes/default"
     },
     {
       "name": "🚫 kieranpotts/papers",
-      "path": "./kieranpotts/papers/default"
+      "path": "kieranpotts/papers/default"
     },
     {
       "name": "🚀 kieranpotts/pi",
-      "path": "./kieranpotts/pi/default"
+      "path": "kieranpotts/pi/default"
     },
     {
       "name": "🚧 kieranpotts/playbook",
-      "path": "./kieranpotts/playbook/default"
+      "path": "kieranpotts/playbook/default"
     },
     {
       "name": "🚫 kieranpotts/popos",
-      "path": "./kieranpotts/popos/default"
+      "path": "kieranpotts/popos/default"
     },
     {
       "name": "🚀 kieranpotts/pre-commit-hooks",
-      "path": "./kieranpotts/pre-commit-hooks/default"
+      "path": "kieranpotts/pre-commit-hooks/default"
     },
     {
       "name": "🔒 kieranpotts/prototypes",
-      "path": "./kieranpotts/prototypes/default"
+      "path": "kieranpotts/prototypes/default"
     },
     {
       "name": "🚀 kieranpotts/résumé",
-      "path": "./kieranpotts/resume/default"
+      "path": "kieranpotts/resume/default"
     },
     {
       "name": "⚒️ kieranpotts/rfc",
-      "path": "./kieranpotts/rfc/default"
+      "path": "kieranpotts/rfc/default"
     },
     {
       "name": "🔒 kieranpotts/sh",
-      "path": "./kieranpotts/sh/default"
+      "path": "kieranpotts/sh/default"
     },
     {
       "name": "🚀 kieranpotts/skills",
-      "path": "./kieranpotts/skills/default"
+      "path": "kieranpotts/skills/default"
     },
     {
       "name": "⚒️ kieranpotts/specs",
-      "path": "./kieranpotts/specs/default"
+      "path": "kieranpotts/specs/default"
     },
     {
       "name": "🚧 kieranpotts/standards",
-      "path": "./kieranpotts/standards/default"
+      "path": "kieranpotts/standards/default"
     },
     {
       "name": "🚀 kieranpotts/template",
-      "path": "./kieranpotts/template/default"
+      "path": "kieranpotts/template/default"
     },
     {
       "name": "🔒 kieranpotts/tests",
-      "path": "./kieranpotts/tests/default"
+      "path": "kieranpotts/tests/default"
     },
     {
       "name": "🚫 kieranpotts/the-timeless-way",
-      "path": "./kieranpotts/the-timeless-way/default"
+      "path": "kieranpotts/the-timeless-way/default"
     },
     {
       "name": "🚧 kieranpotts/thoughts",
-      "path": "./kieranpotts/thoughts/default"
+      "path": "kieranpotts/thoughts/default"
     },
     {
       "name": "🚧 kieranpotts/vscode-theme-lumex",
-      "path": "./kieranpotts/vscode-theme-lumex/default"
+      "path": "kieranpotts/vscode-theme-lumex/default"
     },
     {
       "name": "⚒️ kieranpotts/vscode-theme-ocean",
-      "path": "./kieranpotts/vscode-theme-ocean/default"
+      "path": "kieranpotts/vscode-theme-ocean/default"
     },
     {
       "name": "🚧 kieranpotts/website",
-      "path": "./kieranpotts/website/default"
+      "path": "kieranpotts/website/default"
     },
     {
       "name": "🚀 kieranpotts/workspace",
-      "path": "./kieranpotts/workspace/default"
+      "path": "kieranpotts/workspace/default"
     },
     {
       "name": "🚧 srcflow/srcflow",
-      "path": "./srcflow/srcflow/default"
+      "path": "srcflow/srcflow/default"
     },
     {
       "name": "🚧 srcflow/sh",
-      "path": "./srcflow/sh/default"
+      "path": "srcflow/sh/default"
     },
     {
       "name": "🔒 nirvarnia/brand",
-      "path": "./nirvarnia/brand/default"
+      "path": "nirvarnia/brand/default"
     }
   ],
 

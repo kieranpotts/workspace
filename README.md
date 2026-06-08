@@ -1,18 +1,18 @@
-# Root
+# Workspace
 
 This repository serves as the root for all my personal code repositories. It includes:
 
 - Scripts to automate the cloning and synchronization of all my personal software projects.
+
 - A VS Code workspace configuration.
+
 - A devcontainer to simplify the running of my whole personal workspace in an isolated environment.
 
 ## Requirements
 
 [Git LFS](https://git-lfs.com/) SHOULD be installed before cloning the repositories. This is required to download PDFs and other large files from some repositories. But the `git clone` operation will succeed without it.
 
-It is RECOMMENDED to clone and run the environment [bootstrapping script](https://github.com/kieranpotts/bootstrap) first. This will install Git LFS and other dependencies.
-
-Python 3 is required to run the management scripts. Create and activate a virtual environment, then install the dependencies:
+Python 3 is REQUIRED to run the management scripts. Create and activate a virtual environment, then install the dependencies:
 
 ```sh
 python3 -m venv .venv
@@ -32,38 +32,34 @@ Alternatively, the script can be invoked directly without activation:
 .venv/bin/python run/install.py
 ```
 
+> [!TIP]
+> Clone and run the environment [bootstrapping script](https://github.com/kieranpotts/bootstrap) first. This will install Git LFS and other dependencies.
+
 ## Usage
 
-> **Note:** On Windows, the workspace SHOULD be established in WSL. The `devtools` repository SHOULD also be cloned directly in the host OS, manually, and optionally the `dotfiles` repository too.
+> [!NOTE]
+> On Windows, the workspace SHOULD be established in WSL. The `devtools` repository SHOULD also be cloned directly in the host OS, manually, and optionally the `dotfiles` repository too.
 
-Start by cloning this repository. It is RECOMMENDED to clone it into `~/dev/kieranpotts/workspace` so that the root repository sits alongside all the other projects that `install.py` will place under `~/dev/`:
+Start by cloning this repository. It is RECOMMENDED to clone it into a temporary location initially. The installer script will then set up this and other repositories properly.
 
 ```sh
-git clone git@github.com:kieranpotts/root.git ~/dev/kieranpotts/workspace
-cd ~/dev/kieranpotts/workspace
+git clone git@github.com:kieranpotts/workspace.git ~/dev/tmp
+cd ~/dev/tmp
 ```
 
-Then clone and sync all other repositories:
+Run this script to clone and sync all other repositories:
 
 ```sh
 python3 run/install.py
 ```
 
-This reads `repos.yaml` and clones any repository not yet present locally. Each repository is checked out using the [adjacent worktree pattern](https://github.com/kieranpotts/standards), rooted under `~/dev/` (regardless of where this repository is located):
+This reads `repos.yaml` and clones any repository not yet present locally. Each repository is checked out using the adjacent worktree pattern, rooted under `~/dev/` – see below for details of the worktree filesystem structure.
 
-```
-~/dev/<name>/.bare      — bare clone (Git internals only)
-~/dev/<name>/.git       — file pointing at .bare, so git commands work from the project root
-~/dev/<name>/<branch>   — working tree checked out at <branch>
-```
-
-For example, a repo with `name: kieranpotts/specs` and `branch: dev` is placed at `~/dev/kieranpotts/specs/.bare` (bare clone) with a working tree at `~/dev/kieranpotts/specs/dev`.
-
-For each already-cloned repository it fetches from the remote then fast-forwards every working tree. It is safe to run multiple times.
+For each already-cloned repository, the installer fetches from the remote then fast-forwards every working tree. It is safe to run multiple times.
 
 The base directory (`~/dev/`) is configurable via the `REPOS_DIR` constant at the top of [run/install.py](run/install.py).
 
-The `install.py` script does not sync the root repository itself. Run `git pull` to do that in the normal way.
+The `install.py` also clones this workspace repository. It is now safe to delete the temporary clone of this repository you made at at the start.
 
 ## Managing repositories
 
@@ -77,13 +73,15 @@ repos:
       default: main
 ```
 
-The `worktrees` map declares one or more named worktrees. The key is the directory name under the project root; the value is the branch to check out. For example, the entry above creates:
+The `worktrees` map declares one or more named worktrees. The key is the directory name under the project root. The value is the branch to check out. For example, the entry above creates:
 
 ```
-~/dev/repository-name/.bare      — bare clone
-~/dev/repository-name/.git       — pointer file
-~/dev/repository-name/default    — working tree at branch `main`
+~/dev/repository-name/.bare      — Bare clone (Git internals only).
+~/dev/repository-name/.git       — Pointer file.
+~/dev/repository-name/default    — Working tree at branch `main`.
 ```
+
+The `.git` pointer file allows `git` commands to work from the project root. You don't need to be in the scope of the `.bare` worktree to manage the project's worktrees.
 
 A repo can declare multiple worktrees:
 
@@ -130,6 +128,8 @@ git worktree prune
 Worktrees created manually are NOT tracked by `install.py`. They will not be recreated on subsequent runs, and they will not be removed unless you delete them yourself.
 
 ## Dev Container
+
+This repository ships with a devcontainer configuration for the whole workspace.
 
 To load the workspace in the devcontainer:
 

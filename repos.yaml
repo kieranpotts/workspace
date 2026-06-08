@@ -44,11 +44,6 @@ repos:
     worktrees:
       default: latest/dev
 
-  - name: kieranpotts/blog
-    url: git@github.com:kieranpotts/blog.git
-    worktrees:
-      default: latest/dev
-
   - name: kieranpotts/bookmarks
     url: git@github.com:kieranpotts/bookmarks.git
     worktrees:
@@ -219,6 +214,11 @@ repos:
     url: git@github.com:kieranpotts/the-timeless-way.git
     worktrees:
       default: dev
+
+  - name: kieranpotts/thoughts
+    url: git@github.com:kieranpotts/thoughts.git
+    worktrees:
+      default: latest/dev
 
   - name: kieranpotts/vscode-theme-lumex
     url: git@github.com:kieranpotts/vscode-theme-lumex.git

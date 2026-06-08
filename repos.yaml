@@ -139,6 +139,11 @@ repos:
     worktrees:
       default: archive
 
+  - name: kieranpotts/modelfiles
+    url: git@github.com:kieranpotts/modelfiles.git
+    worktrees:
+      default: dev
+
   - name: kieranpotts/notes
     url: git@github.com:kieranpotts/notes.git
     worktrees:
@@ -146,6 +151,11 @@ repos:
 
   - name: kieranpotts/papers
     url: git@github.com:kieranpotts/papers.git
+    worktrees:
+      default: dev
+
+  - name: kieranpotts/pi
+    url: git@github.com:kieranpotts/pi.git
     worktrees:
       default: dev
 

@@ -3,199 +3,199 @@
   "folders": [
     {
       "name": "🚫 kieranpotts/__TODO__",
-      "path": "./repos/kieranpotts/__TODO__"
+      "path": "./kieranpotts/__TODO__/default"
     },
     {
       "name": "🚀 kieranpotts/.github",
-      "path": "./repos/kieranpotts/.github"
+      "path": "./kieranpotts/.github/default"
     },
     {
       "name": "🚀 kieranpotts/actions",
-      "path": "./repos/kieranpotts/actions"
+      "path": "./kieranpotts/actions/default"
     },
     {
       "name": "⚒️ kieranpotts/asciibook",
-      "path": "./repos/kieranpotts/asciibook"
+      "path": "./kieranpotts/asciibook/default"
     },
     {
       "name": "⚒️ kieranpotts/avatar",
-      "path": "./repos/kieranpotts/avatar"
-    },
-    {
-      "name": "🚧 kieranpotts/blog",
-      "path": "./repos/kieranpotts/blog"
+      "path": "./kieranpotts/avatar/default"
     },
     {
       "name": "🚧 kieranpotts/bookmarks",
-      "path": "./repos/kieranpotts/bookmarks"
+      "path": "./kieranpotts/bookmarks/default"
     },
     {
       "name": "🚀 kieranpotts/bootstrap",
-      "path": "./repos/kieranpotts/bootstrap"
+      "path": "./kieranpotts/bootstrap/default"
     },
     {
       "name": "🚧 kieranpotts/cheats",
-      "path": "./repos/kieranpotts/cheats"
+      "path": "./kieranpotts/cheats/default"
     },
     {
       "name": "🚫 kieranpotts/cover-letter",
-      "path": "./repos/kieranpotts/cover-letter"
+      "path": "./kieranpotts/cover-letter/default"
     },
     {
       "name": "🚫 kieranpotts/designs",
-      "path": "./repos/kieranpotts/designs"
+      "path": "./kieranpotts/designs/default"
     },
     {
       "name": "🔒 kieranpotts/devboxes",
-      "path": "./repos/kieranpotts/devboxes"
+      "path": "./kieranpotts/devboxes/default"
     },
     {
       "name": "🚀 kieranpotts/devtools",
-      "path": "./repos/kieranpotts/devtools"
+      "path": "./kieranpotts/devtools/default"
     },
     {
       "name": "🚀 kieranpotts/dictionary",
-      "path": "./repos/kieranpotts/dictionary"
+      "path": "./kieranpotts/dictionary/default"
     },
     {
       "name": "🚀 kieranpotts/docker-devcontainer",
-      "path": "./repos/kieranpotts/docker-devcontainer"
+      "path": "./kieranpotts/docker-devcontainer/default"
     },
     {
       "name": "⚒️ kieranpotts/docker-latex",
-      "path": "./repos/kieranpotts/docker-latex"
+      "path": "./kieranpotts/docker-latex/default"
     },
     {
       "name": "🚀 kieranpotts/dotfiles",
-      "path": "./repos/kieranpotts/dotfiles"
+      "path": "./kieranpotts/dotfiles/default"
     },
     {
       "name": "🔒 kieranpotts/eslint-config",
-      "path": "./repos/kieranpotts/eslint-config"
+      "path": "./kieranpotts/eslint-config/default"
     },
     {
       "name": "🚧 kieranpotts/garden",
-      "path": "./repos/kieranpotts/garden"
+      "path": "./kieranpotts/garden/default"
     },
     {
       "name": "🔒 kieranpotts/genies",
-      "path": "./repos/kieranpotts/genies"
+      "path": "./kieranpotts/genies/default"
     },
     {
       "name": "🚧 kieranpotts/gitex",
-      "path": "./repos/kieranpotts/gitex"
+      "path": "./kieranpotts/gitex/default"
     },
     {
       "name": "🚫 kieranpotts/interviews",
-      "path": "./repos/kieranpotts/interviews"
+      "path": "./kieranpotts/interviews/default"
     },
     {
       "name": "⚒️ kieranpotts/json-schema",
-      "path": "./repos/kieranpotts/json-schema"
+      "path": "./kieranpotts/json-schema/default"
     },
     {
       "name": "🚀 kieranpotts/kieranpotts",
-      "path": "./repos/kieranpotts/kieranpotts"
+      "path": "./kieranpotts/kieranpotts/default"
     },
     {
       "name": "🔒 kieranpotts/makebook",
-      "path": "./repos/kieranpotts/makebook"
+      "path": "./kieranpotts/makebook/default"
     },
     {
       "name": "🚧 kieranpotts/modelfiles",
-      "path": "./repos/kieranpotts/modelfiles"
+      "path": "./kieranpotts/modelfiles/default"
     },
     {
       "name": "🚫 kieranpotts/notes",
-      "path": "./repos/kieranpotts/notes"
+      "path": "./kieranpotts/notes/default"
     },
     {
       "name": "🚫 kieranpotts/papers",
-      "path": "./repos/kieranpotts/papers"
+      "path": "./kieranpotts/papers/default"
     },
     {
       "name": "🚀 kieranpotts/pi",
-      "path": "./repos/kieranpotts/pi"
+      "path": "./kieranpotts/pi/default"
     },
     {
       "name": "🚧 kieranpotts/playbook",
-      "path": "./repos/kieranpotts/playbook"
+      "path": "./kieranpotts/playbook/default"
     },
     {
       "name": "🚫 kieranpotts/popos",
-      "path": "./repos/kieranpotts/popos"
+      "path": "./kieranpotts/popos/default"
     },
     {
       "name": "🚀 kieranpotts/pre-commit-hooks",
-      "path": "./repos/kieranpotts/pre-commit-hooks"
+      "path": "./kieranpotts/pre-commit-hooks/default"
     },
     {
       "name": "🔒 kieranpotts/prototypes",
-      "path": "./repos/kieranpotts/prototypes"
+      "path": "./kieranpotts/prototypes/default"
     },
     {
       "name": "🚀 kieranpotts/résumé",
-      "path": "./repos/kieranpotts/resume"
+      "path": "./kieranpotts/resume/default"
     },
     {
       "name": "⚒️ kieranpotts/rfc",
-      "path": "./repos/kieranpotts/rfc"
-    },
-    {
-      "name": "🚀 kieranpotts/root",
-      "path": "."
+      "path": "./kieranpotts/rfc/default"
     },
     {
       "name": "🔒 kieranpotts/sh",
-      "path": "./repos/kieranpotts/sh"
+      "path": "./kieranpotts/sh/default"
     },
     {
       "name": "🚀 kieranpotts/skills",
-      "path": "./repos/kieranpotts/skills"
+      "path": "./kieranpotts/skills/default"
     },
     {
       "name": "⚒️ kieranpotts/specs",
-      "path": "./repos/kieranpotts/specs"
+      "path": "./kieranpotts/specs/default"
     },
     {
       "name": "🚧 kieranpotts/standards",
-      "path": "./repos/kieranpotts/standards"
+      "path": "./kieranpotts/standards/default"
     },
     {
       "name": "🚀 kieranpotts/template",
-      "path": "./repos/kieranpotts/template"
+      "path": "./kieranpotts/template/default"
     },
     {
       "name": "🔒 kieranpotts/tests",
-      "path": "./repos/kieranpotts/tests"
+      "path": "./kieranpotts/tests/default"
     },
     {
       "name": "🚫 kieranpotts/the-timeless-way",
-      "path": "./repos/kieranpotts/the-timeless-way"
+      "path": "./kieranpotts/the-timeless-way/default"
+    },
+    {
+      "name": "🚧 kieranpotts/thoughts",
+      "path": "./kieranpotts/thoughts/default"
     },
     {
       "name": "🚧 kieranpotts/vscode-theme-lumex",
-      "path": "./repos/kieranpotts/vscode-theme-lumex"
+      "path": "./kieranpotts/vscode-theme-lumex/default"
     },
     {
       "name": "⚒️ kieranpotts/vscode-theme-ocean",
-      "path": "./repos/kieranpotts/vscode-theme-ocean"
+      "path": "./kieranpotts/vscode-theme-ocean/default"
     },
     {
       "name": "🚧 kieranpotts/website",
-      "path": "./repos/kieranpotts/website"
+      "path": "./kieranpotts/website/default"
+    },
+    {
+      "name": "🚀 kieranpotts/workspace",
+      "path": "./kieranpotts/workspace/default"
     },
     {
       "name": "🚧 srcflow/srcflow",
-      "path": "./repos/srcflow/srcflow"
+      "path": "./srcflow/srcflow/default"
     },
     {
       "name": "🚧 srcflow/sh",
-      "path": "./repos/srcflow/sh"
+      "path": "./srcflow/sh/default"
     },
     {
       "name": "🔒 nirvarnia/brand",
-      "path": "./repos/nirvarnia/brand"
+      "path": "./nirvarnia/brand/default"
     }
   ],
 
@@ -466,14 +466,14 @@
     can't push to these anyway. This setting requires absolute paths -
     ${workspaceFolder} doesn't work, unfortunately. */
     "git.ignoredRepositories": [
-      "/home/kieran/dev/personal/repos/kieranpotts/devboxes",
-      "/home/kieran/dev/personal/repos/kieranpotts/eslint-config",
-      "/home/kieran/dev/personal/repos/kieranpotts/genies",
-      "/home/kieran/dev/personal/repos/kieranpotts/makebook",
-      "/home/kieran/dev/personal/repos/kieranpotts/prototypes",
-      "/home/kieran/dev/personal/repos/kieranpotts/sh",
-      "/home/kieran/dev/personal/repos/kieranpotts/tests",
-      "/home/kieran/dev/personal/repos/nirvarnia/brand",
+      "/home/kieran/dev/kieranpotts/devboxes/default",
+      "/home/kieran/dev/kieranpotts/eslint-config/default",
+      "/home/kieran/dev/kieranpotts/genies/default",
+      "/home/kieran/dev/kieranpotts/makebook/default",
+      "/home/kieran/dev/kieranpotts/prototypes/default",
+      "/home/kieran/dev/kieranpotts/sh/default",
+      "/home/kieran/dev/kieranpotts/tests/default",
+      "/home/kieran/dev/nirvarnia/brand/default",
     ],
 
     /* Don't automatically detect submodules. */

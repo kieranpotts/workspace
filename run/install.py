@@ -21,6 +21,7 @@ Requires: pip install pyyaml
 Usage:    python run/install.py
 """
 
+import os
 import shutil
 import subprocess
 import sys
@@ -34,6 +35,11 @@ MANIFEST = WORKSPACE / "repos.yaml"
 # Base directory under which all repositories are cloned. Each repo's bare clone
 # lands at <REPOS_DIR>/<name>/.bare, with working trees as sibling directories.
 REPOS_DIR = Path.home() / "dev"
+
+# Files/directories inside this workspace repo that should be surfaced at the
+# root of REPOS_DIR (~/dev) via symlink, so the whole tree can be opened as a
+# VS Code workspace / devcontainer from one place.
+LINKED_ASSETS = ["personal.code-workspace", ".devcontainer"]
 
 SEP = "─" * 60
 
@@ -49,6 +55,41 @@ def maybe_install_pre_commit(dest: Path) -> None:
         print(f"  ⚠️  pre-commit install failed: {result.stderr.strip()}", file=sys.stderr)
     else:
         print("  ✓ pre-commit hooks installed.")
+
+
+def link_workspace_assets() -> None:
+    """Symlink selected workspace assets into REPOS_DIR (~/dev).
+
+    Creates, e.g., ~/dev/personal.code-workspace → the copy inside this repo, so
+    the workspace file and devcontainer config are reachable from the root of the
+    dev tree. Symlinks are relative, so the whole tree can be relocated intact.
+    """
+    print(SEP)
+    print("Linking workspace assets into", REPOS_DIR)
+
+    for asset in LINKED_ASSETS:
+        source = WORKSPACE / asset
+        link = REPOS_DIR / asset
+
+        if not source.exists():
+            print(f"  ⚠️  Source not found, skipping: {source}", file=sys.stderr)
+            continue
+
+        target = Path(os.path.relpath(source, REPOS_DIR))
+
+        # Already a symlink — replace it only if it points somewhere else.
+        if link.is_symlink():
+            if Path(os.readlink(link)) == target:
+                print(f"  ✓ {asset} already linked.")
+                continue
+            link.unlink()
+        elif link.exists():
+            # A real file/dir is sitting where the link should go — don't clobber it.
+            print(f"  ⚠️  {link} exists and is not a symlink — skipping.", file=sys.stderr)
+            continue
+
+        link.symlink_to(target, target_is_directory=source.is_dir())
+        print(f"  ✓ Linked {asset} → {target}")
 
 
 def run(args: list[str], cwd: Path, *, check: bool = False) -> subprocess.CompletedProcess:
@@ -186,6 +227,8 @@ def main() -> int:
             ok += 1
         else:
             failed += 1
+
+    link_workspace_assets()
 
     print(SEP)
     print(f"Synced: {ok}  |  Failed: {failed}")

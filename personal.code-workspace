@@ -644,6 +644,9 @@
     /* Ignore TODOs in the code of Git submodules. */
     "todo-tree.filtering.ignoreGitSubmodules": true,
 
+    /* Path to ripgrep binary, required to be installed locally. */
+    "todo-tree.ripgrep.ripgrep": "/usr/bin/rg",
+
     /*
     Windsurf (formerly Codeium)
     https://marketplace.visualstudio.com/items?itemName=codeium.codeium

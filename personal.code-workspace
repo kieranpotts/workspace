@@ -212,17 +212,8 @@
       /* Claude Code — AI-assisted programming. */
       "anthropic.claude-code",
 
-      /* Cline — Autonomous coding agent. */
-      "saoudrizwan.claude-dev",
-
       /* Code Spell Checker — Spelling checker for all source code. */
       "streetsidesoftware.code-spell-checker",
-
-      /* Codex — OpenAI's coding agent. */
-      "openai.chatgpt",
-
-      /* Continue — Open source coding agent. */
-      "Continue.continue",
 
       /* Dev Containers — Containerized development environments. */
       "ms-vscode-remote.remote-containers",
@@ -236,11 +227,11 @@
       /* Git History — Adds a minimal `git log` panel. */
       "guodongsun.vscode-git-cruise",
 
-      /* Kilo Code — Another AI agent extension. */
-      "kilocode.kilo-code",
-
       /* Live Preview — For previewing HTML builds directly in VS Code. */
       "ms-vscode.live-server",
+
+      /* Llama Coder — Self-hosted LLM autocompletion via Ollama. */
+      "ex3ndr.llama-coder",
 
       /* Lorem Ipsum — Generates placeholder text. */
       "tyriar.lorem-ipsum",
@@ -251,21 +242,15 @@
       /* Todo Tree — Browse TODO, FIXME and other comments. */
       "gruntfuggly.todo-tree",
 
-      /* Twinny — Autocomplete enabled via local AI models. */
-      "rjmacarthy.twinny",
-
       /* UMLet — Generate diagrams with UMLet.
       To use, simply create a new text file with the `.uxf` extension. */
       "theumletteam.umlet",
 
-      /* VS Code Speech — Speech recognition. */
+      /* VS Code Speech — Speech recognition. Requires AI features to be enabled. */
       "ms-vscode.vscode-speech",
 
       /* VS Code PDF — Render PDFs directly in VS Code. */
       "tomoki1207.pdf",
-
-      /* Windsurf (formerly Codeium) — AI-assisted programming; inexpensive code completion! */
-      "codeium.codeium",
 
       /* WSL — Open folders and workspaces from WSL. */
       "ms-vscode-remote.remote-wsl",
@@ -609,12 +594,9 @@
     then opt-in for specific file types. */
     "github.copilot.enable": {
       "*": false,
-      "asciidoc": true,
-      "markdown": true,
-      "plaintext": true,
-
-      "enableAutoCompletions": true,
       "scminput": false,
+      "enableAutoCompletions": false,
+      "asciidoc": false
     },
 
     /*

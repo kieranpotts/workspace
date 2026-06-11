@@ -38,6 +38,10 @@
       "path": "kieranpotts/cover-letter/default"
     },
     {
+      "name": "🚧 kieranpotts/design",
+      "path": "kieranpotts/design/default"
+    },
+    {
       "name": "🚫 kieranpotts/designs",
       "path": "kieranpotts/designs/default"
     },
@@ -112,6 +116,10 @@
     {
       "name": "🚀 kieranpotts/pi",
       "path": "kieranpotts/pi/default"
+    },
+    {
+      "name": "🚧 kieranpotts/plans",
+      "path": "kieranpotts/plans/default"
     },
     {
       "name": "🚧 kieranpotts/playbook",

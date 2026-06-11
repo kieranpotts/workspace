@@ -64,6 +64,11 @@ repos:
     worktrees:
       default: dev
 
+  - name: kieranpotts/design
+    url: git@github.com:kieranpotts/design.git
+    worktrees:
+      default: dev
+
   - name: kieranpotts/designs
     url: git@github.com:kieranpotts/designs.git
     worktrees:
@@ -156,6 +161,11 @@ repos:
 
   - name: kieranpotts/pi
     url: git@github.com:kieranpotts/pi.git
+    worktrees:
+      default: dev
+
+  - name: kieranpotts/plans
+    url: git@github.com:kieranpotts/plans.git
     worktrees:
       default: dev
 

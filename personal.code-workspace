@@ -190,6 +190,10 @@
       "path": "kieranpotts/website/default"
     },
     {
+      "name": "🚀 kieranpotts/website-ui",
+      "path": "kieranpotts/website-ui/default"
+    },
+    {
       "name": "🚀 kieranpotts/workspace",
       "path": "kieranpotts/workspace/default"
     },

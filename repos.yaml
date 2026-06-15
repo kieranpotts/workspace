@@ -255,6 +255,11 @@ repos:
     worktrees:
       default: dev
 
+  - name: kieranpotts/website-ui
+    url: git@github.com:kieranpotts/website-ui.git
+    worktrees:
+      default: dev
+
   - name: srcflow/srcflow
     url: git@github.com:srcflow/srcflow.git
     worktrees:

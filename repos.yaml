@@ -238,7 +238,7 @@ repos:
   - name: kieranpotts/the-timeless-way
     url: git@github.com:kieranpotts/the-timeless-way.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/thoughts
     url: git@github.com:kieranpotts/thoughts.git

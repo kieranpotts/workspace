@@ -27,12 +27,12 @@ repos:
   - name: kieranpotts/.github
     url: git@github.com:kieranpotts/.github.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/actions
     url: git@github.com:kieranpotts/actions.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/asciibook
     url: git@github.com:kieranpotts/asciibook.git

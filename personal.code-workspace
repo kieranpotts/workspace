@@ -98,6 +98,10 @@
       "path": "kieranpotts/kieranpotts/default"
     },
     {
+      "name": "🚧 kieranpotts/lumex",
+      "path": "kieranpotts/lumex/default"
+    },
+    {
       "name": "🔒 kieranpotts/makebook",
       "path": "kieranpotts/makebook/default"
     },
@@ -176,14 +180,6 @@
     {
       "name": "🚀 kieranpotts/thoughts",
       "path": "kieranpotts/thoughts/default"
-    },
-    {
-      "name": "🚧 kieranpotts/vscode-theme-lumex",
-      "path": "kieranpotts/vscode-theme-lumex/default"
-    },
-    {
-      "name": "⚒️ kieranpotts/vscode-theme-ocean",
-      "path": "kieranpotts/vscode-theme-ocean/default"
     },
     {
       "name": "🚀 kieranpotts/website",

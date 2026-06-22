@@ -62,17 +62,17 @@ repos:
   - name: kieranpotts/cover-letter
     url: git@github.com:kieranpotts/cover-letter.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/design
     url: git@github.com:kieranpotts/design.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/designs
     url: git@github.com:kieranpotts/designs.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/devboxes
     url: git@github.com:kieranpotts/devboxes.git
@@ -82,27 +82,27 @@ repos:
   - name: kieranpotts/devtools
     url: git@github.com:kieranpotts/devtools.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/dictionary
     url: git@github.com:kieranpotts/dictionary.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/docker-devcontainer
     url: git@github.com:kieranpotts/docker-devcontainer.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/docker-latex
     url: git@github.com:kieranpotts/docker-latex.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/dotfiles
     url: git@github.com:kieranpotts/dotfiles.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/eslint-config
     url: git@github.com:kieranpotts/eslint-config.git
@@ -127,7 +127,7 @@ repos:
   - name: kieranpotts/interviews
     url: git@github.com:kieranpotts/interviews.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/json-schema
     url: git@github.com:kieranpotts/json-schema.git
@@ -137,7 +137,7 @@ repos:
   - name: kieranpotts/kieranpotts
     url: git@github.com:kieranpotts/kieranpotts.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/lumex
     url: git@github.com:kieranpotts/lumex.git
@@ -152,12 +152,12 @@ repos:
   - name: kieranpotts/modelfiles
     url: git@github.com:kieranpotts/modelfiles.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/notes
     url: git@github.com:kieranpotts/notes.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/ocean
     url: git@github.com:kieranpotts/ocean.git
@@ -167,32 +167,32 @@ repos:
   - name: kieranpotts/papers
     url: git@github.com:kieranpotts/papers.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/pi
     url: git@github.com:kieranpotts/pi.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/plans
     url: git@github.com:kieranpotts/plans.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/playbook
     url: git@github.com:kieranpotts/playbook.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/popos
     url: git@github.com:kieranpotts/popos.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/pre-commit-hooks
     url: git@github.com:kieranpotts/pre-commit-hooks.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/prototypes
     url: git@github.com:kieranpotts/prototypes.git
@@ -202,13 +202,13 @@ repos:
   - name: kieranpotts/resume
     url: git@github.com:kieranpotts/resume.git
     worktrees:
-      default: v2/dev
+      default: latest/dev
       v1: v1/main
 
   - name: kieranpotts/rfc
     url: git@github.com:kieranpotts/rfc.git
     worktrees:
-      default: main
+      default: latest/dev
 
   - name: kieranpotts/sh
     url: git@github.com:kieranpotts/sh.git
@@ -218,27 +218,27 @@ repos:
   - name: kieranpotts/skills
     url: git@github.com:kieranpotts/skills.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/specs
     url: git@github.com:kieranpotts/specs.git
     worktrees:
-      default: main
+      default: latest/dev
 
   - name: kieranpotts/standards
     url: git@github.com:kieranpotts/standards.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/template
     url: git@github.com:kieranpotts/template.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/tests
     url: git@github.com:kieranpotts/tests.git
     worktrees:
-      default: dev
+      default: archive
 
   - name: kieranpotts/the-timeless-way
     url: git@github.com:kieranpotts/the-timeless-way.git

@@ -40,9 +40,9 @@ repos:
 The `worktrees` map declares one or more named worktrees. The key is the directory name under the project root. The value is the branch to check out. For example, the entry above creates:
 
 ```
-~/dev/repository-name/.bare      — Bare clone (Git internals only).
-~/dev/repository-name/.git       — Pointer file.
-~/dev/repository-name/default    — Working tree at branch `main`.
+~/dev/personal/repository-name/.bare      — Bare clone (Git internals only).
+~/dev/personal/repository-name/.git       — Pointer file.
+~/dev/personal/repository-name/default    — Working tree at branch `main`.
 ```
 
 The `.git` pointer file allows `git` commands to work from the project root. You don't need to be in the scope of the `.bare` worktree to manage the project's worktrees.
@@ -58,19 +58,19 @@ repos:
       v1: v1/dev
 ```
 
-This creates two working trees: `~/dev/my-project/default` (branch `v2/dev`) and `~/dev/my-project/v1` (branch `v1/dev`).
+This creates two working trees: `~/dev/personal/my-project/default` (branch `v2/dev`) and `~/dev/personal/my-project/v1` (branch `v1/dev`).
 
 To add a repository, add an entry to `repos.yaml` and run `python3 run/install.py`. To remove a repository, delete its entry from `repos.yaml` and remove its project directory (which holds the bare clone and all worktrees):
 
 ```sh
-rm -rf ~/dev/<name>
+rm -rf ~/dev/personal/<name>
 ```
 
 Changes to `repos.yaml` should be committed.
 
 ## Manual worktree management
 
-The `install.py` script only manages the worktrees declared in `repos.yaml`. For temporary or experimental work, you can add additional worktrees manually using standard Git commands from the project root (eg. `~/dev/kieranpotts/my-project`):
+The `install.py` script only manages the worktrees declared in `repos.yaml`. For temporary or experimental work, you can add additional worktrees manually using standard Git commands from the project root (eg. `~/dev/personal/kieranpotts/my-project`):
 
 ```sh
 # Add a new worktree for an existing remote branch.

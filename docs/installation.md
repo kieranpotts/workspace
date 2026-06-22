@@ -38,19 +38,19 @@ Alternatively, rather than activating the Python virtual environment, the script
 .venv/bin/python run/install.py
 ```
 
-The `install.py` script reads `repos.yaml` and clones any repository not yet present locally. Each repository is checked out using the adjacent worktree pattern, rooted under `~/dev/` – see [Usage](./usage.md) for details of the worktree filesystem structure.
+The `install.py` script reads `repos.yaml` and clones any repository not yet present locally. Each repository is checked out using the adjacent worktree pattern, rooted under `~/dev/personal/` – see [Usage](./usage.md) for details of the worktree filesystem structure.
 
 For each already-cloned repository, the installer fetches from the remote then fast-forwards every working tree. It is safe to run multiple times.
 
-The base directory (`~/dev/`) is configurable via the `REPOS_DIR` constant at the top of [run/install.py](../run/install.py).
+The base directory (`~/dev/personal/`) is configurable via the `REPOS_DIR` constant at the top of [run/install.py](../run/install.py).
 
 The `install.py` also clones this workspace repository, so it is now safe to delete the temporary clone of this repository you made at the start.
 
 ## Workspace assets
 
-The installer surfaces a few assets from this repository at the root of the dev tree (`~/dev`), via relative symlinks, so the entire collection of repositories can be opened as a single VS Code workspace or devcontainer from one place:
+The installer surfaces a few assets from this repository at the root of the dev tree (`~/dev/personal`), via relative symlinks, so the entire collection of repositories can be opened as a single VS Code workspace or devcontainer from one place:
 
 ```
-~/dev/personal.code-workspace  →  kieranpotts/workspace/default/personal.code-workspace
-~/dev/.devcontainer            →  kieranpotts/workspace/default/.devcontainer
+~/dev/personal/personal.code-workspace  →  kieranpotts/workspace/default/personal.code-workspace
+~/dev/personal/.devcontainer            →  kieranpotts/workspace/default/.devcontainer
 ```

@@ -12,10 +12,10 @@
 #       v1: v1/dev
 #
 # This creates:
-#   ~/dev/kieranpotts/my-project/.bare      — bare clone
-#   ~/dev/kieranpotts/my-project/.git       — pointer file
-#   ~/dev/kieranpotts/my-project/default    — working tree at branch `main`
-#   ~/dev/kieranpotts/my-project/v1         — working tree at branch `v1/dev`
+#   ~/dev/personal/kieranpotts/my-project/.bare      — bare clone
+#   ~/dev/personal/kieranpotts/my-project/.git       — pointer file
+#   ~/dev/personal/kieranpotts/my-project/default    — working tree at branch `main`
+#   ~/dev/personal/kieranpotts/my-project/v1         — working tree at branch `v1/dev`
 #
 
 repos:

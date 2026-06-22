@@ -459,15 +459,15 @@
     can't push to these anyway. This setting requires absolute paths -
     ${workspaceFolder} doesn't work, unfortunately. */
     "git.ignoredRepositories": [
-      "/home/kieran/dev/kieranpotts/devboxes/default",
-      "/home/kieran/dev/kieranpotts/eslint-config/default",
-      "/home/kieran/dev/kieranpotts/genies/default",
-      "/home/kieran/dev/kieranpotts/makebook/default",
-      "/home/kieran/dev/kieranpotts/prototypes/default",
-      "/home/kieran/dev/kieranpotts/sh/default",
-      "/home/kieran/dev/kieranpotts/tests/default",
-      "/home/kieran/dev/kieranpotts/website-ui/default",
-      "/home/kieran/dev/nirvarnia/brand/default",
+      "/home/kieran/dev/personal/kieranpotts/devboxes/default",
+      "/home/kieran/dev/personal/kieranpotts/eslint-config/default",
+      "/home/kieran/dev/personal/kieranpotts/genies/default",
+      "/home/kieran/dev/personal/kieranpotts/makebook/default",
+      "/home/kieran/dev/personal/kieranpotts/prototypes/default",
+      "/home/kieran/dev/personal/kieranpotts/sh/default",
+      "/home/kieran/dev/personal/kieranpotts/tests/default",
+      "/home/kieran/dev/personal/kieranpotts/website-ui/default",
+      "/home/kieran/dev/personal/nirvarnia/brand/default",
     ],
 
     /* Don't automatically detect submodules. */

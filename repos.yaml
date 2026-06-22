@@ -44,6 +44,11 @@ repos:
     worktrees:
       default: latest/dev
 
+  - name: kieranpotts/blueprints
+    url: git@github.com:kieranpotts/blueprints.git
+    worktrees:
+      default: latest/dev
+
   - name: kieranpotts/bookmarks
     url: git@github.com:kieranpotts/bookmarks.git
     worktrees:
@@ -66,11 +71,6 @@ repos:
 
   - name: kieranpotts/design
     url: git@github.com:kieranpotts/design.git
-    worktrees:
-      default: latest/dev
-
-  - name: kieranpotts/designs
-    url: git@github.com:kieranpotts/designs.git
     worktrees:
       default: latest/dev
 

@@ -22,6 +22,10 @@
       "path": "kieranpotts/avatar/default"
     },
     {
+      "name": "🚫 kieranpotts/blueprints",
+      "path": "kieranpotts/blueprints/default"
+    },
+    {
       "name": "🚀 kieranpotts/bookmarks",
       "path": "kieranpotts/bookmarks/default"
     },
@@ -40,10 +44,6 @@
     {
       "name": "⚒️ kieranpotts/design",
       "path": "kieranpotts/design/default"
-    },
-    {
-      "name": "🚫 kieranpotts/designs",
-      "path": "kieranpotts/designs/default"
     },
     {
       "name": "🔒 kieranpotts/devboxes",

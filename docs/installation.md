@@ -3,7 +3,14 @@
 > [!NOTE]
 > On Windows, the workspace SHOULD be established in WSL. The `devtools` repository SHOULD also be cloned directly in the host OS, manually, and optionally the `dotfiles` repository too.
 
-## Python environment
+## Bootstrapping the workspace
+
+Start by cloning this repository. It is RECOMMENDED to clone it into a temporary location initially. The installer script will then set up this and other repositories properly.
+
+```sh
+git clone git@github.com:kieranpotts/workspace.git ~/dev/tmp
+cd ~/dev/tmp
+```
 
 Create and activate a virtual environment, then install the dependencies:
 
@@ -19,28 +26,19 @@ The `.venv` directory is excluded from version control. The `python3 -m venv` an
 source .venv/bin/activate
 ```
 
-Alternatively, the script can be invoked directly without activation:
-
-```sh
-.venv/bin/python run/install.py
-```
-
-## Bootstrapping the workspace
-
-Start by cloning this repository. It is RECOMMENDED to clone it into a temporary location initially. The installer script will then set up this and other repositories properly.
-
-```sh
-git clone git@github.com:kieranpotts/workspace.git ~/dev/tmp
-cd ~/dev/tmp
-```
-
-Run this script to clone and sync all other repositories:
+Now you can run this script to clone and sync all the other repositories:
 
 ```sh
 python3 run/install.py
 ```
 
-This reads `repos.yaml` and clones any repository not yet present locally. Each repository is checked out using the adjacent worktree pattern, rooted under `~/dev/` – see [Usage](./usage.md) for details of the worktree filesystem structure.
+Alternatively, rather than activating the Python virtual environment, the script can be invoked directly without activation:
+
+```sh
+.venv/bin/python run/install.py
+```
+
+The `install.py` script reads `repos.yaml` and clones any repository not yet present locally. Each repository is checked out using the adjacent worktree pattern, rooted under `~/dev/` – see [Usage](./usage.md) for details of the worktree filesystem structure.
 
 For each already-cloned repository, the installer fetches from the remote then fast-forwards every working tree. It is safe to run multiple times.
 

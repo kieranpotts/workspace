@@ -186,7 +186,7 @@
       "path": "kieranpotts/website/default"
     },
     {
-      "name": "🚀 kieranpotts/website-ui",
+      "name": "🔒 kieranpotts/website-ui",
       "path": "kieranpotts/website-ui/default"
     },
     {
@@ -466,6 +466,7 @@
       "/home/kieran/dev/kieranpotts/prototypes/default",
       "/home/kieran/dev/kieranpotts/sh/default",
       "/home/kieran/dev/kieranpotts/tests/default",
+      "/home/kieran/dev/kieranpotts/website-ui/default",
       "/home/kieran/dev/nirvarnia/brand/default",
     ],
 

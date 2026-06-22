@@ -159,6 +159,11 @@ repos:
     worktrees:
       default: dev
 
+  - name: kieranpotts/ocean
+    url: git@github.com:kieranpotts/ocean.git
+    worktrees:
+      default: latest/dev
+
   - name: kieranpotts/papers
     url: git@github.com:kieranpotts/papers.git
     worktrees:

@@ -263,12 +263,12 @@ repos:
   - name: srcflow/srcflow
     url: git@github.com:srcflow/srcflow.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: srcflow/sh
     url: git@github.com:srcflow/sh.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: nirvarnia/brand
     url: git@github.com:nirvarnia/brand.git

@@ -37,7 +37,7 @@ repos:
   - name: kieranpotts/asciibook
     url: git@github.com:kieranpotts/asciibook.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/avatar
     url: git@github.com:kieranpotts/avatar.git
@@ -47,17 +47,17 @@ repos:
   - name: kieranpotts/bookmarks
     url: git@github.com:kieranpotts/bookmarks.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/bootstrap
     url: git@github.com:kieranpotts/bootstrap.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/cheats
     url: git@github.com:kieranpotts/cheats.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/cover-letter
     url: git@github.com:kieranpotts/cover-letter.git
@@ -112,7 +112,7 @@ repos:
   - name: kieranpotts/garden
     url: git@github.com:kieranpotts/garden.git
     worktrees:
-      default: dev
+      default: latest/dev
 
   - name: kieranpotts/genies
     url: git@github.com:kieranpotts/genies.git

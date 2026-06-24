@@ -223,6 +223,9 @@
       /* Code Spell Checker — Spelling checker for all source code. */
       "streetsidesoftware.code-spell-checker",
 
+      /* Container Tools — Microsoft's extension to create, manage, and debug containerized applications.*/
+      "ms-azuretools.vscode-containers",
+
       /* Dev Containers — Containerized development environments. */
       "ms-vscode-remote.remote-containers",
 

@@ -512,9 +512,6 @@
     preview are consistent with the enabled VS Code theme. */
     "asciidoc.preview.useEditorStyle": true,
 
-    /* Increase preview font size. */
-    "asciidoc.preview.fontSize": 16,
-
     /* Allow Antora support to be enabled. */
     "asciidoc.antora.showEnableAntoraPrompt": true,
 

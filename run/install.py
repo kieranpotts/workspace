@@ -9,7 +9,7 @@ REPOS_DIR (default: ~/dev/personal):
   ~/dev/personal/<name>/<worktree_name> — working tree checked out at <branch>
 
 The `.git` pointer file lets `git` commands run from the project root
-(~/dev/personal/<name>) rather than from inside `.bare`.
+(~/dev/personal/<name>) as well as from inside `.bare`.
 
 For each repo:
   - If not yet cloned, does `git clone --bare` into `.bare`, writes the `.git`
@@ -99,8 +99,8 @@ def run(args: list[str], cwd: Path, *, check: bool = False) -> subprocess.Comple
 def add_worktree(bare: Path, worktree: Path, branch: str) -> subprocess.CompletedProcess:
     """Add a worktree for `branch`, falling back to HEAD if the branch is absent.
 
-    Git commands run from the bare repo, since there is no `.git` pointer file
-    at the project root (see note in `ensure_bare_repo`).
+    Git commands run from the bare repo, which means they're not reliant
+    upon the `.git` pointer file being in place at the project root.
     """
     result = run(["git", "worktree", "add", str(worktree), branch], bare)
     if result.returncode != 0 and "invalid reference" in result.stderr:
@@ -123,11 +123,10 @@ def ensure_bare_repo(name: str, url: str, project: Path, bare: Path) -> bool:
         shutil.rmtree(project, ignore_errors=True)
         return False
 
-    # No `.git` pointer file is dropped at the project root (deliberately — it
-    # can confuse agents as to which directory is a project's root directory,
-    # leading them to commit to the bare repository rather than a worktree).
-    # As a result, `git worktree`/`git fetch`/`git config` must all run with
-    # `cwd=bare` rather than `cwd=project` throughout this script.
+    # Drop a `.git` pointer file at the project root pointing into `.bare`.
+    # Without it, `git worktree`/`git fetch` only work from inside `.bare`.
+    # With it, every git command works from the project root instead.
+    (project / ".git").write_text("gitdir: ./.bare\n")
 
     # A bare clone omits the `remote.origin.fetch` config, so plain `git fetch`
     # won't populate refs/remotes/origin/* — and `git worktree add <remote-branch>`

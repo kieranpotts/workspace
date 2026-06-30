@@ -39,7 +39,7 @@ REPOS_DIR = Path.home() / "dev" / "personal"
 # Files/directories inside this workspace repo that should be surfaced at the
 # root of REPOS_DIR (~/dev/personal) via symlink, so the whole tree can be opened
 # as a VS Code workspace / devcontainer from one place.
-LINKED_ASSETS = ["personal.code-workspace", ".devcontainer"]
+LINKED_ASSETS = ["personal.code-workspace", "AGENTS.md", ".devcontainer"]
 
 SEP = "─" * 60
 
@@ -96,17 +96,17 @@ def run(args: list[str], cwd: Path, *, check: bool = False) -> subprocess.Comple
     return subprocess.run(args, cwd=cwd, capture_output=True, text=True, check=check)
 
 
-def add_worktree(project: Path, worktree: Path, branch: str) -> subprocess.CompletedProcess:
+def add_worktree(bare: Path, worktree: Path, branch: str) -> subprocess.CompletedProcess:
     """Add a worktree for `branch`, falling back to HEAD if the branch is absent.
 
-    Git commands run from the project root, which resolves to the bare repo via
-    the `.git` pointer file.
+    Git commands run from the bare repo, since there is no `.git` pointer file
+    at the project root (see note in `ensure_bare_repo`).
     """
-    result = run(["git", "worktree", "add", str(worktree), branch], project)
+    result = run(["git", "worktree", "add", str(worktree), branch], bare)
     if result.returncode != 0 and "invalid reference" in result.stderr:
         # Branch doesn't exist on remote yet — check out whatever HEAD is.
         print(f"  Branch '{branch}' not found — adding worktree at HEAD ...")
-        result = run(["git", "worktree", "add", str(worktree)], project)
+        result = run(["git", "worktree", "add", str(worktree)], bare)
     return result
 
 
@@ -123,25 +123,22 @@ def ensure_bare_repo(name: str, url: str, project: Path, bare: Path) -> bool:
         shutil.rmtree(project, ignore_errors=True)
         return False
 
-    # @deprecated - Including this can sometimes confuse agents as to which directory
-    # is a project's root directory, and consequently they try to commit to the bare
-    # repository rather than a worktree.
-    #
-    # Drop a `.git` pointer file at the project root pointing into `.bare`.
-    # Without it, `git worktree`/`git fetch` only work from inside `.bare`;
-    # with it, every git command works from the project root instead.
-    #//(project / ".git").write_text("gitdir: ./.bare\n")
+    # No `.git` pointer file is dropped at the project root (deliberately — it
+    # can confuse agents as to which directory is a project's root directory,
+    # leading them to commit to the bare repository rather than a worktree).
+    # As a result, `git worktree`/`git fetch`/`git config` must all run with
+    # `cwd=bare` rather than `cwd=project` throughout this script.
 
     # A bare clone omits the `remote.origin.fetch` config, so plain `git fetch`
     # won't populate refs/remotes/origin/* — and `git worktree add <remote-branch>`
     # then misbehaves. Set the standard refspec to restore normal fetch behaviour.
-    run(["git", "config", "remote.origin.fetch", "+refs/heads/*:refs/remotes/origin/*"], project)
+    run(["git", "config", "remote.origin.fetch", "+refs/heads/*:refs/remotes/origin/*"], bare)
 
     return True
 
 
 def sync_worktree(
-    project: Path,
+    bare: Path,
     worktree_path: Path,
     branch: str,
     worktree_name: str,
@@ -151,7 +148,7 @@ def sync_worktree(
     if just_cloned or not worktree_path.exists():
         action = "Adding" if just_cloned else "Re-adding"
         print(f"  {action} worktree '{worktree_name}' for branch '{branch}' ...")
-        result = add_worktree(project, worktree_path, branch)
+        result = add_worktree(bare, worktree_path, branch)
         if result.returncode != 0:
             print(f"  ❌ FAILED to add worktree: {result.stderr.strip()}", file=sys.stderr)
             return False
@@ -189,7 +186,7 @@ def sync_repo(
         return False
 
     print("  Fetching ...")
-    result = run(["git", "fetch", "--prune", "origin"], project)
+    result = run(["git", "fetch", "--prune", "origin"], bare)
     if result.returncode != 0:
         print(f"  ❌ FAILED to fetch: {result.stderr.strip()}", file=sys.stderr)
         return False
@@ -197,7 +194,7 @@ def sync_repo(
     all_ok = True
     for worktree_name, branch in worktrees.items():
         worktree_path = project / worktree_name
-        if not sync_worktree(project, worktree_path, branch, worktree_name, just_cloned):
+        if not sync_worktree(bare, worktree_path, branch, worktree_name, just_cloned):
             all_ok = False
 
     return all_ok

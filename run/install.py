@@ -123,10 +123,14 @@ def ensure_bare_repo(name: str, url: str, project: Path, bare: Path) -> bool:
         shutil.rmtree(project, ignore_errors=True)
         return False
 
+    # @deprecated - Including this can sometimes confuse agents as to which directory
+    # is a project's root directory, and consequently they try to commit to the bare
+    # repository rather than a worktree.
+    #
     # Drop a `.git` pointer file at the project root pointing into `.bare`.
     # Without it, `git worktree`/`git fetch` only work from inside `.bare`;
     # with it, every git command works from the project root instead.
-    (project / ".git").write_text("gitdir: ./.bare\n")
+    #//(project / ".git").write_text("gitdir: ./.bare\n")
 
     # A bare clone omits the `remote.origin.fetch` config, so plain `git fetch`
     # won't populate refs/remotes/origin/* — and `git worktree add <remote-branch>`

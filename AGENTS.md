@@ -2,34 +2,17 @@
 
 ## Project overview
 
-This is the root workspace for my personal code repositories. It is not itself an application — it provides scripts to clone/sync all the personal repositories listed in `repos.yaml` into a consistent directory layout (`~/dev/personal/<owner>/<repo>/<worktree>`), a VS Code multi-root workspace configuration, and a devcontainer for running the whole workspace in an isolated environment. Agents operating here are typically working across multiple sibling repositories, not just this one.
-
-## Tech stack
-
-- Python 3 (`run/install.py` and other workspace scripts).
-- Git, using the bare-clone-plus-worktrees pattern (see `repos.yaml` header comment).
-- VS Code multi-root workspace (`personal.code-workspace`).
-- Docker / devcontainer for an isolated environment.
+This file describes my personal development workspace as a whole: a tree of independent Git repositories checked out as siblings under `~/dev/personal/<owner>/<name>/<worktree>`. It is installed at the root of that tree (`~/dev/personal/AGENTS.md`), so any agent working inside any one of these projects can see this file in a parent directory and understand the wider context — what the other sibling projects are, and how they relate. This file does not describe any single repository's internals; each project has its own `AGENTS.md` and/or `README.md` for that.
 
 ## Repository structure
 
-- `run/`: Installation and sync scripts (e.g. `install.py`), which read `repos.yaml` and set up bare clones + worktrees for every project, plus linked assets like `.devcontainer` and the VS Code workspace file.
+Every project lives at `~/dev/personal/<owner>/<name>/<worktree>`, using a bare-clone-plus-worktrees layout:
 
-- `docs/`: Requirements, installation, and usage documentation for this workspace.
-
-- `repos.yaml`: The manifest of all managed repositories — name, URL, and worktrees (branch checkouts).
-
-- `personal.code-workspace`: VS Code multi-root workspace definition, linked into each project per `LINKED_ASSETS` in `run/install.py`.
-
-- `.devcontainer`: Devcontainer config, also linked into each project.
-
-## Tools
-
-- `python run/install.py` to clone/update all repositories in `repos.yaml` and link shared assets (`.devcontainer`, `personal.code-workspace`) into each one.
+- `<owner>/<name>/.bare`: Bare clone (Git internals only).
+- `<owner>/<name>/.git`: Pointer file (`gitdir: ./.bare`) so Git commands work from the project root.
+- `<owner>/<name>/<worktree>`: A working tree checked out at a specific branch (usually named `default`).
 
 ## Projects in this workspace
-
-Each project below is checked out as a sibling directory at `~/dev/personal/<owner>/<name>/<worktree>` (worktree is usually `default`). Most have their own `AGENTS.md` or `README.md` with project-specific detail — consult those when working inside a given project.
 
 - **`__TODO__`**: \
   Personal task/TODO tracking.
@@ -173,7 +156,7 @@ Each project below is checked out as a sibling directory at `~/dev/personal/<own
   Archived; portable Antora UI theme reference, now maintained in `website`.
 
 - **`workspace`**: \
-  This repository.
+  Root workspace repository — provides the scripts and manifest (`repos.yaml`, `run/install.py`) that clone/sync all the repositories listed above into this directory layout, plus shared assets (VS Code multi-root workspace, devcontainer, this file) symlinked into `~/dev/personal`.
 
 - **`srcflow/srcflow`**: \
   Srcflow project (separate GitHub org).
@@ -188,12 +171,8 @@ Each project below is checked out as a sibling directory at `~/dev/personal/<own
 
 The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT, OPTIONAL, and MAY, in the context of this document and agent skills/instructions/rules, are to be interpreted as described in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
-- MUST NOT modify `repos.yaml` worktree branches without confirming with the user, since this changes what gets checked out on next install.
+- MUST treat each project directory as its own repository with its own conventions — defer to that project's own `AGENTS.md`/`README.md` when working inside it.
 
-- SHOULD treat each sibling project directory as its own repository with its own conventions — defer to a project's own `AGENTS.md`/`README.md` when working inside it.
+- MUST NOT make changes that span multiple sibling project directories as a single unit of work — each is an independently versioned repository; commit/PR within one project at a time unless the user explicitly asks for a cross-repo change.
 
-- SHOULD keep this file's project list in sync with `repos.yaml` when repositories are added or removed.
-
-## Skills
-
-No project-specific skills are currently installed for this workspace.
+- SHOULD consult the `workspace` repository (`repos.yaml`, `run/install.py`) for how this directory layout is maintained, if asked to add, remove, or resync a project.

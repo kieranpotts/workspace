@@ -32,13 +32,18 @@ import yaml
 WORKSPACE = Path(__file__).resolve().parent.parent
 MANIFEST = WORKSPACE / "repos.yaml"
 
+# Directory inside this workspace repo whose contents mirror what should be
+# surfaced at the root of REPOS_DIR (~/dev/personal) — see `link_workspace_assets`.
+ROOT_ASSETS_DIR = WORKSPACE / "root"
+
 # Base directory under which all repositories are cloned. Each repo's bare clone
 # lands at <REPOS_DIR>/<name>/.bare, with working trees as sibling directories.
 REPOS_DIR = Path.home() / "dev" / "personal"
 
-# Files/directories inside this workspace repo that should be surfaced at the
-# root of REPOS_DIR (~/dev/personal) via symlink, so the whole tree can be opened
-# as a VS Code workspace / devcontainer from one place.
+# Entries inside ROOT_ASSETS_DIR that should be surfaced at the root of REPOS_DIR
+# (~/dev/personal) via symlink, so the whole tree can be opened as a single VS
+# Code workspace / devcontainer from one place, and so AGENTS.md is visible to
+# agents working in any sibling project.
 LINKED_ASSETS = ["personal.code-workspace", "AGENTS.md", ".devcontainer"]
 
 SEP = "─" * 60
@@ -58,17 +63,18 @@ def maybe_install_pre_commit(dest: Path) -> None:
 
 
 def link_workspace_assets() -> None:
-    """Symlink selected workspace assets into REPOS_DIR (~/dev/personal).
+    """Symlink selected assets from ROOT_ASSETS_DIR into REPOS_DIR (~/dev/personal).
 
-    Creates, e.g., ~/dev/personal/personal.code-workspace → the copy inside this repo, so
-    the workspace file and devcontainer config are reachable from the root of the
-    dev tree. Symlinks are relative, so the whole tree can be relocated intact.
+    Creates, e.g., ~/dev/personal/personal.code-workspace → the copy in this repo's
+    `root/` directory, so the workspace file, devcontainer config, and AGENTS.md
+    are reachable from the root of the dev tree. Symlinks are relative, so the
+    whole tree can be relocated intact.
     """
     print(SEP)
     print("Linking workspace assets into", REPOS_DIR)
 
     for asset in LINKED_ASSETS:
-        source = WORKSPACE / asset
+        source = ROOT_ASSETS_DIR / asset
         link = REPOS_DIR / asset
 
         if not source.exists():

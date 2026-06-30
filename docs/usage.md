@@ -13,14 +13,14 @@ To load the workspace in the devcontainer:
 
 Use the **rebuild** options to bump the underlying image to the latest release.
 
-The container is based on Ubuntu and can be customized via `.devcontainer/Dockerfile`.
+The container is based on Ubuntu and can be customized via `root/.devcontainer/Dockerfile`.
 
 If you see permission errors when saving mounted files or if Git creates root-owned files under `.git`, rebuild the devcontainer after updating the Dockerfile. The container is configured to run as a non-root `vscode` user with a matching host UID/GID to avoid ownership mismatches.
 
 > **Tip:** Use the following command, from this repository's root directory, to verify image creation:
 >
 > ```
-> $ docker build -f .devcontainer/Dockerfile -t personal-workspace .
+> $ docker build -f root/.devcontainer/Dockerfile -t personal-workspace .
 > ```
 
 When you first open the workspace in a new devcontainer, you may want to configure dotfiles such as `~/local.gitconfig` so you can commit from within the devcontainer. See the [dotfiles repository](https://github.com/kieranpotts/dotfiles) for details. You will also need to install VS Code extensions in the devcontainer.

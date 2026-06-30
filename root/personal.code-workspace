@@ -1,0 +1,661 @@
+{
+
+  "folders": [
+    {
+      "name": "🚫 kieranpotts/__TODO__",
+      "path": "kieranpotts/__TODO__/default"
+    },
+    {
+      "name": "🚀 kieranpotts/.github",
+      "path": "kieranpotts/.github/default"
+    },
+    {
+      "name": "🚀 kieranpotts/actions",
+      "path": "kieranpotts/actions/default"
+    },
+    {
+      "name": "⚒️ kieranpotts/asciibook",
+      "path": "kieranpotts/asciibook/default"
+    },
+    {
+      "name": "⚒️ kieranpotts/avatar",
+      "path": "kieranpotts/avatar/default"
+    },
+    {
+      "name": "🚫 kieranpotts/blueprints",
+      "path": "kieranpotts/blueprints/default"
+    },
+    {
+      "name": "🚀 kieranpotts/bookmarks",
+      "path": "kieranpotts/bookmarks/default"
+    },
+    {
+      "name": "🚀 kieranpotts/bootstrap",
+      "path": "kieranpotts/bootstrap/default"
+    },
+    {
+      "name": "🚀 kieranpotts/cheats",
+      "path": "kieranpotts/cheats/default"
+    },
+    {
+      "name": "🚫 kieranpotts/cover-letter",
+      "path": "kieranpotts/cover-letter/default"
+    },
+    {
+      "name": "⚒️ kieranpotts/design",
+      "path": "kieranpotts/design/default"
+    },
+    {
+      "name": "🔒 kieranpotts/devboxes",
+      "path": "kieranpotts/devboxes/default"
+    },
+    {
+      "name": "🚀 kieranpotts/devtools",
+      "path": "kieranpotts/devtools/default"
+    },
+    {
+      "name": "🚀 kieranpotts/dictionary",
+      "path": "kieranpotts/dictionary/default"
+    },
+    {
+      "name": "🚀 kieranpotts/docker-devcontainer",
+      "path": "kieranpotts/docker-devcontainer/default"
+    },
+    {
+      "name": "⚒️ kieranpotts/docker-latex",
+      "path": "kieranpotts/docker-latex/default"
+    },
+    {
+      "name": "🚀 kieranpotts/dotfiles",
+      "path": "kieranpotts/dotfiles/default"
+    },
+    {
+      "name": "🔒 kieranpotts/eslint-config",
+      "path": "kieranpotts/eslint-config/default"
+    },
+    {
+      "name": "🚀 kieranpotts/garden",
+      "path": "kieranpotts/garden/default"
+    },
+    {
+      "name": "🔒 kieranpotts/genies",
+      "path": "kieranpotts/genies/default"
+    },
+    {
+      "name": "🚧 kieranpotts/gitex",
+      "path": "kieranpotts/gitex/default"
+    },
+    {
+      "name": "🚫 kieranpotts/interviews",
+      "path": "kieranpotts/interviews/default"
+    },
+    {
+      "name": "⚒️ kieranpotts/json-schema",
+      "path": "kieranpotts/json-schema/default"
+    },
+    {
+      "name": "🚀 kieranpotts/kieranpotts",
+      "path": "kieranpotts/kieranpotts/default"
+    },
+    {
+      "name": "🚧 kieranpotts/lumex",
+      "path": "kieranpotts/lumex/default"
+    },
+    {
+      "name": "🔒 kieranpotts/makebook",
+      "path": "kieranpotts/makebook/default"
+    },
+    {
+      "name": "🚀 kieranpotts/modelfiles",
+      "path": "kieranpotts/modelfiles/default"
+    },
+    {
+      "name": "🔒 kieranpotts/ocean",
+      "path": "kieranpotts/ocean/default"
+    },
+    {
+      "name": "🚫 kieranpotts/papers",
+      "path": "kieranpotts/papers/default"
+    },
+    {
+      "name": "🚀 kieranpotts/pi",
+      "path": "kieranpotts/pi/default"
+    },
+    {
+      "name": "⚒️ kieranpotts/plans",
+      "path": "kieranpotts/plans/default"
+    },
+    {
+      "name": "🚧 kieranpotts/playbook",
+      "path": "kieranpotts/playbook/default"
+    },
+    {
+      "name": "🚫 kieranpotts/popos",
+      "path": "kieranpotts/popos/default"
+    },
+    {
+      "name": "🚀 kieranpotts/pre-commit-hooks",
+      "path": "kieranpotts/pre-commit-hooks/default"
+    },
+    {
+      "name": "🔒 kieranpotts/prototypes",
+      "path": "kieranpotts/prototypes/default"
+    },
+    {
+      "name": "🚀 kieranpotts/résumé",
+      "path": "kieranpotts/resume/default"
+    },
+    {
+      "name": "⚒️ kieranpotts/rfc",
+      "path": "kieranpotts/rfc/default"
+    },
+    {
+      "name": "🔒 kieranpotts/sh",
+      "path": "kieranpotts/sh/default"
+    },
+    {
+      "name": "🚀 kieranpotts/skills",
+      "path": "kieranpotts/skills/default"
+    },
+    {
+      "name": "⚒️ kieranpotts/specs",
+      "path": "kieranpotts/specs/default"
+    },
+    {
+      "name": "🚀 kieranpotts/standards",
+      "path": "kieranpotts/standards/default"
+    },
+    {
+      "name": "🚀 kieranpotts/template",
+      "path": "kieranpotts/template/default"
+    },
+    {
+      "name": "🔒 kieranpotts/tests",
+      "path": "kieranpotts/tests/default"
+    },
+    {
+      "name": "🚫 kieranpotts/the-timeless-way",
+      "path": "kieranpotts/the-timeless-way/default"
+    },
+    {
+      "name": "🚀 kieranpotts/thoughts",
+      "path": "kieranpotts/thoughts/default"
+    },
+    {
+      "name": "🚀 kieranpotts/website",
+      "path": "kieranpotts/website/default"
+    },
+    {
+      "name": "🔒 kieranpotts/website-ui",
+      "path": "kieranpotts/website-ui/default"
+    },
+    {
+      "name": "🚀 kieranpotts/workspace",
+      "path": "kieranpotts/workspace/default"
+    },
+    {
+      "name": "🚧 srcflow/srcflow",
+      "path": "srcflow/srcflow/default"
+    },
+    {
+      "name": "🚧 srcflow/sh",
+      "path": "srcflow/sh/default"
+    },
+    {
+      "name": "🔒 nirvarnia/brand",
+      "path": "nirvarnia/brand/default"
+    }
+  ],
+
+  "extensions": {
+
+    "recommendations": [
+
+      /* ===
+      The following are general-purpose extensions for VS Code. Mostly,
+      they extend VS COde's own functionality, rather than providing
+      capabilities for particular languages, tools, or runtimes environments.
+      === */
+
+      /* Claude Code — AI-assisted programming. */
+      "anthropic.claude-code",
+
+      /* Code Spell Checker — Spelling checker for all source code. */
+      "streetsidesoftware.code-spell-checker",
+
+      /* Container Tools — Microsoft's extension to create, manage, and debug containerized applications.*/
+      "ms-azuretools.vscode-containers",
+
+      /* Dev Containers — Containerized development environments. */
+      "ms-vscode-remote.remote-containers",
+
+      /* Draw.io Integration — Edit images with Draw.io embedded in VS Code. */
+      "hediet.vscode-drawio",
+
+      /* Fold Plus — Additional code folding commands. */
+      "dakara.dakara-foldplus",
+
+      /* Git History — Adds a minimal `git log` panel. */
+      "guodongsun.vscode-git-cruise",
+
+      /* Live Preview — For previewing HTML builds directly in VS Code. */
+      "ms-vscode.live-server",
+
+      /* Llama Coder — Self-hosted LLM autocompletion via Ollama. */
+      "ex3ndr.llama-coder",
+
+      /* Lorem Ipsum — Generates placeholder text. */
+      "tyriar.lorem-ipsum",
+
+      /* Restore Editors — Quickly save and restore groups of editors. */
+      "amodio.restore-editors",
+
+      /* Todo Tree — Browse TODO, FIXME and other comments. */
+      "gruntfuggly.todo-tree",
+
+      /* UMLet — Generate diagrams with UMLet.
+      To use, simply create a new text file with the `.uxf` extension. */
+      "theumletteam.umlet",
+
+      /* VS Code Speech — Speech recognition. Requires AI features to be enabled. */
+      "ms-vscode.vscode-speech",
+
+      /* VS Code PDF — Render PDFs directly in VS Code. */
+      "tomoki1207.pdf",
+
+      /* WSL — Open folders and workspaces from WSL. */
+      "ms-vscode-remote.remote-wsl",
+
+      /* ===
+      The following extensions add language servers and tools specific to
+      particular programming languages and software runtime environments.
+      === */
+
+      /* AsciiDoc — Provides language support for AsciiDoc. */
+      "asciidoctor.asciidoctor-vscode",
+
+      /* AsciiDoc Snippets — Snippets for AsciiDoc for PDF and HTML output. */
+      "travismichette.adoc-snippets",
+
+      /* DotENV — Supports the dotenv file syntax. */
+      "mikestead.dotenv",
+
+      /* EditorConfig — .editorconfig file support. */
+      "editorconfig.editorconfig",
+
+      /* ESLint — Linting and formatting for JavaScript and TypeScript. */
+      "dbaeumer.vscode-eslint",
+
+      /* Python — Includes Pylance. */
+      "ms-python.python",
+
+      /* ShellCheck — Linter for shell scripts. */
+      "timonwong.shellcheck",
+
+      /* Terraform — Language support for Terraform/HCL configuration files. */
+      "hashicorp.terraform",
+
+      /* TOML language support. */
+      "be5invis.toml",
+
+      /* Vim Language, Vim Script — VimL language support . */
+      "xadillax.viml",
+
+      /* YAML support. */
+      "redhat.vscode-yaml",
+
+    ]
+  },
+
+  "settings": {
+
+    /*
+    EDITOR SETTINGS
+    */
+
+    /* Vertical guidelines for line wrapping. */
+    "editor.rulers": [
+      80,
+      100,
+      120,
+    ],
+
+    /* By default, wrap long lines at the viewport or 120 characters,
+    whichever is narrowest. */
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 120,
+
+    /* Show control and empty space characters. */
+    "editor.renderControlCharacters": true,
+    "editor.renderWhitespace": "all",
+
+    /* Enforce 2 spaces for indentation by default. */
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+
+    /* Disable auto-formatting by default. */
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+
+    /* Disable auto-fixes by default. Allow shellcheck to
+    implement shell script fixes on file save. */
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "never",
+      "source.fixAll.shellcheck": "explicit",
+    },
+
+    /*
+    EDITOR SETTINGS: LANGUAGE-SPECIFIC OVERRIDES
+    */
+
+    "[asciidoc]": {
+      /* Wrap AsciiDoc files at 72 characters. */
+      "editor.wordWrap": "bounded",
+      "editor.wordWrapColumn": 72,
+
+      /* Enable auto-formatting for Asciidoc files. */
+      "editor.formatOnPaste": true,
+      "editor.formatOnSave": true,
+      "editor.formatOnType": true,
+
+      /* Enable auto-fixes for Asciidoc files. */
+      "editor.codeActionsOnSave": {
+        "source.fixAll": "always",
+      },
+    },
+
+    "[javascript]": {
+      /* Re-enable auto-formatting for JavaScript files, using ESLint */
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+      "editor.formatOnPaste": true,
+      "editor.formatOnSave": true,
+      "editor.formatOnType": true,
+    },
+
+    "[latex]": {
+      /* Disable line wrapping for LaTeX files. */
+      "editor.rulers": [],
+      "editor.wordWrap": "off",
+    },
+
+    "[markdown]": {
+      /* Wrap Markdown files at 72 characters. */
+      "editor.wordWrap": "bounded",
+      "editor.wordWrapColumn": 72,
+
+      /* Enable auto-formatting for Markdown files. */
+      "editor.formatOnPaste": true,
+      "editor.formatOnSave": true,
+      "editor.formatOnType": true,
+
+      /* Enable auto-fixes for Markdown files. */
+      "editor.codeActionsOnSave": {
+        "source.fixAll": "always",
+      },
+    },
+
+    "[python]": {
+      /* Python files should wrap at 88 characters. */
+      "editor.rulers": [
+        88
+      ],
+      "editor.wordWrap": "bounded",
+      "editor.wordWrapColumn": 88,
+
+      /* Enable auto-formatting for Python files. */
+      "editor.formatOnPaste": true,
+      "editor.formatOnSave": true,
+      "editor.formatOnType": true,
+    },
+
+    "[terraform]": {
+      /* Enable auto-formatting of Terraform files using official HashiCorp extension. */
+      "editor.defaultFormatter": "hashicorp.terraform",
+      "editor.formatOnPaste": true,
+      "editor.formatOnSave": true,
+      "editor.formatOnType": true,
+    },
+
+    "[typescript]": {
+      /* Re-enable auto-formatting for TypeScript files, using ESLint */
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+      "editor.formatOnPaste": true,
+      "editor.formatOnSave": true,
+      "editor.formatOnType": true,
+    },
+
+    /*
+    LANGUAGE-SPECIFIC SETTINGS: ECMASCRIPT
+    */
+
+    /* Disable the built-in auto-formatting and validation for
+    JavaScript/TypeScript. JS/TS repositories are required to re-enable
+    this and configure on a case-by-case basis/. */
+    "js/ts.format.indentSwitchCase": false,
+    "js/ts.validate.enabled": false,
+
+    /* Disable VS Code's built-in semantic checking of JS/TS files. JS/TS
+    code repositories should use `jsconfig.json` or `tsconfig.json` to
+    configure this, instead. */
+    "js/ts.implicitProjectConfig.checkJs": false,
+
+    /* Preference for quotes format in JS/TS code. */
+    "js/ts.preferences.quoteStyle": "single",
+
+    /*
+    LANGUAGE-SPECIFIC SETTINGS: PYTHON
+    */
+
+    /* Disable some of Pylance's intensive features, which can crash WSL
+    on resource-limited systems. */
+    "python.languageServer": "Pylance",
+    "python.analysis.indexing": false,
+    "python.analysis.packageIndexDepths": [],
+
+    /*
+    GIT/SCM SETTINGS
+    */
+
+    /* Remove archived repositories (🔒) from VS Code's built-in Git GUI – you
+    can't push to these anyway. This setting requires absolute paths -
+    ${workspaceFolder} doesn't work, unfortunately. */
+    "git.ignoredRepositories": [
+      "/home/kieran/dev/personal/kieranpotts/devboxes/default",
+      "/home/kieran/dev/personal/kieranpotts/eslint-config/default",
+      "/home/kieran/dev/personal/kieranpotts/genies/default",
+      "/home/kieran/dev/personal/kieranpotts/makebook/default",
+      "/home/kieran/dev/personal/kieranpotts/ocean/default",
+      "/home/kieran/dev/personal/kieranpotts/prototypes/default",
+      "/home/kieran/dev/personal/kieranpotts/sh/default",
+      "/home/kieran/dev/personal/kieranpotts/tests/default",
+      "/home/kieran/dev/personal/kieranpotts/website-ui/default",
+      "/home/kieran/dev/personal/nirvarnia/brand/default",
+    ],
+
+    /* Don't automatically detect submodules. */
+    "git.detectSubmodules": false,
+    "git.detectSubmodulesLimit": -1,
+
+    /* Ignore changes within submodules in the file view. */
+    "git.ignoreSubmodules": true,
+
+    /* Scan depth for nested Git repositories. This is required to fully
+    disable submodules in the Source Control list. */
+    "git.repositoryScanMaxDepth": 0,
+
+    /* Always prompt before committing to a protected branch. */
+    "git.branchProtectionPrompt": "alwaysPrompt",
+    "git.branchProtection": [
+      "test",
+      "ready",
+      "release"
+    ],
+
+    /* Disable the feature that automatically saves and restores open editors
+    when switching between source control branches. Having this turned on is a
+    bit annoying when working with multiple repositories in a workspace. */
+    "scm.workingSets.enabled": false,
+
+    /*
+    EXTENSION SETTINGS
+    */
+
+    /*
+    Asciidoc
+    https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode
+    */
+
+    /* When previewing Asciidoc files, use VS Code's workbench color theme,
+    rather than the default Asciidoc style. This ensures the colors of the
+    preview are consistent with the enabled VS Code theme. */
+    "asciidoc.preview.useEditorStyle": true,
+
+    /* Allow Antora support to be enabled. */
+    "asciidoc.antora.showEnableAntoraPrompt": true,
+
+    /*
+    Claude Code
+    https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code
+    */
+
+    "claudeCode.preferredLocation": "panel",
+    "claudeCode.useCtrlEnterToSend": false,
+
+    /*
+    Code Spell Checker
+    https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+    */
+
+    /* Spell check in American English. */
+    "cSpell.language": "en-US",
+
+    /* File paths to NOT spell check. */
+    "cSpell.ignorePaths": [
+      ".git",
+      ".vscode",
+      "*.log"
+    ],
+
+    /* Disable spelling errors on compound words like 'errormessage' and
+    'builddir'. This setting makes the cSpell spell check unreliable and so
+    we must delimit words in code, eg 'errorMessage` or `build_dir`. */
+    "cSpell.allowCompoundWords": false,
+
+    /* Custom dictionary. */
+    "cSpell.customDictionaries": {
+      "personalDictionary": {
+        "name": "Personal Dictionary (en-US)",
+        "path": "${workspaceFolder:🚀 kieranpotts/dictionary}/src/en-US.txt",
+        "scope": "workspace",
+        "addWords": true
+      }
+    },
+
+    /* Spellings to always ignore. These are not real words, but are names or
+    identifiers of some kind: people's names, domain names, URL slugs, etc. */
+    "cSpell.ignoreWords": [
+      "kieran",
+      "kieranpotts",
+      "potts"
+    ],
+
+    /* Spellings always considered incorrect. This is useful for common spelling
+    errors. For example, "hte" should be "the". */
+    "cSpell.flagWords": [
+      "backend",    // ✅ back-end
+      "frontend",   // ✅ front-end
+      "home page",  // ✅ homepage
+      "hte",        // ✅ the
+      "life cycle", // ✅ lifecycle
+      "mockup",     // ✅ mock-up
+      "mockups",    // ✅ mock-ups
+      "vscode",     // ✅ vs code
+      "web app",    // ✅ webapp
+      "web apps",   // ✅ webapps
+      "web page",   // ✅ webpage
+      "web pages",  // ✅ webpages
+      "web site",   // ✅ website
+      "web sites",  // ✅ websites
+    ],
+
+    /*
+    ESLint
+    https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+    */
+
+    /* Enable support for the new flat-file configuration format,
+    `eslint.config.js`, available since ESLint v8.21. */
+    "eslint.useFlatConfig": true,
+
+    /* Enable ESLint as a code formatter. */
+    "eslint.format.enable": true,
+
+    /* Enable ESLint for validation of JS and TS source files. */
+    "eslint.validate": [
+      "javascript",
+      "typescript"
+    ],
+
+    /*
+    GitHub Copilot
+    https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
+    */
+
+    /* Disable autocompletion in all file types by default,
+    then opt-in for specific file types. */
+    "github.copilot.enable": {
+      "*": false,
+      "scminput": false,
+      "enableAutoCompletions": false,
+      "asciidoc": false
+    },
+
+    /*
+    Jest
+    https://github.com/jest-community/vscode-jest
+    */
+
+    /* The Jest extension is recommended for some of my projects. Unfortunately,
+    this extension has an annoying habit of opening lots of terminals when
+    repositories are opened that do not have a Jest configuration. From v6 of
+    the extension we can disable the extension by default, and then opt back
+    in to it for only the repositories within the workspace that have a Jest
+    configuration. Messy, but it works around the problem. */
+    "jest.enable": false,
+
+    /*
+    ToDo Tree
+    https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
+    */
+
+    /* Look only for `TODO` notations.
+    This setting works only in workspace roots. */
+    "todo-tree.general.tags": [
+      "TODO"
+    ],
+
+    /* Ignore TODOs in the code of Git submodules. */
+    "todo-tree.filtering.ignoreGitSubmodules": true,
+
+    /* Path to ripgrep binary, required to be installed locally. */
+    "todo-tree.ripgrep.ripgrep": "/usr/bin/rg",
+
+    /*
+    Windsurf (formerly Codeium)
+    https://marketplace.visualstudio.com/items?itemName=codeium.codeium
+    */
+
+    /* Enable Windsurf in AsciiDoc files (experimental). */
+    "codeium.enableConfig": {
+      "*": true,
+      "asciidoc": true
+    },
+
+    /* Enable code lens integration. */
+    "codeium.enableCodeLens": false,
+
+  }
+}
+

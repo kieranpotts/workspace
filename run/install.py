@@ -115,15 +115,18 @@ def add_worktree(bare: Path, worktree: Path, branch: str) -> subprocess.Complete
     tracking info until the user sets it manually.
 
     A local branch named `branch` may already exist (e.g. left over from a
-    worktree that was later removed) — `-b` would fail with "branch already
-    exists" in that case, so fall back to checking it out directly and only
-    apply `--track` when the branch still needs creating.
+    worktree that was later removed, or from before tracking was set up by
+    this function) — `-b` would fail with "branch already exists" in that
+    case, so fall back to checking it out directly, then explicitly set its
+    upstream since a plain checkout doesn't configure tracking either.
     """
     branches = run(["git", "branch", "--list", branch], bare)
     branch_exists = bool(branches.stdout.strip())
 
     if branch_exists:
         result = run(["git", "worktree", "add", str(worktree), branch], bare)
+        if result.returncode == 0:
+            run(["git", "branch", f"--set-upstream-to=origin/{branch}", branch], bare)
     else:
         result = run(
             ["git", "worktree", "add", "--track", "-b", branch, str(worktree), f"origin/{branch}"],

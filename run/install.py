@@ -107,8 +107,17 @@ def add_worktree(bare: Path, worktree: Path, branch: str) -> subprocess.Complete
 
     Git commands run from the bare repo, which means they're not reliant
     upon the `.git` pointer file being in place at the project root.
+
+    Uses `--track -b <branch> origin/<branch>` rather than plain
+    `git worktree add <path> <branch>` — the latter DWIMs a local branch
+    from the remote-tracking ref but does not set its upstream, so `git
+    status`/`pull`/`push` in the resulting worktree have no `[origin/...]`
+    tracking info until the user sets it manually.
     """
-    result = run(["git", "worktree", "add", str(worktree), branch], bare)
+    result = run(
+        ["git", "worktree", "add", "--track", "-b", branch, str(worktree), f"origin/{branch}"],
+        bare,
+    )
     if result.returncode != 0 and "invalid reference" in result.stderr:
         # Branch doesn't exist on remote yet — check out whatever HEAD is.
         print(f"  Branch '{branch}' not found — adding worktree at HEAD ...")

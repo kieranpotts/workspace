@@ -113,11 +113,22 @@ def add_worktree(bare: Path, worktree: Path, branch: str) -> subprocess.Complete
     from the remote-tracking ref but does not set its upstream, so `git
     status`/`pull`/`push` in the resulting worktree have no `[origin/...]`
     tracking info until the user sets it manually.
+
+    A local branch named `branch` may already exist (e.g. left over from a
+    worktree that was later removed) — `-b` would fail with "branch already
+    exists" in that case, so fall back to checking it out directly and only
+    apply `--track` when the branch still needs creating.
     """
-    result = run(
-        ["git", "worktree", "add", "--track", "-b", branch, str(worktree), f"origin/{branch}"],
-        bare,
-    )
+    branches = run(["git", "branch", "--list", branch], bare)
+    branch_exists = bool(branches.stdout.strip())
+
+    if branch_exists:
+        result = run(["git", "worktree", "add", str(worktree), branch], bare)
+    else:
+        result = run(
+            ["git", "worktree", "add", "--track", "-b", branch, str(worktree), f"origin/{branch}"],
+            bare,
+        )
     if result.returncode != 0 and "invalid reference" in result.stderr:
         # Branch doesn't exist on remote yet — check out whatever HEAD is.
         print(f"  Branch '{branch}' not found — adding worktree at HEAD ...")

@@ -633,6 +633,16 @@
     },
 
     /*
+    Llama Coder
+    For autocomplete driven by local models, via Ollama.
+    https://marketplace.visualstudio.com/items?itemName=ex3ndr.llama-coder
+    */
+
+    /* `ollama pull codellama:7b-code-q4_K_M` */
+    "inference.model": "codellama:7b-code-q4_K_M",
+    "inference.custom.format": "codellama",
+
+    /*
     Jest
     https://github.com/jest-community/vscode-jest
     */

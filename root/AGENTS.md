@@ -32,6 +32,9 @@ These are all the projects in this workspace:
 - **`asciibook`**: \
   Toolchain for authoring technical books from AsciiDoc source.
 
+- **`audits`**: \
+  Template for maintaining architecture and security audits under version control.
+
 - **`avatar`**: \
   Source and distributable files for my online profile icon.
 

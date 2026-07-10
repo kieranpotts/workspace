@@ -210,6 +210,11 @@ repos:
     worktrees:
       default: latest/dev
 
+  - name: kieranpotts/risks
+    url: git@github.com:kieranpotts/risks.git
+    worktrees:
+      default: latest/dev
+
   - name: kieranpotts/sh
     url: git@github.com:kieranpotts/sh.git
     worktrees:

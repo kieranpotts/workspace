@@ -131,6 +131,9 @@ These are all the projects in this workspace:
 - **`resume`**: \
   Source content and build scripts for CV, compiled from LaTeX.
 
+- **`risks`**: \
+  Template for maintaining a risk register under version control. For threat modeling.
+
 - **`rfc`**: \
   Template for managing technical decisions via version control.
 

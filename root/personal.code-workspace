@@ -255,6 +255,9 @@
       /* Lorem Ipsum — Generates placeholder text. */
       "tyriar.lorem-ipsum",
 
+      /* Pendant — The Pi coding agent embedded in a VS Code panel. */
+      "cdervis.vscode-pi",
+
       /* Restore Editors — Quickly save and restore groups of editors. */
       "amodio.restore-editors",
 

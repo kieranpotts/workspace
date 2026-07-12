@@ -329,6 +329,8 @@
       80,
       100,
       120,
+      140,
+      160,
     ],
 
     /* By default, wrap long lines at the viewport or 120 characters,
@@ -362,9 +364,9 @@
     */
 
     "[asciidoc]": {
-      /* Wrap AsciiDoc files at 100 characters. */
-      "editor.wordWrap": "bounded",
-      "editor.wordWrapColumn": 100,
+      /* Wrap documentation files at the viewport width. Hard-wrapping
+      should be applied at 80 characters, except for tables and long URLs. */
+      "editor.wordWrap": "on",
 
       /* Enable auto-formatting for Asciidoc files. */
       "editor.formatOnPaste": true,
@@ -392,9 +394,9 @@
     },
 
     "[markdown]": {
-      /* Wrap Markdown files at 100 characters. */
-      "editor.wordWrap": "bounded",
-      "editor.wordWrapColumn": 100,
+      /* Wrap documentation files at the viewport width. Hard-wrapping
+      should be applied at 80 characters, except for tables and long URLs. */
+      "editor.wordWrap": "on",
 
       /* Enable auto-formatting for Markdown files. */
       "editor.formatOnPaste": true,
@@ -422,16 +424,13 @@
     },
 
     "[skill]": {
-      /* Wrap skill files at 100 characters. */
-      "editor.wordWrap": "bounded",
-      "editor.wordWrapColumn": 100,
+      /* Matches Markdown settings. */
+      "editor.wordWrap": "on",
 
-      /* Enable auto-formatting for skill files. */
       "editor.formatOnPaste": true,
       "editor.formatOnSave": true,
       "editor.formatOnType": true,
 
-      /* Enable auto-fixes for skill files. */
       "editor.codeActionsOnSave": {
         "source.fixAll": "always",
       },
@@ -692,6 +691,8 @@
 
     /* Enable code lens integration. */
     "codeium.enableCodeLens": false,
+    "pendant.runtimeSource": "external",
+    "pendant.thinkingLevel": "low",
 
   }
 }

@@ -14,7 +14,7 @@
 # This creates:
 #   ~/dev/personal/kieranpotts/my-project/.bare      — bare clone
 #   ~/dev/personal/kieranpotts/my-project/.git       — pointer file
-#   ~/dev/personal/kieranpotts/my-project/default    — working tree at branch `main`
+#   ~/dev/personal/kieranpotts/my-project/default    — working tree at branch `latest/dev` or `main`
 #   ~/dev/personal/kieranpotts/my-project/v1         — working tree at branch `v1/dev`
 #
 
@@ -42,7 +42,7 @@ repos:
   - name: kieranpotts/audits
     url: git@github.com:kieranpotts/audits.git
     worktrees:
-      default: latest/dev
+      default: main
 
   - name: kieranpotts/avatar
     url: git@github.com:kieranpotts/avatar.git
@@ -77,7 +77,7 @@ repos:
   - name: kieranpotts/design
     url: git@github.com:kieranpotts/design.git
     worktrees:
-      default: latest/dev
+      default: main
 
   - name: kieranpotts/devboxes
     url: git@github.com:kieranpotts/devboxes.git
@@ -177,7 +177,7 @@ repos:
   - name: kieranpotts/plans
     url: git@github.com:kieranpotts/plans.git
     worktrees:
-      default: latest/dev
+      default: main
 
   - name: kieranpotts/playbook
     url: git@github.com:kieranpotts/playbook.git
@@ -208,12 +208,12 @@ repos:
   - name: kieranpotts/rfc
     url: git@github.com:kieranpotts/rfc.git
     worktrees:
-      default: latest/dev
+      default: main
 
   - name: kieranpotts/risks
     url: git@github.com:kieranpotts/risks.git
     worktrees:
-      default: latest/dev
+      default: main
 
   - name: kieranpotts/sh
     url: git@github.com:kieranpotts/sh.git
@@ -228,7 +228,7 @@ repos:
   - name: kieranpotts/specs
     url: git@github.com:kieranpotts/specs.git
     worktrees:
-      default: latest/dev
+      default: main
 
   - name: kieranpotts/standards
     url: git@github.com:kieranpotts/standards.git

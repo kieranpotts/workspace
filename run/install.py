@@ -164,6 +164,28 @@ def add_worktree(bare: Path, worktree: Path, branch: str) -> subprocess.Complete
     return result
 
 
+def set_default_branch(bare: Path, branch: str) -> None:
+    """Point the bare repo's HEAD at `branch` (its default branch per the manifest).
+
+    A bare clone's HEAD tracks the origin's default at clone time and never
+    updates afterwards, so it drifts once the manifest's `default` worktree
+    names a different branch. Repointing it keeps `git symbolic-ref HEAD` — and
+    anything that reads the default branch (e.g. `git clone`, PR base pickers) —
+    consistent with the manifest. Only repoint once the local branch exists, so
+    HEAD never dangles at a ref with no commits.
+    """
+    if not run(["git", "branch", "--list", branch], bare).stdout.strip():
+        return
+    ref = f"refs/heads/{branch}"
+    if run(["git", "symbolic-ref", "HEAD"], bare).stdout.strip() == ref:
+        return
+    result = run(["git", "symbolic-ref", "HEAD", ref], bare)
+    if result.returncode != 0:
+        print(f"  ⚠️  Could not set default branch to '{branch}': {result.stderr.strip()}", file=sys.stderr)
+    else:
+        print(f"  ✓ Default branch (HEAD) set to '{branch}'.")
+
+
 def ensure_bare_repo(name: str, url: str, project: Path, bare: Path) -> bool:
     """Clone the bare repo if it doesn't exist yet. Returns True on success."""
     if bare.exists():
@@ -269,6 +291,12 @@ def sync_repo(
         worktree_path = project / worktree_name
         if not sync_worktree(bare, worktree_path, branch, worktree_name, just_cloned):
             all_ok = False
+
+    # Keep the bare repo's HEAD pointed at the manifest's default branch — this is the
+    # `default` worktree's branch by convention.
+    default_branch = worktrees.get("default")
+    if default_branch:
+        set_default_branch(bare, default_branch)
 
     return all_ok
 

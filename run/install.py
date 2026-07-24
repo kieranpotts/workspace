@@ -102,6 +102,31 @@ def run(args: list[str], cwd: Path, *, check: bool = False) -> subprocess.Comple
     return subprocess.run(args, cwd=cwd, capture_output=True, text=True, check=check)
 
 
+def current_branch(worktree: Path) -> str | None:
+    """Return the branch currently checked out in `worktree`, or None if detached."""
+    result = run(["git", "symbolic-ref", "--quiet", "--short", "HEAD"], worktree)
+    if result.returncode != 0:
+        return None  # detached HEAD (or not a worktree)
+    return result.stdout.strip()
+
+
+def switch_branch(bare: Path, worktree: Path, branch: str) -> subprocess.CompletedProcess:
+    """Check `branch` out into an existing worktree, creating a tracking branch if needed.
+
+    Mirrors `add_worktree`'s tracking behaviour: if a local branch already
+    exists we switch to it and (re)assert its upstream; otherwise we create it
+    from `origin/<branch>` with tracking configured. Run from the worktree so
+    `git switch` acts on that working tree.
+    """
+    branches = run(["git", "branch", "--list", branch], bare)
+    if branches.stdout.strip():
+        result = run(["git", "switch", branch], worktree)
+        if result.returncode == 0:
+            run(["git", "branch", f"--set-upstream-to=origin/{branch}", branch], worktree)
+        return result
+    return run(["git", "switch", "--track", "-c", branch, f"origin/{branch}"], worktree)
+
+
 def add_worktree(bare: Path, worktree: Path, branch: str) -> subprocess.CompletedProcess:
     """Add a worktree for `branch`, falling back to HEAD if the branch is absent.
 
@@ -182,6 +207,26 @@ def sync_worktree(
             return False
         maybe_install_pre_commit(worktree_path)
         return True
+
+    # If the worktree is on a different branch than the manifest now declares,
+    # switch it before syncing. Refuse if that would strand uncommitted changes.
+    checked_out = current_branch(worktree_path)
+    if checked_out != branch:
+        was = checked_out if checked_out is not None else "a detached HEAD"
+        dirty = run(["git", "status", "--porcelain"], worktree_path).stdout.strip()
+        if dirty:
+            print(
+                f"  ⚠️  [{worktree_name}] on '{was}' but manifest wants '{branch}', "
+                f"and there are uncommitted changes — not switching. "
+                f"Commit or stash first: cd {worktree_path}",
+                file=sys.stderr,
+            )
+            return False
+        print(f"  [{worktree_name}] Switching from '{was}' to '{branch}' ...")
+        result = switch_branch(bare, worktree_path, branch)
+        if result.returncode != 0:
+            print(f"  ❌ FAILED to switch branch: {result.stderr.strip()}", file=sys.stderr)
+            return False
 
     # Fast-forward the working tree branch to match origin.
     print(f"  [{worktree_name}] Merging origin/{branch} (fast-forward only) ...")

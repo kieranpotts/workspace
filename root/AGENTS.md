@@ -20,9 +20,6 @@ SHOULD NOT, OPTIONAL, and MAY are to be interpreted as described in
 
 These are all the projects in this workspace:
 
-- **`__TODO__`**: \
-  Personal task/TODO tracking.
-
 - **`.github`**: \
   Workspace-wide default GitHub community health files and workflows.
 

@@ -18,12 +18,6 @@
 #   ~/dev/personal/kieranpotts/my-project/v1         — working tree at branch `v1/dev`
 #
 
-repos:
-  - name: kieranpotts/__TODO__
-    url: git@github.com:kieranpotts/__TODO__.git
-    worktrees:
-      default: main
-
   - name: kieranpotts/.github
     url: git@github.com:kieranpotts/.github.git
     worktrees:

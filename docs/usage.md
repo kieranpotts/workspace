@@ -42,6 +42,7 @@ The `worktrees` map declares one or more named worktrees. The key is the directo
 ```
 ~/dev/personal/repository-name/.bare      — Bare clone (Git internals only).
 ~/dev/personal/repository-name/.git       — Pointer file.
+~/dev/personal/repository-name/AGENTS.md  — Project-level guide to the worktree layout.
 ~/dev/personal/repository-name/default    — Working tree at branch `main`.
 ```
 

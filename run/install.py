@@ -6,6 +6,7 @@ REPOS_DIR (default: ~/dev/personal):
 
   ~/dev/personal/<name>/.bare           — bare clone (Git internals only)
   ~/dev/personal/<name>/.git            — file containing "gitdir: ./.bare"
+  ~/dev/personal/<name>/AGENTS.md       — project-level agent orientation file
   ~/dev/personal/<name>/<worktree_name> — working tree checked out at <branch>
 
 The `.git` pointer file lets `git` commands run from the project root
@@ -13,9 +14,10 @@ The `.git` pointer file lets `git` commands run from the project root
 
 For each repo:
   - If not yet cloned, does `git clone --bare` into `.bare`, writes the `.git`
-    pointer, fixes the fetch refspec, then `git worktree add` for every
-    declared worktree.
-  - If already cloned, fetches then fast-forwards every existing worktree.
+    pointer and `AGENTS.md`, fixes the fetch refspec, then `git worktree add`
+    for every declared worktree.
+  - If already cloned, ensures `AGENTS.md` exists, fetches, then fast-forwards
+    every existing worktree.
 
 Requires: pip install pyyaml
 Usage:    python run/install.py
@@ -40,6 +42,9 @@ ROOT_ASSETS_DIR = WORKSPACE / "root"
 # lands at <REPOS_DIR>/<name>/.bare, with working trees as sibling directories.
 REPOS_DIR = Path.home() / "dev" / "personal"
 
+# Template for the AGENTS.md file written into each project's root directory.
+AGENTS_TEMPLATE = WORKSPACE / "run" / "AGENTS.template.md"
+
 # Entries inside ROOT_ASSETS_DIR that should be surfaced at the root of REPOS_DIR
 # (~/dev/personal) via symlink, so the whole tree can be opened as a single VS
 # Code workspace / devcontainer from one place, and so AGENTS.md is visible to
@@ -47,6 +52,31 @@ REPOS_DIR = Path.home() / "dev" / "personal"
 LINKED_ASSETS = ["personal.code-workspace", "AGENTS.md", ".devcontainer"]
 
 SEP = "─" * 60
+
+
+def project_title(name: str) -> str:
+    """Return a human-readable title for the project from its manifest name."""
+    return Path(name).name
+
+
+def install_project_agents(project: Path, title: str) -> None:
+    """Write a project-root AGENTS.md if one is not already present.
+
+    The file lives alongside the `.git` pointer file (outside any worktree), so
+    agents opening the project container can discover the worktree layout and
+    how to create new worktrees.
+    """
+    if not AGENTS_TEMPLATE.exists():
+        print(f"  ⚠️  Agents template not found: {AGENTS_TEMPLATE}", file=sys.stderr)
+        return
+
+    agents_file = project / "AGENTS.md"
+    if agents_file.exists():
+        return
+
+    template = AGENTS_TEMPLATE.read_text(encoding="utf-8")
+    agents_file.write_text(template.format(title=title), encoding="utf-8")
+    print(f"  ✓ Installed AGENTS.md for '{title}'.")
 
 
 def maybe_install_pre_commit(dest: Path) -> None:
@@ -280,6 +310,8 @@ def sync_repo(
     if not ensure_bare_repo(name, url, project, bare):
         return False
 
+    install_project_agents(project, project_title(name))
+
     print("  Fetching ...")
     result = run(["git", "fetch", "--prune", "origin"], bare)
     if result.returncode != 0:
@@ -305,7 +337,13 @@ def main() -> int:
     with open(MANIFEST) as f:
         config = yaml.safe_load(f)
 
-    repos = config.get("repos", [])
+    # repos.yaml may be a top-level list of repo entries, or a dict with a
+    # "repos" key. Tolerate both shapes.
+    repos = config.get("repos", []) if isinstance(config, dict) else config
+    if not isinstance(repos, list):
+        print("⚠️  repos.yaml must contain a list of repositories.", file=sys.stderr)
+        return 1
+
     ok = 0
     failed = 0
 

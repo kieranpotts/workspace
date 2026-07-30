@@ -255,6 +255,9 @@
       /* Lorem Ipsum — Generates placeholder text. */
       "tyriar.lorem-ipsum",
 
+      /* Official Ollama extension — Adds Ollama as a language model provider to VS Code's built-in chat. */
+      "ollama.ollama",
+
       /* Pendant — The Pi coding agent embedded in a VS Code panel. */
       "cdervis.vscode-pi",
 

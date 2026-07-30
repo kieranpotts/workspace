@@ -77,6 +77,9 @@ These are all the projects in this workspace:
 - **`garden`**: \
   Source content for my digital garden.
 
+- **`genie`**: \
+  Agent harness infrastructure for away-from-keyword, agentic loop workflows.
+
 - **`genies`**: \
   Self-hosted open source AI models via Ollama running in Docker.
 

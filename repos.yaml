@@ -115,6 +115,11 @@ repos:
     worktrees:
       default: latest/dev
 
+  - name: kieranpotts/genie
+    url: git@github.com:kieranpotts/genie.git
+    worktrees:
+      default: latest/dev
+
   - name: kieranpotts/genies
     url: git@github.com:kieranpotts/genies.git
     worktrees:

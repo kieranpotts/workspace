@@ -95,6 +95,9 @@ These are all the projects in this workspace:
 - **`kieranpotts`**: \
   GitHub profile page.
 
+- **`loop`**: \
+  System for specifying and executing agentic loop workflows from YAML definitions.
+
 - **`lumex`**: \
   VS Code theme.
 

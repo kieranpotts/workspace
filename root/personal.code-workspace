@@ -700,6 +700,7 @@
     "codeium.enableCodeLens": false,
     "pendant.runtimeSource": "external",
     "pendant.thinkingLevel": "low",
+    "pendant.autoGenerateSessionNames": true,
 
   }
 }

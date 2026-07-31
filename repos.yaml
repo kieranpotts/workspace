@@ -290,3 +290,12 @@ repos:
     url: git@github.com:nirvarnia/brand.git
     worktrees:
       default: main
+
+  #
+  # Third-party OSS.
+  #
+
+  - name: kieranpotts/zed
+    url: git@github.com:kieranpotts/zed.git
+    worktrees:
+      default: main

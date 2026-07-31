@@ -173,6 +173,9 @@ These are all the projects in this workspace:
 - **`workspace`**: \
   Root workspace repository.
 
+- **`zed`**: \
+  Open source code editors — community OSS project.
+
 - **`srcflow/srcflow`**: \
   Srcflow project (separate GitHub org).
 

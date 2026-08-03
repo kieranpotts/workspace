@@ -241,6 +241,11 @@ repos:
     worktrees:
       default: latest/dev
 
+  - name: kieranpotts/study
+    url: git@github.com:kieranpotts/study.git
+    worktrees:
+      default: main
+
   - name: kieranpotts/template
     url: git@github.com:kieranpotts/template.git
     worktrees:

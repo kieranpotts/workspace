@@ -152,6 +152,9 @@ These are all the projects in this workspace:
 - **`standards`**: \
   Coding/process standards.
 
+- **`study`**: \
+  Certification pathways and learning materials.
+
 - **`template`**: \
   Generic template for new code repositories.
 

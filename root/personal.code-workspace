@@ -178,6 +178,10 @@
       "path": "kieranpotts/standards/default"
     },
     {
+      "name": "🚫 kieranpotts/study",
+      "path": "kieranpotts/study/default"
+    },
+    {
       "name": "🚀 kieranpotts/template",
       "path": "kieranpotts/template/default"
     },

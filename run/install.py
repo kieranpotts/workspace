@@ -85,7 +85,7 @@ def maybe_install_pre_commit(dest: Path) -> None:
     if shutil.which("pre-commit") is None:
         return
     print("  Installing pre-commit hooks ...")
-    result = run(["pre-commit", "install"], dest)
+    result = run(["pre-commit", "install", "--allow-missing-config"], dest)
     if result.returncode != 0:
         print(f"  ⚠️  pre-commit install failed: {result.stderr.strip()}", file=sys.stderr)
     else:

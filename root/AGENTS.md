@@ -103,7 +103,7 @@ have an `AGENTS.md` file.)
 - **`makebook` (archived)** \
   VM and starter kit for making books with Pandoc. Archived.
 
-- **[`modelfiles`](./kieranpotts/modelfiles/default/AGENTS.md)** \
+- **[`modelfiles`](./kieranpotts/modelfiles/default/AGENTS.md) (archived)** \
   Custom Ollama model definitions.
 
 - **`ocean` (archived)** \

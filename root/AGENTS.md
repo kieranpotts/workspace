@@ -1,206 +1,207 @@
 # Personal workspace
 
+> [!IMPORTANT]
+> The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD,
+> SHOULD NOT, OPTIONAL, and MAY are to be interpreted as described in
+> [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+
 This file describes my personal development workspace as a whole. It's a tree
 of independent Git repositories checked out as siblings under
 `~/dev/personal/<owner>/<name>/<worktree>`.
 
-This file is symlinked at the root of that tree (`~/dev/personal/AGENTS.md`),
-so any agent working inside any one of these projects can see this file in a
-parent directory and understand the wider context — what the other sibling
-projects are, and how they relate.
-
-This file does not describe any single repository's internals. Each repository
-has its own `AGENTS.md` and/or `README.md` for that.
-
-The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD,
-SHOULD NOT, OPTIONAL, and MAY are to be interpreted as described in
-[IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+This file is symlinked at the root of that tree, at `~/dev/personal/AGENTS.md`.
+It describes the workspace as a whole.
 
 ## Workspace projects
 
-These are all the projects in this workspace:
+Below is the list of all the projects in this workspace. When working within
+the scope of one or more projects, you SHOULD follow the links below to read
+the `AGENTS.md` files that are specific to those projects. (Not all projects
+have an `AGENTS.md` file.)
 
-- **`.github`**: \
+- **[`.github`](./kieranpotts/.github/default/AGENTS.md)** \
   Workspace-wide default GitHub community health files and workflows.
 
-- **`actions`**: \
+- **[`actions`](./kieranpotts/actions/default/AGENTS.md)** \
   Custom reusable GitHub Actions for CI/CD pipelines.
 
-- **`asciibook`**: \
+- **[`asciibook`](./kieranpotts/asciibook/default/AGENTS.md)** \
   Toolchain for authoring technical books from AsciiDoc source.
 
-- **`audits`**: \
+- **[`audits`](./kieranpotts/audits/default/AGENTS.md)** \
   Template for maintaining architecture and security audits under version control.
 
-- **`avatar`**: \
+- **[`avatar`](./kieranpotts/avatar/default/AGENTS.md)** \
   Source and distributable files for my online profile icon.
 
-- **`blueprints`**: \
+- **[`blueprints`](./kieranpotts/blueprints/default/AGENTS.md)** \
   System design studies for fictional application software.
 
-- **`bookmarks`**: \
+- **[`bookmarks`](./kieranpotts/bookmarks/default/AGENTS.md)** \
   Curated list of interesting destinations on the web.
 
-- **`bootstrap`**: \
+- **[`bootstrap`](./kieranpotts/bootstrap/default/AGENTS.md)** \
   Provisioning scripts for my standard local dev environment.
 
-- **`cheats`**: \
+- **[`cheats`](./kieranpotts/cheats/default/AGENTS.md)** \
   Cheat sheets for various dev and ops tools.
 
-- **`cover-letter`**: \
+- **[`cover-letter`](./kieranpotts/cover-letter/default/AGENTS.md)** \
   Source content and build scripts for job application cover letters.
 
-- **`design`**: \
+- **[`design`](./kieranpotts/design/default/AGENTS.md)** \
   Template for maintaining a system's architectural artifacts via version control.
 
-- **`devboxes`**: \
+- **`devboxes` (archived)** \
   Vagrant configs for dev VMs. No longer maintained.
 
-- **`devtools`**: \
+- **[`devtools`](./kieranpotts/devtools/default/AGENTS.md)** \
   Dev tool configs, programming fonts, and Windows ports of Unix tools.
 
-- **`dictionary`**: \
+- **[`dictionary`](./kieranpotts/dictionary/default/AGENTS.md)** \
   Custom spelling dictionaries for the Code Spell Checker VS Code extension.
 
-- **`docker-devcontainer`**: \
+- **[`docker-devcontainer`](./kieranpotts/docker-devcontainer/default/AGENTS.md)** \
   Builds the Docker image for my personal projects' dev environment.
 
-- **`docker-latex`**: \
+- **[`docker-latex`](./kieranpotts/docker-latex/default/AGENTS.md)** \
   Builds a Docker image for LaTeX compilation.
 
-- **`dotfiles`**: \
+- **[`dotfiles`](./kieranpotts/dotfiles/default/AGENTS.md)** \
   Personal Unix dotfiles.
 
-- **`eslint-config`**: \
+- **`eslint-config` (archived)** \
   Shared ESLint configuration package.
 
-- **`garden`**: \
+- **[`garden`](./kieranpotts/garden/default/AGENTS.md)** \
   Source content for my digital garden.
 
-- **`genie`**: \
+- **[`genie`](./kieranpotts/genie/default/AGENTS.md)** \
   Agent harness infrastructure for away-from-keyword, agentic loop workflows.
 
-- **`genies`**: \
+- **`genies` (archived)** \
   Self-hosted open source AI models via Ollama running in Docker.
 
-- **`gitex`**: \
+- **[`gitex`](./kieranpotts/gitex/default/AGENTS.md)** \
   Git extensions suite – `git sync`, `git amend`, `git squash`, `git undo`, etc.
 
-- **`interviews`**: \
+- **[`interviews`](./kieranpotts/interviews/default/AGENTS.md)** \
   Behavioral interview Q&A prep for software roles.
 
-- **`json-schema`**: \
+- **[`json-schema`](./kieranpotts/json-schema/default/AGENTS.md)** \
   Collection of common JSON Schema type definitions.
 
-- **`kieranpotts`**: \
+- **[`kieranpotts`](./kieranpotts/kieranpotts/default/AGENTS.md)** \
   GitHub profile page.
 
-- **`loop`**: \
+- **[`loop`](./kieranpotts/loop/default/AGENTS.md)** \
   System for specifying and executing agentic loop workflows from YAML definitions.
 
-- **`lumex`**: \
+- **[`lumex`](./kieranpotts/lumex/default/AGENTS.md)** \
   VS Code theme.
 
-- **`makebook`**: \
+- **`makebook` (archived)** \
   VM and starter kit for making books with Pandoc. Archived.
 
-- **`modelfiles`**: \
+- **[`modelfiles`](./kieranpotts/modelfiles/default/AGENTS.md)** \
   Custom Ollama model definitions.
 
-- **`ocean`**: \
+- **`ocean` (archived)** \
   VS Code theme. Archived; superseded by `lumex`.
 
-- **`papers`**: \
+- **[`papers`](./kieranpotts/papers/default/AGENTS.md)** \
   Academic papers and research in software engineering / computer science.
 
-- **`pi`**: \
+- **[`pi`](./kieranpotts/pi/default/AGENTS.md)** \
   AI agent harness infrastructure, built around the Pi coding agent.
 
-- **`plans`**: \
+- **[`plans`](./kieranpotts/plans/default/AGENTS.md)** \
   Template for planning implementation of changes via version control.
 
-- **`playbook`**: \
+- **[`playbook`](./kieranpotts/playbook/default/AGENTS.md)** \
   Software development methods and tools.
 
-- **`popos`**: \
+- **[`popos`](./kieranpotts/popos/default/AGENTS.md)** \
   Pop!_OS configuration backup.
 
-- **`pre-commit-hooks`**: \
+- **[`pre-commit-hooks`](./kieranpotts/pre-commit-hooks/default/AGENTS.md)** \
   Reusable hook configs for the `pre-commit` framework.
 
-- **`prototypes`**: \
+- **`prototypes` (archived)** \
   Archived prototypes for web UI components. No longer maintained.
 
-- **`resume`**: \
+- **[`resume`](./kieranpotts/resume/default/AGENTS.md)** \
   Source content and build scripts for CV, compiled from LaTeX.
 
-- **`risks`**: \
+- **[`risks`](./kieranpotts/risks/default/AGENTS.md)** \
   Template for maintaining a risk register under version control. For threat modeling.
 
-- **`rfc`**: \
+- **[`rfc`](./kieranpotts/rfc/default/AGENTS.md)** \
   Template for managing technical decisions via version control.
 
-- **`sh`**: \
+- **`sh` (archived)** \
   Archived shell scripts.
 
-- **`skills`**: \
+- **[`skills`](./kieranpotts/skills/default/AGENTS.md)** \
   Reusable agent skills.
 
-- **`specs`**: \
+- **[`specs`](./kieranpotts/specs/default/AGENTS.md)** \
   Template for managing the lifecycle of software requirements via version control.
 
-- **`standards`**: \
+- **[`standards`](./kieranpotts/standards/default/AGENTS.md)** \
   Coding/process standards.
 
-- **`study`**: \
+- **[`study`](./kieranpotts/study/default/AGENTS.md)** \
   Certification pathways and learning materials.
 
-- **`template`**: \
+- **[`template`](./kieranpotts/template/default/AGENTS.md)** \
   Generic template for new code repositories.
 
-- **`tests`**: \
+- **`tests` (archived)** \
   Take-home tests for technical IT roles.
 
-- **`the-timeless-way`**: \
+- **[`the-timeless-way`](./kieranpotts/the-timeless-way/default/AGENTS.md)** \
   Software development playbook/methodology in book form.
 
-- **`thoughts`**: \
+- **[`thoughts`](./kieranpotts/thoughts/default/AGENTS.md)** \
   Source content for my blog.
 
-- **`website`**: \
+- **[`website`](./kieranpotts/website/default/AGENTS.md)** \
   kieranpotts.com static site, built with Antora from AsciiDoc.
 
-- **`website-ui`**: \
+- **[`website-ui`](./kieranpotts/website-ui/default/AGENTS.md) (archived)** \
   Archived; portable Antora UI theme reference, now maintained in `website`.
 
-- **`workspace`**: \
+- **[`workspace`](./kieranpotts/workspace/default/AGENTS.md)** \
   Root workspace repository.
 
-- **`zed`**: \
+- **[`zed`](./kieranpotts/zed/default/AGENTS.md)** \
   Open source code editors — community OSS project.
 
-- **`srcflow/srcflow`**: \
+- **`srcflow/srcflow`** \
   Srcflow project (separate GitHub org).
 
-- **`srcflow/sh`**: \
+- **`srcflow/sh`** \
   Srcflow shell scripts (separate GitHub org).
 
-- **`nirvarnia/brand`**: \
+- **`nirvarnia/brand` (archived)** \
   Nirvarnia brand assets (separate GitHub org).
 
 ## Project structure
 
 Every project lives at `~/dev/personal/<owner>/<name>/<worktree>`, using a
-bare-clone-plus-worktrees layout:
+bare-clone-plus-worktrees layout.
 
-- `<owner>/<name>/.bare`: Bare clone (Git internals only).
+- `<owner>/<name>/.bare` \
+  Bare clone (Git internals only).
 
-- `<owner>/<name>/.git`: Pointer file (`gitdir: ./.bare`) so Git commands
-  work from the project root.
+- `<owner>/<name>/.git` \
+  Pointer file (`gitdir: ./.bare`) so Git commands work from the project root.
 
-- `<owner>/<name>/<worktree>`: A working tree checked out at a specific branch.
-  There's always a `default` worktree, which is used to check out the branch
-  that's configured as the default in the upstream reference repository.
+- `<owner>/<name>/<worktree>` \
+  A working tree checked out at a specific branch. There's always a `default`
+  worktree, which is used to check out the branch that's configured as the
+  default in the upstream reference repository. Other worktrees MAY exist.
 
 ## Rules
 
@@ -210,5 +211,3 @@ bare-clone-plus-worktrees layout:
 
 - MUST NOT make changes that span multiple sibling project directories as a
   single unit of work. Each is an independently versioned repository.
-  Commit/PR within one project at a time, unless the user explicitly asks
-  for a cross-repo change.

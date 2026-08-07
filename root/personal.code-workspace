@@ -554,7 +554,8 @@
     /* When previewing Asciidoc files, use VS Code's workbench color theme,
     rather than the default Asciidoc style. This ensures the colors of the
     preview are consistent with the enabled VS Code theme. */
-    "asciidoc.preview.useEditorStyle": true,
+    // "asciidoc.preview.useEditorStyle": true, -- old setting
+    "asciidoc.preview.defaultStyle": "vscode",
 
     /* Allow Antora support to be enabled. */
     "asciidoc.antora.showEnableAntoraPrompt": true,

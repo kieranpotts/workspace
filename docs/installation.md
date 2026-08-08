@@ -48,10 +48,11 @@ The `install.py` also clones this workspace repository, so it is now safe to del
 
 ## Workspace assets
 
-The installer surfaces the contents of this repository's [`root/`](../root) directory at the root of the dev tree (`~/dev/personal`), via relative symlinks, so the entire collection of repositories can be opened as a single VS Code workspace or devcontainer from one place, and so `AGENTS.md` is visible to agents working in any sibling project:
+The installer surfaces the contents of this repository's [`root/`](../root) directory at the root of the dev tree (`~/dev/personal`), via relative symlinks, so the entire collection of repositories can be opened as a single VS Code workspace or devcontainer from one place, and so `AGENTS.md`/`CLAUDE.md` are visible to agents working in any sibling project:
 
 ```
 ~/dev/personal/personal.code-workspace  →  kieranpotts/workspace/default/root/personal.code-workspace
 ~/dev/personal/AGENTS.md                →  kieranpotts/workspace/default/root/AGENTS.md
+~/dev/personal/CLAUDE.md                →  kieranpotts/workspace/default/root/CLAUDE.md
 ~/dev/personal/.devcontainer            →  kieranpotts/workspace/default/root/.devcontainer
 ```

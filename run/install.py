@@ -49,7 +49,7 @@ AGENTS_TEMPLATE = WORKSPACE / "run" / "AGENTS.template.md"
 # (~/dev/personal) via symlink, so the whole tree can be opened as a single VS
 # Code workspace / devcontainer from one place, and so AGENTS.md is visible to
 # agents working in any sibling project.
-LINKED_ASSETS = ["personal.code-workspace", "AGENTS.md", ".devcontainer"]
+LINKED_ASSETS = ["personal.code-workspace", "AGENTS.md", "CLAUDE.md", ".devcontainer"]
 
 SEP = "─" * 60
 

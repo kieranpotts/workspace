@@ -1,3 +1,6 @@
+// Dev container configuration.
+// https://aka.ms/devcontainer.json.
+
 {
   "name": "Personal Workspace",
   "runArgs": ["--name", "personal-workspace"],

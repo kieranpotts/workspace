@@ -12,7 +12,9 @@
       "USER_GID": "${localEnv:GID}"
     }
   },
+
   "remoteUser": "code",
+
   // Every project in this workspace is a bare clone + worktrees under the same
   // project root. Unfortunately, the two-way filesystem links between a Git
   // repo and its worktrees are always absolute paths — relative links are not
@@ -22,5 +24,19 @@
   // inside the container, too. Thus, the two-way absolute paths between Git
   // repositories and their worktrees resolve correctly.
   "workspaceFolder": "${localWorkspaceFolder}",
-  "workspaceMount": "source=${localWorkspaceFolder},target=${localWorkspaceFolder},type=bind,consistency=cached"
+  "workspaceMount": "source=${localWorkspaceFolder},target=${localWorkspaceFolder},type=bind,consistency=cached",
+
+  // Bind-mount the host's Git config into the container, live, so `user.name`,
+  // `user.email`, etc. always match the host.  `~/.gnupg` is mounted read-write
+  // because `gpg`/`gpg-agent` need to write lock files to actually sign commits.
+  // `~/.ssh` is mounted read-only — that's all that's need for `git push`/`pull`
+  // over SSH to authenticate.
+  "mounts": [
+    "source=${localEnv:HOME}/.gitconfig,target=/home/code/.gitconfig,type=bind,readonly",
+    "source=${localEnv:HOME}/local.gitconfig,target=/home/code/local.gitconfig,type=bind,readonly",
+    "source=${localEnv:HOME}/local.gitmessage,target=/home/code/local.gitmessage,type=bind,readonly",
+    "source=${localEnv:HOME}/local.gitignore,target=/home/code/local.gitignore,type=bind,readonly",
+    "source=${localEnv:HOME}/.gnupg,target=/home/code/.gnupg,type=bind",
+    "source=${localEnv:HOME}/.ssh,target=/home/code/.ssh,type=bind,readonly"
+  ]
 }

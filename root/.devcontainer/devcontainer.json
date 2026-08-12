@@ -13,6 +13,14 @@
     }
   },
   "remoteUser": "code",
-  "workspaceFolder": "/workspace",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+  // Every project in this workspace is a bare clone + worktrees under the same
+  // project root. Unfortunately, the two-way filesystem links between a Git
+  // repo and its worktrees are always absolute paths — relative links are not
+  // supported. The solution is to mount the workspace at a guest path than
+  // matches its host path. So, rather than mounting `/home/kieran/dev/personal`
+  // at an alias like `/workspace`, it is mounted at `/home/kieran/dev/personal`
+  // inside the container, too. Thus, the two-way absolute paths between Git
+  // repositories and their worktrees resolve correctly.
+  "workspaceFolder": "${localWorkspaceFolder}",
+  "workspaceMount": "source=${localWorkspaceFolder},target=${localWorkspaceFolder},type=bind,consistency=cached"
 }

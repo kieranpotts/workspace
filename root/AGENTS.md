@@ -196,18 +196,23 @@ bare-clone-plus-worktrees layout.
   Bare clone (Git internals only).
 
 - `<owner>/<name>/.git` \
-  Pointer file (`gitdir: ./.bare`) so Git commands work from the project root.
+  Pointer file (`gitdir: ./.bare`), so Git worktrees can be managed using the
+  `git worktree` command from the project root.
 
 - `<owner>/<name>/<worktree>` \
   A working tree checked out at a specific branch. There's always a `default`
   worktree, which is used to check out the branch that's configured as the
   default in the upstream reference repository. Other worktrees MAY exist.
 
+You MAY create new worktrees, as siblings of `default`, using
+`git worktree add <owner>/<name>/<worktree> <branch>` from the project root.
+Indeed, this is preferable than creating worktrees at other arbitrary locations
+on the filesystem.
+
 ## Rules
 
 - MUST treat each project directory as its own repository with its own
-  conventions. Defer to that project's own `AGENTS.md`/`README.md` when
-  working inside it.
+  conventions. Defer to that project's own `AGENTS.md` when working inside it.
 
 - MUST NOT make changes that span multiple sibling project directories as a
   single unit of work. Each is an independently versioned repository.

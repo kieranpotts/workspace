@@ -1,6 +1,17 @@
 {
 
   "folders": [
+    // As of August 2026, when Claude Code is opened in VS Code in this
+    // workspace, its context will be that the first folder in the workspace
+    // is its **primary project directory**, while all other folders in the
+    // workspace are **additional project directories**. Prepending an entry
+    // that points to the workspace root is a little trick to get Claude Code
+    // to treat the whole workspace as one big project, and it will ingest the
+    // root-level `CLAUDE.md` file automatically.
+    {
+      "name": ".",
+      "path": "."
+    },
     {
       "name": "🚀 kieranpotts/.github",
       "path": "kieranpotts/.github/default"

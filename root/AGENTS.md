@@ -211,8 +211,14 @@ on the filesystem.
 
 ## Rules
 
-- MUST treat each project directory as its own repository with its own
+- You MUST treat each project directory as its own repository with its own
   conventions. Defer to that project's own `AGENTS.md` when working inside it.
 
-- MUST NOT make changes that span multiple sibling project directories as a
-  single unit of work. Each is an independently versioned repository.
+- You MUST NOT make changes that span multiple sibling project directories as a
+  single unit of work, unless explicitly instructed or approved by the user to
+  do so.
+
+- You MAY create worktrees and branches, but you MUST NOT commit, stage, or
+  push any changes you make except with explicit permission from the user.
+  Unless you are instructed otherwise, you should assume that the end state
+  for your work will be changes in dirty Git working trees.

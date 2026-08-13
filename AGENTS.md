@@ -6,9 +6,9 @@ tooling that clones and synchronizes every sibling project under
 per-branch worktrees), plus the assets (VS Code workspace file, devcontainer,
 `AGENTS.md` template) that get symlinked to the root of that tree.
 
-Do not confuse this file with [`root/AGENTS.md`](./root/AGENTS.md) — that file
+Do not confuse this file with [`root/AGENTS.md`](./root/AGENTS.md). That file
 describes the *sibling-project tree* once installed (it is symlinked to
-`~/dev/personal/AGENTS.md`); this file describes this repository's own
+`~/dev/personal/AGENTS.md`). This file describes this repository's own
 tooling (`repos.yaml`, `run/install.py`, `root/`).
 
 The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD,
@@ -40,7 +40,7 @@ SHOULD NOT, OPTIONAL, and MAY are to be interpreted as described in
 
 - **[run/AGENTS.template.md](./run/AGENTS.template.md)** \
   Template written as `AGENTS.md` into each newly-cloned project root
-  (outside any worktree) — orients agents to the bare-clone/worktree layout.
+  (outside any worktree). Orients agents to the bare-clone/worktree layout.
   Not the same file as this AGENTS.md or `root/AGENTS.md`.
 
 - **[root/](./root)** \
@@ -54,21 +54,24 @@ SHOULD NOT, OPTIONAL, and MAY are to be interpreted as described in
 
 ## Tools
 
-- **`pip install -r requirements.txt`** to install `pyyaml` before running the installer.
-- **`python3 run/install.py`** to clone/update all repos declared in `repos.yaml` and refresh the symlinked root assets.
-- **`docker build -f root/.devcontainer/Dockerfile -t personal-workspace .`** to verify the devcontainer image builds.
+- `pip install -r requirements.txt` to install `pyyaml` before running the
+  installer.
+- `python3 run/install.py` to clone/update all repos declared in
+  `repos.yaml` and refresh the symlinked root assets.
+- `docker build -f root/.devcontainer/Dockerfile -t personal-workspace .`
+  to verify the devcontainer image builds.
 
 ## Rules
 
 - MUST add a `repos.yaml` entry (and run `python3 run/install.py`) to bring a
-  new repository into the workspace, rather than cloning it manually — manual
+  new repository into the workspace, rather than cloning it manually. Manual
   clones are not tracked and will not be kept in sync.
 
-- MUST commit changes to `repos.yaml` — it is the single source of truth for
+- MUST commit changes to `repos.yaml`. It is the single source of truth for
   which repositories and worktrees exist.
 
 - MUST NOT hand-edit a generated project-root `AGENTS.md` (the one written by
-  `install.py` from `run/AGENTS.template.md`) expecting it to persist —
+  `install.py` from `run/AGENTS.template.md`) expecting it to persist.
   `install.py` only writes it when absent, but the template is the source of
   truth for its content.
 
@@ -82,7 +85,7 @@ SHOULD NOT, OPTIONAL, and MAY are to be interpreted as described in
 ## References
 
 This project follows Kieran Potts' technical standards. Read the relevant
-standard(s) below for the current task; their RFC 2119 rules MUST be followed
+standard(s) below for the current task. Their RFC 2119 rules MUST be followed
 unless explicitly overridden elsewhere in this file.
 
 - **[TS-9: Version Control](https://kieranpotts.com/standards/009)**

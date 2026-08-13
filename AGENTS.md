@@ -85,6 +85,6 @@ This project follows Kieran Potts' technical standards. Read the relevant
 standard(s) below for the current task; their RFC 2119 rules MUST be followed
 unless explicitly overridden elsewhere in this file.
 
-- **[TS-9: Version Control](https://raw.githubusercontent.com/kieranpotts/standards/refs/heads/latest/dev/src/modules/ROOT/partials/009/AGENTS.md)**
-- **[TS-35: Python](https://raw.githubusercontent.com/kieranpotts/standards/refs/heads/latest/dev/src/modules/ROOT/partials/035/AGENTS.md)**
-- **[TS-58: Docker](https://raw.githubusercontent.com/kieranpotts/standards/refs/heads/latest/dev/src/modules/ROOT/partials/058/AGENTS.md)**
+- **[TS-9: Version Control](https://kieranpotts.com/standards/009)**
+- **[TS-35: Python](https://kieranpotts.com/standards/035)**
+- **[TS-58: Docker](https://kieranpotts.com/standards/058)**

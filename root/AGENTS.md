@@ -82,6 +82,9 @@ have an `AGENTS.md` file.)
 - **`kieranpotts/genies` (archived)** \
   Self-hosted open source AI models via Ollama running in Docker.
 
+- **[`kieranpotts/gh-runner`](./kieranpotts/gh-runner/default/AGENTS.md)** \
+  Infrastructure for a local self-host GitHub Actions workflow runner.
+
 - **[`kieranpotts/gitex`](./kieranpotts/gitex/default/AGENTS.md)** \
   Git extensions suite – `git sync`, `git amend`, `git squash`, `git undo`, etc.
 

@@ -125,6 +125,11 @@ repos:
     worktrees:
       default: dev
 
+  - name: kieranpotts/gh-runner
+    url: git@github.com:kieranpotts/gh-runner.git
+    worktrees:
+      default: latest/dev
+
   - name: kieranpotts/gitex
     url: git@github.com:kieranpotts/gitex.git
     worktrees:

@@ -38,7 +38,7 @@ repos:
   - name: kieranpotts/audits
     url: git@github.com:kieranpotts/audits.git
     worktrees:
-      default: main
+      default: latest/main
 
   - name: kieranpotts/avatar
     url: git@github.com:kieranpotts/avatar.git
@@ -73,7 +73,7 @@ repos:
   - name: kieranpotts/design
     url: git@github.com:kieranpotts/design.git
     worktrees:
-      default: main
+      default: latest/main
 
   - name: kieranpotts/devboxes
     url: git@github.com:kieranpotts/devboxes.git
@@ -188,7 +188,7 @@ repos:
   - name: kieranpotts/plans
     url: git@github.com:kieranpotts/plans.git
     worktrees:
-      default: main
+      default: latest/main
 
   - name: kieranpotts/playbook
     url: git@github.com:kieranpotts/playbook.git
@@ -219,12 +219,12 @@ repos:
   - name: kieranpotts/rfc
     url: git@github.com:kieranpotts/rfc.git
     worktrees:
-      default: main
+      default: latest/main
 
   - name: kieranpotts/risks
     url: git@github.com:kieranpotts/risks.git
     worktrees:
-      default: main
+      default: latest/main
 
   - name: kieranpotts/sh
     url: git@github.com:kieranpotts/sh.git
@@ -239,7 +239,7 @@ repos:
   - name: kieranpotts/specs
     url: git@github.com:kieranpotts/specs.git
     worktrees:
-      default: main
+      default: latest/main
 
   - name: kieranpotts/standards
     url: git@github.com:kieranpotts/standards.git

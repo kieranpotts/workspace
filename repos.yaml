@@ -210,6 +210,11 @@ repos:
     worktrees:
       default: archive
 
+  - name: kieranpotts/rates
+    url: git@github.com:kieranpotts/rates.git
+    worktrees:
+      default: latest/main
+
   - name: kieranpotts/resume
     url: git@github.com:kieranpotts/resume.git
     worktrees:

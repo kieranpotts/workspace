@@ -133,6 +133,9 @@ have an `AGENTS.md` file.)
 - **`kieranpotts/prototypes` (archived)** \
   Archived prototypes for web UI components. No longer maintained.
 
+- **[`kieranpotts/rates`](./kieranpotts/rates/default/AGENTS.md)** \
+  Freelance/contract rates and other calculations.
+
 - **[`kieranpotts/resume`](./kieranpotts/resume/default/AGENTS.md)** \
   Source content and build scripts for CV, compiled from LaTeX.
 

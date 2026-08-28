@@ -40,6 +40,9 @@ have an `AGENTS.md` file.)
 - **[`kieranpotts/bookmarks`](./kieranpotts/bookmarks/default/AGENTS.md)** \
   Curated list of interesting destinations on the web.
 
+- **[`kieranpotts/books`](./kieranpotts/books/default/AGENTS.md)** \
+  Reading list — books on computer science topics I want to read.
+
 - **[`kieranpotts/bootstrap`](./kieranpotts/bootstrap/default/AGENTS.md)** \
   Provisioning scripts for my standard local dev environment.
 

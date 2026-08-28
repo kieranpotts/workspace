@@ -55,6 +55,11 @@ repos:
     worktrees:
       default: latest/dev
 
+  - name: kieranpotts/books
+    url: git@github.com:kieranpotts/books.git
+    worktrees:
+      default: latest/main
+
   - name: kieranpotts/bootstrap
     url: git@github.com:kieranpotts/bootstrap.git
     worktrees:

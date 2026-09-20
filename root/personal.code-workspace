@@ -528,6 +528,12 @@
     GIT/SCM SETTINGS
     */
 
+    /* Hide Git internals and agent worktrees under bare clones. These contain
+    stale duplicate antora.yml files that confuse the AsciiDoc Antora preview. */
+    "files.exclude": {
+      "**/.bare": true
+    },
+
     /* Remove archived repositories (🔒) from VS Code's built-in Git GUI – you
     can't push to these anyway. This setting requires absolute paths -
     ${workspaceFolder} doesn't work, unfortunately. */

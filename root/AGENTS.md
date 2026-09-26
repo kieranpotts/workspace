@@ -163,6 +163,9 @@ have an `AGENTS.md` file.)
 - **[`kieranpotts/study`](./kieranpotts/study/default/AGENTS.md)** \
   Certification pathways and learning materials.
 
+- **[`kieranpotts/styleguide`](./kieranpotts/styleguide/default/AGENTS.md)** \
+  A-Z reference of spellings, proper nouns, and usage notes for English words.
+
 - **[`kieranpotts/template`](./kieranpotts/template/default/AGENTS.md)** \
   Generic template for new code repositories.
 

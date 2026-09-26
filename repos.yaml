@@ -259,7 +259,12 @@ repos:
   - name: kieranpotts/study
     url: git@github.com:kieranpotts/study.git
     worktrees:
-      default: main
+      default: latest/main
+
+  - name: kieranpotts/styleguide
+    url: git@github.com:kieranpotts/styleguide.git
+    worktrees:
+      default: latest/styleguide
 
   - name: kieranpotts/template
     url: git@github.com:kieranpotts/template.git

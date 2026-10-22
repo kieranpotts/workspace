@@ -751,6 +751,14 @@
     "pendant.thinkingLevel": "low",
     "pendant.autoGenerateSessionNames": true,
 
+    /*
+    YAML
+    https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml
+    */
+
+    /* Disable RedHat telemetry gathering. */
+    "redhat.telemetry.enabled": false,
+
   }
 }
 

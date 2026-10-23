@@ -348,6 +348,9 @@
       /* ESLint — Linting and formatting for JavaScript and TypeScript. */
       "dbaeumer.vscode-eslint",
 
+      /* Playwright Test — Official Microsoft extension. */
+      "ms-playwright.playwright",
+
       /* Python — Includes Pylance. */
       "ms-python.python",
 

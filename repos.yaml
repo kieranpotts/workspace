@@ -115,6 +115,11 @@ repos:
     worktrees:
       default: dev
 
+  - name: kieranpotts/essays
+    url: git@github.com:kieranpotts/essays.git
+    worktrees:
+      default: latest/dev
+
   - name: kieranpotts/garden
     url: git@github.com:kieranpotts/garden.git
     worktrees:
@@ -278,11 +283,6 @@ repos:
 
   - name: kieranpotts/the-timeless-way
     url: git@github.com:kieranpotts/the-timeless-way.git
-    worktrees:
-      default: latest/dev
-
-  - name: kieranpotts/thoughts
-    url: git@github.com:kieranpotts/thoughts.git
     worktrees:
       default: latest/dev
 

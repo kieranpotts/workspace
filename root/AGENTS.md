@@ -76,6 +76,9 @@ have an `AGENTS.md` file.)
 - **`kieranpotts/eslint-config` (archived)** \
   Shared ESLint configuration package.
 
+- **[`kieranpotts/essays`](./kieranpotts/essays/default/AGENTS.md)** \
+  Source content for my blog.
+
 - **[`kieranpotts/garden`](./kieranpotts/garden/default/AGENTS.md)** \
   Source content for my digital garden.
 
@@ -174,9 +177,6 @@ have an `AGENTS.md` file.)
 
 - **[`kieranpotts/the-timeless-way`](./kieranpotts/the-timeless-way/default/AGENTS.md)** \
   Software development playbook/methodology in book form.
-
-- **[`kieranpotts/thoughts`](./kieranpotts/thoughts/default/AGENTS.md)** \
-  Source content for my blog.
 
 - **[`kieranpotts/website`](./kieranpotts/website/default/AGENTS.md)** \
   kieranpotts.com static site, built with Antora from AsciiDoc.

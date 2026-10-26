@@ -89,6 +89,10 @@
       "path": "kieranpotts/eslint-config/default"
     },
     {
+      "name": "🚀 kieranpotts/essays",
+      "path": "kieranpotts/essays/default"
+    },
+    {
       "name": "🚀 kieranpotts/garden",
       "path": "kieranpotts/garden/default"
     },
@@ -219,10 +223,6 @@
     {
       "name": "🚫 kieranpotts/the-timeless-way",
       "path": "kieranpotts/the-timeless-way/default"
-    },
-    {
-      "name": "🚀 kieranpotts/thoughts",
-      "path": "kieranpotts/thoughts/default"
     },
     {
       "name": "🚀 kieranpotts/website",

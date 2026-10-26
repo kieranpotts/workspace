@@ -187,9 +187,6 @@ have an `AGENTS.md` file.)
 - **[`kieranpotts/workspace`](./kieranpotts/workspace/default/AGENTS.md)** \
   Root workspace repository.
 
-- **[`kieranpotts/zed`](./kieranpotts/zed/default/AGENTS.md)** \
-  Open source code editors — community OSS project.
-
 - **`srcflow/srcflow`** \
   Srcflow project (separate GitHub org).
 

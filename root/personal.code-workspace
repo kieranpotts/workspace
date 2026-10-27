@@ -54,10 +54,6 @@
       "path": "kieranpotts/design/default"
     },
     {
-      "name": "🔒 kieranpotts/devboxes",
-      "path": "kieranpotts/devboxes/default"
-    },
-    {
       "name": "🚀 kieranpotts/devtools",
       "path": "kieranpotts/devtools/default"
     },
@@ -78,10 +74,6 @@
       "path": "kieranpotts/dotfiles/default"
     },
     {
-      "name": "🔒 kieranpotts/eslint-config",
-      "path": "kieranpotts/eslint-config/default"
-    },
-    {
       "name": "🚀 kieranpotts/essays",
       "path": "kieranpotts/essays/default"
     },
@@ -92,10 +84,6 @@
     {
       "name": "🚀 kieranpotts/genie",
       "path": "kieranpotts/genie/default"
-    },
-    {
-      "name": "🔒 kieranpotts/genies",
-      "path": "kieranpotts/genies/default"
     },
     {
       "name": "🚫 kieranpotts/gh-runner",
@@ -126,18 +114,6 @@
       "path": "kieranpotts/lumex/default"
     },
     {
-      "name": "🔒 kieranpotts/makebook",
-      "path": "kieranpotts/makebook/default"
-    },
-    {
-      "name": "🔒 kieranpotts/modelfiles",
-      "path": "kieranpotts/modelfiles/default"
-    },
-    {
-      "name": "🔒 kieranpotts/ocean",
-      "path": "kieranpotts/ocean/default"
-    },
-    {
       "name": "🚫 kieranpotts/papers",
       "path": "kieranpotts/papers/default"
     },
@@ -162,10 +138,6 @@
       "path": "kieranpotts/pre-commit-hooks/default"
     },
     {
-      "name": "🔒 kieranpotts/prototypes",
-      "path": "kieranpotts/prototypes/default"
-    },
-    {
       "name": "🚫 kieranpotts/rates",
       "path": "kieranpotts/rates/default"
     },
@@ -180,10 +152,6 @@
     {
       "name": "⚒️ kieranpotts/risks",
       "path": "kieranpotts/risks/default"
-    },
-    {
-      "name": "🔒 kieranpotts/sh",
-      "path": "kieranpotts/sh/default"
     },
     {
       "name": "🚀 kieranpotts/skills",
@@ -210,20 +178,12 @@
       "path": "kieranpotts/template/default"
     },
     {
-      "name": "🔒 kieranpotts/tests",
-      "path": "kieranpotts/tests/default"
-    },
-    {
       "name": "🚫 kieranpotts/the-timeless-way",
       "path": "kieranpotts/the-timeless-way/default"
     },
     {
       "name": "🚀 kieranpotts/website",
       "path": "kieranpotts/website/default"
-    },
-    {
-      "name": "🔒 kieranpotts/website-ui",
-      "path": "kieranpotts/website-ui/default"
     },
     {
       "name": "🚀 kieranpotts/workspace",
@@ -236,13 +196,6 @@
     {
       "name": "🚧 srcflow/sh",
       "path": "srcflow/sh/default"
-    },
-    {
-      "name": "🔒 nirvarnia/brand",
-      "path": "nirvarnia/brand/default"
-    },
-    {
-      "path": "kieranpotts/tpximpact"
     }
   ],
 
@@ -535,23 +488,6 @@
     "files.exclude": {
       "**/.bare": true
     },
-
-    /* Remove archived repositories (🔒) from VS Code's built-in Git GUI – you
-    can't push to these anyway. This setting requires absolute paths -
-    ${workspaceFolder} doesn't work, unfortunately. */
-    "git.ignoredRepositories": [
-      "/home/kieran/dev/personal/kieranpotts/devboxes/default",
-      "/home/kieran/dev/personal/kieranpotts/eslint-config/default",
-      "/home/kieran/dev/personal/kieranpotts/genies/default",
-      "/home/kieran/dev/personal/kieranpotts/makebook/default",
-      "/home/kieran/dev/personal/kieranpotts/modelfiles/default",
-      "/home/kieran/dev/personal/kieranpotts/ocean/default",
-      "/home/kieran/dev/personal/kieranpotts/prototypes/default",
-      "/home/kieran/dev/personal/kieranpotts/sh/default",
-      "/home/kieran/dev/personal/kieranpotts/tests/default",
-      "/home/kieran/dev/personal/kieranpotts/website-ui/default",
-      "/home/kieran/dev/personal/nirvarnia/brand/default",
-    ],
 
     /* Don't automatically detect submodules. */
     "git.detectSubmodules": false,

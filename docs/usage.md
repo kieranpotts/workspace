@@ -96,6 +96,5 @@ Worktrees created manually are NOT tracked by `install.py`. They will not be rec
 
 Repositories are labeled in the VS Code workspace with emoji markers to indicate their status:
 
-- 🔒 **Archived**: Read-only repositories. No pushes are permitted. These are excluded from VS Code's Git GUI.
 - 🚫 **Restricted**: Private or sensitive repositories with limited access or sharing restrictions.
 - 📝 **Work-in-progress**: Actively being worked on!

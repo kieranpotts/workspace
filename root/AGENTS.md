@@ -55,9 +55,6 @@ have an `AGENTS.md` file.)
 - **[`kieranpotts/design`](./kieranpotts/design/default/AGENTS.md)** \
   Template for maintaining a system's architectural artifacts via version control.
 
-- **`kieranpotts/devboxes` (archived)** \
-  Vagrant configs for dev VMs. No longer maintained.
-
 - **[`kieranpotts/devtools`](./kieranpotts/devtools/default/AGENTS.md)** \
   Dev tool configs, programming fonts, and Windows ports of Unix tools.
 
@@ -73,9 +70,6 @@ have an `AGENTS.md` file.)
 - **[`kieranpotts/dotfiles`](./kieranpotts/dotfiles/default/AGENTS.md)** \
   Personal Unix dotfiles.
 
-- **`kieranpotts/eslint-config` (archived)** \
-  Shared ESLint configuration package.
-
 - **[`kieranpotts/essays`](./kieranpotts/essays/default/AGENTS.md)** \
   Source content for my blog.
 
@@ -84,9 +78,6 @@ have an `AGENTS.md` file.)
 
 - **[`kieranpotts/genie`](./kieranpotts/genie/default/AGENTS.md)** \
   Agent harness infrastructure for away-from-keyword, agentic loop workflows.
-
-- **`kieranpotts/genies` (archived)** \
-  Self-hosted open source AI models via Ollama running in Docker.
 
 - **[`kieranpotts/gh-runner`](./kieranpotts/gh-runner/default/AGENTS.md)** \
   Infrastructure for a local self-host GitHub Actions workflow runner.
@@ -109,15 +100,6 @@ have an `AGENTS.md` file.)
 - **[`kieranpotts/lumex`](./kieranpotts/lumex/default/AGENTS.md)** \
   VS Code theme.
 
-- **`kieranpotts/makebook` (archived)** \
-  VM and starter kit for making books with Pandoc. Archived.
-
-- **[`kieranpotts/modelfiles`](./kieranpotts/modelfiles/default/AGENTS.md) (archived)** \
-  Custom Ollama model definitions.
-
-- **`kieranpotts/ocean` (archived)** \
-  VS Code theme. Archived; superseded by `lumex`.
-
 - **[`kieranpotts/papers`](./kieranpotts/papers/default/AGENTS.md)** \
   Academic papers and research in software engineering / computer science.
 
@@ -136,9 +118,6 @@ have an `AGENTS.md` file.)
 - **[`kieranpotts/pre-commit-hooks`](./kieranpotts/pre-commit-hooks/default/AGENTS.md)** \
   Reusable hook configs for the `pre-commit` framework.
 
-- **`kieranpotts/prototypes` (archived)** \
-  Archived prototypes for web UI components. No longer maintained.
-
 - **[`kieranpotts/rates`](./kieranpotts/rates/default/AGENTS.md)** \
   Freelance/contract rates and other calculations.
 
@@ -150,9 +129,6 @@ have an `AGENTS.md` file.)
 
 - **[`kieranpotts/rfc`](./kieranpotts/rfc/default/AGENTS.md)** \
   Template for managing technical decisions via version control.
-
-- **`kieranpotts/sh` (archived)** \
-  Archived shell scripts.
 
 - **[`kieranpotts/skills`](./kieranpotts/skills/default/AGENTS.md)** \
   Reusable agent skills.
@@ -172,17 +148,11 @@ have an `AGENTS.md` file.)
 - **[`kieranpotts/template`](./kieranpotts/template/default/AGENTS.md)** \
   Generic template for new code repositories.
 
-- **`kieranpotts/tests` (archived)** \
-  Take-home tests for technical IT roles.
-
 - **[`kieranpotts/the-timeless-way`](./kieranpotts/the-timeless-way/default/AGENTS.md)** \
   Software development playbook/methodology in book form.
 
 - **[`kieranpotts/website`](./kieranpotts/website/default/AGENTS.md)** \
   kieranpotts.com static site, built with Antora from AsciiDoc.
-
-- **[`kieranpotts/website-ui`](./kieranpotts/website-ui/default/AGENTS.md) (archived)** \
-  Archived; portable Antora UI theme reference, now maintained in `website`.
 
 - **[`kieranpotts/workspace`](./kieranpotts/workspace/default/AGENTS.md)** \
   Root workspace repository.
@@ -192,9 +162,6 @@ have an `AGENTS.md` file.)
 
 - **`srcflow/sh`** \
   Srcflow shell scripts (separate GitHub org).
-
-- **`nirvarnia/brand` (archived)** \
-  Nirvarnia brand assets (separate GitHub org).
 
 ## Project structure
 

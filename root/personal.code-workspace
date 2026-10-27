@@ -693,6 +693,14 @@
     /* Disable RedHat telemetry gathering. */
     "redhat.telemetry.enabled": false,
 
+    /*
+    Obsidian MD extension.
+    */
+
+    "obsidian-md-vsc.defaultVault": "Knowledgebase",
+    "obsidian-md-vsc.defaultVaultPath": "/home/kieran/Dropbox/Hacks Ltd/Knowledgebase",
+    "obsidian-md-vsc.defaultNote": "Knowledgebase"
+
   }
 }
 

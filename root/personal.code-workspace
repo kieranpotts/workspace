@@ -14,6 +14,10 @@
       "path": "kieranpotts/actions/default"
     },
     {
+      "name": "🚫 kieranpotts/applyto",
+      "path": "kieranpotts/applyto/default"
+    },
+    {
       "name": "⚒️ kieranpotts/asciibook",
       "path": "kieranpotts/asciibook/default"
     },
@@ -44,10 +48,6 @@
     {
       "name": "🚀 kieranpotts/cheats",
       "path": "kieranpotts/cheats/default"
-    },
-    {
-      "name": "🚫 kieranpotts/cover-letter",
-      "path": "kieranpotts/cover-letter/default"
     },
     {
       "name": "⚒️ kieranpotts/design",

@@ -30,6 +30,11 @@ repos:
     worktrees:
       default: latest/dev
 
+  - name: kieranpotts/applyto
+    url: git@github.com:kieranpotts/applyto.git
+    worktrees:
+      default: latest/dev
+
   - name: kieranpotts/asciibook
     url: git@github.com:kieranpotts/asciibook.git
     worktrees:
@@ -67,11 +72,6 @@ repos:
 
   - name: kieranpotts/cheats
     url: git@github.com:kieranpotts/cheats.git
-    worktrees:
-      default: latest/dev
-
-  - name: kieranpotts/cover-letter
-    url: git@github.com:kieranpotts/cover-letter.git
     worktrees:
       default: latest/dev
 

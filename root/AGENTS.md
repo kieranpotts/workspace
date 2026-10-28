@@ -25,6 +25,9 @@ have an `AGENTS.md` file.)
 - **[`kieranpotts/actions`](./kieranpotts/actions/default/AGENTS.md)** \
   Custom reusable GitHub Actions for CI/CD pipelines.
 
+- **[`kieranpotts/applyto`](./kieranpotts/applyto/default/AGENTS.md)** \
+  Cover letter generation and related job application tools.
+
 - **[`kieranpotts/asciibook`](./kieranpotts/asciibook/default/AGENTS.md)** \
   Toolchain for authoring technical books from AsciiDoc source.
 
@@ -48,9 +51,6 @@ have an `AGENTS.md` file.)
 
 - **[`kieranpotts/cheats`](./kieranpotts/cheats/default/AGENTS.md)** \
   Cheat sheets for various dev and ops tools.
-
-- **[`kieranpotts/cover-letter`](./kieranpotts/cover-letter/default/AGENTS.md)** \
-  Source content and build scripts for job application cover letters.
 
 - **[`kieranpotts/design`](./kieranpotts/design/default/AGENTS.md)** \
   Template for maintaining a system's architectural artifacts via version control.

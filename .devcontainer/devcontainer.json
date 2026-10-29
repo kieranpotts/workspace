@@ -75,7 +75,7 @@
 
   // On every devcontainer start, install the Git hook declared in
   // `.pre-commit-config.yaml`.
-  "postStartCommand": "pre-commit install",
+  "postStartCommand": "cd \"${localWorkspaceFolder}\" && pre-commit install",
 
   // Tool-specific customizations.
   "customizations": {

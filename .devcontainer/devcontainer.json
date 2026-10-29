@@ -74,7 +74,9 @@
   "postCreateCommand": "chmod +x run/* && pip install -r requirements.txt",
 
   // On every devcontainer start, install the Git hook declared in
-  // `.pre-commit-config.yaml`.
+  // `.pre-commit-config.yaml`. Lifecycle commands do not necessarily run from
+  // the workspace folder (Zed runs them from `/data`), so change into it first.
+  // `pre-commit` itself is installed in the `Dockerfile`.
   "postStartCommand": "cd \"${localWorkspaceFolder}\" && pre-commit install",
 
   // Tool-specific customizations.

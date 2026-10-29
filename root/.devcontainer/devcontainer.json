@@ -1,5 +1,7 @@
+//
 // Dev container configuration.
-// https://aka.ms/devcontainer.json.
+// https://aka.ms/devcontainer.json
+//
 
 {
   "name": "Personal Workspace",
@@ -9,30 +11,58 @@
     "context": ".."
   },
 
+  // Run the code editor's server, terminals, and tasks as the non-root user
+  // that's configured in the base Docker image. The project is bind-mounted
+  // from the host, so anything written to it as `root` — build output, Git
+  // objects — would end up root-owned on the host, and so need `sudo` to
+  // clean up.
+  //
+  // The `/home/code` paths, must be kept synchronized with this user name.
+
   "remoteUser": "code",
 
-  // Every project in this workspace is a bare clone + worktrees under the same
-  // project root. Unfortunately, the two-way filesystem links between a Git
-  // repo and its worktrees are always absolute paths — relative links are not
-  // supported. The solution is to mount the workspace at a guest path than
-  // matches its host path. So, rather than mounting `/home/<user>/<project>`
-  // at an alias like `/workspace`, it is mounted at `/home/<user>/<project>`
-  // inside the container, too. Thus, the two-way absolute paths between Git
-  // repositories and their worktrees resolve correctly.
+  // The workspace-level devcontainer captures multiple cloned repositories,
+  // many of which will be cloned as bare repositories with adjacent worktrees.
+  // Because internally Git used absolute paths to create filesystem cross-
+  // references between bare repositories and their worktrees, we must bind-
+  // mount the project workspace at a path that exactly matches the host, ie.
+  // `/home/<user>/projects/<name>` is mounted at `/home/<user>/projects/<name>`.
+  // Thus, the two-way absolute paths between Git repositories and their
+  // worktrees resolve correctly inside the devcontainer.
+
   "workspaceFolder": "${localWorkspaceFolder}",
   "workspaceMount": "source=${localWorkspaceFolder},target=${localWorkspaceFolder},type=bind,consistency=cached",
 
-  // Bind-mount the host's Git config into the container, live, so `user.name`,
-  // `user.email`, etc. always match the host.  `~/.gnupg` is mounted read-write
-  // because `gpg`/`gpg-agent` need to write lock files to actually sign commits.
-  // `~/.ssh` is mounted read-only — that's all that's need for `git push`/`pull`
-  // over SSH to authenticate.
+  // Synchronize the host's Git configuration with the guest's, so `git`
+  // operations can be run either inside or outside the devcontainer without
+  // additional `git config` steps required inside the container.
+  //
+  // Bind-mount the host's Git config into the devcontainer, live, so `user.name`,
+  // `user.email`, etc. in the devcontainer always match the host's Git config.
+  //
+  // `~/.ssh` is mounted read-only. That's all that's need for `git push`/`pull`
+  // to authenticate over SSH.
+  //
+  // `~/.gnupg` is NOT mounted. This is not required, because VS Code's Dev
+  // Containers extension automatically forwards the host's `gpg-agent` into the
+  // devcontainer, and copies the public keyring, so commits are signed by the
+  // host's agent, and passphrase prompts appear in the host's pinentry.
+  // Mounting the `~/.gnupg` would actually break this built-in behavior.
+  //
+  // Docker refuses to start a container if the source of a bind mount is
+  // missing on the host. There's no mechanism to mark a mount as optional.
+  // Since all these mounts are optional, we use the `initializeCommand` to
+  // create any missing targets on the host. This allows devcontainers to start
+  // even if expected Git configuration is missing on the host, the trade-off
+  // being that empty files will be littered around the host's home directory.
+
+  "initializeCommand": "touch ~/.gitconfig ~/local.gitconfig ~/local.gitmessage ~/local.gitignore && mkdir -p -m 700 ~/.ssh",
   "mounts": [
     "source=${localEnv:HOME}/.gitconfig,target=/home/code/.gitconfig,type=bind,readonly",
     "source=${localEnv:HOME}/local.gitconfig,target=/home/code/local.gitconfig,type=bind,readonly",
     "source=${localEnv:HOME}/local.gitmessage,target=/home/code/local.gitmessage,type=bind,readonly",
     "source=${localEnv:HOME}/local.gitignore,target=/home/code/local.gitignore,type=bind,readonly",
-    "source=${localEnv:HOME}/.gnupg,target=/home/code/.gnupg,type=bind",
     "source=${localEnv:HOME}/.ssh,target=/home/code/.ssh,type=bind,readonly"
   ]
+
 }

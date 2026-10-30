@@ -1,0 +1,61 @@
+/*
+Zed project settings for the whole workspace. Symlinked to
+`~/dev/personal/.zed`, so they apply to every repository when the workspace
+root is opened, on the host or in the devcontainer. A repository's own
+`.zed/settings.json` overrides these within that repository.
+
+These mirror the editor settings in `personal.code-workspace`. Keep the two
+synchronized.
+
+Extensions are not declared here. Zed reads `auto_install_extensions` from
+user settings only, so it is set in the dotfiles repository.
+*/
+{
+  /* Vertical guidelines for line wrapping. */
+  "wrap_guides": [80, 100, 120, 140, 160],
+
+  /* By default, wrap long lines at the viewport or
+  120 characters, whichever is narrowest. */
+  "soft_wrap": "bounded",
+  "preferred_line_length": 120,
+
+  /* Show empty space characters. */
+  "show_whitespaces": "all",
+
+  /* Enforce 2 spaces for indentation by default. EditorConfig files still
+  take precedence, where repositories have them. */
+  "hard_tabs": false,
+  "tab_size": 2,
+
+  /* Disable auto-formatting by default. VS Code formats only a few file
+  types on save, with formatters Zed does not share, so formatting is left
+  off everywhere here rather than risk reformatting whole files. */
+  "format_on_save": "off",
+
+  "languages": {
+
+    /* Wrap documentation files at the viewport width. Hard-wrapping should
+    be applied at 80 characters, except for tables and long URLs. */
+    "AsciiDoc": {
+      "soft_wrap": "editor_width"
+    },
+    "Markdown": {
+      "soft_wrap": "editor_width"
+    },
+
+    /* Disable line wrapping for LaTeX files. */
+    "LaTeX": {
+      "wrap_guides": [],
+      "show_wrap_guides": false,
+      "soft_wrap": "none"
+    },
+
+    /* Python files should wrap at 88 characters. */
+    "Python": {
+      "wrap_guides": [88],
+      "soft_wrap": "bounded",
+      "preferred_line_length": 88
+    }
+
+  }
+}

@@ -47,9 +47,9 @@ AGENTS_TEMPLATE = WORKSPACE / "run" / "AGENTS.template.md"
 
 # Entries inside ROOT_ASSETS_DIR that should be surfaced at the root of REPOS_DIR
 # (~/dev/personal) via symlink, so the whole tree can be opened as a single VS
-# Code workspace / devcontainer from one place, and so AGENTS.md is visible to
-# agents working in any sibling project.
-LINKED_ASSETS = ["personal.code-workspace", "AGENTS.md", "CLAUDE.md", ".devcontainer"]
+# Code or Zed workspace / devcontainer from one place, and so AGENTS.md is
+# visible to agents working in any sibling project.
+LINKED_ASSETS = ["personal.code-workspace", "AGENTS.md", "CLAUDE.md", ".devcontainer", ".zed"]
 
 SEP = "─" * 60
 
@@ -96,8 +96,8 @@ def link_workspace_assets() -> None:
     """Symlink selected assets from ROOT_ASSETS_DIR into REPOS_DIR (~/dev/personal).
 
     Creates, e.g., ~/dev/personal/personal.code-workspace → the copy in this repo's
-    `root/` directory, so the workspace file, devcontainer config, and AGENTS.md
-    are reachable from the root of the dev tree. Symlinks are relative, so the
+    `root/` directory, so the workspace file, devcontainer config, Zed settings,
+    and AGENTS.md are reachable from the root of the dev tree. Symlinks are relative, so the
     whole tree can be relocated intact.
     """
     print(SEP)

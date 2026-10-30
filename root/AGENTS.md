@@ -185,6 +185,23 @@ You MAY create new worktrees, as siblings of `default`, using
 Indeed, this is preferable than creating worktrees at other arbitrary locations
 on the filesystem.
 
+## Devcontainer
+
+All projects share one devcontainer, defined at `~/dev/personal/.devcontainer`.
+No project has a devcontainer of its own.
+
+- The container installs no project's dependencies. Before working on a
+  project, check that its dependencies are installed (eg. `./run/install`,
+  `make install`, or `npm ci`, as its own docs say), and ask the user to run
+  the install if they are not.
+
+- There is no Docker in the container, and it has no access to the host's
+  Docker daemon. The Docker scripts in asciibook, docker-devcontainer,
+  docker-latex, gh-runner, json-schema, and the-timeless-way cannot run here.
+  You MUST NOT try to work around this, eg. by installing Docker or reaching
+  the host's Docker socket. Where verifying a change needs one of those
+  scripts, hand that check to the user, to run on the host.
+
 ## Rules
 
 - You MUST treat each project directory as its own repository with its own

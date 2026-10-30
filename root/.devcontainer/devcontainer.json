@@ -2,13 +2,22 @@
 // Dev container configuration.
 // https://aka.ms/devcontainer.json
 //
+// This is the one devcontainer for the whole workspace. Every repository is
+// loaded into it, and none has a devcontainer of its own. Open it from the
+// root of the workspace (`~/dev/personal`), where this directory is symlinked.
+//
 
 {
   "name": "Personal Workspace",
   "runArgs": ["--name", "personal-workspace"],
+
+  // The build context is this directory, not its parent. Opened through the
+  // `~/dev/personal/.devcontainer` symlink, the parent may resolve to the
+  // whole workspace, which would then all be sent to the Docker daemon as
+  // build context. The `Dockerfile` copies nothing in, so it needs no context.
   "build": {
     "dockerfile": "Dockerfile",
-    "context": ".."
+    "context": "."
   },
 
   // Run the code editor's server, terminals, and tasks as the non-root user
@@ -43,11 +52,24 @@
   // `~/.ssh` is mounted read-only. That's all that's need for `git push`/`pull`
   // to authenticate over SSH.
   //
-  // `~/.gnupg` is NOT mounted. This is not required, because VS Code's Dev
-  // Containers extension automatically forwards the host's `gpg-agent` into the
+  // `~/.gnupg` is NOT mounted at `/home/code/.gnupg`. VS Code's Dev Containers
+  // extension automatically forwards the host's `gpg-agent` into the
   // devcontainer, and copies the public keyring, so commits are signed by the
   // host's agent, and passphrase prompts appear in the host's pinentry.
   // Mounting the `~/.gnupg` would actually break this built-in behavior.
+  //
+  // Other editors, eg. Zed, do not forward the agent. For those, the host's
+  // GnuPG socket directory and public keyring are mounted at neutral paths
+  // under `/run`, away from the path VS Code forwards to. On start,
+  // `post-start.sh` points the container's `gpg` at the host's agent, but only
+  // if no agent has been forwarded already. `initializeCommand` launches the
+  // host's agent, so its sockets exist to be mounted.
+  //
+  // This GnuPG agent forwarding supports Linux hosts only. It depends on
+  // `$XDG_RUNTIME_DIR`, where GnuPG puts its sockets on Linux, and on `gpgconf`
+  // being installed on the host. On other hosts, `initializeCommand` will fail
+  // and the devcontainer will not start, so remove the GnuPG parts of
+  // `initializeCommand` and the two GnuPG mounts.
   //
   // Docker refuses to start a container if the source of a bind mount is
   // missing on the host. There's no mechanism to mark a mount as optional.
@@ -56,13 +78,115 @@
   // even if expected Git configuration is missing on the host, the trade-off
   // being that empty files will be littered around the host's home directory.
 
-  "initializeCommand": "touch ~/.gitconfig ~/local.gitconfig ~/local.gitmessage ~/local.gitignore && mkdir -p -m 700 ~/.ssh",
+  "initializeCommand": "touch ~/.gitconfig ~/local.gitconfig ~/local.gitmessage ~/local.gitignore && mkdir -p -m 700 ~/.ssh ~/.gnupg && touch ~/.gnupg/pubring.kbx && gpgconf --launch gpg-agent",
   "mounts": [
     "source=${localEnv:HOME}/.gitconfig,target=/home/code/.gitconfig,type=bind,readonly",
     "source=${localEnv:HOME}/local.gitconfig,target=/home/code/local.gitconfig,type=bind,readonly",
     "source=${localEnv:HOME}/local.gitmessage,target=/home/code/local.gitmessage,type=bind,readonly",
     "source=${localEnv:HOME}/local.gitignore,target=/home/code/local.gitignore,type=bind,readonly",
-    "source=${localEnv:HOME}/.ssh,target=/home/code/.ssh,type=bind,readonly"
-  ]
+    "source=${localEnv:HOME}/.ssh,target=/home/code/.ssh,type=bind,readonly",
+    "source=${localEnv:XDG_RUNTIME_DIR}/gnupg,target=/run/host-gnupg,type=bind",
+    "source=${localEnv:HOME}/.gnupg/pubring.kbx,target=/run/host-gnupg-pubring.kbx,type=bind,readonly"
+  ],
+
+  // There is deliberately no Docker in this devcontainer: no Docker CLI or
+  // daemon in the image, no `features`, and no mount of the host's Docker
+  // socket. Access to the host's Docker daemon is equivalent to root on the
+  // host, and coding agents run in this container. Docker-in-Docker would need
+  // `--privileged`, which is root on the host too.
+  //
+  // So the scripts that need Docker — in asciibook, docker-devcontainer,
+  // docker-latex, gh-runner, json-schema, and the-timeless-way — are run by a
+  // human, in a terminal on the host. Images are built for publishing, and
+  // pushed, from the host only, so registry credentials never reach here.
+
+  // Publish the ports of website's local preview servers on the host, so they
+  // can be opened in the host's browser: `run/serve` and `run/preview` listen
+  // on 8080, and `run/preview-ui-serve` on 8081. `appPort` is used rather than
+  // `forwardPorts`, because it is plain `docker run -p`, and so does not depend
+  // on the editor's own port forwarding.
+  "appPort": [8080, 8081],
+
+  // Nothing is run on create. Each repository's own dependencies and
+  // toolchain, eg. `./run/install` or `npm ci`, are installed by hand, when
+  // work on that repository starts.
+
+  // On every devcontainer start, install the Git hooks of every repository in
+  // the workspace, then connect GnuPG to the host's agent, if the editor has
+  // not forwarded it (see above). Lifecycle commands do not necessarily run
+  // from the workspace folder (Zed runs them from `/data`), so change into it
+  // first. `pre-commit` itself is installed in the base image.
+  "postStartCommand": "cd \"${localWorkspaceFolder}\" && sh .devcontainer/post-start.sh",
+
+  // Tool-specific customizations.
+  "customizations": {
+
+    // VS Code customizations. Zed ignores these. Its equivalents are in
+    // `../.zed/settings.json`.
+    "vscode": {
+
+      // Install these VS Code extensions in the container. Extensions that run
+      // on the host side (eg. Dev Containers, WSL, Container Tools, Speech) are
+      // left out, as are those no repository in the workspace needs. Keep this
+      // list synchronized with the recommendations in `../personal.code-workspace`.
+      "extensions": [
+
+        // General-purpose extensions.
+        "anthropic.claude-code",
+        "streetsidesoftware.code-spell-checker",
+        "dakara.dakara-foldplus",
+        "editorconfig.editorconfig",
+        "guodongsun.vscode-git-cruise",
+        "gruntfuggly.todo-tree",
+        "tyriar.lorem-ipsum",
+        "cdervis.vscode-pi",
+        "ms-vscode.live-server",
+        "amodio.restore-editors",
+
+        // Languages, file formats, and tools used across the workspace.
+        "asciidoctor.asciidoctor-vscode",
+        "travismichette.adoc-snippets",
+        "timonwong.shellcheck",
+        "ms-python.python",
+        "dbaeumer.vscode-eslint",
+        "be5invis.toml",
+        "redhat.vscode-yaml",
+        "ms-vscode.makefile-tools",
+        "xadillax.viml",
+        "mikestead.dotenv",
+
+        // Viewers and editors for diagrams and documents.
+        "hediet.vscode-drawio",
+        "theumletteam.umlet",
+        "tomoki1207.pdf"
+      ],
+
+      // Container-only VS Code settings. These are machine-scoped, so they
+      // apply whether the workspace folder or `personal.code-workspace` is
+      // opened.
+      "settings": {
+
+        // Required for the Todo Tree extension. Recent VS Code Server releases
+        // no longer ship ripgrep (`rg`), so we need to point the extension to
+        // the `rg` binary installed in the base image, instead.
+        "todo-tree.ripgrep.ripgrep": "/usr/bin/rg",
+
+        // Keep file watching and search out of every repository's Git
+        // internals (bare clones) and installed dependencies, so the editor
+        // stays responsive with the whole workspace open.
+        "files.watcherExclude": {
+          "**/.bare/**": true,
+          "**/node_modules/**": true
+        },
+        "search.exclude": {
+          "**/.bare/**": true,
+          "**/node_modules/**": true
+        }
+
+      }
+
+    }
+
+  }
 
 }

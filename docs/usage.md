@@ -2,28 +2,46 @@
 
 ## Dev Container
 
-This repository ships with a devcontainer configuration for the whole workspace.
+This repository ships with one devcontainer for the whole workspace, in [`root/.devcontainer/`](../root/.devcontainer), which the installer symlinks to `~/dev/personal/.devcontainer`. Every repository in the workspace is loaded into that one container. No repository has a devcontainer of its own.
 
-To load the workspace in the devcontainer:
+The container is built on the [`kieranpotts/devcontainer`](https://github.com/kieranpotts/docker-devcontainer) base image, which provides the common toolchain: pre-commit, mise, Node and npm, Python, ripgrep, GnuPG, and ShellCheck. It runs as the base image's non-root `code` user, so files written to the bind-mounted workspace are owned by you on the host. The whole tree is mounted at the same path as on the host, so the links between each bare clone and its worktrees resolve inside the container.
 
-1. Install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension for VS Code.
-2. Install and run Docker.
-3. Open the workspace in VS Code as normal.
-4. When prompted, click **Reopen in Container**. Alternatively, use the command palette (`Ctrl+Shift+P`) and select **Dev Containers: Reopen in Container**.
+### Opening the workspace
+
+Install and run Docker on the host first.
+
+- **VS Code:** install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension. Open `~/dev/personal/personal.code-workspace` (or the `~/dev/personal` folder), then click **Reopen in Container** when prompted, or select **Dev Containers: Reopen in Container** from the command palette (`Ctrl+Shift+P`). The VS Code extensions the workspace needs are installed in the container automatically.
+- **Zed:** open `~/dev/personal`, then open it in the dev container. Zed picks up the workspace's project settings from `~/dev/personal/.zed/settings.json`. Zed extensions are not installed automatically from the devcontainer config: declare them under `auto_install_extensions` in your Zed user settings.
+
+Opening a single repository's folder does not offer a container. Open the workspace root instead, or attach to the running container (`personal-workspace`) and open the folder from there.
 
 Use the **rebuild** options to bump the underlying image to the latest release.
 
-The container is based on Ubuntu and can be customized via `root/.devcontainer/Dockerfile`.
+### Installing a repository's dependencies
 
-If you see permission errors when saving mounted files or if Git creates root-owned files under `.git`, rebuild the devcontainer after updating the Dockerfile. The container is configured to run as a non-root `vscode` user with a matching host UID/GID to avoid ownership mismatches.
+The container installs no repository's dependencies or toolchain. When you start work on a repository, run its own install by hand, inside the container, for example `./run/install`, `make install`, or `npm ci`. See that repository's README or AGENTS.md.
 
-> **Tip:** Use the following command, from this repository's root directory, to verify image creation:
+On every start, the container does install the pre-commit Git hooks of every repository listed in `personal.code-workspace`. This installs only the hook scripts. Hooks installed from the container fall back to the `pre-commit` on `PATH` when run from the host, and the other way round, so committing works from either side as long as pre-commit is installed on both.
+
+### Git, SSH, and commit signing
+
+Your Git configuration and `~/.ssh` are mounted into the container read-only, so `git commit`, `git pull`, and `git push` work as on the host. Configure dotfiles such as `~/local.gitconfig` on the host. See the [dotfiles repository](https://github.com/kieranpotts/dotfiles) for details.
+
+Commits are signed by the host's GnuPG agent, and passphrase prompts appear in the host's pinentry. VS Code forwards the agent itself. For editors that do not, such as Zed, the container connects to the host's agent on start. This only works on Linux hosts, because it depends on `$XDG_RUNTIME_DIR/gnupg` and `gpgconf` on the host. On other hosts, remove the GnuPG parts of `initializeCommand` and the two GnuPG mounts from `devcontainer.json`, or the container will not start.
+
+### Docker
+
+There is no Docker in the container: no Docker CLI or daemon, and no access to the host's Docker daemon. Access to the host's daemon is equivalent to root on the host, and coding agents run in the container.
+
+So run the scripts that need Docker in a terminal on the host. These are in asciibook, docker-devcontainer, docker-latex, gh-runner, json-schema, and the-timeless-way. Build images for publishing, and push them, from the host only, so registry credentials never reach the container.
+
+Website's local preview runs inside the container. Its ports, 8080 and 8081, are published on the host, so open the preview in the host's browser at `http://localhost:8080`.
+
+> **Tip:** Use the following command, on the host, from this repository's root directory, to verify image creation:
 >
 > ```
-> $ docker build -f root/.devcontainer/Dockerfile -t personal-workspace .
+> $ docker build -t personal-workspace root/.devcontainer
 > ```
-
-When you first open the workspace in a new devcontainer, you may want to configure dotfiles such as `~/local.gitconfig` so you can commit from within the devcontainer. See the [dotfiles repository](https://github.com/kieranpotts/dotfiles) for details. You will also need to install VS Code extensions in the devcontainer.
 
 ## Managing repositories
 

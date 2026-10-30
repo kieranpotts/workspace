@@ -19,7 +19,8 @@ SHOULD NOT, OPTIONAL, and MAY are to be interpreted as described in
 
 - Python 3 (`run/install.py`), with `pyyaml` as its only dependency
   (`requirements.txt`).
-- Docker, for the devcontainer (`root/.devcontainer/Dockerfile`).
+- Docker, for building the workspace devcontainer
+  (`root/.devcontainer/Dockerfile`). The container itself has no Docker.
 - pre-commit, for commit-message validation.
 
 ## Project structure
@@ -34,9 +35,9 @@ SHOULD NOT, OPTIONAL, and MAY are to be interpreted as described in
   (`<name>/.bare`, `<name>/.git` pointer file), writes a project-root
   `AGENTS.md` from `run/AGENTS.template.md` if one doesn't already exist,
   fetches, and fast-forwards every declared worktree. Also symlinks the
-  `LINKED_ASSETS` (`personal.code-workspace`, `AGENTS.md`, `.devcontainer`)
-  from `root/` into `~/dev/personal/`, and runs `pre-commit install` in any
-  cloned repo that has a `.pre-commit-config.yaml`.
+  `LINKED_ASSETS` (`personal.code-workspace`, `AGENTS.md`, `CLAUDE.md`,
+  `.devcontainer`, `.zed`) from `root/` into `~/dev/personal/`, and runs
+  `pre-commit install` in any cloned repo that has a `.pre-commit-config.yaml`.
 
 - **[run/AGENTS.template.md](./run/AGENTS.template.md)** \
   Template written as `AGENTS.md` into each newly-cloned project root
@@ -46,8 +47,11 @@ SHOULD NOT, OPTIONAL, and MAY are to be interpreted as described in
 - **[root/](./root)** \
   Contents surfaced at `~/dev/personal/` via symlink: `personal.code-workspace`
   (VS Code multi-root workspace), `AGENTS.md` (workspace-wide agent guide,
-  describing the sibling-project tree), and `.devcontainer/` (Ubuntu-based
-  container definition, non-root `vscode` user with host-matching UID/GID).
+  describing the sibling-project tree), `.devcontainer/` (the one devcontainer
+  for the whole workspace, built on the `kieranpotts/devcontainer` base image,
+  running as its non-root `code` user, with no Docker inside), and
+  `.zed/settings.json` (Zed's project settings for the whole tree, mirroring
+  the editor settings in `personal.code-workspace`).
 
 - **[docs/](./docs)** \
   Requirements, installation, and usage docs for this workspace tooling.
@@ -58,8 +62,9 @@ SHOULD NOT, OPTIONAL, and MAY are to be interpreted as described in
   installer.
 - `python3 run/install.py` to clone/update all repos declared in
   `repos.yaml` and refresh the symlinked root assets.
-- `docker build -f root/.devcontainer/Dockerfile -t personal-workspace .`
-  to verify the devcontainer image builds.
+- `docker build -t personal-workspace root/.devcontainer` to verify the
+  devcontainer image builds. Run it on the host: there is no Docker in the
+  devcontainer.
 
 ## Rules
 

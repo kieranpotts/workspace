@@ -8,7 +8,7 @@ These mirror the editor settings in `personal.code-workspace`. Keep the two
 synchronized.
 
 Extensions are not declared here. Zed reads `auto_install_extensions` from
-user settings only, so it is set in the dotfiles repository.
+user settings only, so it is set in the devtools repository.
 */
 {
   /* Vertical guidelines for line wrapping. */

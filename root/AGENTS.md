@@ -64,9 +64,6 @@ have an `AGENTS.md` file.)
 - **[`kieranpotts/docker-devcontainer`](./kieranpotts/docker-devcontainer/default/AGENTS.md)** \
   Builds the Docker image for my personal projects' dev environment.
 
-- **[`kieranpotts/docker-latex`](./kieranpotts/docker-latex/default/AGENTS.md)** \
-  Builds a Docker image for LaTeX compilation. No longer maintained.
-
 - **[`kieranpotts/dotfiles`](./kieranpotts/dotfiles/default/AGENTS.md)** \
   Personal Unix dotfiles.
 

@@ -95,11 +95,6 @@ repos:
     worktrees:
       default: latest/dev
 
-  - name: kieranpotts/docker-latex
-    url: git@github.com:kieranpotts/docker-latex.git
-    worktrees:
-      default: latest/dev
-
   - name: kieranpotts/dotfiles
     url: git@github.com:kieranpotts/dotfiles.git
     worktrees:

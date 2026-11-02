@@ -66,10 +66,6 @@
       "path": "kieranpotts/docker-devcontainer/default"
     },
     {
-      "name": "🔒 kieranpotts/docker-latex",
-      "path": "kieranpotts/docker-latex/default"
-    },
-    {
       "name": "🚀 kieranpotts/dotfiles",
       "path": "kieranpotts/dotfiles/default"
     },

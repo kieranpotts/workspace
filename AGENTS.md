@@ -55,6 +55,9 @@ SHOULD NOT, OPTIONAL, and MAY are to be interpreted as described in
 
 - **[docs/](./docs)** \
   Requirements, installation, and usage docs for this workspace tooling.
+  Architecture decision records are in
+  [docs/decisions/](./docs/decisions/README.md), starting from
+  [`TEMPLATE.md`](./docs/decisions/TEMPLATE.md).
 
 ## Tools
 

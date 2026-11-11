@@ -43,3 +43,4 @@ To revisit a past decision, write a new record. Do not edit an old one.
 - [0001 One devcontainer for the whole workspace](./0001-workspace-devcontainer/README.md)
 - [0002 Native builds for applyto, website, and resume](./0002-native-builds/README.md)
 - [0003 No Docker in the workspace devcontainer](./0003-no-docker-in-devcontainer/README.md)
+- [0004 Agent skills installed on devcontainer start](./0004-agent-skills-in-devcontainer/README.md)

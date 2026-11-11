@@ -199,6 +199,12 @@ No project has a devcontainer of its own.
   the host's Docker socket. Where verifying a change needs one of those
   scripts, hand that check to the user, to run on the host.
 
+- On every start, the container installs the skills from
+  `kieranpotts/skills/default` into `~/.claude/skills` and `~/.agents/skills`,
+  as symlinks into that repository's `build/` directory. To refresh them after
+  editing a skill, re-run `./run/install --claude --agents --symlinks` from
+  that repository — do not edit the installed skills in place.
+
 ## Rules
 
 - You MUST treat each project directory as its own repository with its own

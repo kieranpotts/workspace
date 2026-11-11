@@ -23,6 +23,10 @@ The container installs no repository's dependencies or toolchain. When you start
 
 On every start, the container does install the pre-commit Git hooks of every repository listed in `personal.code-workspace`. This installs only the hook scripts. Hooks installed from the container fall back to the `pre-commit` on `PATH` when run from the host, and the other way round, so committing works from either side as long as pre-commit is installed on both.
 
+### Agent skills
+
+On every start, the devcontainer also installs the agent skills from the workspace's `kieranpotts/skills` clone, by running that repository's `run/install --claude --agents --symlinks` command for the devcontainer's `code` user. The installed skills are symlinked into the checkout's `default` worktree, so they follow whatever branch that worktree has checked out. After editing a skill, re-run `./run/install --claude --agents --symlinks` from the skills repository, inside the container or on the host, to rebuild them. New agent sessions pick up the change without a container restart. See [ADR 0004](./decisions/0004-agent-skills-in-devcontainer/README.md).
+
 ### Git, SSH, and commit signing
 
 Your Git configuration and `~/.ssh` are mounted into the container read-only, so `git commit`, `git pull`, and `git push` work as on the host. Configure dotfiles such as `~/local.gitconfig` on the host. See the [dotfiles repository](https://github.com/kieranpotts/dotfiles) for details.

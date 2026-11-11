@@ -4,11 +4,18 @@
 # in `devcontainer.json`, from the root of the workspace (`~/dev/personal`).
 #
 # 1. Install the pre-commit Git hooks of every repository in the workspace.
-# 2. Connect the devcontainer's GnuPG to the host's `gpg-agent`, so Git can
+#
+# 2. Install my agent skills, from the workspace's checkout of
+#    `kieranpotts/skills`, into the `code` user's home directory.
+#
+# 3. Connect the devcontainer's GnuPG to the host's `gpg-agent`, so Git can
 #    sign commits in editors that do not forward the agent themselves, eg.
 #    Zed. `devcontainer.json` explains the mounts used here.
 #
-# Both steps are idempotent. Neither installs any repository's dependencies.
+# All steps are idempotent. None installs any repository's dependencies.
+#
+# The GnuPG step exits early when an agent is already reachable, so it MUST
+# stay last.
 #
 # Supports Linux hosts only. The host's agent sockets are mounted from
 # `$XDG_RUNTIME_DIR/gnupg`, which does not exist on macOS or Windows hosts.
@@ -53,7 +60,30 @@ else
   echo "post-start: installed pre-commit hooks in $installed repositories ($failed failed)."
 fi
 
-# --- 2. GnuPG -----------------------------------------------------------------
+# --- 2. Agent skills ----------------------------------------------------------
+
+# The skills repository's own installer builds its artifacts into the
+# repository's gitignored `build/` directory, then links them into `$HOME`,
+# which is `/home/code` here.
+#
+# `--symlinks` points the installed skills back into the bind-mounted
+# checkout, so re-running the installer, on the host or in the container,
+# refreshes them without a restart.
+#
+# The workspace is mounted at the same path as on the host, so the links
+# resolve on both sides. See ADR 0004.
+SKILLS_INSTALLER="$PWD/kieranpotts/skills/default/run/install"
+
+if [ ! -x "$SKILLS_INSTALLER" ]; then
+  echo "post-start: $SKILLS_INSTALLER not found; skipped installing agent skills." >&2
+elif output="$("$SKILLS_INSTALLER" --claude --agents --symlinks 2>&1)"; then
+  echo "post-start: installed agent skills for $(id -un)."
+else
+  echo "post-start: agent skills install failed:" >&2
+  echo "$output" >&2
+fi
+
+# --- 3. GnuPG -----------------------------------------------------------------
 
 GNUPG_HOME="$HOME/.gnupg"
 

@@ -112,10 +112,12 @@
   // work on that repository starts.
 
   // On every devcontainer start, install the Git hooks of every repository in
-  // the workspace, then connect GnuPG to the host's agent, if the editor has
-  // not forwarded it (see above). Lifecycle commands do not necessarily run
-  // from the workspace folder (Zed runs them from `/data`), so change into it
-  // first. `pre-commit` itself is installed in the base image.
+  // the workspace, install my agent skills for the `code` user from the
+  // workspace's checkout of `kieranpotts/skills` (see ADR 0004), then connect
+  // GnuPG to the host's agent, if the editor has not forwarded it (see above).
+  // Lifecycle commands do not necessarily run from the workspace folder (Zed
+  // runs them from `/data`), so change into it first. `pre-commit` itself is
+  // installed in the base image.
   "postStartCommand": "cd \"${localWorkspaceFolder}\" && sh .devcontainer/post-start.sh",
 
   // Tool-specific customizations.

@@ -221,11 +221,6 @@ repos:
     worktrees:
       default: latest/main
 
-  - name: kieranpotts/styleguide
-    url: git@github.com:kieranpotts/styleguide.git
-    worktrees:
-      default: latest/styleguide
-
   - name: kieranpotts/template
     url: git@github.com:kieranpotts/template.git
     worktrees:

@@ -651,7 +651,8 @@
     /* Look only for `TODO` notations.
     This setting works only in workspace roots. */
     "todo-tree.general.tags": [
-      "TODO"
+      "TODO",
+      "📝 DRAFT"
     ],
 
     /* Ignore TODOs in the code of Git submodules. */

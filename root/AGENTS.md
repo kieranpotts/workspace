@@ -142,12 +142,6 @@ have an `AGENTS.md` file.)
 - **[`kieranpotts/workspace`](./kieranpotts/workspace/default/AGENTS.md)** \
   Root workspace repository.
 
-- **`srcflow/srcflow`** \
-  Srcflow project (separate GitHub org).
-
-- **`srcflow/sh`** \
-  Srcflow shell scripts (separate GitHub org).
-
 ## Project structure
 
 Every project lives at `~/dev/github/personal/<owner>/<name>/<worktree>`,

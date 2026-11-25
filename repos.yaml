@@ -225,13 +225,3 @@ repos:
     url: git@github.com:kieranpotts/workspace.git
     worktrees:
       default: latest/dev
-
-  - name: srcflow/srcflow
-    url: git@github.com:srcflow/srcflow.git
-    worktrees:
-      default: latest/dev
-
-  - name: srcflow/sh
-    url: git@github.com:srcflow/sh.git
-    worktrees:
-      default: latest/dev

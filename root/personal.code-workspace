@@ -168,14 +168,6 @@
     {
       "name": "🚀 kieranpotts/workspace",
       "path": "kieranpotts/workspace/default"
-    },
-    {
-      "name": "🚧 srcflow/srcflow",
-      "path": "srcflow/srcflow/default"
-    },
-    {
-      "name": "🚧 srcflow/sh",
-      "path": "srcflow/sh/default"
     }
   ],
 

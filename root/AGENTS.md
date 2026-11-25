@@ -94,9 +94,6 @@ have an `AGENTS.md` file.)
 - **[`kieranpotts/loop`](./kieranpotts/loop/default/AGENTS.md)** \
   System for specifying and executing agentic loop workflows from YAML definitions.
 
-- **[`kieranpotts/lumex`](./kieranpotts/lumex/default/AGENTS.md)** \
-  VS Code theme.
-
 - **[`kieranpotts/papers`](./kieranpotts/papers/default/AGENTS.md)** \
   Academic papers and research in software engineering / computer science.
 

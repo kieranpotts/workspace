@@ -145,11 +145,6 @@ repos:
     worktrees:
       default: latest/dev
 
-  - name: kieranpotts/lumex
-    url: git@github.com:kieranpotts/lumex.git
-    worktrees:
-      default: latest/dev
-
   - name: kieranpotts/papers
     url: git@github.com:kieranpotts/papers.git
     worktrees:

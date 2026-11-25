@@ -85,9 +85,6 @@ have an `AGENTS.md` file.)
 - **[`kieranpotts/interviews`](./kieranpotts/interviews/default/AGENTS.md)** \
   Behavioral interview Q&A prep for software roles.
 
-- **[`kieranpotts/json-schema`](./kieranpotts/json-schema/default/AGENTS.md)** \
-  Collection of common JSON Schema type definitions.
-
 - **[`kieranpotts/kieranpotts`](./kieranpotts/kieranpotts/default/AGENTS.md)** \
   GitHub profile page.
 

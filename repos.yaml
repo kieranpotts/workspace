@@ -130,11 +130,6 @@ repos:
     worktrees:
       default: latest/dev
 
-  - name: kieranpotts/json-schema
-    url: git@github.com:kieranpotts/json-schema.git
-    worktrees:
-      default: latest/dev
-
   - name: kieranpotts/kieranpotts
     url: git@github.com:kieranpotts/kieranpotts.git
     worktrees:

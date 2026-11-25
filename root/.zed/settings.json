@@ -1,8 +1,8 @@
 /*
 Zed project settings for the whole workspace. Symlinked to
 `~/dev/github/personal/.zed`, so they apply to every repository when the
-workspace root is opened, on the host or in the devcontainer. A repository's own
-`.zed/settings.json` overrides these within that repository.
+workspace root is opened, on the host or in the devcontainer. A repository's
+own `.zed/settings.json` overrides these within that repository.
 
 These mirror the editor settings in `personal.code-workspace`. Keep the two
 synchronized.

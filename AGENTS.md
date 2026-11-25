@@ -45,13 +45,13 @@ SHOULD NOT, OPTIONAL, and MAY are to be interpreted as described in
   Not the same file as this AGENTS.md or `root/AGENTS.md`.
 
 - **[root/](./root)** \
-  Contents surfaced at `~/dev/github/personal/` via symlink: `personal.code-workspace`
-  (VS Code multi-root workspace), `AGENTS.md` (workspace-wide agent guide,
-  describing the sibling-project tree), `.devcontainer/` (the one devcontainer
-  for the whole workspace, built on the `kieranpotts/devcontainer` base image,
-  running as its non-root `code` user, with no Docker inside), and
-  `.zed/settings.json` (Zed's project settings for the whole tree, mirroring
-  the editor settings in `personal.code-workspace`).
+  Contents surfaced at `~/dev/github/personal/` via symlink:
+  `personal.code-workspace` (VS Code multi-root workspace), `AGENTS.md`
+  (workspace-wide agent guide, describing the sibling-project tree),
+  `.devcontainer/` (the one devcontainer for the whole workspace, built on the
+  `kieranpotts/devcontainer` base image, running as its non-root `code` user,
+  with no Docker inside), and `.zed/settings.json` (Zed's project settings for
+  the whole tree, mirroring the editor settings in `personal.code-workspace`).
 
 - **[docs/](./docs)** \
   Requirements, installation, and usage docs for this workspace tooling.

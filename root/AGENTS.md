@@ -136,9 +136,6 @@ have an `AGENTS.md` file.)
 - **[`kieranpotts/template`](./kieranpotts/template/default/AGENTS.md)** \
   Generic template for new code repositories.
 
-- **[`kieranpotts/the-timeless-way`](./kieranpotts/the-timeless-way/default/AGENTS.md)** \
-  Software development playbook/methodology in book form.
-
 - **[`kieranpotts/website`](./kieranpotts/website/default/AGENTS.md)** \
   kieranpotts.com static site, built with Antora from AsciiDoc.
 

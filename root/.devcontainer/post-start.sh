@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # Prepare the workspace devcontainer on every start. Run by `postStartCommand`
-# in `devcontainer.json`, from the root of the workspace (`~/dev/personal`).
+# in `devcontainer.json`, from the root of the workspace (`~/dev/github/personal`).
 #
 # 1. Install the pre-commit Git hooks of every repository in the workspace.
 #

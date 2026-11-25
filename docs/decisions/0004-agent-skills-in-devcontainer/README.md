@@ -79,7 +79,8 @@ starts, or when the installer is re-run inside the devcontainer. Symlinking
 the installed skills to the built artifacts gives faster feedback during
 development of the skills.
 
-**Install at the workspace root, with `--dir ~/dev/personal`.** This would
-write into the host's tree through the bind mount, affecting host sessions,
-too. And it puts the skills at project/workspace level, rather than at user
-level — which is inconsistent with how my agent skills are intended to be used.
+**Install at the workspace root, with `--dir ~/dev/github/personal`.** This
+would write into the host's tree through the bind mount, affecting host
+sessions, too. And it puts the skills at project/workspace level, rather than
+at user level — which is inconsistent with how my agent skills are intended to
+be used.

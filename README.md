@@ -8,8 +8,8 @@ includes:
 
 - A [`root/`](./root) directory whose contents (VS Code workspace configuration,
   devcontainer, `AGENTS.md`, and `CLAUDE.md`) are symlinked into the root of the
-  dev tree (`~/dev/personal`) by the installer, so the whole workspace can be
-  opened or operated on from one place.
+  dev tree (`~/dev/github/personal`) by the installer, so the whole workspace
+  can be opened or operated on from one place.
 
 ## 📓 Documentation
 

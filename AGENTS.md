@@ -2,13 +2,13 @@
 
 The root of Kieran's personal multi-repo dev tree. This repository holds the
 tooling that clones and synchronizes every sibling project under
-`~/dev/personal/` using the "adjacent worktree" pattern (bare clone +
+`~/dev/github/personal/` using the "adjacent worktree" pattern (bare clone +
 per-branch worktrees), plus the assets (VS Code workspace file, devcontainer,
 `AGENTS.md` template) that get symlinked to the root of that tree.
 
 Do not confuse this file with [`root/AGENTS.md`](./root/AGENTS.md). That file
 describes the *sibling-project tree* once installed (it is symlinked to
-`~/dev/personal/AGENTS.md`). This file describes this repository's own
+`~/dev/github/personal/AGENTS.md`). This file describes this repository's own
 tooling (`repos.yaml`, `run/install.py`, `root/`).
 
 The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD,
@@ -36,7 +36,7 @@ SHOULD NOT, OPTIONAL, and MAY are to be interpreted as described in
   `AGENTS.md` from `run/AGENTS.template.md` if one doesn't already exist,
   fetches, and fast-forwards every declared worktree. Also symlinks the
   `LINKED_ASSETS` (`personal.code-workspace`, `AGENTS.md`, `CLAUDE.md`,
-  `.devcontainer`, `.zed`) from `root/` into `~/dev/personal/`, and runs
+  `.devcontainer`, `.zed`) from `root/` into `~/dev/github/personal/`, and runs
   `pre-commit install` in any cloned repo that has a `.pre-commit-config.yaml`.
 
 - **[run/AGENTS.template.md](./run/AGENTS.template.md)** \
@@ -45,7 +45,7 @@ SHOULD NOT, OPTIONAL, and MAY are to be interpreted as described in
   Not the same file as this AGENTS.md or `root/AGENTS.md`.
 
 - **[root/](./root)** \
-  Contents surfaced at `~/dev/personal/` via symlink: `personal.code-workspace`
+  Contents surfaced at `~/dev/github/personal/` via symlink: `personal.code-workspace`
   (VS Code multi-root workspace), `AGENTS.md` (workspace-wide agent guide,
   describing the sibling-project tree), `.devcontainer/` (the one devcontainer
   for the whole workspace, built on the `kieranpotts/devcontainer` base image,
@@ -88,7 +88,7 @@ SHOULD NOT, OPTIONAL, and MAY are to be interpreted as described in
   them.
 
 - To remove a repository, delete its `repos.yaml` entry and run
-  `rm -rf ~/dev/personal/<name>`.
+  `rm -rf ~/dev/github/personal/<name>`.
 
 ## References
 

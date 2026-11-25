@@ -7,10 +7,10 @@
 
 This file describes my personal development workspace as a whole. It's a tree
 of independent Git repositories checked out as siblings under
-`~/dev/personal/<owner>/<name>/<worktree>`.
+`~/dev/github/personalersonal/<owner>/<name>/<worktree>`.
 
-This file is symlinked at the root of that tree, at `~/dev/personal/AGENTS.md`.
-It describes the workspace as a whole.
+This file is symlinked at the root of that tree, at
+`~/dev/github/personal/AGENTS.md`. It describes the workspace as a whole.
 
 ## Workspace projects
 
@@ -159,8 +159,8 @@ have an `AGENTS.md` file.)
 
 ## Project structure
 
-Every project lives at `~/dev/personal/<owner>/<name>/<worktree>`, using a
-bare-clone-plus-worktrees layout.
+Every project lives at `~/dev/github/personal/<owner>/<name>/<worktree>`,
+using a bare-clone-plus-worktrees layout.
 
 - `<owner>/<name>/.bare` \
   Bare clone (Git internals only).
@@ -181,8 +181,8 @@ on the filesystem.
 
 ## Devcontainer
 
-All projects share one devcontainer, defined at `~/dev/personal/.devcontainer`.
-No project has a devcontainer of its own.
+All projects share one devcontainer, defined at
+`~/dev/github/personal/.devcontainer`. No project has a devcontainer of its own.
 
 - The container installs no project's dependencies. Before working on a
   project, check that its dependencies are installed (eg. `./run/install`,

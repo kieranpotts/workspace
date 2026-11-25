@@ -38,24 +38,24 @@ Alternatively, rather than activating the Python virtual environment, the script
 .venv/bin/python run/install.py
 ```
 
-The `install.py` script reads `repos.yaml` and clones any repository not yet present locally. Each repository is checked out using the adjacent worktree pattern, rooted under `~/dev/personal/` – see [Usage](./usage.md) for details of the worktree filesystem structure.
+The `install.py` script reads `repos.yaml` and clones any repository not yet present locally. Each repository is checked out using the adjacent worktree pattern, rooted under `~/dev/github/personal/` – see [Usage](./usage.md) for details of the worktree filesystem structure.
 
 For each already-cloned repository, the installer fetches from the remote then fast-forwards every working tree. It is safe to run multiple times.
 
-The base directory (`~/dev/personal/`) is configurable via the `REPOS_DIR` constant at the top of [run/install.py](../run/install.py).
+The base directory (`~/dev/github/personal/`) is configurable via the `REPOS_DIR` constant at the top of [run/install.py](../run/install.py).
 
 The `install.py` also clones this workspace repository, so it is now safe to delete the temporary clone of this repository you made at the start.
 
 ## Workspace assets
 
-The installer surfaces the contents of this repository's [`root/`](../root) directory at the root of the dev tree (`~/dev/personal`), via relative symlinks, so the entire collection of repositories can be opened as a single VS Code or Zed workspace, or devcontainer, from one place, and so `AGENTS.md`/`CLAUDE.md` are visible to agents working in any sibling project:
+The installer surfaces the contents of this repository's [`root/`](../root) directory at the root of the dev tree (`~/dev/github/personal`), via relative symlinks, so the entire collection of repositories can be opened as a single VS Code or Zed workspace, or devcontainer, from one place, and so `AGENTS.md`/`CLAUDE.md` are visible to agents working in any sibling project:
 
 ```
-~/dev/personal/personal.code-workspace  →  kieranpotts/workspace/default/root/personal.code-workspace
-~/dev/personal/AGENTS.md                →  kieranpotts/workspace/default/root/AGENTS.md
-~/dev/personal/CLAUDE.md                →  kieranpotts/workspace/default/root/CLAUDE.md
-~/dev/personal/.devcontainer            →  kieranpotts/workspace/default/root/.devcontainer
-~/dev/personal/.zed                     →  kieranpotts/workspace/default/root/.zed
+~/dev/github/personal/personal.code-workspace  →  kieranpotts/workspace/default/root/personal.code-workspace
+~/dev/github/personal/AGENTS.md                →  kieranpotts/workspace/default/root/AGENTS.md
+~/dev/github/personal/CLAUDE.md                →  kieranpotts/workspace/default/root/CLAUDE.md
+~/dev/github/personal/.devcontainer            →  kieranpotts/workspace/default/root/.devcontainer
+~/dev/github/personal/.zed                     →  kieranpotts/workspace/default/root/.zed
 ```
 
 See [Usage](./usage.md#dev-container) for how to open the workspace in its devcontainer.

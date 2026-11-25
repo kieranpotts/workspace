@@ -2,15 +2,15 @@
 """Install all repositories listed in repos.yaml.
 
 Each repo is checked out using the "adjacent worktree" pattern, rooted under
-REPOS_DIR (default: ~/dev/personal):
+REPOS_DIR (default: ~/dev/github/personal):
 
-  ~/dev/personal/<name>/.bare           — bare clone (Git internals only)
-  ~/dev/personal/<name>/.git            — file containing "gitdir: ./.bare"
-  ~/dev/personal/<name>/AGENTS.md       — project-level agent orientation file
-  ~/dev/personal/<name>/<worktree_name> — working tree checked out at <branch>
+  ~/dev/github/personal/<name>/.bare           — bare clone (Git internals only)
+  ~/dev/github/personal/<name>/.git            — file containing "gitdir: ./.bare"
+  ~/dev/github/personal/<name>/AGENTS.md       — project-level agent orientation file
+  ~/dev/github/personal/<name>/<worktree_name> — working tree checked out at <branch>
 
 The `.git` pointer file lets `git` commands run from the project root
-(~/dev/personal/<name>) as well as from inside `.bare`.
+(~/dev/github/personal/<name>) as well as from inside `.bare`.
 
 For each repo:
   - If not yet cloned, does `git clone --bare` into `.bare`, writes the `.git`
@@ -35,7 +35,7 @@ WORKSPACE = Path(__file__).resolve().parent.parent
 MANIFEST = WORKSPACE / "repos.yaml"
 
 # Directory inside this workspace repo whose contents mirror what should be
-# surfaced at the root of REPOS_DIR (~/dev/personal) — see `link_workspace_assets`.
+# surfaced at the root of REPOS_DIR (~/dev/github/personal) — see `link_workspace_assets`.
 ROOT_ASSETS_DIR = WORKSPACE / "root"
 
 # Base directory under which all repositories are cloned. Each repo's bare clone
@@ -46,7 +46,7 @@ REPOS_DIR = Path.home() / "dev" / "personal"
 AGENTS_TEMPLATE = WORKSPACE / "run" / "AGENTS.template.md"
 
 # Entries inside ROOT_ASSETS_DIR that should be surfaced at the root of REPOS_DIR
-# (~/dev/personal) via symlink, so the whole tree can be opened as a single VS
+# (~/dev/github/personal) via symlink, so the whole tree can be opened as a single VS
 # Code or Zed workspace / devcontainer from one place, and so AGENTS.md is
 # visible to agents working in any sibling project.
 LINKED_ASSETS = ["personal.code-workspace", "AGENTS.md", "CLAUDE.md", ".devcontainer", ".zed"]
@@ -93,12 +93,13 @@ def maybe_install_pre_commit(dest: Path) -> None:
 
 
 def link_workspace_assets() -> None:
-    """Symlink selected assets from ROOT_ASSETS_DIR into REPOS_DIR (~/dev/personal).
+    """Symlink selected assets from ROOT_ASSETS_DIR into REPOS_DIR
+    (~/dev/github/personal).
 
-    Creates, e.g., ~/dev/personal/personal.code-workspace → the copy in this repo's
-    `root/` directory, so the workspace file, devcontainer config, Zed settings,
-    and AGENTS.md are reachable from the root of the dev tree. Symlinks are relative, so the
-    whole tree can be relocated intact.
+    Creates, e.g., ~/dev/github/personal/personal.code-workspace → the copy in this
+    repo's `root/` directory, so the workspace file, devcontainer config, Zed settings,
+    and AGENTS.md are reachable from the root of the dev tree. Symlinks are relative, so
+    the whole tree can be relocated intact.
     """
     print(SEP)
     print("Linking workspace assets into", REPOS_DIR)

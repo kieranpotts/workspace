@@ -4,7 +4,8 @@
 //
 // This is the one devcontainer for the whole workspace. Every repository is
 // loaded into it, and none has a devcontainer of its own. Open it from the
-// root of the workspace (`~/dev/personal`), where this directory is symlinked.
+// root of the workspace (`~/dev/github/personal`), where this directory is
+// symlinked.
 //
 
 {
@@ -12,8 +13,8 @@
   "runArgs": ["--name", "personal-workspace"],
 
   // The build context is this directory, not its parent. Opened through the
-  // `~/dev/personal/.devcontainer` symlink, the parent may resolve to the
-  // whole workspace, which would then all be sent to the Docker daemon as
+  // `~/dev/github/personal/.devcontainer` symlink, the parent may resolve to
+  // the whole workspace, which would then all be sent to the Docker daemon as
   // build context. The `Dockerfile` copies nothing in, so it needs no context.
   "build": {
     "dockerfile": "Dockerfile",

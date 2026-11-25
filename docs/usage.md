@@ -2,7 +2,7 @@
 
 ## Dev Container
 
-This repository ships with one devcontainer for the whole workspace, in [`root/.devcontainer/`](../root/.devcontainer), which the installer symlinks to `~/dev/personal/.devcontainer`. Every repository in the workspace is loaded into that one container. No repository has a devcontainer of its own.
+This repository ships with one devcontainer for the whole workspace, in [`root/.devcontainer/`](../root/.devcontainer), which the installer symlinks to `~/dev/github/personal/.devcontainer`. Every repository in the workspace is loaded into that one container. No repository has a devcontainer of its own.
 
 The container is built on the [`kieranpotts/devcontainer`](https://github.com/kieranpotts/docker-devcontainer) base image, which provides the common toolchain: pre-commit, mise, Node and npm, Python, ripgrep, GnuPG, and ShellCheck. It runs as the base image's non-root `code` user, so files written to the bind-mounted workspace are owned by you on the host. The whole tree is mounted at the same path as on the host, so the links between each bare clone and its worktrees resolve inside the container.
 
@@ -10,8 +10,8 @@ The container is built on the [`kieranpotts/devcontainer`](https://github.com/ki
 
 Install and run Docker on the host first.
 
-- **VS Code:** install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension. Open `~/dev/personal/personal.code-workspace` (or the `~/dev/personal` folder), then click **Reopen in Container** when prompted, or select **Dev Containers: Reopen in Container** from the command palette (`Ctrl+Shift+P`). The VS Code extensions the workspace needs are installed in the container automatically.
-- **Zed:** open `~/dev/personal`, then open it in the dev container. Zed picks up the workspace's project settings from `~/dev/personal/.zed/settings.json`. Zed extensions are not installed automatically from the devcontainer config: declare them under `auto_install_extensions` in your Zed user settings.
+- **VS Code:** install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension. Open `~/dev/github/personal/personal.code-workspace` (or the `~/dev/github/personal` folder), then click **Reopen in Container** when prompted, or select **Dev Containers: Reopen in Container** from the command palette (`Ctrl+Shift+P`). The VS Code extensions the workspace needs are installed in the container automatically.
+- **Zed:** open `~/dev/github/personal`, then open it in the dev container. Zed picks up the workspace's project settings from `~/dev/github/personal/.zed/settings.json`. Zed extensions are not installed automatically from the devcontainer config: declare them under `auto_install_extensions` in your Zed user settings.
 
 Opening a single repository's folder does not offer a container. Open the workspace root instead, or attach to the running container (`personal-workspace`) and open the folder from there.
 
@@ -62,10 +62,10 @@ repos:
 The `worktrees` map declares one or more named worktrees. The key is the directory name under the project root. The value is the branch to check out. For example, the entry above creates:
 
 ```
-~/dev/personal/repository-name/.bare      — Bare clone (Git internals only).
-~/dev/personal/repository-name/.git       — Pointer file.
-~/dev/personal/repository-name/AGENTS.md  — Project-level guide to the worktree layout.
-~/dev/personal/repository-name/default    — Working tree at branch `main`.
+~/dev/github/personal/repository-name/.bare      — Bare clone (Git internals only).
+~/dev/github/personal/repository-name/.git       — Pointer file.
+~/dev/github/personal/repository-name/AGENTS.md  — Project-level guide to the worktree layout.
+~/dev/github/personal/repository-name/default    — Working tree at branch `main`.
 ```
 
 The `.git` pointer file allows `git` commands to work from the project root. You don't need to be in the scope of the `.bare` worktree to manage the project's worktrees.
@@ -81,19 +81,19 @@ repos:
       v1: v1/dev
 ```
 
-This creates two working trees: `~/dev/personal/my-project/default` (branch `v2/dev`) and `~/dev/personal/my-project/v1` (branch `v1/dev`).
+This creates two working trees: `~/dev/github/personal/my-project/default` (branch `v2/dev`) and `~/dev/github/personal/my-project/v1` (branch `v1/dev`).
 
 To add a repository, add an entry to `repos.yaml` and run `python3 run/install.py`. To remove a repository, delete its entry from `repos.yaml` and remove its project directory (which holds the bare clone and all worktrees):
 
 ```sh
-rm -rf ~/dev/personal/<name>
+rm -rf ~/dev/github/personal/<name>
 ```
 
 Changes to `repos.yaml` should be committed.
 
 ## Manual worktree management
 
-The `install.py` script only manages the worktrees declared in `repos.yaml`. For temporary or experimental work, you can add additional worktrees manually using standard Git commands from the project root (eg. `~/dev/personal/kieranpotts/my-project`):
+The `install.py` script only manages the worktrees declared in `repos.yaml`. For temporary or experimental work, you can add additional worktrees manually using standard Git commands from the project root (eg. `~/dev/github/personal/kieranpotts/my-project`):
 
 ```sh
 # Add a new worktree for an existing remote branch.
